@@ -1,0 +1,289 @@
+<?php
+$tr = Application_Form_FrmLanguages::getCurrentlanguage ();
+$form = $this->form;
+?>
+<script src="<?php echo $this->baseUrl();?>/active.js"></script>
+<script type="text/javascript">
+<!--
+$(document).ready(function(){
+	var d = document.getElementById("menu");
+	var g = document.getElementById("menu_group");
+	d.className = d.className + " active open";
+	g.className = g.className + " active open";
+});
+//-->
+</script>
+<style>
+<!--
+#panel-body {
+	padding: 0 !important;
+}
+
+.col-md-12 {
+	padding: 0 !important;
+}
+
+input[type=checkbox] {
+	*opacity: 1 !important;
+}
+
+.form-group {
+	padding: 0;
+}
+
+.form-horizontal .form-group {
+	margin: 0;
+	padding: 10px 0;
+}
+-->
+</style>
+<div class="main-wrapper">
+	<form role="form" class="form-horizontal" id="form"
+		enctype="multipart/form-data" method="post">
+		<!-- start: MAIN CONTAINER -->
+		<div class="main-container inner">
+			<!-- start: PAGE -->
+			<div class="main-content">
+				<!-- end: SPANEL CONFIGURATION MODAL FORM -->
+				<div class="container">
+					<!-- start: BREADCRUMB -->
+					<div class="row" style="margin-top: 5px;"></div>
+					<!-- end: BREADCRUMB -->
+					<div class="col-md-12">
+						<div class="errorHandler alert alert-danger no-display">
+							<i class="fa fa-times-sign"></i> You have some form errors.
+							Please check below.
+						</div>
+						<div class="successHandler alert alert-success no-display">
+							<i class="fa fa-ok"></i> Your form validation is successful!
+						</div>
+					</div>
+					<!-- start: PAGE CONTENT -->
+					<div class="row">
+						<div class="col-sm-12">
+							<!-- start: TEXT FIELDS PANEL -->
+							<div class="panel panel-white">
+								<div class="panel-heading">
+									<div class="" style="float: right;">
+										<button type="submit" class="btn btn-primary">
+											<i class="fa fa-edit"></i> Eidt
+										</button>
+										<button type="button" class="btn btn-primary panel-refresh">
+											<i class="fa fa-save"></i> Save
+										</button>
+										<button type="button" class="btn btn-primary">
+											<i class="glyphicon glyphicon-log-in"></i> Save New
+										</button>
+										<a href="<?php echo $this->baseUrl();?>/menu"><button
+												type="button" class="btn btn-red">
+												<i class="fa fa-times"></i> Eixt
+											</button></a>
+									</div>
+								</div>
+									<div class="panel-body">
+											<div class="col-sm-12" style="padding: 0;">
+												<div class="form-group col-sm-6">
+													<label class="col-sm-6 control-label">
+															<?php echo $tr->translate("WHEREHOUSE_ID")?>
+														</label>
+													<div class="col-sm-6">
+															<?php echo $form->getElement('wherehouse_id');?>
+														</div>
+		
+												</div>
+												<div class="form-group col-sm-6">
+													<div class="col-sm-12">
+															<?php echo $form->getElement('handow');?>
+														</div>
+												</div>
+											</div>
+											<div class="col-sm-12" style="padding: 0;">
+												<div class="form-group col-sm-6">
+													<label class="col-sm-6 control-label">
+															<?php echo $tr->translate("DOCUMENT#")?>
+													</label>
+													<div class="col-sm-6">
+															<?php echo $form->getElement('3');?>
+														</div>
+		
+												</div>
+												<div class="form-group col-sm-6">
+													<label class="col-sm-6 control-label">
+															<?php echo $tr->translate("SESSION#")?>
+													</label>
+													<div class="col-sm-6">
+															<?php echo $form->getElement('7');?>
+														</div>
+												</div>
+											</div>
+									</div>
+									<div class="col-sm-12" style="padding: 0;">
+										<div class="form-group col-sm-12">
+											<div class="col-sm-12">
+												<div class="tabbable" id="tabShow">
+													<ul id="myTab" class="nav nav-tabs">
+														<li class="active"><a href="#myTab_example1"
+															data-toggle="tab"> <i class="green fa fa-gear"></i> <?php echo $tr->translate("General Information")?>
+																</a></li>
+														<li><a href="#myTab_example2" data-toggle="tab"> <i
+																class="green fa fa-gear"></i> <?php echo $tr->translate("Item_Details")?>
+																</a></li>
+														
+														
+													</ul>
+													<div class="tab-content">
+														<div class="tab-pane fade in active" id="myTab_example1">
+														</div>
+														<div class="tab-pane fade" id="myTab_example2">
+															<div class="form-group">
+																<div class="form-group">
+																	 <div class="form-group col-sm-12">
+																		<label class="col-sm-2 control-label" for="form-field-1">
+																				<?php echo $tr->translate("ITME_CODE")?>
+																		</label>
+																		<div class="col-sm-4">
+																				<?php echo $form->getElement('item_code');?>
+																		</div>
+																		
+																		<div class="col-sm-6">
+																				<?php echo $form->getElement('ptd_usage_value');?>
+																		</div>
+																	 </div>
+													    		</div>
+													    		<div class="form-group">
+																	 <div class="form-group col-sm-12">
+																	 	<label class="col-sm-2 control-label" for="form-field-1">
+																				<?php echo $tr->translate("BRANCH")?>
+																		</label>
+																		<div class="col-sm-4">
+																				<?php echo $form->getElement('branch');?>
+																		</div>
+																		<label class="col-sm-2 control-label" for="form-field-1">
+																				<?php echo $tr->translate("QTY")?>
+																		</label>
+																		<div class="col-sm-4">
+																				<?php echo $form->getElement('demo3');?>
+																		</div>
+																		
+																	 </div>
+																	 <div class="form-group">
+																		 <div class="form-group col-sm-12">
+																			<label class="col-sm-2 control-label" for="form-field-1">
+																					<?php echo $tr->translate("BLANK_SMALER")?>
+																			</label>
+																			<div class="col-sm-4">
+																					<?php echo $form->getElement('blank_smaler');?>
+																			</div>
+																			
+																			<div class="col-sm-6">
+																					<?php echo $form->getElement('ptd_usage_value');?>
+																			</div>
+																		 </div>
+														    		</div>
+														    		<div class="form-group col-sm-12">
+																		<div class="col-sm-2">
+																				<input type="radio" class="grey" name="optionsRadios" value="unit_cost"/>
+																		</div>
+																		<div class="col-sm-4">
+																				<?php echo $form->getElement('demo3');?>
+																		</div>
+																		<div class="col-sm-2">
+																				 <input type="radio" class="grey" name="optionsRadios" value="Total_cost"/>
+																		</div>
+																		<div class="col-sm-4">
+																				<?php echo $form->getElement('demo3');?>
+																		</div>
+																		
+																	 </div>
+																	  <div class="form-group col-sm-12">
+																	 	<label class="col-sm-2 control-label" for="form-field-1">
+																				<?php echo $tr->translate("SERIAL")?>
+																		</label>
+																		<div class="col-sm-4">
+																				<?php echo $form->getElement('serial');?>
+																		</div>
+																		<label class="col-sm-2 control-label" for="form-field-1">
+																				<?php echo $tr->translate("LOT")?>
+																		</label>
+																		<div class="col-sm-4">
+																				<?php echo $form->getElement('lot');?>
+																		</div>
+																		
+																	 </div>
+																	 <div class="form-group col-sm-12">
+																		<div class="col-sm-3">
+																				<?php echo $form->getElement('add_lind');?>
+																		</div>
+																		<div class="col-sm-3">
+																				<?php echo $form->getElement('edit_lind');?>
+																		</div>
+																		<div class="col-sm-3">
+																				<?php echo $form->getElement('delete_lind');?>
+																		</div>
+																		<div class="col-sm-3">
+																				<?php echo $form->getElement('concel_lind');?>
+																		</div>
+																		
+																	 </div>
+													    		</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-md-12">
+												<div class="panel-body table-responsive" id="panel-body">
+													<table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
+														<thead>
+															<tr>
+																<th>ITEM_CODE</th>
+																<th class="hidden-xs">DISCRIPTION</th>
+																<th>QTY</th>
+																<th>UNIT_ID</th>
+																<th>UNIT_COST</th>
+																<th>TOTAL_COST</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td> 001</td>
+																<td>tiger can</td>
+																<td></td>
+																<td>1.000</td>
+																<td> 199.000</td>
+																<td>CAN</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end: MAIN CONTAINER -->
+				<div id="readNote">
+					<div class="noteWrap col-md-8 col-md-offset-2">
+						<div class="panel panel-note">
+							<div class="e-slider owl-carousel owl-theme">
+								<div class="item">
+									<div class="panel-heading"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<script>
+	function SaveData(){
+		div = document.getElementById("refreshdiv");
+		div.submit();
+	}
+</script>

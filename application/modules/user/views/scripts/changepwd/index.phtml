@@ -1,0 +1,102 @@
+<?php 
+	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
+?>
+<script src="<?php echo $this->baseUrl();?>/active.js"></script>
+<script type="text/javascript">
+<!--
+$(document).ready(function(){
+	var d = document.getElementById("menu_user");
+	var g = document.getElementById("menu_changepwd");
+	d.className = d.className + " active open";
+	g.className = g.className + " active open";
+});
+//-->
+</script>
+<style>
+<!--
+#panel-body{padding: 0 !important;}
+.col-md-12{padding: 0 !important;}
+input[type=checkbox]{*opacity: 1!important;}
+.form-group{padding: 0;}
+.form-horizontal .form-group{margin: 0;padding:10px 0;}
+-->
+</style>
+<div class="main-wrapper">
+	<form role="form"  class="form-horizontal" id="form" enctype="multipart/form-data" method="post">
+			<!-- start: MAIN CONTAINER -->
+			<div class="main-container inner">
+				<!-- start: PAGE -->
+				<div class="main-content">
+					<!-- end: SPANEL CONFIGURATION MODAL FORM -->
+					<div class="container">
+						<!-- start: BREADCRUMB -->
+						<div class="row" style="margin-top: 5px;">
+						</div>
+						<!-- end: BREADCRUMB -->
+						<div class="col-md-12">
+							<div class="errorHandler alert alert-danger no-display">
+								<i class="fa fa-times-sign"></i> You have some form errors. Please check below.
+							</div>
+							<div class="successHandler alert alert-success no-display">
+								<i class="fa fa-ok"></i> Your form validation is successful!
+							</div>
+						</div>
+						<!-- start: PAGE CONTENT -->
+						<div class="row">
+							<div class="col-sm-12">
+								<!-- start: TEXT FIELDS PANEL -->
+								<div class="panel panel-white">
+									<div class="panel-heading">
+										<div class="" style="float: right;">
+											<button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i> Edt</button>
+											<button type="button" class="btn btn-primary panel-refresh"><i class="fa fa-save"></i> Save</button>
+											<button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-log-in"></i> Save New</button>
+											<a href="<?php echo $this->baseUrl();?>/menu"><button type="button" class="btn btn-red"><i class="fa fa-times"></i> Exit</button></a>
+										</div>
+									</div>
+									<div class="panel-body">
+										<div class="col-sm-12" style="padding: 0;">
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("OLD_PASSWORD")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('old_pwd');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("PASSWORD")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('pwd');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("CONFIRM_PASSWORD")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('confirm_pwd');?>
+												</div>
+											</div>
+											
+										</div>					<div class=" panel-heading" style="margin-left:162px;">
+									
+											<button type="button" class="btn btn-primary panel-refresh"><i class="fa fa-save"></i> Save</button>
+											<button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-log-in"></i> Cancel</button>
+										</div>
+								
+										
+			<!-- end: MAIN CONTAINER -->
+							
+			</div>
+		</div>
+	</form>
+</div>
+<script>
+	function SaveData(){
+		div = document.getElementById("refreshdiv");
+		div.submit();
+	}
+</script>

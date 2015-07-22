@@ -1,0 +1,491 @@
+<script src="<?php echo $this->baseUrl();?>/active.js"></script>
+<script type="text/javascript">
+<!--
+$(document).ready(function(){
+	var d = document.getElementById("menu");
+	d.className = d.className + " active open";
+});
+//-->
+</script>
+<div class="main-wrapper">
+			<!-- start: MAIN CONTAINER -->
+			<div class="main-container inner">
+				<!-- start: PAGE -->
+				<div class="main-content">
+					<!-- end: SPANEL CONFIGURATION MODAL FORM -->
+					<div class="container">
+						<!-- start: BREADCRUMB -->
+						<div class="row">
+							<div class="col-md-12">
+								<ol class="breadcrumb" style="background: #FFF;">
+									<li style="padding-left: 10px;">
+										<a href="#" style="font-size: 15px;">
+											Dashboard
+										</a> 
+									</li>
+									<li style="padding-left: 10px;">
+										<a href="#" style="font-size: 15px;">
+											Menus
+										</a> 
+									</li>
+								</ol>
+							</div>
+						</div>
+						<!-- end: BREADCRUMB -->
+						<!-- start: PAGE CONTENT -->
+						<div class="row">
+							<div class="col-sm-12">
+								<!-- start: TEXT FIELDS PANEL -->
+								<div class="panel panel-white">
+									<div class="panel-heading">
+										<h4 class="panel-title">Text <span class="text-bold">Fields</span></h4>
+										<div class="panel-tools">
+											<div class="dropdown">
+												<a data-toggle="dropdown" class="btn btn-xs dropdown-toggle btn-transparent-grey">
+													<i class="fa fa-cog"></i>
+												</a>
+												<ul class="dropdown-menu dropdown-light pull-right" role="menu">
+													<li>
+														<a class="panel-collapse collapses" href="#"><i class="fa fa-angle-up"></i> <span>Collapse</span> </a>
+													</li>
+													<li>
+														<a class="panel-refresh" href="#">
+															<i class="fa fa-refresh"></i> <span>Refresh</span>
+														</a>
+													</li>
+													<li>
+														<a class="panel-config" href="#panel-config" data-toggle="modal">
+															<i class="fa fa-wrench"></i> <span>Configurations</span>
+														</a>
+													</li>
+													<li>
+														<a class="panel-expand" href="#">
+															<i class="fa fa-expand"></i> <span>Fullscreen</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+											<a class="btn btn-xs btn-link panel-close" href="#">
+												<i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<div class="panel-body">
+										<form role="form" class="form-horizontal">
+											<div class="form-group">
+												<label class="col-sm-2 control-label" for="form-field-1">
+													Text Field
+												</label>
+												<div class="col-sm-9">
+													<input type="text" placeholder="Text Field" id="form-field-1" class="form-control">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-sm-2 control-label" for="form-field-2">
+													Password
+												</label>
+												<div class="col-sm-9">
+													<input type="password" placeholder="Password" id="form-field-2" class="form-control">
+												</div>
+											</div>
+											<div class="form-group has-success">
+												<label class="col-sm-2 control-label" for="form-field-3" >
+													Success Field
+												</label>
+												<div class="col-sm-9">
+													<input type="text" id="form-field-3" class="form-control">
+												</div>
+											</div>
+											<div class="form-group has-warning">
+												<label class="col-sm-2 control-label" for="form-field-4" >
+													Warning Field
+												</label>
+												<div class="col-sm-9">
+													<input type="text" id="form-field-4" class="form-control">
+												</div>
+											</div>
+											<div class="form-group has-error">
+												<label class="col-sm-2 control-label" for="form-field-5" >
+													Error Field
+												</label>
+												<div class="col-sm-9">
+													<input type="text" id="form-field-5" class="form-control">
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-sm-2 control-label" for="form-field-6">
+													Block Help
+												</label>
+												<div class="col-sm-9">
+													<input type="text" placeholder="Text Field" id="form-field-6" class="form-control">
+													<span class="help-block"><i class="fa fa-info-circle"></i> A block of help text that breaks onto a new line and may extend beyond one line.</span>
+												</div>
+											</div>
+											<div class="form-group">
+												<label class="col-sm-2 control-label" for="form-field-7">
+													Inline Help
+												</label>
+												<div class="col-sm-7">
+													<input type="text" placeholder="Text Field" id="form-field-7" class="form-control">
+												</div>
+												<span class="help-inline col-sm-2"> <i class="fa fa-info-circle"></i> Inline help text </span>
+											</div>
+											<div class="form-group">
+												<label class="col-sm-2 control-label" for="form-field-8">
+													Tooltip and Help Button
+												</label>
+												<div class="col-sm-9">
+													<span class="input-help">
+														<input id="form-field-8" class="form-control tooltips" type="text" data-placement="top" title="" placeholder="Tooltip on hover" data-rel="tooltip" data-original-title="Hello Tooltip!">
+														<i class="help-button popovers" title="" data-content="More details." data-placement="right" data-trigger="hover" data-rel="popover" data-original-title="Popover on hover"></i> </span>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+								<!-- end: TEXT FIELDS PANEL -->
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<!-- start: COLOR PICKER PANEL -->
+								<div class="panel panel-white">
+									<div class="panel-heading">
+										<h4 class="panel-title">Color <span class="text-bold">Picker</span></h4>
+										<div class="panel-tools">
+											<div class="dropdown">
+												<a data-toggle="dropdown" class="btn btn-xs dropdown-toggle btn-transparent-grey">
+													<i class="fa fa-cog"></i>
+												</a>
+												<ul class="dropdown-menu dropdown-light pull-right" role="menu">
+													<li>
+														<a class="panel-collapse collapses" href="#"><i class="fa fa-angle-up"></i> <span>Collapse</span> </a>
+													</li>
+													<li>
+														<a class="panel-refresh" href="#">
+															<i class="fa fa-refresh"></i> <span>Refresh</span>
+														</a>
+													</li>
+													<li>
+														<a class="panel-config" href="#panel-config" data-toggle="modal">
+															<i class="fa fa-wrench"></i> <span>Configurations</span>
+														</a>
+													</li>
+													<li>
+														<a class="panel-expand" href="#">
+															<i class="fa fa-expand"></i> <span>Fullscreen</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+											<a class="btn btn-xs btn-link panel-close" href="#">
+												<i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<div class="panel-body">
+										<div class="form-group">
+											<label>
+												Default
+											</label>
+											<div>
+												<input type="text" value="#8fff00" class="form-control color-picker">
+											</div>
+										</div>
+										<div class="form-group">
+											<label>
+												RGBA
+											</label>
+											<div>
+												<input type="text" value="rgb(0,194,255,0.78)" class="form-control color-picker-rgba">
+											</div>
+										</div>
+										<div class="form-group">
+											<label>
+												As Component
+											</label>
+											<div class="input-group colorpicker-component" data-color="rgb(81, 145, 185)" data-color-format="rgb">
+												<input type="text" value="" readonly class="form-control">
+												<span class="input-group-addon"><i></i></span>
+											</div>
+										</div>
+										<div class="form-group">
+											<label>
+												Color Palette
+											</label>
+											<div class="input-group">
+												<input type="text" value="" class="form-control" id="selected-color1">
+												<span class="btn input-group-addon btn-azure" data-toggle="dropdown">color</span>
+												<ul class="dropdown-menu pull-right center">
+													<li>
+														<div class="color-palette"></div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- end: COLOR PICKER PANEL -->
+							</div>
+							<div class="col-sm-6">
+								<!-- start: TAGS PANEL -->
+								<div class="panel panel-white">
+									<div class="panel-heading">
+										<h4 class="panel-title">Tags</h4>
+										<div class="panel-tools">
+											<div class="dropdown">
+												<a data-toggle="dropdown" class="btn btn-xs dropdown-toggle btn-transparent-grey">
+													<i class="fa fa-cog"></i>
+												</a>
+												<ul class="dropdown-menu dropdown-light pull-right" role="menu">
+													<li>
+														<a class="panel-collapse collapses" href="#"><i class="fa fa-angle-up"></i> <span>Collapse</span> </a>
+													</li>
+													<li>
+														<a class="panel-refresh" href="#">
+															<i class="fa fa-refresh"></i> <span>Refresh</span>
+														</a>
+													</li>
+													<li>
+														<a class="panel-config" href="#panel-config" data-toggle="modal">
+															<i class="fa fa-wrench"></i> <span>Configurations</span>
+														</a>
+													</li>
+													<li>
+														<a class="panel-expand" href="#">
+															<i class="fa fa-expand"></i> <span>Fullscreen</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+											<a class="btn btn-xs btn-link panel-close" href="#">
+												<i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<div class="panel-body">
+										<label>
+											Defaults:
+										</label>
+										<input id="tags_1" type="text" class="tags" value="foo,bar,baz,roffle">
+									</div>
+								</div>
+								<!-- end: TAGS PANEL -->
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-6">
+								<!-- start: FILE UPLOAD PANEL -->
+								<div class="panel panel-white">
+									<div class="panel-heading">
+										<h4 class="panel-title">File <span class="text-bold">upload</span></h4>
+										<div class="panel-tools">
+											<div class="dropdown">
+												<a data-toggle="dropdown" class="btn btn-xs dropdown-toggle btn-transparent-grey">
+													<i class="fa fa-cog"></i>
+												</a>
+												<ul class="dropdown-menu dropdown-light pull-right" role="menu">
+													<li>
+														<a class="panel-collapse collapses" href="#"><i class="fa fa-angle-up"></i> <span>Collapse</span> </a>
+													</li>
+													<li>
+														<a class="panel-refresh" href="#">
+															<i class="fa fa-refresh"></i> <span>Refresh</span>
+														</a>
+													</li>
+													<li>
+														<a class="panel-config" href="#panel-config" data-toggle="modal">
+															<i class="fa fa-wrench"></i> <span>Configurations</span>
+														</a>
+													</li>
+													<li>
+														<a class="panel-expand" href="#">
+															<i class="fa fa-expand"></i> <span>Fullscreen</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+											<a class="btn btn-xs btn-link panel-close" href="#">
+												<i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<div class="panel-body">
+										<form class="form-horizontal" action="#">
+											<div class="form-group">
+												<div class="col-sm-12">
+													<label>
+														Simple
+													</label>
+													<div data-provides="fileupload" class="fileupload fileupload-new">
+														<span class="btn btn-file btn-light-grey"><i class="fa fa-folder-open-o"></i> <span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span>
+															<input type="file">
+														</span>
+														<span class="fileupload-preview"></span>
+														<a data-dismiss="fileupload" class="close fileupload-exists float-none" href="#">
+															&times;
+														</a>
+													</div>
+													<p class="help-block">
+														Example block-level help text here.
+													</p>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="col-sm-12">
+													<label>
+														Advanced
+													</label>
+													<div class="fileupload fileupload-new" data-provides="fileupload">
+														<div class="input-group">
+															<div class="form-control uneditable-input">
+																<i class="fa fa-file fileupload-exists"></i>
+																<span class="fileupload-preview"></span>
+															</div>
+															<div class="input-group-btn">
+																<div class="btn btn-light-grey btn-file">
+																	<span class="fileupload-new"><i class="fa fa-folder-open-o"></i> Select file</span>
+																	<span class="fileupload-exists"><i class="fa fa-folder-open-o"></i> Change</span>
+																	<input type="file" class="file-input">
+																</div>
+																<a href="#" class="btn btn-light-grey fileupload-exists" data-dismiss="fileupload">
+																	<i class="fa fa-times"></i> Remove
+																</a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="form-group">
+												<div class="col-sm-12">
+													<label>
+														Image Upload
+													</label>
+													<div class="fileupload fileupload-new" data-provides="fileupload">
+														<div class="fileupload-new thumbnail"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA?text=no+image" alt=""/>
+														</div>
+														<div class="fileupload-preview fileupload-exists thumbnail"></div>
+														<div>
+															<span class="btn btn-light-grey btn-file"><span class="fileupload-new"><i class="fa fa-picture-o"></i> Select image</span><span class="fileupload-exists"><i class="fa fa-picture-o"></i> Change</span>
+																<input type="file">
+															</span>
+															<a href="#" class="btn fileupload-exists btn-light-grey" data-dismiss="fileupload">
+																<i class="fa fa-times"></i> Remove
+															</a>
+														</div>
+													</div>
+													<div class="alert alert-warning">
+														<span class="label label-warning">NOTE!</span>
+														<span> Image preview only works in IE10+, FF3.6+, Chrome6.0+ and Opera11.1+. In older browsers and Safari, the filename is shown instead. </span>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+								<!-- end: FILE UPLOAD PANEL -->
+							</div>
+							<div class="col-sm-6">
+								<div class="panel panel-white">
+									<div class="panel-heading">
+										<h4 class="panel-title">Input <span class="text-bold">Spinner</span></h4>
+										<div class="panel-tools">
+											<div class="dropdown">
+												<a data-toggle="dropdown" class="btn btn-xs dropdown-toggle btn-transparent-grey">
+													<i class="fa fa-cog"></i>
+												</a>
+												<ul class="dropdown-menu dropdown-light pull-right" role="menu">
+													<li>
+														<a class="panel-collapse collapses" href="#"><i class="fa fa-angle-up"></i> <span>Collapse</span> </a>
+													</li>
+													<li>
+														<a class="panel-refresh" href="#">
+															<i class="fa fa-refresh"></i> <span>Refresh</span>
+														</a>
+													</li>
+													<li>
+														<a class="panel-config" href="#panel-config" data-toggle="modal">
+															<i class="fa fa-wrench"></i> <span>Configurations</span>
+														</a>
+													</li>
+													<li>
+														<a class="panel-expand" href="#">
+															<i class="fa fa-expand"></i> <span>Fullscreen</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+											<a class="btn btn-xs btn-link panel-close" href="#">
+												<i class="fa fa-times"></i>
+											</a>
+										</div>
+									</div>
+									<div class="panel-body">
+										<h5>Example with postfix (large):</h5>
+										<input id="demo1" type="text" value="55" name="demo1">
+										<h5>With prefix</h5>
+										<input id="demo2" type="text" value="0" name="demo2">
+										<h5>Vertical button alignment</h5>
+										<input id="demo3" type="text" value="0" name="demo3">
+										<h5>Vertical buttons with custom icons</h5>
+										<input id="demo4" type="text" value="0" name="demo4">
+										<h5>Button postfix</h5>
+										<input id="demo5" type="text" value="0" name="demo5">
+										<h5>Button postfix (large)</h5>
+										<input id="demo6" type="text" value="0" name="demo6" class="form-control input-lg">
+										<h5>Button group</h5>
+										<div class="input-group">
+											<input id="demo7" type="text" class="form-control" name="demo7" value="50">
+											<div class="input-group-btn">
+												<button type="button" class="btn btn-default">
+													Action
+												</button>
+												<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+													<span class="caret"></span>
+													<span class="sr-only">Toggle Dropdown</span>
+												</button>
+												<ul class="dropdown-menu pull-right" role="menu">
+													<li>
+														<a href="#">
+															Action</a>
+													</li>
+													<li>
+														<a href="#">
+															Another action</a>
+													</li>
+													<li>
+														<a href="#">
+															Something else here</a>
+													</li>
+													<li class="divider"></li>
+													<li>
+														<a href="#">
+															Separated link</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- end: PAGE CONTENT-->
+					</div>
+				</div>
+				<!-- end: PAGE -->
+			</div>
+			<!-- end: MAIN CONTAINER -->
+			<div id="readNote">
+				<div class="noteWrap col-md-8 col-md-offset-2">
+					<div class="panel panel-note">
+						<div class="e-slider owl-carousel owl-theme">
+							<div class="item">
+								<div class="panel-heading">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- end: SUBVIEW SAMPLE CONTENTS -->
+		</div>

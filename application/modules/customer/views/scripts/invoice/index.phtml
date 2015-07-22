@@ -1,0 +1,225 @@
+<?php 
+	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
+?>
+<script src="<?php echo $this->baseUrl();?>/active.js"></script>
+<script type="text/javascript">
+<!--
+$(document).ready(function(){
+	var d = document.getElementById("menu_custom");
+	var g = document.getElementById("menu_invoice");
+	d.className = d.className + " active open";
+	g.className = g.className + " active open";
+});
+//-->
+</script>
+<style>
+<!--
+#panel-body{padding: 0 !important;}
+.col-md-12{padding: 0 !important;}
+input[type=checkbox]{*opacity: 1!important;}
+.form-group{padding: 0;}
+.form-horizontal .form-group{margin: 0;padding:10px 0;}
+-->
+</style>
+<div class="main-wrapper">
+	<form role="form"  class="form-horizontal" id="form" enctype="multipart/form-data" method="post">
+			<!-- start: MAIN CONTAINER -->
+			<div class="main-container inner">
+				<!-- start: PAGE -->
+				<div class="main-content">
+					<!-- end: SPANEL CONFIGURATION MODAL FORM -->
+					<div class="container">
+						<!-- start: BREADCRUMB -->
+						<div class="row" style="margin-top: 5px;">
+						</div>
+						<!-- end: BREADCRUMB -->
+						<div class="col-md-12">
+							<div class="errorHandler alert alert-danger no-display">
+								<i class="fa fa-times-sign"></i> You have some form errors. Please check below.
+							</div>
+							<div class="successHandler alert alert-success no-display">
+								<i class="fa fa-ok"></i> Your form validation is successful!
+							</div>
+						</div>
+						<!-- start: PAGE CONTENT -->
+						<div class="row">
+							<div class="col-sm-12">
+								<!-- start: TEXT FIELDS PANEL -->
+								<div class="panel panel-white">
+									<div class="panel-heading">
+										<div class="" style="float: right;">
+											<button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i> Edit</button>
+											<button type="button" class="btn btn-primary panel-refresh"><i class="fa fa-save"></i> Save</button>
+											<button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-log-in"></i> Save New</button>
+											<a href="<?php echo $this->baseUrl();?>/menu"><button type="button" class="btn btn-red"><i class="fa fa-times"></i> Exit</button></a>
+										</div>
+									</div>
+									<div class="panel-body">
+										<div class="col-sm-12" style="padding: 0;">
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("CUSTOMER_ID")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('customer_id');?>
+												</div>
+											</div>
+											
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("GENERAL")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('general');?>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-12" style="padding: 0;">
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("SESSION")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('session');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("CONTACT_NAME")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('contact_name');?>
+												</div>
+											</div>
+											
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("CHECK_REF")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('check');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("PHONE")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('phone');?>
+												</div>
+											</div>
+											
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("PAY_DATE")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('pay_date');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("FAX")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('fax');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("ACCOUNT_NUMBER")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('account');?>
+												</div>
+											</div>
+											
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("UNDEPOSITED_FUNDS")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('undeposit');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("ADDRESS")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('address');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("PAY_AMOUNT")?> <span class="symbol required"></span>
+												</label> 
+												<div class="col-sm-8">
+													<?php echo $form->getElement('pay_amount');?>
+												</div>
+											</div>
+											
+									
+										<div class="col-sm-12" style="padding: 0;">
+											<div class="form-group col-sm-12">
+												<label class="col-sm-2 control-label">
+													<?php echo $tr->translate("REMAINING_ACCOUNT")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-10">
+													<?php echo $form->getElement('remaining');?>
+												</div>
+											</div>
+										</div>
+										<div class="panel-heading">
+										<div class="" style="float:left;margin-left:0px;padding-left:160px;">
+											<button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i> Auto_Apply</button>
+											<button type="button" class="btn btn-primary panel-refresh"><i class="fa fa-save"></i> Menual_Apply</button>
+											<a href="<?php echo $this->baseUrl();?>/menu"></a>
+										</div>
+									</div>
+									 <div class="col-md-12">
+												<div class="panel-body table-responsive" id="panel-body">
+													<table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
+														<thead>
+															<tr style="text-align: center;">
+																<th style="text-align: center;"><?php echo $tr->translate("INVOICE")?></th>
+																<th style="text-align: center;"><?php echo $tr->translate("INVOICE_DATE")?></th>
+																<th style="text-align: center;"><?php echo $tr->translate("P_O_NUMBER")?></th>
+																<th style="text-align: center;"><?php echo $tr->translate("AMOUNT")?></th>
+																<th style="text-align: center;"><?php echo $tr->translate("BALANCE")?></th>
+																<th style="text-align: center;"><?php echo $tr->translate("PAYMENT")?></th>
+																<th style="text-align: center;"><?php echo $tr->translate("DISCOUNT")?></th>
+																<th style="text-align: center;"><?php echo $tr->translate("LAST_PAYMENT")?></th>
+															</tr>
+														</thead>
+														<tbody>	
+														</tbody>
+													</table>
+												</div>
+											</div>
+											
+											
+										
+			<!-- end: MAIN CONTAINER -->
+							<div id="readNote">
+							<div class="noteWrap col-md-8 col-md-offset-2">
+								<div class="panel panel-note">
+								<div class="e-slider owl-carousel owl-theme">
+									<div class="item">
+										<div class="panel-heading">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<script>
+	function SaveData(){
+		div = document.getElementById("refreshdiv");
+		div.submit();
+	}
+</script>

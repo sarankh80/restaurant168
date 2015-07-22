@@ -1,0 +1,144 @@
+<?php $base_url = Application_Form_FrmMessage::getUrl("/");?>
+<script src="<?php echo $this->baseUrl();?>/active.js"></script>
+<script type="text/javascript">
+<!--
+$(document).ready(function(){
+	var d = document.getElementById("menu");
+	d.className = d.className + " active open";
+});
+//-->
+</script>
+			<!-- start: MAIN CONTAINER -->
+			<div class="main-container inner">
+				<!-- start: PAGE -->
+				<div class="main-content">
+					<!-- start: PANEL CONFIGURATION MODAL FORM -->
+					<div class="modal fade" id="panel-config" tabindex="-1" role="dialog" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+										&times;
+									</button>
+									<h4 class="modal-title">Panel Configuration</h4>
+								</div>
+								<div class="modal-body">
+									Here will be a configuration form
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal">
+										Close
+									</button>
+									<button type="button" class="btn btn-primary">
+										Save changes
+									</button>
+								</div>
+							</div>
+							<!-- /.modal-content -->
+						</div>
+						<!-- /.modal-dialog -->
+					</div>
+					<!-- /.modal -->
+					<!-- end: SPANEL CONFIGURATION MODAL FORM -->
+					<div class="container">
+						<!-- start: PAGE HEADER -->
+						<!-- start: BREADCRUMB -->
+						<div class="row">
+							<div class="col-md-12">
+								<ol class="breadcrumb" style="background: #FFF;">
+									<li style="padding-left: 10px;">
+										<a href="#" style="font-size: 15px;">
+											Dashboard
+										</a> /
+									</li>
+								</ol>
+							</div>
+						</div>
+						<!-- end: BREADCRUMB -->
+						<!-- start: PAGE CONTENT -->
+						<div class="row">
+							<div class="col-md-12">
+								<!-- start: EXPORT BASIC TABLE PANEL -->
+								<div class="panel panel-white">
+									<div class="panel-heading">
+									<div class="table-responsive">
+										<table border="0" width="100%">
+											<tr style="text-align: center;">
+												<td>
+													<a class="activity" href="javascript:void(0)">
+														<span class="fa-stack fa-5x"> <i class="fa fa-square fa-stack-2x text-blue"></i> <i class="fa fa-th-large fa-stack-1x fa-inverse"></i> </span>
+														<br /><label class="desc">ក្រុមមុឺនុយ</label><br />
+														<label class="desc">Menu Group </label>
+													</a>
+												</td>
+												<td style="text-align: center;width: 200px;"><p style="border: 1px solid #6B8D9E;width: 100%; text-align: center;"></p></td>
+												<td>	
+													<a class="activity" href="javascript:void(0)">
+														<span class="fa-stack fa-5x"> <i class="fa fa-square fa-stack-2x text-blue"></i> <i class="fa fa-th-list fa-stack-1x fa-inverse"></i> </span>
+														<br /><label class="desc">មុឺនុយ</label><br />
+														<label class="desc">Menu Item </label>
+													</a>
+												</td>
+												<td style="text-align: center;width: 200px;"><p style="border: 1px solid #6B8D9E;width: 100%; text-align: center;"></p></td>
+												<td>
+													<a class="activity" href="javascript:void(0)">
+														<span class="fa-stack fa-5x"> <i class="fa fa-square fa-stack-2x text-blue"></i> <i class="fa fa-outdent fa-stack-1x fa-inverse"></i> </span>
+														<br /><label class="desc">តំរៀបមុឺនុយ</label><br />
+														<label class="desc">Menu Arrangement </label>
+													</a>
+												</td>
+											</tr>
+											<tr>
+												<td></td>
+												<td></td>
+												<td rowspan="3" style="text-align: center;width: 2px; height: 300px;"><p style="margin-left:60px; border-left: 2px solid #6B8D9E;height: 75%; text-align: center;"></p></td>
+												<td></td>
+												<td></td>
+											</tr>
+											<tr style="text-align: center;">
+												<td>
+													<a class="activity" href="javascript:void(0)">
+														<span class="fa-stack fa-5x"> <i class="fa fa-square fa-stack-2x text-blue"></i> <i class="fa fa-tags fa-stack-1x fa-inverse"></i> </span>
+														<br /><label class="desc">ឈុតមុឺនុយ</label><br />
+														<label class="desc">Combo Master</label>
+													</a>
+												</td>
+												<td style="text-align: center;width: 250px;"><p style="border: 1px solid #6B8D9E;width: 100%; text-align: center;"></p></td>
+												<td style="text-align: center;width: 250px;"><p style="border: 1px solid #6B8D9E;width: 100%; text-align: center;"></p></td>
+												<td>
+													<a class="activity" href="javascript:void(0)">
+														<span class="fa-stack fa-5x"> <i class="fa fa-square fa-stack-2x text-blue"></i> <i class="fa fa-database fa-stack-1x fa-inverse"></i> </span>
+														<br /><label class="desc">គ្រឿងផ្សំ</label><br />
+														<label class="desc">Recipe </label>
+													</a>
+												</td>
+											</tr>
+											<tr style="text-align: center;">
+												<td>
+													<a class="activity" href="javascript:void(0)">
+														<span class="fa-stack fa-5x"> <i class="fa fa-square fa-stack-2x text-blue"></i> <i class="fa fa-money fa-stack-1x fa-inverse"></i> </span>
+														<br /><label class="desc">បញ្ចុុះតម្លៃ</label><br />
+														<label class="desc">Discount </label>
+													</a>
+												</td>
+												<td style="text-align: center;width: 250px;"><p style="border: 1px solid #6B8D9E;width: 100%; text-align: center;"></p></td>
+												<td style="text-align: center;width: 250px;"><p style="border: 1px solid #6B8D9E;width: 100%; text-align: center;"></p></td>
+												<td>
+													<a class="activity" href="javascript:void(0)">
+														<span class="fa-stack fa-5x"> <i class="fa fa-square fa-stack-2x text-blue"></i> <i class="fa fa-credit-card fa-stack-1x fa-inverse"></i> </span>
+														<br /><label class="desc">បញ្ចុះតម្លៃពិសេស</label><br />
+														<label class="desc">Happy Hour </label>
+													</a>
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div>		
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end: PAGE -->
+			</div>
+	</div>
+	<!-- end: MAIN CONTAINER -->
