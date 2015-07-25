@@ -10,6 +10,10 @@ class inventory_LocationController extends Zend_Controller_Action {
 		$frm = new inventory_Form_FrmLocation();
 		$this->view->form = $frm->FrmLocation();
 	}
+	public function addAction(){
+		$frm = new inventory_Form_FrmLocation();
+		$this->view->form = $frm->FrmLocation();
+	}
 	
 	
 }

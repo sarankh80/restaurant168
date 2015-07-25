@@ -10,6 +10,10 @@ class inventory_ReceiveController extends Zend_Controller_Action {
 		$frm = new inventory_Form_FrmReceive();
 		$this->view->form = $frm->FrmReceive();
 	}
+	public function addAction(){
+		$frm = new inventory_Form_FrmReceive();
+		$this->view->form = $frm->FrmReceive();
+	}
 	
 	
 }

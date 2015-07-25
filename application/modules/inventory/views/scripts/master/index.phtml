@@ -1,489 +1,371 @@
-<?php
-$tr = Application_Form_FrmLanguages::getCurrentlanguage ();
-$form = $this->form;
+<?php 
+	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
+	$url = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'));
+	$url_edit = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'),null,true);
 ?>
-<script src="<?php echo $this->baseUrl();?>/active.js"></script>
-<script type="text/javascript">
-<!--
-$(document).ready(function(){
-	var d = document.getElementById("menu");
-	var g = document.getElementById("menu_group");
-	d.className = d.className + " active open";
-	g.className = g.className + " active open";
-});
-//-->
-</script>
-<style>
-<!--
-#panel-body {
-	padding: 0 !important;
-}
-
-.col-md-12 {
-	padding: 0 !important;
-}
-
-input[type=checkbox] {
-	*opacity: 1 !important;
-}
-
-.form-group {
-	padding: 0;
-}
-
-.form-horizontal .form-group {
-	margin: 0;
-	padding: 10px 0;
-}
--->
-</style>
-<div class="main-wrapper">
-	<form role="form" class="form-horizontal" id="form"
-		enctype="multipart/form-data" method="post">
-		<!-- start: MAIN CONTAINER -->
-		<div class="main-container inner">
-			<!-- start: PAGE -->
-			<div class="main-content">
-				<!-- end: SPANEL CONFIGURATION MODAL FORM -->
-				<div class="container">
-					<!-- start: BREADCRUMB -->
-					<div class="row" style="margin-top: 5px;"></div>
-					<!-- end: BREADCRUMB -->
-					<div class="col-md-12">
-						<div class="errorHandler alert alert-danger no-display">
-							<i class="fa fa-times-sign"></i> You have some form errors.
-							Please check below.
-						</div>
-						<div class="successHandler alert alert-success no-display">
-							<i class="fa fa-ok"></i> Your form validation is successful!
-						</div>
-					</div>
-					<!-- start: PAGE CONTENT -->
-					<div class="row">
-						<div class="col-sm-12">
-							<!-- start: TEXT FIELDS PANEL -->
-							<div class="panel panel-white">
-								<div class="panel-heading">
-									<div class="" style="float: right;">
-										<button type="submit" class="btn btn-primary">
-											<i class="fa fa-edit"></i> Eidt
-										</button>
-										<button type="button" class="btn btn-primary panel-refresh">
-											<i class="fa fa-save"></i> Save
-										</button>
-										<button type="button" class="btn btn-primary">
-											<i class="glyphicon glyphicon-log-in"></i> Save New
-										</button>
-										<a href="<?php echo $this->baseUrl();?>/menu"><button
-												type="button" class="btn btn-red">
-												<i class="fa fa-times"></i> Eixt
-											</button></a>
-									</div>
-								</div>
-								<div class="panel-body">
-									<div class="col-sm-12" style="padding: 0;">
-										<div class="form-group col-sm-4">
-											<label class="col-sm-6 control-label">
-													<?php echo $tr->translate("ITEM_CODE")?>
-												</label>
-											<div class="col-sm-6">
-													<?php echo $form->getElement('item_code');?>
-												</div>
-
-										</div>
-										<div class="form-group col-sm-4">
-
-											<label class="col-sm-6 control-label">
-													<?php echo $tr->translate("QTY ONHAND")?> 
-												</label>
-											<div class="col-sm-6">
-													<?php echo $form->getElement('qty_onhand');?>
-											</div>
-										</div>
-										<div class="form-group col-sm-4">
-											<label class="col-sm-0 control-label">
-													<?php echo $tr->translate("")?>
-												</label>
-											<div class="col-sm-12">
-													<?php echo $form->getElement('qty_handow');?>
-												</div>
-										</div>
-									</div>
-									<div class="col-sm-12" style="padding: 0;">
-										<div class="form-group col-sm-6">
-											<label class="col-sm-4 control-label">
-													<?php echo $tr->translate("DISCRIPTION")?>
-												</label>
-											<div class="col-sm-8">
-													<?php echo $form->getElement('discription');?>
-												</div>
-										</div>
-										<div class="form-group col-sm-6">
-											<label class="col-sm-4 control-label">
-													<?php echo $tr->translate("LAST COST")?> 
-												</label>
-											<div class="col-sm-8">
-													<?php echo $form->getElement('last_cost');?>
-												</div>
-										</div>
-									</div>
-									<div class="col-sm-12" style="padding: 0;">
-										<div class="form-group col-sm-6">
-											<label class="col-sm-4 control-label">
-													<?php echo $tr->translate("SECONT LANGUAGE")?>
-												</label>
-											<div class="col-sm-8">
-													<?php echo $form->getElement('secont_language');?>
-												</div>
-										</div>
-										<div class="form-group col-sm-6">
-											<label class="col-sm-4 control-label">
-													<?php echo $tr->translate("SELLING PRICE")?> 
-												</label>
-											<div class="col-sm-8">
-													<?php echo $form->getElement('selling_prict');?>
-												</div>
-										</div>
-									</div>
-									<div class="col-sm-12" style="padding: 0;">
-										<div class="form-group col-sm-4">
-											<label class="col-sm-6 control-label">
-													<?php echo $tr->translate("ALLOW CATE")?>
-												</label>
-											<div class="col-sm-6">
-													<?php echo $form->getElement('allowcate');?>
-												</div>
-										</div>
-										<div class="form-group col-sm-4">
-
-											<label class="col-sm-6 control-label">
-													<?php echo $tr->translate("ALLOW_SO")?> 
-												</label>
-											<div class="col-sm-6">
-													<?php echo $form->getElement('allow_so');?>
-											</div>
-										</div>
-										<div class="form-group col-sm-4">
-											<label class="col-sm-6 control-label">
-													<?php echo $tr->translate("QTY_AVAILABLE")?>
-												</label>
-											<div class="col-sm-6">
-													<?php echo $form->getElement('qty_available');?>
-												</div>
-										</div>
-									</div>
-									<div class="col-sm-12" style="padding: 0;">
-										<div class="form-group col-sm-6">
-
-											<label class="col-sm-4 control-label">
-													<?php echo $tr->translate("ON_ORDER")?> 
-												</label>
-											<div class="col-sm-8">
-													<?php echo $form->getElement('on_order');?>
-											</div>
-										</div>
-										<div class="form-group col-sm-6">
-											<label class="col-sm-4 control-label">
-													<?php echo $tr->translate("")?>
-												</label>
-											<div class="col-sm-8">
-													<?php echo $form->getElement('null');?>
-												</div>
-										</div>
-									</div>
-									<div class="col-sm-12" style="padding: 0;">
-										<div class="form-group col-sm-6">
-											<label class="col-sm-4 control-label" for="form-field-1">
-													<?php echo $tr->translate("IMAGE")?>  
-											</label>
-											<div class="col-sm-8">
-												<div class="fileupload fileupload-new"
-													data-provides="fileupload">
-													<div class="fileupload-new thumbnail">
-														<img src="" alt="" />
-													</div>
-													<div class="fileupload-preview fileupload-exists thumbnail"></div>
-													<div>
-														<span class="btn btn-light-grey btn-file"><span
-															class="fileupload-new"><i class="fa fa-picture-o"></i>
-																Select image</span><span class="fileupload-exists"><i
-																class="fa fa-picture-o"></i> Change</span> <input
-															type="file" name="photo"> </span> <a href="#"
-															class="btn fileupload-exists btn-light-grey"
-															data-dismiss="fileupload"> <i class="fa fa-times"></i>
-															Remove
-														</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-12" style="padding: 0;">
-										<div class="form-group col-sm-12">
-											<div class="col-sm-12">
-												<div class="tabbable" id="tabShow">
-													<ul id="myTab" class="nav nav-tabs">
-														<li class="active"><a href="#myTab_example1"
-															data-toggle="tab"> <i class="green fa fa-gear"></i> <?php echo $tr->translate("General Information")?>
-																</a></li>
-														<li><a href="#myTab_example2" data-toggle="tab"> <i
-																class="green fa fa-gear"></i> <?php echo $tr->translate("Detail Discription")?>
-																</a></li>
-														<li><a href="#myTab_example3" data-toggle="tab"> <i
-																class="green fa fa-gear"></i> <?php echo $tr->translate("Cost-Usage And Additional unit")?>
-																</a></li>
-														<li><a href="#myTab_example4" data-toggle="tab"> <i
-																class="green fa fa-gear"></i> <?php echo $tr->translate("Pictur-Color-Size")?>
-																</a></li>
-														<li><a href="#myTab_example5" data-toggle="tab"> <i
-																class="green fa fa-gear"></i> <?php echo $tr->translate("Item in Warehouse")?>
-																</a></li>
-														<li><a href="#myTab_example6" data-toggle="tab"> <i
-																class="green fa fa-gear"></i> <?php echo $tr->translate("Note")?>
-																</a></li>
-														<li><a href="#myTab_example7" data-toggle="tab"> <i
-																class="green fa fa-gear"></i> <?php echo $tr->translate("Purchase.History")?>
-																</a></li>
-														<li><a href="#myTab_example8" data-toggle="tab"> <i
-																class="green fa fa-gear"></i> <?php echo $tr->translate("Suppleir History")?>
-																</a></li>
-													</ul>
-													<div class="tab-content">
-														<div class="tab-pane fade in active" id="myTab_example1">
-															<div class="form-group">
-															</div>
-														</div>
-														<div class="tab-pane fade" id="myTab_example2">
-															<div class="form-group">
-															</div>
-														</div>
-														<div class="tab-pane fade" id="myTab_example3">
-															<div class="form-group">
-															</div>
-														</div>
-														<div class="tab-pane fade" id="myTab_example4">
-															<div class="form-group">
-																 <div class="form-group col-sm-6">
-																	<label class="col-sm-3 control-label" for="form-field-1">
-																			<?php echo $tr->translate("PRODUCT_LIND_ID")?>
-																	</label>
-																	<div class="col-sm-4">
-																			<?php echo $form->getElement('product_id');?>
-																	</div>
-																	<div class="col-sm-5">
-																			<?php echo $form->getElement('background');?>
-																	</div>
-																  </div>
-																  <div class="form-group col-sm-6">
-																	<label class="col-sm-3 control-label" for="form-field-1">
-																			<?php echo $tr->translate("SUPPLEIR_ID")?>
-																	</label>
-																	<div class="col-sm-4">
-																			<?php echo $form->getElement('suppleir');?>
-																	</div>
-																	<div class="col-sm-5">
-																			<?php echo $form->getElement('background1');?>
-																	</div>
-																  </div>
-													    	</div>
-													    	<div class="form-group">
-																 <div class="form-group col-sm-6">
-																	<label class="col-sm-3 control-label" for="form-field-1">
-																			<?php echo $tr->translate("CATEGORY_ID")?>
-																	</label>
-																	<div class="col-sm-4">
-																			<?php echo $form->getElement('category_id');?>
-																	</div>
-																	<div class="col-sm-5">
-																			<?php echo $form->getElement('background2');?>
-																	</div>
-																  </div>
-																  <div class="form-group col-sm-6">
-																	<label class="col-sm-3 control-label" for="form-field-1">
-																			<?php echo $tr->translate("MENUFUCTOR_ID")?>
-																	</label>
-																	<div class="col-sm-4">
-																			<?php echo $form->getElement('menufuctor_id');?>
-																	</div>
-																	<div class="col-sm-5">
-																			<?php echo $form->getElement('background3');?>
-																	</div>
-																  </div>
-													    	</div>	
-													    	<div class="form-group">
-																 <div class="form-group col-sm-6">
-																	<label class="col-sm-3 control-label" for="form-field-1">
-																			<?php echo $tr->translate("CATEGORY_ID")?>
-																	</label>
-																	<div class="col-sm-4">
-																			<?php echo $form->getElement('category_id');?>
-																	</div>
-																	<div class="col-sm-5">
-																			<?php echo $form->getElement('background2');?>
-																	</div>
-																  </div>
-																  <div class="form-group col-sm-6">
-																	<label class="col-sm-3 control-label" for="form-field-1">
-																			<?php echo $tr->translate("MENUFUCTOR_ID")?>
-																	</label>
-																	<div class="col-sm-4">
-																			<?php echo $form->getElement('menufuctor_id');?>
-																	</div>
-																	<div class="col-sm-5">
-																			<?php echo $form->getElement('background3');?>
-																	</div>
-																  </div>
-													    	</div>											
-														    <div class="form-group">
-																 <div class="form-group col-sm-6">
-																	<label class="col-sm-3 control-label" for="form-field-1">
-																			<?php echo $tr->translate("DEMO")?>
-																	</label>
-																	<div class="col-sm-4">
-																			<?php echo $form->getElement('small_factor');?>
-																	</div>
-																	<div class="col-sm-5">
-																			<?php echo $form->getElement('background6');?>
-																	</div>
-																  </div>
-																  <div class="form-group col-sm-6">
-																	<label class="col-sm-3 control-label" for="form-field-1">
-																			<?php echo $tr->translate("SALL_ID")?>
-																	</label>
-																	<div class="col-sm-4">
-																			<?php echo $form->getElement('sall_id');?>
-																	</div>
-																	<div class="col-sm-5">
-																			<?php echo $form->getElement('background7');?>
-																	</div>
-																  </div>
-													    	</div>
-													    	
-													    	 <div class="form-group">
-																 <div class="form-group col-sm-4">
-																	<label class="col-sm-4 control-label" for="form-field-1">
-																			<?php echo $tr->translate("BAR_CODE")?>
-																	</label>
-																	<div class="col-sm-8">
-																			<?php echo $form->getElement('barcode');?>
-																	</div>
-																  </div>
-																  <div class="form-group col-sm-4">
-																	<label class="col-sm-4 control-label" for="form-field-1">
-																			<?php echo $tr->translate("USP_CODE")?>
-																	</label>
-																	<div class="col-sm-8">
-																			<?php echo $form->getElement('usp_code');?>
-																	</div>
-																 </div>
-																 <div class="form-group col-sm-4">
-																	<label class="col-sm-4 control-label" for="form-field-1">
-																			<?php echo $tr->translate("SELLING_PRICT")?>
-																	</label>
-																	<div class="col-sm-8">
-																			<?php echo $form->getElement('selling_prict');?>
-																	</div>
-																 </div>
-													    	</div>
-													    	<div class="form-group">
-																 <div class="form-group col-sm-4">
-																	<label class="col-sm-4 control-label" for="form-field-1">
-																			<?php echo $tr->translate("ITEM_CODE")?>
-																	</label>
-																	<div class="col-sm-8">
-																			<?php echo $form->getElement('item_class');?>
-																	</div>
-																  </div>
-																  <div class="form-group col-sm-4">
-																	<label class="col-sm-4 control-label" for="form-field-1">
-																			<?php echo $tr->translate("DEALER_CODE")?>
-																	</label>
-																	<div class="col-sm-8">
-																			<?php echo $form->getElement('dealer_prict');?>
-																	</div>
-																 </div>
-																 <div class="form-group col-sm-4">
-																	<label class="col-sm-4 control-label" for="form-field-1">
-																			<?php echo $tr->translate("MISS_CODE")?>
-																	</label>
-																	<div class="col-sm-8">
-																			<?php echo $form->getElement('miss_code');?>
-																	</div>
-																 </div>
-													    	</div>
-													    	<div class="form-group">
-																 <div class="form-group col-sm-4">
-																	<label class="col-sm-4 control-label" for="form-field-1">
-																			<?php echo $tr->translate("COMM_CODE")?>
-																	</label>
-																	<div class="col-sm-8">
-																			<?php echo $form->getElement('comm_code');?>
-																	</div>
-																  </div>
-																  <div class="form-group col-sm-4">
-																	<label class="col-sm-4 control-label" for="form-field-1">
-																			<?php echo $tr->translate("GROUPE_COUNT")?>
-																	</label>
-																	<div class="col-sm-8">
-																			<?php echo $form->getElement('groupe_count');?>
-																	</div>
-																 </div>
-																 <div class="form-group col-sm-4">
-																	<label class="col-sm-4 control-label" for="form-field-1">
-																			<?php echo $tr->translate("ITEM_TYPE")?>
-																	</label>
-																	<div class="col-sm-8">
-																			<?php echo $form->getElement('item_type');?>
-																	</div>
-																 </div>
-													    	</div>
-														</div>
-														<div class="tab-pane fade" id="myTab_example5">
-															<div class="form-group">
-															</div>
-														</div>
-														<div class="tab-pane fade" id="myTab_example6">
-															<div class="form-group">
-															</div>
-														</div>
-														<div class="tab-pane fade" id="myTab_example7">
-															<div class="form-group">
-															</div>
-														</div>
-														<div class="tab-pane fade" id="myTab_example8">
-															<div class="form-group">
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								
-							</div>
-						</div>
-					</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="portlet box blue">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-globe"></i><?php echo $tr->translate("MENU_GROUP")?>
 				</div>
-				<!-- end: MAIN CONTAINER -->
-				<div id="readNote">
-					<div class="noteWrap col-md-8 col-md-offset-2">
-						<div class="panel panel-note">
-							<div class="e-slider owl-carousel owl-theme">
-								<div class="item">
-									<div class="panel-heading"></div>
-								</div>
-							</div>
-						</div>
-					</div>
+				<div class="tools">
+					<a href="<?php echo $this->baseUrl();?>/inventory/master/add"><button type="button" name="btnsave" class="btn btn-primary"><i class="icon-plus"></i> <?php echo $tr->translate("ADD_NEW")?> </button></a>
+					<button type="submit" class="btn btn-primary" ><i class="icon-pencil"></i> <?php echo $tr->translate("EDIT")?></button>
+					<a href="<?php echo $this->baseUrl();?>/menu"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("DELETE")?></button></a>
 				</div>
 			</div>
-		</div>
-	</form>
+			<div class="portlet-body">
+				<table class="table table-striped table-bordered table-hover" id="sample_6">
+							<thead>
+							<tr>
+								<th>
+									 ID
+								</th>
+								<th>
+									Menu Group Code
+								</th>
+								<th class="hidden-xs">
+									 Platform(s)
+								</th>
+								<th class="hidden-xs">
+									 Description
+								</th>
+								<th class="hidden-xs">
+									Lang One
+								</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td>
+									 Trident
+								</td>
+								<td>
+									 Internet Explorer 4.0
+								</td>
+								<td>
+									 Win 95+
+								</td>
+								<td>
+									 4
+								</td>
+								<td>
+									 X
+								</td>
+							</tr>
+							<tr>
+								<td>
+									 Trident
+								</td>
+								<td>
+									 Internet Explorer 5.0
+								</td>
+								<td>
+									 Win 95+
+								</td>
+								<td>
+									 5
+								</td>
+								<td>
+									 C
+								</td>
+							</tr>
+							<tr>
+								<td>
+									 Trident
+								</td>
+								<td>
+									 Internet Explorer 5.5
+								</td>
+								<td>
+									 Win 95+
+								</td>
+								<td>
+									 5.5
+								</td>
+								<td>
+									 A
+								</td>
+							</tr>
+							<tr>
+								<td>
+									 Trident
+								</td>
+								<td>
+									 Internet Explorer 6
+								</td>
+								<td>
+									 Win 98+
+								</td>
+								<td>
+									 6
+								</td>
+								<td>
+									 A
+								</td>
+							</tr>
+							<tr>
+								<td>
+									 Trident
+								</td>
+								<td>
+									 Internet Explorer 7
+								</td>
+								<td>
+									 Win XP SP2+
+								</td>
+								<td>
+									 7
+								</td>
+								<td>
+									 A
+								</td>
+							</tr>
+							<tr>
+								<td>
+									 Gecko
+								</td>
+								<td>
+									 Mozilla 1.8
+								</td>
+								<td>
+									 Win 98+ / OSX.1+
+								</td>
+								<td>
+									 1.8
+								</td>
+								<td>
+									 A
+								</td>
+							</tr>
+							<tr>
+								<td>
+									 Gecko
+								</td>
+								<td>
+									 Seamonkey 1.1
+								</td>
+								<td>
+									 Win 98+ / OSX.2+
+								</td>
+								<td>
+									 1.8
+								</td>
+								<td>
+									 A
+								</td>
+							</tr>
+							<tr>
+								<td>
+									 Gecko
+								</td>
+								<td>
+									 Epiphany 2.20
+								</td>
+								<td>
+									 Gnome
+								</td>
+								<td>
+									 1.8
+								</td>
+								<td>
+									 A
+								</td>
+							</tr>
+							<tr>
+								<td>
+									 Webkit
+								</td>
+								<td>
+									 Safari 1.2
+								</td>
+								<td>
+									 OSX.3
+								</td>
+								<td>
+									 125.5
+								</td>
+								<td>
+									 A
+								</td>
+							</tr>
+							<tr>
+								<td>
+									 Webkit
+								</td>
+								<td>
+									 Safari 1.3
+								</td>
+								<td>
+									 OSX.3
+								</td>
+								<td>
+									 312.8
+								</td>
+								<td>
+									 A
+								</td>
+							</tr>
+							<tr>
+								<td>
+									 Webkit
+								</td>
+								<td>
+									 Safari 2.0
+								</td>
+								<td>
+									 OSX.4+
+								</td>
+								<td>
+									 419.3
+								</td>
+								<td>
+									 A
+								</td>
+							</tr>
+							<tr>
+								<td>
+									 Webkit
+								</td>
+								<td>
+									 Safari 3.0
+								</td>
+								<td>
+									 OSX.4+
+								</td>
+								<td>
+									 522.1
+								</td>
+								<td>
+									 A
+								</td>
+							</tr>
+							<tr>
+								<td>
+									 Webkit
+								</td>
+								<td>
+									 OmniWeb 5.5
+								</td>
+								<td>
+									 OSX.4+
+								</td>
+								<td>
+									 420
+								</td>
+								<td>
+									 A
+								</td>
+							</tr>
+							<tr>
+								<td>
+									 Webkit
+								</td>
+								<td>
+									 iPod Touch / iPhone
+								</td>
+								<td>
+									 iPod
+								</td>
+								<td>
+									 420.1
+								</td>
+								<td>
+									 A
+								</td>
+							</tr>
+							<tr>
+								<td>
+									 Webkit
+								</td>
+								<td>
+									 S60
+								</td>
+								<td>
+									 S60
+								</td>
+								<td>
+									 413
+								</td>
+								<td>
+									 A
+								</td>
+							</tr>
+							<tr>
+								<td>
+									 Presto
+								</td>
+								<td>
+									 Opera 7.0
+								</td>
+								<td>
+									 Win 95+ / OSX.1+
+								</td>
+								<td>
+									 -
+								</td>
+								<td>
+									 A
+								</td>
+							</tr>
+							<tr>
+								<td>
+									 Presto
+								</td>
+								<td>
+									 Opera 7.5
+								</td>
+								<td>
+									 Win 95+ / OSX.2+
+								</td>
+								<td>
+									 -
+								</td>
+								<td>
+									 A
+								</td>
+							</tr>
+							<tr>
+								<td>
+									 Presto
+								</td>
+								<td>
+									 Opera 8.0
+								</td>
+								<td>
+									 Win 95+ / OSX.2+
+								</td>
+								<td>
+									 -
+								</td>
+								<td>
+									 A
+								</td>
+							</tr>
+							<tr>
+								<td>
+									 Presto
+								</td>
+								<td>
+									 Opera 8.5
+								</td>
+								<td>
+									 Win 95+ / OSX.2+
+								</td>
+								<td>
+									 -
+								</td>
+								<td>
+									 A
+								</td>
+							</tr>
+							</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- END EXAMPLE TABLE PORTLET-->
+				</div>
+	</div>
 </div>
-<script>
-	function SaveData(){
-		div = document.getElementById("refreshdiv");
-		div.submit();
-	}
-</script>

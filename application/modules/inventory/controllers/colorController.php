@@ -10,6 +10,10 @@ class inventory_ColorController extends Zend_Controller_Action {
 		$frm = new inventory_Form_FrmColor();
 		$this->view->form = $frm->FrmColor();
 	}
+	public function addAction(){
+		$frm = new inventory_Form_FrmColor();
+		$this->view->form = $frm->FrmColor();
+	}
 	
 	
 }

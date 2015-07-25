@@ -10,7 +10,10 @@ class inventory_productlindController extends Zend_Controller_Action {
 		$frm = new inventory_Form_FrmProductlind();
 		$this->view->form = $frm->FrmProductlind();
 	}
-	
+	public function addAction(){
+		$frm = new inventory_Form_FrmProductlind();
+		$this->view->form = $frm->FrmProductlind();
+	}
 	
 }
 

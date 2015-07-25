@@ -11,6 +11,12 @@ class inventory_MasterController extends Zend_Controller_Action {
 		$frm = new inventory_Form_FrmMaster();
 		$this->view->form = $frm->FrmMater();
 	}
+	public function addAction(){
+		//$this->_helper->layout()->disableLayout();
+		$frm = new inventory_Form_FrmMaster();
+		$this->view->form = $frm->FrmMater();
+		$this->view->form = $frm->PicturColor();
+	}
 	
 	
 }

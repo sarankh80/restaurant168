@@ -10,6 +10,10 @@ class inventory_StockAdjustmentController extends Zend_Controller_Action {
 		$frm = new inventory_Form_FrmStockAdjustment();
 		$this->view->form = $frm->frm_stock_adjustment();
 	}
+	public function addAction(){
+		$frm = new inventory_Form_FrmStockAdjustment();
+		$this->view->form = $frm->frm_stock_adjustment();
+	}
 	
 	
 }

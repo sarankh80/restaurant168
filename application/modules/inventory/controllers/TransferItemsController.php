@@ -10,6 +10,11 @@ class inventory_TransferItemsController extends Zend_Controller_Action {
 		$frm = new inventory_Form_FrmTransferItems();
 		$this->view->form = $frm->frm_transfer_items();
 	}
+	public function addAction(){
+		$frm = new inventory_Form_FrmTransferItems();
+		$this->view->form = $frm->frm_transfer_items();
+	}
+	
 	
 	
 }

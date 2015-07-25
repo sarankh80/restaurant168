@@ -10,6 +10,10 @@ class inventory_IssueController extends Zend_Controller_Action {
 		$frm = new inventory_Form_FrmIssue();
 		$this->view->form = $frm->FrmIssue();
 	}
+	public function addAction(){
+		$frm = new inventory_Form_FrmIssue();
+		$this->view->form = $frm->FrmIssue();
+	}
 	
 	
 }

@@ -21,18 +21,12 @@ Class inventory_Form_FrmProductlind extends Zend_Form {
 				'dojoType'=>'dijit.form.CheckBox',
 				'checked'=>'checked','class'=>'form-control'
 		));
-// 		$apply_company = new Zend_Dojo_Form_Element_TextBox('apply_company');
-// 		$apply_company->setAttribs(array(
-// 				'dojoType'=>'dijit.form.CheckBox',
-// 				'checked'=>'checked','class'=>'form-control'
-// 		));
 		$note = new Zend_Dojo_Form_Element_Textarea('note');
 		$note->setAttribs(array(
 				'dojoType'=>'dijit.form.Textarea',
 				'checked'=>'checked','class'=>'form-control'
 		));
 		if($data!=null){
-// 			print_r($data);
 		}
 		$apply_company = new Zend_Dojo_Form_Element_FilteringSelect('apply_company');
 		$apply_company->setAttribs(array(

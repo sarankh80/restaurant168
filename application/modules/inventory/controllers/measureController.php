@@ -10,6 +10,10 @@ class inventory_measureController extends Zend_Controller_Action {
 		$frm = new inventory_Form_FrmUnitOfMeasure();
 		$this->view->form = $frm->FrmUnitOfMeasure();
 	}
+	public function addAction(){
+		$frm = new inventory_Form_FrmUnitOfMeasure();
+		$this->view->form = $frm->FrmUnitOfMeasure();
+	}
 	
 	
 }

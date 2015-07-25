@@ -11,6 +11,11 @@ class inventory_wherehouseController extends Zend_Controller_Action {
 		$frm = new inventory_Form_FrmWhereHouse();
 		$this->view->form = $frm->FrmWhereHouse();
 	}
+	public function addAction(){
+		//$this->_helper->layout()->disableLayout();
+		$frm = new inventory_Form_FrmWhereHouse();
+		$this->view->form = $frm->FrmWhereHouse();
+	}
 	
 	
 }

@@ -231,5 +231,51 @@ Class inventory_Form_FrmMaster extends Zend_Form {
 				$dealer_prict,$item_class,$comm_code,$groupe_count,$item_type));
 		return $this;
 		
-	}	
+	}
+	public function PicturColor($data=null){
+		$color_description = new Zend_Form_Element_Text('color_description');
+		$color_description->setAttribs(array(
+				'class'=>'form-control'
+		));
+		$itme_size = new Zend_Form_Element_Text('item_size');
+		$itme_size->setAttribs(array(
+				'class'=>'form-control'
+		));
+		$item_weight = new Zend_Form_Element_Text('item_weight');
+		$item_weight->setAttribs(array(
+				'class'=>'form-control'
+		));
+		$item_valume = new Zend_Form_Element_Text('item_valume');
+		$item_valume->setAttribs(array(
+				'class'=>'form-control'
+		));
+		$item_width = new Zend_Form_Element_Text('item_width');
+		$item_width->setAttribs(array(
+				'class'=>'form-control'
+		));
+		$item_height = new Zend_Form_Element_Text('item_height');
+		$item_height->setAttribs(array(
+				'class'=>'form-control'
+		));
+		$item_length = new Zend_Form_Element_Text('item_length');
+		$item_length->setAttribs(array(
+				'class'=>'form-control'
+		));
+		$item_color = new Zend_Form_Element_Text('item_color');
+		$item_color->setAttribs(array(
+				'class'=>'form-control color-picker-rgba'
+		));
+		$font_color = new Zend_Form_Element_Text('font_color');
+		$font_color->setAttribs(array(
+				'class'=>'form-control','id'=>"selected-color1"
+		));
+		$dual_image = new Zend_Form_Element_Textarea('dual_image');
+		$dual_image->setAttribs(array(
+				'class'=>'form-control',
+		));
+		$this->addElements(array($color_description,$itme_size,$item_weight,$item_valume,$item_width,
+				$item_height,$item_length,$item_color,$font_color,$dual_image));
+		return $this;
+	}
+
 }

@@ -11,6 +11,11 @@ class inventory_supplierController extends Zend_Controller_Action {
 		$frm = new inventory_Form_FrmSupplier();
 		$this->view->form = $frm->FrmSupplier();
 	}
+	public function addAction(){
+		//$this->_helper->layout()->disableLayout();
+		$frm = new inventory_Form_FrmSupplier();
+		$this->view->form = $frm->FrmSupplier();
+	}
 	
 	
 }
