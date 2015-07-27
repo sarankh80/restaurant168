@@ -1,0 +1,106 @@
+<?php 
+	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
+	$url = $this->url(array('module'=>'customer','controller'=>'currency','action'=>'add'));
+	$url_edit = $this->url(array('module'=>'customer','controller'=>'currency','action'=>'index'),null,true);
+?>
+<div class="row"> 
+	<div class="col-md-12">
+		<div class="portlet box blue">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="icon-home"></i><?php echo $tr->translate("APPLY_CREDIT_DEPOSIT")?>
+				</div>
+			</div>
+			<div class="portlet-body form">
+				<!-- BEGIN FORM-->
+				<form id="form_sample_2" class="form-horizontal" enctype="multipart/form-data" method="post">
+					<div class="form-body">
+						<div class="alert alert-danger display-hide">
+							<button class="close" data-close="alert"></button>
+								You have some form errors. Please check below.
+						</div>
+						<div class="alert alert-success display-hide">
+							<button class="close" data-close="alert"></button>
+								Your form validation is successful!
+						</div>
+				
+										<div class="col-sm-12" style="padding: 0;">
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("CURRENCY_CODE")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('currency_code');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("CURRENCY_TEXT")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('currency_text');?>
+												</div>
+											</div>
+										</div>
+										
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("CURRENCY_SYMBLE")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('currency_sy');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("DECIMAL_PLACE")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('decimal');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("EXCHANGE_RATE")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('exchange');?>
+												</div>
+											</div>
+											
+											
+											<div class="form-group col-sm-6">
+													<label class="col-sm-5 control-label" for="form-field-1" style="margin-top: 7px;">
+														<?php echo $tr->translate("CURRENCY_BASE")?> <span class="symbol required"></span>
+													</label>
+													<div class="col-sm-1">
+														<label class="checkbox-inline" >
+															<?php echo $form->getElement('currency');?>
+														</label>													
+													</div>
+													<label class="col-sm-4 control-label" for="form-field-1" style="margin-top: 7px;">
+														<?php echo $tr->translate("BASE_CURRENCY")?> <span class="symbol required"></span>
+													</label>
+													<div class="col-sm-2">
+														<label class="checkbox-inline">
+															<?php echo $form->getElement('base');?>
+														</label>	
+														
+																										
+													</div>
+										   </div>
+											
+					<div class="form-actions">
+						<div class="row">
+							<div class="col-md-offset-3 col-md-9">
+								<button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("SAVE_NEW")?> </button>
+								<button type="submit" class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("SAVE_CLOSE")?></button>
+								<a href="<?php echo $this->baseUrl();?>/menu"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
