@@ -11,6 +11,11 @@ class customer_groupController extends Zend_Controller_Action {
 		$frm = new customer_Form_FrmGroup();
 		$this->view->form = $frm->FrmGroup();
 	}
+	public function addAction(){
+		//$this->_helper->layout()->disableLayout();
+		$frm = new customer_Form_FrmGroup();
+		$this->view->form = $frm->FrmGroup();
+	}
 	
 	
 }

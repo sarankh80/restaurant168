@@ -11,6 +11,11 @@ class customer_customerController extends Zend_Controller_Action {
 		$frm = new customer_Form_FrmCustomer();
 		$this->view->form = $frm->Frmcustomer();
 	}
+	public function addAction(){
+		//$this->_helper->layout()->disableLayout();
+		$frm = new customer_Form_FrmCustomer();
+		$this->view->form = $frm->Frmcustomer();
+	}
 	
 	
 }

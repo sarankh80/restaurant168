@@ -1,6 +1,6 @@
 <?php 
 	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
-	$url = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'));
+	$url = $this->url(array('module'=>'menu','controller'=>'group','action'=>'add'));
 	$url_edit = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'),null,true);
 ?>
 <div class="row">
@@ -11,7 +11,7 @@
 					<i class="fa fa-globe"></i><?php echo $tr->translate("MENU_GROUP")?>
 				</div>
 				<div class="tools">
-					<a href="<?php echo $this->baseUrl();?>/menu/group/add"><button type="button" name="btnsave" class="btn btn-primary"><i class="icon-plus"></i> <?php echo $tr->translate("ADD_NEW")?> </button></a>
+					<a href="<?php echo $url ;?>"><button type="button" name="btnsave" class="btn btn-primary"><i class="icon-plus"></i> <?php echo $tr->translate("ADD_NEW")?> </button></a>
 					<button type="submit" class="btn btn-primary" ><i class="icon-pencil"></i> <?php echo $tr->translate("EDIT")?></button>
 					<a href="<?php echo $this->baseUrl();?>/menu"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("DELETE")?></button></a>
 				</div>

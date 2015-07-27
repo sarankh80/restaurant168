@@ -11,6 +11,11 @@ class setting_backupController extends Zend_Controller_Action {
 		$frm = new setting_Form_FrmBackup();
 		$this->view->form = $frm->Frmbackup();
 	}
+	public function addAction(){
+		//$this->_helper->layout()->disableLayout();
+		$frm = new setting_Form_FrmBackup();
+		$this->view->form = $frm->Frmbackup();
+	}
 	
 	
 }

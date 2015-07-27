@@ -11,6 +11,11 @@ class  Customer_saleController extends Zend_Controller_Action {
 		$frm = new customer_Form_FrmDeposit();
 		$this->view->form = $frm->FrmDeposit();
 	}
+	public function addAction(){
+		//$this->_helper->layout()->disableLayout();
+		$frm = new customer_Form_FrmDeposit();
+		$this->view->form = $frm->FrmDeposit();
+	}
 	
 	
 }

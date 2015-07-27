@@ -11,6 +11,11 @@ class customer_cashController extends Zend_Controller_Action {
 		$frm = new  customer_Form_FrmCash();
 		$this->view->form = $frm->FrmCash();
 	}
+	public function addAction(){
+		//$this->_helper->layout()->disableLayout();
+		$frm = new  customer_Form_FrmCash();
+		$this->view->form = $frm->FrmCash();
+	}
 	
 	
 }
