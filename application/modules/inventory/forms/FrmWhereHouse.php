@@ -12,7 +12,7 @@ Class inventory_Form_FrmWhereHouse extends Zend_Form {
 		));
 		$description = new Zend_Form_Element_Text('description');
 		$description->setAttribs(array(
-				'class'=>'form-control',
+				'class'=>'form-control'
 		));
 		$second_language = new Zend_Form_Element_Text('second_language');
 		$second_language->setAttribs(array(
