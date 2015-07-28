@@ -11,6 +11,11 @@ class setting_companyController extends Zend_Controller_Action {
 		$frm = new setting_Form_FrmCompany();
 		$this->view->form = $frm->FrmCompany();
 	}
+	public function addAction(){
+		//$this->_helper->layout()->disableLayout();
+		$frm = new setting_Form_FrmCompany();
+		$this->view->form = $frm->FrmCompany();
+	}
 	
 	
 }

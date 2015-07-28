@@ -11,6 +11,11 @@ class setting_costchangeController extends Zend_Controller_Action {
 		$frm = new setting_Form_FrmCostchange();
 		$this->view->form = $frm->FrmCostchange();
 	}
+	public function addAction(){
+		//$this->_helper->layout()->disableLayout();
+		$frm = new setting_Form_FrmCostchange();
+		$this->view->form = $frm->FrmCostchange();
+	}
 	
 	
 }

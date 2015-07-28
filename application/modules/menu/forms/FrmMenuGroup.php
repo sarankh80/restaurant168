@@ -24,10 +24,7 @@ Class menu_Form_FrmMenuGroup extends Zend_Form {
 		$lang_2->setAttribs(array(
 				'checked'=>'checked','class'=>'form-control'
 		));
-		$lang_3 = new Zend_Form_Element_Text('lang_3');
-		$lang_3->setAttribs(array(
-				'checked'=>'checked','class'=>'form-control'
-		));
+		
 		if($data!=null){
 // 			print_r($data);
 		}
@@ -93,7 +90,7 @@ Class menu_Form_FrmMenuGroup extends Zend_Form {
 		$note->setAttribs(array(
 				'class'=>'form-control','style'=>"margin-top: 0px; margin-bottom: 0px; height: 100px;"
 		));
-		$this->addElements(array($apply,$active,$combo,$menu_code,$description,$lang_1,$lang_2,$lang_3,
+		$this->addElements(array($apply,$active,$combo,$menu_code,$description,$lang_1,$lang_2,
 				$show_description,$background,$font_color,$font_size,$format,$setting,$arrange,$resize,$note));
 		if($data !=""){
 			$menu_code->setValue($data['menu_group_code']);

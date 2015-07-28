@@ -298,41 +298,83 @@
 					</ul>
 				</li>
 				
-				
 				<li>
-					<a href="javascript:;">
-					<i class="icon-puzzle"></i>
-					<span class="title">System Setting</span>
+				<a href="javascript:;">
+					<i class="icon-screen-desktop"></i>
+					<span class="title"><?php echo $tr->translate("System Setting")?></span>
 					<span class="arrow "></span>
 					</a>
 					<ul class="sub-menu">
 						<li>
-							<a href="components_pickers.html">
-							Backup Data</a>
+							<a href="<?php echo $this->baseUrl()?>/setting/backup">
+							<i class="icon-arrow-right"></i>
+							<?php echo $tr->translate("BACKUP DATA")?></a>
 						</li>
 						<li>
-							<a href="components_dropdowns.html">
-							Change Key</a>
+						    <a href="<?php echo $this->baseUrl()?>/setting/changekey">
+							<i class="icon-arrow-right"></i>
+					    	<?php echo $tr->translate("CHANGE_KEY")?></a>		
+						<li>
+							<a href="<?php echo $this->baseUrl()?>/setting/company">
+							<i class="icon-arrow-right"></i>
+					    	<?php echo $tr->translate("COMPANY_SETTINGS")?>
+							</a>	
 						</li>
 						<li>
-							<a href="components_form_tools.html">
-						    Company Setting</a>
+                         <a href="<?php echo $this->baseUrl()?>/setting/costchange">
+                            <i class="icon-arrow-right"></i>
+					        <?php echo $tr->translate("COST_CHANGE")?>
+                            </a>	
 						</li>
 						<li>
-							<a href="components_editors.html">
-							Cost Change</a>
+							<a href="<?php echo $this->baseUrl()?>/setting/export">
+							<i class="icon-arrow-right"></i>
+					    	<?php echo $tr->translate("EXPORT_DATA")?></a>	
 						</li>
 						<li>
-							<a href="components_editors.html">
-							Export Data</a>
+							<a href="<?php echo $this->baseUrl()?>/setting/head">
+							<i class="icon-arrow-right"></i>
+					    	<?php echo $tr->translate("HEAD_OFFICE_COMPANY_SETTING")?></a>	
 						</li>
 						<li>
-							<a href="components_editors.html">
-							Head Office Setting</a>
+							<a href="<?php echo $this->baseUrl()?>/setting/import">
+							<i class="icon-arrow-right"></i>
+					    	<?php echo $tr->translate("IMPORT_DATA")?></a>	
 						</li>
 						<li>
-							<a href="components_editors.html">
-							Import Data</a>
+							<a href="<?php echo $this->baseUrl()?>/setting/payment">
+							<i class="icon-arrow-right"></i>
+					    	<?php echo $tr->translate("PAYMENT_TYPE")?></a>	
+						</li>
+						<li>
+							<a href="<?php echo $this->baseUrl()?>/setting/restore">
+							<i class="icon-arrow-right"></i>
+					    	<?php echo $tr->translate("RESTORE_DATA")?></a>	
+						</li>
+						<li>
+							<a href="<?php echo $this->baseUrl()?>/setting/select">
+							<i class="icon-arrow-right"></i>
+					    	<?php echo $tr->translate("SELECT_POS_COMPANY")?></a>	
+						</li>
+						<li>
+							<a href="<?php echo $this->baseUrl()?>/setting/station">
+							<i class="icon-arrow-right"></i>
+					    	<?php echo $tr->translate("STATION_SETTING")?></a>	
+						</li>
+						<li>
+							<a href="<?php echo $this->baseUrl()?>/setting/user">
+							<i class="icon-arrow-right"></i>
+					    	<?php echo $tr->translate("STATION_USER")?></a>	
+						</li>
+						<li>
+							<a href="<?php echo $this->baseUrl()?>/setting/unlock">
+							<i class="icon-arrow-right"></i>
+					    	<?php echo $tr->translate("UNLOCK_USER")?></a>	
+						</li>
+						<li>
+							<a href="<?php echo $this->baseUrl()?>/setting/void">
+							<i class="icon-arrow-right"></i>
+					    	<?php echo $tr->translate("VOID_DAY_TRANSACTION")?></a>	
 						</li>
 						<li>
 							<a href="components_editors.html">
@@ -357,7 +399,7 @@
 						
 						
 					</ul>
-				</li>
+			
 				
 			
 				<li>
