@@ -11,6 +11,11 @@ class setting_changekeyController extends Zend_Controller_Action {
 		$frm = new setting_Form_FrmChangekey();
 		$this->view->form = $frm->FrmChangekey();
 	}
+	public function addAction(){
+		//$this->_helper->layout()->disableLayout();
+		$frm = new setting_Form_FrmChangekey();
+		$this->view->form = $frm->FrmChangekey();
+	}
 	
 	
 }
