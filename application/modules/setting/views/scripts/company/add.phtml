@@ -1,14 +1,14 @@
 <?php 
 	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
-	$url = $this->url(array('module'=>'setting','controller'=>'backup','action'=>'add'));
-	$url_edit = $this->url(array('module'=>'setting','controller'=>'backup','action'=>'index'),null,true);
+	$url = $this->url(array('module'=>'setting','controller'=>'company','action'=>'add'));
+	$url_edit = $this->url(array('module'=>'setting','controller'=>'company','action'=>'index'),null,true);
 ?>
 <div class="row"> 
 	<div class="col-md-12">
 		<div class="portlet box blue">
 			<div class="portlet-title">
 				<div class="caption" style="margin-bottom:5px;">
-					<i class="icon-home"></i><?php echo $tr->translate("BACK UP DATA")?>
+					<i class="icon-home"></i><?php echo $tr->translate("COMPANY SETTING")?>
 				</div>
 			</div>
 			<div class="portlet-body form">
@@ -23,123 +23,153 @@
 							<button class="close" data-close="alert"></button>
 								Your form validation is successful!
 						</div>
-						<div class="col-sm-12" style="padding: 0;">
-											<div class="form-group col-sm-6">
-												<label class="col-sm-4 control-label">
-													<?php echo $tr->translate("USER_ID")?> <span class="symbol required"></span>
-												</label>
-												<div class="col-sm-8">
-													<?php echo $form->getElement('user_id');?>
-												</div>
-											</div>
-											<div class="form-group col-sm-6">
-												<label class="col-sm-4 control-label">
-													<?php echo $tr->translate("USER_NAME")?> <span class="symbol required"></span>
-												</label>
-												<div class="col-sm-8">
-													<?php echo $form->getElement('user_name');?>
-												</div>
-											</div>
+						<!-- start: PAGE CONTENT -->
+						<div class="row">
+							<div class="col-sm-12">
+								<!-- start: TEXT FIELDS PANEL -->
+								<div class="panel panel-white">
+									<div class="panel-heading">
+										<div class="" style="float: right;">
+											
 											
 										</div>
+									</div>
+									<div class="tabbable" style="margin-top: -100px;" id="tabShwo">
+														<ul id="myTab" class="nav nav-tabs">
+															<li class="active">
+																<a href="#myTab_example1" data-toggle="tab">
+																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("COMPANY")?>
+																</a>
+															</li>
+															<li>
+																<a href="#myTab_example2" data-toggle="tab">
+																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("SETTING")?>
+																</a>
+															</li>
+															<li>
+																<a href="#myTab_example3" data-toggle="tab">
+																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("TERM")?>
+																</a>
+															</li>
+														</ul>
+														<div class="tab-content">
+															<div class="panel-body">
 										<div class="col-sm-12" style="padding: 0;">
 											<div class="form-group col-sm-6">
 												<label class="col-sm-4 control-label">
-													<?php echo $tr->translate("USER_NAME2")?> <span class="symbol required"></span>
+													<?php echo $tr->translate("COMPANY_CODE")?> <span class="symbol required"></span>
 												</label>
 												<div class="col-sm-8">
-													<?php echo $form->getElement('user_name2');?>
+													<?php echo $form->getElement('company_code');?>
 												</div>
 											</div>
 											<div class="form-group col-sm-6">
 												<label class="col-sm-4 control-label">
-													<?php echo $tr->translate("GENDER")?> <span class="symbol required"></span>
+													<?php echo $tr->translate("CODE_FOR_TEXTFILE")?> <span class="symbol required"></span>
 												</label>
-												
 												<div class="col-sm-8">
-													<?php echo $form->getElement('gender');?>
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-12" style="padding: 0;">
-											<div class="form-group col-sm-6">
-												<label class="col-sm-4 control-label" for="form-field-1">
-													<?php echo $tr->translate("LANGUAGE")?> <span class="symbol required"></span>
-												</label>
-												
-												<div class="col-sm-8">
-													<?php echo $form->getElement('language');?>
+													<?php echo $form->getElement('code');?>
 												</div>
 											</div>
 											<div class="form-group col-sm-6">
-												<label class="col-sm-4 control-label" for="form-field-1">
-													<?php echo $tr->translate("USER_LEVEL")?> <span class="symbol required"></span>
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("COMPANY_NAME")?> <span class="symbol required"></span>
 												</label>
-												
 												<div class="col-sm-8">
-													<?php echo $form->getElement('user_level');?>
-												</div>
-											</div>
-												
-											</div>
-											<div class="col-sm-12" style="padding: 0;">
-											<div class="form-group col-sm-6">
-												<label class="col-sm-4 control-label" for="form-field-1">
-													<?php echo $tr->translate("REPORT_LANGUAGE")?> <span class="symbol required"></span>
-												</label>
-												
-												<div class="col-sm-8">
-													<?php echo $form->getElement('report_language');?>
+													<?php echo $form->getElement('company_name');?>
 												</div>
 											</div>
 											<div class="form-group col-sm-6">
-											    <label class="col-sm-4 control-label" for="form-field-1">
-													<?php echo $tr->translate("ACCESS_TO_COMPANY")?> <span class="symbol required"></span>
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("COMPANY_TYPE")?> <span class="symbol required"></span>
 												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('company_type');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("BRAND_NAME")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('brand_name');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("SLOGAN")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('slogan');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("VAT_N")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('vat');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("ADDRESS")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('address');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("PHONE")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('phone');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("PHONE_2")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('phone_2');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("FAX")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('fax');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("FAX_2")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('fax_2');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("EMAIL")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('email');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("WEB_PAGE")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('web');?>
+												</div>
+											</div>
 											
-												<div class="col-sm-8">
-													<?php echo $form->getElement('access_to_company');?> 
-												</div>
+										
 											</div>
-											</div>
-											<div class="col-sm-12" style="padding: 0;">
-											<div class="form-group col-sm-6">
-												<label class="col-sm-4 control-label" for="form-field-1">
-													<?php echo $tr->translate("DEFAULT_COMPANY")?> <span class="symbol required"></span>
-												</label>
-											
-												<div class="col-sm-8">
-													<?php echo $form->getElement('default_company');?>
-												</div>
-											</div>
-											<div class="form-group col-sm-6">
-											    <label class="col-sm-4 control-label" for="form-field-1">
-													<?php echo $tr->translate("PASSWORD")?> <span class="symbol required"></span>
-												</label>
-												
-												<div class="col-sm-8">
-													<?php echo $form->getElement('password');?>
-												</div>
-											</div>
-											</div>
-											<div class="col-sm-12" style="padding: 0;">
-											<div class="form-group col-sm-6">
-												<label class="col-sm-4 control-label" for="form-field-1">
-													<?php echo $tr->translate("CONFIRM_PASSWORD")?> <span class="symbol required"></span>
-												</label>
-											
-												<div class="col-sm-8">
-													<?php echo $form->getElement('confirm_password');?>
-												</div>
-											</div>
-											<div class="form-group col-sm-6">
-											    <label class="col-sm-4 control-label" for="form-field-1">
-													<?php echo $tr->translate("NOTE")?> <span class="symbol required"></span>
-												</label>
-												
-												<div class="col-sm-8">
-													<?php echo $form->getElement('note');?>
-												</div>
 											</div>
 											</div>
 											
@@ -176,7 +206,7 @@
 								</div>
 							</div>
 						</div>
-						
+						</div>	
 					<div class="form-actions">
 						<div class="row">
 							<div class="col-md-offset-3 col-md-9">
@@ -186,8 +216,9 @@
 							</div>
 						</div>
 					</div>
+					
 				</form>
-			</div>
+			</div></div>
 		</div>
 	</div>
 </div>
