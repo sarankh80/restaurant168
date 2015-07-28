@@ -9,6 +9,7 @@ Class table_Form_FrmTableType extends Zend_Dojo_Form {
 		$menu_code = new Zend_Form_Element_Text('type_code');
 		$menu_code->setAttribs(array(
 				'class'=>'form-control',
+				'reqeured'=>true
 		));
 		$description = new Zend_Form_Element_Text('description');
 		$description->setAttribs(array(

@@ -9,10 +9,12 @@ Class table_Form_FrmTables extends Zend_Dojo_Form {
 		$menu_code = new Zend_Form_Element_Text('menu_code');
 		$menu_code->setAttribs(array(
 				'class'=>'form-control',
+				'required'=>true
 		));
 		$g_code = new Zend_Form_Element_Text('g_code');
 		$g_code->setAttribs(array(
 				'class'=>'form-control',
+				'required'=>true
 		));
 		$g_code1 = new Zend_Form_Element_Text('g_code1');
 		$g_code1->setAttribs(array(
@@ -26,6 +28,7 @@ Class table_Form_FrmTables extends Zend_Dojo_Form {
 		$description = new Zend_Form_Element_Text('description');
 		$description->setAttribs(array(
 				'class'=>'form-control',
+				'required'=>true ,
 		));
 		$lang_1 = new Zend_Form_Element_Text('lang_1');
 		$lang_1->setAttribs(array(
