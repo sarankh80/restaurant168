@@ -127,7 +127,8 @@ Class inventory_Form_FrmTransferItems extends Zend_Dojo_Form {
 		));
 		$allocation = new Zend_Form_Element_Text('allocation');
 		$allocation->setAttribs(array(
-				'class'=>'red'
+
+				'class'=>'form-control'
 		));
 		$bar_code = new Zend_Form_Element_Text('bar_code');
 		$bar_code->setAttribs(array(
