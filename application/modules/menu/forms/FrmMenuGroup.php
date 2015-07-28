@@ -9,15 +9,16 @@ Class menu_Form_FrmMenuGroup extends Zend_Form {
 		//$db = new menu_Model_DbTable_DbMenuGroup();
 		$menu_code = new Zend_Form_Element_Text('menu_code');
 		$menu_code->setAttribs(array(
-				'class'=>'form-control',  'validate'=>true,
+				'class'=>'form-control', "data-required"=>"1",'aria-describedby'=>'name-error name-error',
+				'aria-invalid'=>'true',
 		));
 		$description = new Zend_Form_Element_Text('description');
 		$description->setAttribs(array(
-				'class'=>'form-control',  'validate'=>true,
+				'class'=>'form-control',  "data-required"=>"1"
 		));
 		$lang_1 = new Zend_Form_Element_Text('lang_1');
 		$lang_1->setAttribs(array(
-				'class'=>'form-control', 'validate'=>true,
+				'class'=>'form-control',  "data-required"=>"1"
 		));
 		$lang_2 = new Zend_Form_Element_Text('lang_2');
 		$lang_2->setAttribs(array(

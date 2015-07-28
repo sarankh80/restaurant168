@@ -10,7 +10,13 @@ class Table_unlockserviceController extends Zend_Controller_Action {
 		$frm = new table_Form_FrmUnlockService();
 		$this->view->form = $frm->Frm_unlock_service();
 	}
-	
-	
+	public function addAction(){
+		$frm = new table_Form_FrmUnlockService();
+		$this->view->form = $frm->Frm_unlock_service();
+	}
+	public function editAction(){
+		$frm = new table_Form_FrmUnlockService();
+		$this->view->form = $frm->Frm_unlock_service();
+	}
 }
 

@@ -10,7 +10,14 @@ class Table_tabletypeController extends Zend_Controller_Action {
 		$frm = new table_Form_FrmTableType();
 		$this->view->form = $frm->Frm_table_type();
 	}
-	
+	public function addAction(){
+		$frm = new table_Form_FrmTableType();
+		$this->view->form = $frm->Frm_table_type();
+	}
+	public function editAction(){
+		$frm = new table_Form_FrmTableType();
+		$this->view->form = $frm->Frm_table_type();
+	}
 	
 }
 

@@ -10,7 +10,13 @@ class Table_tablesController extends Zend_Controller_Action {
 		$frm = new table_Form_FrmTables();
 		$this->view->form = $frm->FrmTables();
 	}
-	
-	
+	public function addAction(){
+		$frm = new table_Form_FrmTables();
+		$this->view->form = $frm->FrmTables();
+	}
+	public function editAction(){
+		$frm = new table_Form_FrmTables();
+		$this->view->form = $frm->FrmTables();
+	}
 }
 

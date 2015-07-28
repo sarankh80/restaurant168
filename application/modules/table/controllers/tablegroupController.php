@@ -10,7 +10,14 @@ class Table_tablegroupController extends Zend_Controller_Action {
 		$frm = new table_Form_FrmTableGroup();
 		$this->view->form = $frm->FrmTable();
 	}
-	
+	public function addAction(){
+		$frm = new table_Form_FrmTableGroup();
+		$this->view->form = $frm->FrmTable();
+	}
+	public function editAction(){
+		$frm = new table_Form_FrmTableGroup();
+		$this->view->form = $frm->FrmTable();
+	}
 	
 }
 

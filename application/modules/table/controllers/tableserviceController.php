@@ -10,6 +10,10 @@ class Table_tableserviceController extends Zend_Controller_Action {
 		$frm = new table_Form_FrmTableservice();
 		$this->view->form = $frm->frm_table_service();
 	}
+	public function addAction(){
+		$frm = new table_Form_FrmTableservice();
+		$this->view->form = $frm->frm_table_service();
+	}
 	
 	
 }

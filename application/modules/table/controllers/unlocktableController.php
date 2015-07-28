@@ -10,7 +10,13 @@ class Table_unlocktableController extends Zend_Controller_Action {
 		$frm = new table_Form_Frmunlocktable();
 		$this->view->form = $frm->frm_unlock_table();
 	}
-	
-	
+	public function addAction(){
+		$frm = new table_Form_Frmunlocktable();
+		$this->view->form = $frm->frm_unlock_table();
+	}
+	public function editAction(){
+		$frm = new table_Form_Frmunlocktable();
+		$this->view->form = $frm->frm_unlock_table();
+	}
 }
 

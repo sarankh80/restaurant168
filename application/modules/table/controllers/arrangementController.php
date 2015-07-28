@@ -10,7 +10,13 @@ class Table_arrangementController extends Zend_Controller_Action {
 		$frm = new table_Form_FrmArrangement();
 		$this->view->form = $frm->frm_arrangement();
 	}
-	
-	
+	public function addAction(){
+		$frm = new table_Form_FrmArrangement();
+		$this->view->form = $frm->frm_arrangement();
+	}
+	public function editAction(){
+		$frm = new table_Form_FrmArrangement();
+		$this->view->form = $frm->frm_arrangement();
+	}
 }
 

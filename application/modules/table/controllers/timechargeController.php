@@ -10,6 +10,14 @@ class Table_timechargeController extends Zend_Controller_Action {
 		$frm = new table_Form_FrmTableTimecharge();
 		$this->view->form = $frm->frm_table_time_charge();
 	}
+	public function addAction(){
+		$frm = new table_Form_FrmTableTimecharge();
+		$this->view->form = $frm->frm_table_time_charge();
+	}
+	public function editAction(){
+		$frm = new table_Form_FrmTableTimecharge();
+		$this->view->form = $frm->frm_table_time_charge();
+	}
 	
 	
 }

@@ -11,6 +11,15 @@ class Table_indexController extends Zend_Controller_Action {
 		$this->view->form = $frm->FrmTable();
 	}
 	
+	public function addAction(){
+		$frm = new table_Form_FrmTable();
+		$this->view->form = $frm->FrmTable();
+	}
+	public function ecitAction(){
+		$frm = new table_Form_FrmTable();
+		$this->view->form = $frm->FrmTable();
+	}
+	
 	
 }
 
