@@ -41,21 +41,22 @@ $base_url = Application_Form_FrmMessage::getUrl("/");
 </div>
 <div style="height:60px;">
 </div>
-<div id="content" style="background-color: #1c90c3;">
+<div id="content">
 	<div id='marquee'>
 		<marquee behavior="scroll" direction="left" onmouseout="this.start()" onmouseover="this.stop()" scrollamount="5"><?php echo $this->data["label_animation"];?></marquee>
 	</div>
 	<table cellpadding="0" cellspacing="0" id="main">
 		<tr>
-			<td style="width: 472px;padding-left:50px;" >				
-				<img style="max-width:350px;" alt="<?php ?>" src="<?php //echo $base_url.$this->data['logo-path-name']?>">
+			<td style="width: 500px; " >		
+				<embed src="<?php echo $this->baseUrl();?>/image/rest.swf" width="500px" height="300px">		
+				<!-- <img style="max-width:350px;" alt="<?php ?>" src="<?php //echo $base_url.$this->data['logo-path-name']?>"> -->
 			</td>
 			<td valign="top" style="width: 120px">
 				<label class="lblheader"></label>
 			</td>
 			<td>
 				<div id="login">
-					<form id="frmLogin" dojoType="dijit.form.Form" method="post" action="" style="background-color: #000;">
+					<form id="frmLogin" dojoType="dijit.form.Form" method="post" action="" >
 						<script type="dojo/method" event="onSubmit">				
 								if(this.validate()) {						
 									return true;
@@ -116,37 +117,37 @@ $base_url = Application_Form_FrmMessage::getUrl("/");
 			<td>
 				<label class="textgreen footertitle f_style">អាសយដ្ឋាន​ ៖</label>
 				<dl>
-				   <lable class="f_style"><b><?php //echo $this->data['branch-add-client']?></b></lable><br />
+				   <lable class="f_style"><b><?php echo $this->data['branch-add-client']?></b></lable><br />
 				  	<?php						
-// 						$tels = explode("," , $this->data['tel-client']);						
-// 						foreach ($tels AS $i =>$tel){
-// 							echo "<span class='t_shadow' style='font-weight:bold;font-size:20px;'>".$tel."<span><br />";
-// 						}
+						$tels = explode("," , $this->data['tel-client']);						
+						foreach ($tels AS $i =>$tel){
+							echo "<span class='t_shadow' style='font-weight:bold;font-size:20px;'>".$tel."<span><br />";
+						}
 					?>	
-					<lable class='t_shadow' style='font-weight:bold; font-size:21px;'><?php //echo $this->data['client_website']?></lable><br />
-					<lable class='t_shadow' style='font-weight:bold; font-size:20px;'><?php //echo $this->data['email_client']?></lable><br />		   
+					<lable class='t_shadow' style='font-weight:bold; font-size:21px;'><?php echo $this->data['client_website']?></lable><br />
+					<lable class='t_shadow' style='font-weight:bold; font-size:20px;'><?php echo $this->data['email_client']?></lable><br />		   
 				</dl>
 				<label class="textgreen footertitle f_style">ប្រើប្រាស់ដោយ៖</label>
 				<a  style="font-weight:bold;" href="#" target="_blank"><label class="textyellow footertitle">
-					<b><?php //echo $this->data['client_company_name']?></b>
+					<b><?php echo $this->data['client_company_name']?></b>
 				</label>				
 			</td>
 			<td class="textgreenlight" valign="top" >
 				<label class="textgreen footertitle f_style">អាសយដ្ឋាន​ ៖</label>
 				<dl>
-				   <lable class="f_style"><b><?php //echo $this->data['branch_add']?></b></lable><br />
+				   <lable class="f_style"><b><?php echo $this->data['branch_add']?></b></lable><br />
 				  	<?php						
-// 						$tels = explode("," , $this->data['branch-tel']);						
-// 						foreach ($tels AS $i =>$tel){
-// 							echo "<span class='t_shadow' style='font-weight:bold;font-size:20px;'>".$tel."<span><br />";
-// 						}
+						$tels = explode("," , $this->data['branch-tel']);						
+						foreach ($tels AS $i =>$tel){
+							echo "<span class='t_shadow' style='font-weight:bold;font-size:20px;'>".$tel."<span><br />";
+						}
 					?>	
-					<lable class='t_shadow' style='font-weight:bold; font-size:21px;'><?php //echo $this->data['website']?></lable><br />
-					<lable class='t_shadow' style='font-weight:bold; font-size:20px;'><?php //echo $this->data['branch_email']?></lable><br />		   
+					<lable class='t_shadow' style='font-weight:bold; font-size:21px;'><?php echo $this->data['website']?></lable><br />
+					<lable class='t_shadow' style='font-weight:bold; font-size:20px;'><?php echo $this->data['branch_email']?></lable><br />		   
 				</dl>
 				<label class="textgreen footertitle f_style">&copy រក្សាសិទ្ធិគ្រប់យ៉ាង</label>
 				<a  style="font-weight:bold;" href="http://www.vssservice.com/" target="_blank"><label class="textyellow footertitle">
-					<b><?php //echo $this->data['power_by']?></b>
+					<b><?php echo $this->data['power_by']?></b>
 				</label>	
 				<br />
 			</td>
