@@ -1,5 +1,5 @@
 <?php 
-Class table_Form_FrmTables extends Zend_Dojo_Form {
+Class Table_Form_FrmTables extends Zend_Dojo_Form {
 	protected $tr;
 	public function init()
 	{
@@ -19,6 +19,18 @@ Class table_Form_FrmTables extends Zend_Dojo_Form {
 		$g_code1 = new Zend_Form_Element_Text('g_code1');
 		$g_code1->setAttribs(array(
 				'class'=>'form-control',
+		));
+		$est_time = new Zend_Form_Element_Text('est_time');
+		$est_time->setAttribs(array(
+				'class'=>'form-control clockface-open','style'=>'width:100px;','id'=>'clockface_2',
+		));
+		$price = new Zend_Form_Element_Text('price');
+		$price->setAttribs(array(
+				'class'=>'spinner-input form-control',
+		));
+		$max_seat = new Zend_Form_Element_Text('max_seat');
+		$max_seat->setAttribs(array(
+				'class'=>'spinner-input form-control',
 		));
 		$time = new Zend_Form_Element_Text('time');
 		$time->setAttribs(array(
@@ -55,7 +67,11 @@ Class table_Form_FrmTables extends Zend_Dojo_Form {
 		$show_description1->setAttribs(array(
 				'class'=>'form-control'
 		));
-		$show_description1->setMultiOptions($description_opt);
+		$type_of_table = new Zend_Form_Element_Select('type_of_table');
+		$type_of_table->setAttribs(array(
+				'class'=>'form-control'
+		));
+		$type_of_table->setMultiOptions($description_opt);
 		$show_description2 = new Zend_Form_Element_Select('show_description2');
 		$show_description2->setAttribs(array(
 				'class'=>'form-control'
@@ -92,6 +108,14 @@ Class table_Form_FrmTables extends Zend_Dojo_Form {
 		$active->setAttribs(array(
 				'class'=>'red',
 		));
+		$time_ck = new Zend_Form_Element_Checkbox('time_ck');
+		$time_ck->setAttribs(array(
+				'class'=>'red',
+		));
+		$dicount_ck = new Zend_Form_Element_Checkbox('dicount_ck');
+		$dicount_ck->setAttribs(array(
+				'class'=>'red',
+		));
 		$format = new Zend_Form_Element_Text('demo4');
 		$format->setAttribs(array(
 				'class'=>'form-control','id'=>"demo4",'value'=>12,'placeholder'=>'12'
@@ -119,7 +143,7 @@ Class table_Form_FrmTables extends Zend_Dojo_Form {
 		$note1->setAttribs(array(
 				'class'=>'form-control','style'=>"margin-top: 0px; margin-bottom: 0px; height: 150px;"
 		));
-		$this->addElements(array($time,$g_code,$apply,$active,$combo,$menu_code,$description,$lang_1,$lang_2,$lang_3,
+		$this->addElements(array($dicount_ck,$time_ck,$type_of_table,$est_time,$price,$max_seat,$time,$g_code,$apply,$active,$combo,$menu_code,$description,$lang_1,$lang_2,$lang_3,
 				$note1,$font_size1,$g_code1,$show_description1,$show_description2,$show_description,$background,$font_color,$font_size,$format,$setting,$arrange,$resize,$note));
 		return $this;
 		

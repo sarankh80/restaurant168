@@ -1,5 +1,5 @@
 <?php 
-class table_Bootstrap extends Zend_Application_Module_Bootstrap
+class Table_Bootstrap extends Zend_Application_Module_Bootstrap
 {
 
 }

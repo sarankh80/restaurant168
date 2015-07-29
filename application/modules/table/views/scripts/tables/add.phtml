@@ -1,6 +1,6 @@
 <?php 
 	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
-	$url = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'));
+	$url_save = $this->url(array('module'=>'table','controller'=>'tables','action'=>'add'));
 	$url_edit = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'),null,true);
 ?>
 <style>
@@ -23,7 +23,7 @@
 												<label class="col-sm-4 control-label">
 													<?php echo $tr->translate("MENU_GROUP_CODE")?> <span class="symbol required"></span>
 												</label>
-												<div class="col-sm-6">
+												<div class="col-sm-8">
 													<?php echo $form->getElement('menu_code');?>
 												</div>
 											</div>
@@ -71,7 +71,7 @@
 												Select image </span>
 												<span class="fileinput-exists">
 												Change </span>
-												<input type="file" name="...">
+												<input type="file" name="fileinput" value="">
 												</span>
 												<a href="#" class="btn red fileinput-exists" data-dismiss="fileinput">
 												Remove </a>
@@ -94,16 +94,12 @@
 															</li>
 															<li>
 																<a href="#myTab_example2" data-toggle="tab" style="color:#0A0A0B;">
-																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("LOCATION_OF_TABLE")?>
-																</a>
-															</li>
-															<li>
-																<a href="#myTab_example3" data-toggle="tab" style="color:#0A0A0B;">
 																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("FORMAT")?>
 																</a>
 															</li>
+															
 															<li>
-																<a href="#myTab_example4" data-toggle="tab" style="color:#0A0A0B;">
+																<a href="#myTab_example3" data-toggle="tab" style="color:#0A0A0B;">
 																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("NOTE")?>
 																</a>
 															</li>
@@ -135,7 +131,7 @@
 												<div class="col-sm-8">
 												<div id="spinner1">
 												<div class="input-group" >
-													<input class="spinner-input form-control" maxlength="3" readonly="" type="text" name="max_seat" >
+													<?php echo $form->getElement('max_seat');?>
 													<div class="spinner-buttons input-group-btn btn-group-vertical">
 														<button type="button" class="btn spinner-up btn-xs blue">
 														<i class="fa fa-angle-up"></i>
@@ -155,7 +151,7 @@
 											   <td>
 											    <div id="spinner3">
 												<div class="input-group" >
-													<input class="spinner-input form-control" maxlength="2" readonly="" type="text" name="price">
+													<?php echo $form->getElement('price');?>
 													<div class="spinner-buttons input-group-btn">
 														<button type="button" class="btn spinner-up default">
 														<i class="fa fa-angle-up"></i>
@@ -171,7 +167,7 @@
 											   <td >
 											          <div class="col-md-5">
 											<div class="input-group">
-												<input id="clockface_2" value="" class="form-control"  type="text" style="width:100px;">
+												<?php echo $form->getElement('est_time');?>
 												<span class="input-group-btn">
 												<button class="btn default" type="button" id="clockface_2_toggle"><i class="fa fa-clock-o"></i></button>
 												</span>
@@ -194,9 +190,9 @@
 											    <tr>
 											    <td ><?php echo $form->getElement('active');?></td><td><?php echo $tr->translate("ACTIVE")?> </td>
 											    <td class="col-sm-1"></td>
-											    <td ><?php echo $form->getElement('active');?></td><td><?php echo $tr->translate("TIME")?> </td>
+											    <td ><?php echo $form->getElement('time_ck');?></td><td><?php echo $tr->translate("TIME")?> </td>
 											    <td class="col-sm-1"></td>
-											    <td ><?php echo $form->getElement('active');?></td><td><?php echo $tr->translate("DISCOUNT")?> </td>
+											    <td ><?php echo $form->getElement('dicount_ck');?></td><td><?php echo $tr->translate("DISCOUNT")?> </td>
 											    <td class="col-sm-1"></td>
 											    <td><input type="button" class="btn btn-primary" value="ASIGN_TABLE_TYPE" name="btn_ch"/></td>
 											    </tr>
@@ -212,7 +208,7 @@
 											<?php echo $tr->translate("TYPE_OF_TABLE")?> <span class="required"> </span>
 										</div>
 								           <div class="col-sm-12">
-												<?php echo $form->getElement('note');?>
+												<?php echo $form->getElement('type_of_table');?>
 										  </div>
 						 </div>   
 					 </div>		
@@ -264,15 +260,13 @@
 												</div>
 										</div>
 							</div>			
-					<div class="form-actions" style="background-color:#fff;border-top:1px solid #fff; ">
 						<div class="row">
 							<div class="col-md-offset-3 col-md-9">
-								<button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("SAVE_NEW")?> </button>
+								<a href="<?php echo $url_save;?>"><button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("SAVE_NEW")?> </button></a>
 								<button type="submit" class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("SAVE_CLOSE")?></button>
 								<a href="<?php echo $this->baseUrl();?>/table/tables/"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
 							</div>
 						</div>
-					</div>
 				</div>
 				</form>
 			</div>

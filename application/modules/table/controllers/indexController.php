@@ -7,16 +7,16 @@ class Table_indexController extends Zend_Controller_Action {
 		defined('BASE_URL')	|| define('BASE_URL', Zend_Controller_Front::getInstance()->getBaseUrl());
 	}
 	public function indexAction(){
-		$frm = new table_Form_FrmTable();
+		$frm = new Table_Form_FrmTable();
 		$this->view->form = $frm->FrmTable();
 	}
 	
 	public function addAction(){
-		$frm = new table_Form_FrmTable();
+		$frm = new Table_Form_FrmTable();
 		$this->view->form = $frm->FrmTable();
 	}
 	public function ecitAction(){
-		$frm = new table_Form_FrmTable();
+		$frm = new Table_Form_FrmTable();
 		$this->view->form = $frm->FrmTable();
 	}
 	
