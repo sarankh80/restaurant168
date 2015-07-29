@@ -124,6 +124,17 @@ Class inventory_Form_FrmMaster extends Zend_Form {
 		$combo->setAttribs(array(
 				'class'=>'red',
 		));
+		$stock = new Zend_Form_Element_Select('stock');
+		$stock->setAttribs(array(
+				'class'=>'form-control'
+		));
+		$category_opt = array( "1"=>$this->tr->translate(""),
+				"2"=>$this->tr->translate(""));
+		$stock->setMultiOptions($category_opt);
+		$combo = new Zend_Form_Element_Checkbox('combo');
+		$combo->setAttribs(array(
+				'class'=>'red',
+		));
 		$menufuctor_id = new Zend_Form_Element_Select('menufuctor_id');
 		$menufuctor_id->setAttribs(array(
 				'class'=>'form-control'
@@ -131,6 +142,17 @@ Class inventory_Form_FrmMaster extends Zend_Form {
 		$menufuctor_opt = array( "1"=>$this->tr->translate(""),
 				"2"=>$this->tr->translate(""));
 		$menufuctor_id->setMultiOptions($menufuctor_opt);
+		$combo = new Zend_Form_Element_Checkbox('combo');
+		$combo->setAttribs(array(
+				'class'=>'red',
+		));
+		$pur_unit_id = new Zend_Form_Element_Select('pur_unit_id');
+		$pur_unit_id->setAttribs(array(
+				'class'=>'form-control'
+		));
+		$menufuctor_opt = array( "1"=>$this->tr->translate(""),
+				"2"=>$this->tr->translate(""));
+		$pur_unit_id->setMultiOptions($menufuctor_opt);
 		$combo = new Zend_Form_Element_Checkbox('combo');
 		$combo->setAttribs(array(
 				'class'=>'red',
@@ -228,7 +250,7 @@ Class inventory_Form_FrmMaster extends Zend_Form {
 				$secont_language,$selling_prict,$allowcate,$allow_so,$qty_available,$on_order,$null,$background,$product_id
 				,$suppleir,$background1,$background2,$background3,$category_id,$menufuctor_id,$background4,$background5,$unit_id,
 				$stoke_id,$small_factor,$background6,$sall_id,$background7,$barcode,$usp_code,$selling_prict,$miss_code,
-				$dealer_prict,$item_class,$comm_code,$groupe_count,$item_type));
+				$dealer_prict,$item_class,$comm_code,$groupe_count,$item_type,$stock,$pur_unit_id));
 		return $this;
 		
 	}
