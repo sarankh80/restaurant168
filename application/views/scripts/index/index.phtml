@@ -41,7 +41,7 @@ $base_url = Application_Form_FrmMessage::getUrl("/");
 </div>
 <div style="height:60px;">
 </div>
-<div id="content">
+<div id="content" style="background-color: #1c90c3;">
 	<div id='marquee'>
 		<marquee behavior="scroll" direction="left" onmouseout="this.start()" onmouseover="this.stop()" scrollamount="5"><?php echo $this->data["label_animation"];?></marquee>
 	</div>
@@ -55,7 +55,7 @@ $base_url = Application_Form_FrmMessage::getUrl("/");
 			</td>
 			<td>
 				<div id="login">
-					<form id="frmLogin" dojoType="dijit.form.Form" method="post" action="">
+					<form id="frmLogin" dojoType="dijit.form.Form" method="post" action="" style="background-color: #000;">
 						<script type="dojo/method" event="onSubmit">				
 								if(this.validate()) {						
 									return true;

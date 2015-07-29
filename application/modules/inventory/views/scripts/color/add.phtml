@@ -1,0 +1,232 @@
+<?php 
+	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
+	$url = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'));
+	$url_edit = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'),null,true);
+?>
+<div class="row">
+	<div class="col-md-12">
+		<div class="portlet box blue">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="icon-home"></i><?php echo $tr->translate("MENU_GROUP")?>
+				</div>
+			</div>
+			<div class="portlet-body form">
+				<!-- BEGIN FORM-->
+				<form id="form_sample_2" class="form-horizontal" enctype="multipart/form-data" method="post">
+					<div class="form-body">
+						<div class="alert alert-danger display-hide">
+							<button class="close" data-close="alert"></button>
+								You have some form errors. Please check below.
+						</div>
+						<div class="alert alert-success display-hide">
+							<button class="close" data-close="alert"></button>
+								Your form validation is successful!
+						</div>
+						<div class="col-sm-12" style="padding: 0;">
+												<div class="form-group col-sm-6">
+													<label class="col-sm-4 control-label">
+															<?php echo $tr->translate("ITEM_CODE")?>
+														</label>
+													<div class="col-sm-8">
+															<?php echo $form->getElement('item_code');?>
+														</div>
+		
+												</div>
+												<div class="form-group col-sm-6">
+													<div class="col-sm-12">
+															<?php echo $form->getElement('qty_handow');?>
+														</div>
+												</div>
+											</div>
+											<div class="col-sm-12" style="padding: 0;">
+												<div class="form-group col-sm-6">
+													<label class="col-sm-4 control-label">
+															<?php echo $tr->translate("WHEREHOUSE_ID")?>
+														</label>
+													<div class="col-sm-8">
+															<?php echo $form->getElement('wherehouse_id');?>
+														</div>
+		
+												</div>
+												<div class="form-group col-sm-6">
+													<div class="col-sm-12">
+															<?php echo $form->getElement('handow');?>
+														</div>
+												</div>
+											</div>
+											<div class="form-group">
+							<div class="form-group col-sm-12">
+												<div class="col-sm-12">
+													<div class="tabbable" id="tabShwo">
+														<ul id="myTab" class="nav nav-tabs">
+															<li class="active">
+																<a href="#myTab_example1" data-toggle="tab">
+																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("GENERAL_INFORMATION")?>
+																</a>
+															</li>
+															<li>
+																<a href="#myTab_example2" data-toggle="tab">
+																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("COST-USAGE")?>
+																</a>
+															</li>
+															<li>
+																<a href="#myTab_example3" data-toggle="tab">
+																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("NOTE")?>
+																</a>
+															</li>
+														</ul>
+														<div class="tab-content">
+															<div class="tab-pane fade in active" id="myTab_example1">
+																<div class="form-group">
+																 <div class="form-group col-sm-12">
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																			<?php echo $tr->translate("SUPER_ID")?>
+																	</label>
+																	<div class="col-sm-4">
+																			<?php echo $form->getElement('product_id');?>
+																	</div>
+																	<div class="col-sm-6">
+																			<?php echo $form->getElement('background');?>
+																	</div>
+																  </div>
+													    	</div>
+													    	<div class="form-group">
+																 <div class="form-group col-sm-12">
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																			<?php echo $tr->translate("PUCHASE_ID")?>
+																	</label>
+																	<div class="col-sm-4">
+																			<?php echo $form->getElement('stock_unit_id');?>
+																	</div>
+																	<div class="col-sm-6">
+																			<?php echo $form->getElement('background1');?>
+																	</div>
+																</div>
+																 
+													    	</div>
+													    	<div class="form-group">
+																 <div class="form-group col-sm-12">
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																			<?php echo $tr->translate("STOCK_UNIT_ID")?>
+																	</label>
+																	<div class="col-sm-4">
+																			<?php echo $form->getElement('puchase_id');?>
+																	</div>
+																	<div class="col-sm-6">
+																			<?php echo $form->getElement('background2');?>
+																	</div>
+																</div>
+																 
+													    	</div>
+													    	<div class="form-group">
+																 <div class="form-group col-sm-12">
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																			<?php echo $tr->translate("SALE_UNIT_ID")?>
+																	</label>
+																	<div class="col-sm-4">
+																			<?php echo $form->getElement('sale_id');?>
+																	</div>
+																	<div class="col-sm-6">
+																			<?php echo $form->getElement('background3');?>
+																	</div>
+																</div>
+																 
+													    	</div>
+													    	<div class="form-group">
+																 <div class="form-group col-sm-12">
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																			<?php echo $tr->translate("PART_NUMBER")?>
+																	</label>
+																	<div class="col-sm-10">
+																			<?php echo $form->getElement('part_number');?>
+																	</div>
+																</div>
+																 
+													    	</div>
+													    	<div class="form-group">
+																 <div class="form-group col-sm-12">
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																			<?php echo $tr->translate("LOAD_TIME")?>
+																	</label>
+																	<div class="col-sm-4">
+																			<?php echo $form->getElement('demo3');?>
+																	</div>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																			<?php echo $tr->translate("ORDER_POIN")?>
+																	</label>
+																	<div class="col-sm-4">
+																			<?php echo $form->getElement('demo3');?>
+																	</div>
+																</div>
+																 
+													    	</div>
+													    	<div class="form-group">
+																 <div class="form-group col-sm-12">
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																			<?php echo $tr->translate("ORDER_QTY")?>
+																	</label>
+																	<div class="col-sm-4">
+																			<?php echo $form->getElement('demo3');?>
+																	</div>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																			<?php echo $tr->translate("ORDER_QTY2")?>
+																	</label>
+																	<div class="col-sm-4">
+																			<?php echo $form->getElement('demo3');?>
+																	</div>
+																</div>
+																 
+													    	</div>
+															</div>
+															<div class="tab-pane fade" id="myTab_example2">
+															</div>
+															<div class="tab-pane fade" id="myTab_example3">
+															</div>
+														</div>
+													</div>
+												</div>
+									</div>
+								</div>
+						<div class="col-md-12">
+												<div class="panel-body table-responsive" id="panel-body">
+													<table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
+														<thead>
+															<tr>
+																<th>ITEM_CODE</th>
+																<th class="hidden-xs">DESCRIPTION</th>
+																<th>WHERE_HOUSE</th>
+																<th class="hidden-xs">DESCRIPTION</th>
+																<th>ONHAND</th>
+																<th class="hidden-xs">STOCK_UNITE</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td>001</td>
+																<td>Tiger Can</td>
+																<td>pp</td>
+																<td>pp</td>
+																<td>99.000</td>
+																<td>CAN</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+					
+										
+					<div class="form-actions">
+						<div class="row">
+							<div class="col-md-offset-3 col-md-9">
+								<button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("SAVE_NEW")?> </button>
+								<button type="submit" class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("SAVE_CLOSE")?></button>
+								<a href="<?php echo $this->baseUrl();?>/menu"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,246 @@
+<?php 
+	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
+	$url = $this->url(array('module'=>'inventory','controller'=>'measure','action'=>'add'));
+	$url_edit = $this->url(array('module'=>'inventory','controller'=>'measure','action'=>'add'),null,true);
+?>
+<div class="row">
+	<div class="col-md-12">
+		<div class="portlet box blue">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="icon-home"></i><?php echo $tr->translate("MENU_GROUP")?>
+				</div>
+			</div>
+			<div class="portlet-body form">
+				<!-- BEGIN FORM-->
+				<form id="form_sample_2" class="form-horizontal" enctype="multipart/form-data" method="post">
+					<div class="form-body">
+						<div class="alert alert-danger display-hide">
+							<button class="close" data-close="alert"></button>
+								You have some form errors. Please check below.
+						</div>
+						<div class="alert alert-success display-hide">
+							<button class="close" data-close="alert"></button>
+								Your form validation is successful!
+						</div>
+									<div class="panel-body">
+										<div class="col-sm-12" style="padding: 0;">
+											<div class="form-group col-sm-5">
+												<label class="col-sm-5 control-label">
+													<?php echo $tr->translate("FROM_LOCATION")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-7">
+													<?php echo $form->getElement('from_location');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-3">
+												<label class="col-sm-0 control-label">
+												</label>
+												<div class="col-sm-12">
+													<?php echo $form->getElement('from_locationl');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-4">
+												<label class="col-sm-5 control-label">
+													<?php echo $tr->translate("PROJECT")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-7">
+													<?php echo $form->getElement('lbl_project');?>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-12" style="padding: 0;">
+											<div class="form-group col-sm-5">
+												<label class="col-sm-5 control-label">
+													<?php echo $tr->translate("TO_LOCATION")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-7">
+													<?php echo $form->getElement('to_location');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-3">
+												<label class="col-sm-0 control-label">
+												</label>
+												<div class="col-sm-12">
+													<?php echo $form->getElement('to_locations');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-4">
+												<label class="col-sm-5 control-label">
+													<?php echo $tr->translate("SESSION")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-7">
+													<?php echo $form->getElement('lbl_sessiont');?>
+												</div>
+											</div>
+										</div>
+										</div>
+										<div class="col-sm-12" style="padding: 0;margin-top: 100px;">
+											<div class="form-group col-sm-12">
+												<div class="col-sm-12">
+													<div class="tabbable" style="margin-top: -100px;" id="tabShwo">
+														<ul id="myTab" class="nav nav-tabs">
+															<li class="active">
+																<a href="#myTab_example1" data-toggle="tab">
+																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("ITEM_DETAILS")?>
+																</a>
+															</li>
+															<li>
+																<a href="#myTab_example4" data-toggle="tab">
+																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("GENERAL_INFORMATION")?>
+																</a>
+															</li>
+														</ul>
+														<div class="tab-content">
+															<div class="tab-pane fade in active" id="myTab_example1" class="col-sm-12">
+															<div class="form-group">
+																<div class="col-sm-12" style="padding: 0;">
+										                          	<div class="form-group col-sm-6">
+											                          	<label class="col-sm-4 control-label">
+												                        	<?php echo $tr->translate("ITEM_CODE")?> <span class="symbol required"></span>
+												                        </label>
+												                     <div class="col-sm-8">
+													                        <?php echo $form->getElement('item_code');?>
+												                     </div>
+											                         </div>
+											                         <div class="form-group col-sm-6">
+												                          <label class="col-sm-0 control-label">
+												                          </label>
+												                      <div class="col-sm-12">
+													                         <?php echo $form->getElement('teme_codes');?>
+												                      </div>
+											                         </div>
+										                         </div>
+										                         <div class="col-sm-12" style="padding: 0;">
+										                          	<div class="form-group col-sm-6">
+											                          	<label class="col-sm-4 control-label">
+												                        	<?php echo $tr->translate("BARCODE")?>
+												                        </label>
+												                     <div class="col-sm-8">
+													                        <?php echo $form->getElement('bar_code');?>
+												                     </div>
+											                         </div>
+											                         <div class="form-group col-sm-6">
+												                          <label class="col-sm-4 control-label">
+													                         <?php echo $tr->translate("UNIT_COST")?> <span class="symbol required"></span>
+												                          </label>
+												                      <div class="col-sm-8">
+													                         <?php echo $form->getElement('unit_cost');?>
+												                      </div>
+											                         </div>
+										                         </div>
+										                         <div class="col-sm-12" style="padding: 0;">
+										                          	<div class="form-group col-sm-6">
+											                          	<label class="col-sm-4 control-label">
+												                        	<?php echo $tr->translate("Qty")?> <span class="symbol required"></span>
+												                        </label>
+												                     <div class="col-sm-8">
+													                        <?php echo $form->getElement('demo3');?>
+												                     </div>
+											                         </div>
+											                         <div class="form-group col-sm-6">
+												                          <label class="col-sm-4 control-label">
+													                         <?php echo $tr->translate("UNIT_ID")?> <span class="symbol required"></span>
+												                          </label>
+												                      <div class="col-sm-8">
+													                         <?php echo $form->getElement('unit_id');?>
+												                      </div>
+											                         </div>
+										                         </div>
+										                         <div class="col-sm-12" style="padding: 0;">
+										                          	<div class="form-group col-sm-6">
+											                          	<label class="col-sm-4 control-label">
+												                        	<?php echo $tr->translate("SERIAL")?># <span class="symbol required"></span>
+												                        </label>
+												                     <div class="col-sm-8">
+													                        <?php echo $form->getElement('serial');?>
+												                     </div>
+											                         </div>
+											                         <div class="form-group col-sm-6">
+											                          	<label class="col-sm-4 control-label">
+												                        	<?php echo $tr->translate("LOT_NO")?># <span class="symbol required"></span>
+												                        </label>
+												                     <div class="col-sm-8">
+													                        <?php echo $form->getElement('lot_no');?>
+												                     </div>
+											                         </div>
+										                         </div>
+										                         <div class="col-sm-12" style="padding: 0;">
+										                          	<div class="form-group col-sm-6">
+											                          	<label class="col-sm-4 control-label">
+												                        	<?php echo $tr->translate("WO")?># <span class="symbol required"></span>
+												                        </label>
+												                     <div class="col-sm-8">
+													                        <?php echo $form->getElement('wo');?>
+												                     </div>
+											                         </div>
+										                         </div>
+										                          <div class="col-sm-12" style="padding: 0;">
+										                          	<div class="form-group col-sm-3">
+											                          	<label class="col-sm-5 control-label">
+												                        	<?php echo $tr->translate("ON_HAND")?> <span class="symbol required"></span>
+												                        </label>
+												                     <div class="col-sm-7">
+													                        <?php echo $form->getElement('on_hand');?>
+												                     </div>
+											                         </div>
+											                         <div class="form-group col-sm-3">
+											                          	<label class="col-sm-5 control-label">
+												                        	<?php echo $tr->translate("ALLOCATEDS")?>
+												                        </label>
+												                     <div class="col-sm-7">
+													                        <?php echo $form->getElement('allocation');?>
+												                     </div>
+											                         </div>
+											                          <div class="form-group col-sm-4">
+											                          	<label class="col-sm-5 control-label">
+												                        	<?php echo $tr->translate("AVAIABLE")?> <span class="symbol required"></span>
+												                        </label>
+												                     <div class="col-sm-7">
+													                        <?php echo $form->getElement('avaiable');?>
+													                        
+												                     </div>
+											                         </div>
+											                         <div class="form-group col-sm-2">
+												                     <div class="col-sm-12">
+													                        <?php echo $form->getElement('avaiables');?>
+												                     </div>
+											                         </div>
+											          <div class="col-md-12" style="padding: 0px;">
+											           <div class="col-md-6"></div>
+										                <div class="col-md-6" style="float: right;padding: 0px;margin-left: 50px;">
+										                     <button type="submit" name="btn_add_line" class="btn btn-primary">ADD_LINE</button>
+										                     <button type="submit" name="btn_edit_line" class="btn btn-primary">EDIT_LINE</button>
+										                     <button type="submit" name="btn_delete_line" class="btn btn-primary">DELETE_LINE</button>
+										                     <button type="submit" name="btn_cancel_line" class="btn btn-primary">CANCEL_LINE</button>
+								                        </div>		
+										             </div>
+										                         </div>
+															</div>
+															</div>
+															<div class="tab-pane fade" id="myTab_example4">
+																<div class="form-group">																	<br />
+																	<div class="col-sm-12">
+																		<?php echo $form->getElement('note');?>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+					<div class="form-actions">
+						<div class="row">
+							<div class="col-md-offset-3 col-md-9">
+								<button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("SAVE_NEW")?> </button>
+								<button type="submit" class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("SAVE_CLOSE")?></button>
+								<a href="<?php echo $this->baseUrl();?>/menu"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

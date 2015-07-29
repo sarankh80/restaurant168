@@ -1,0 +1,355 @@
+<?php 
+	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
+	$url = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'));
+	$url_edit = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'),null,true);
+?>
+<div class="row">
+	<div class="col-md-12">
+		<div class="portlet box blue">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="icon-home"></i><?php echo $tr->translate("MENU_GROUP")?>
+				</div>
+			</div>
+			<div class="portlet-body form">
+				<!-- BEGIN FORM-->
+				<form id="form_sample_2" class="form-horizontal" enctype="multipart/form-data" method="post">
+					<div class="form-body">
+						<div class="alert alert-danger display-hide">
+							<button class="close" data-close="alert"></button>
+								You have some form errors. Please check below.
+						</div>
+						<div class="alert alert-success display-hide">
+							<button class="close" data-close="alert"></button>
+								Your form validation is successful!
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-2">
+							<?php echo $tr->translate("SUPPLIER_ID")?><span class="required"></span>
+							</label>
+							<div class="col-md-4">
+								<div class="input-icon right"><i class="fa"></i>
+									<?php echo $form->getElement('supplier_id');?>
+								</div>
+							</div>
+							<label class="control-label col-md-2">
+							<?php echo $tr->translate("CONTACT_NAME")?><span class="required"></span>
+							</label>
+							<div class="col-md-4">
+								<div class="input-icon right"><i class="fa"></i>
+									<?php echo $form->getElement('contact_name');?>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-2">
+							<?php echo $tr->translate("INACTIVE")?> 
+							<span class="required">
+								 </span>
+							</label>
+							<div class="col-md-4">
+								<div class="input-icon right">
+									<i class="fa"></i>
+									<?php echo $form->getElement('inactive');?>
+								</div>
+							</div>
+							<label class="control-label col-md-2">
+							<?php echo $tr->translate("DEACTIVE")?> 
+							<span class="required">
+								 </span>
+							</label>
+							<div class="col-md-4">
+								<div class="input-icon right">
+									<i class="fa"></i>
+									<?php echo $form->getElement('deactive');?>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-2">
+							<?php echo $tr->translate("CORENT_BRAND")?><span class="required"></span>
+							</label>
+							<div class="col-md-4">
+								<div class="input-icon right"><i class="fa"></i>
+									<?php echo $form->getElement('corent_brand');?>
+								</div>
+							</div>
+							<label class="control-label col-md-2">
+							<?php echo $tr->translate("YTD_PURCHASE")?><span class="required"></span>
+							</label>
+							<div class="col-md-4">
+								<div class="input-icon right"><i class="fa"></i>
+									<?php echo $form->getElement('ytd_purchase');?>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-2">
+							<?php echo $tr->translate("SECONT_LANGUAGE")?> 
+							<span class="required">
+								 </span>
+							</label>
+							<div class="col-md-4">
+								<div class="input-icon right">
+									<i class="fa"></i>
+									<?php echo $form->getElement('secont_language');?>
+								</div>
+							</div>
+							<label class="control-label col-md-2">
+							<?php echo $tr->translate("OPEN_PO")?> 
+							<span class="required">
+								 </span>
+							</label>
+							<div class="col-md-4">
+								<div class="input-icon right">
+									<i class="fa"></i>
+									<?php echo $form->getElement('open_po');?>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-2">
+							<?php echo $tr->translate("WEBSITE_PHONE")?><span class="required"></span>
+							</label>
+							<div class="col-md-4">
+								<div class="input-icon right"><i class="fa"></i>
+									<?php echo $form->getElement('website_phone');?>
+								</div>
+							</div>
+							<label class="control-label col-md-2">
+							<?php echo $tr->translate("AVAILABLE_CREDITE")?><span class="required"></span>
+							</label>
+							<div class="col-md-4">
+								<div class="input-icon right"><i class="fa"></i>
+									<?php echo $form->getElement('available_credite');?>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-2">
+							<?php echo $tr->translate("BACKGROUND")?><span class="required"></span>
+							</label>
+							<div class="col-md-4">
+								<div class="input-icon right"><i class="fa"></i>
+									<?php echo $form->getElement('background');?>
+								</div>
+							</div>
+							<label class="control-label col-md-2">
+							<?php echo $tr->translate("RESIZE")?><span class="required"></span>
+							</label>
+							<div class="col-md-4">
+								<div class="input-icon right"><i class="fa"></i>
+									<?php echo $form->getElement('resize');?>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-2"><?php echo $tr->translate("COMPANY")?>  <span class="required">
+								 </span>
+							</label>
+							<div class="col-md-4">
+								<div class="input-icon right">
+									<i class="fa"></i>
+									<?php echo $form->getElement('company');?>
+								</div>
+							</div>
+							<label class="control-label col-md-2"><?php echo $tr->translate("IMAGE")?> <span class="required">
+								 </span>
+							</label>
+							<div class="col-md-4">
+								<div class="form-group last">
+									<div class="col-md-12">
+										<div class="fileinput fileinput-new" data-provides="fileinput">
+											<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+												<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
+											</div>
+											<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+											</div>
+											<div>
+												<span class="btn default btn-file">
+												<span class="fileinput-new">
+												Select image </span>
+												<span class="fileinput-exists">
+												Change </span>
+												<input type="file" name="...">
+												</span>
+												<a href="#" class="btn red fileinput-exists" data-dismiss="fileinput">
+												Remove </a>
+											</div>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="form-group col-sm-12">
+												<div class="col-sm-12">
+													<div class="tabbable" id="tabShwo">
+														<ul id="myTab" class="nav nav-tabs">
+															<li class="active">
+																<a href="#myTab_example1" data-toggle="tab">
+																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("GENERAL_INFORMATION")?>
+																</a>
+															</li>
+															<li>
+																<a href="#myTab_example2" data-toggle="tab">
+																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("PUCHASE_INFORMATION")?>
+																</a>
+															</li>
+															<li>
+																<a href="#myTab_example3" data-toggle="tab">
+																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("SUPPLIER_HESTORY")?>
+																</a>
+															</li>
+															<li>
+																<a href="#myTab_example4" data-toggle="tab">
+																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("DETAILE_HISORY")?>
+																</a>
+															</li>
+															<li>
+																<a href="#myTab_example5" data-toggle="tab">
+																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("NOTE")?>
+																</a>
+															</li>
+														</ul>
+														<div class="tab-content">
+															<div class="tab-pane fade in active" id="myTab_example1">
+																<div class="form-group">
+																	<label class="control-label col-md-2">
+																	<?php echo $tr->translate("PHONE2")?><span class="required"></span>
+																	</label>
+																	<div class="col-md-4">
+																		<div class="input-icon right"><i class="fa"></i>
+																			<?php echo $form->getElement('phone2');?>
+																		</div>
+																	</div>
+																	<label class="control-label col-md-2">
+																	<?php echo $tr->translate("TITLE")?><span class="required"></span>
+																	</label>
+																	<div class="col-md-4">
+																		<div class="input-icon right"><i class="fa"></i>
+																			<?php echo $form->getElement('title');?>
+																		</div>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="control-label col-md-2">
+																	<?php echo $tr->translate("ADDRESS1")?><span class="required"></span>
+																	</label>
+																	<div class="col-md-10">
+																		<div class="input-icon right"><i class="fa"></i>
+																			<?php echo $form->getElement('address1');?>
+																		</div>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="control-label col-md-2">
+																	<?php echo $tr->translate("ADDRESS2")?><span class="required"></span>
+																	</label>
+																	<div class="col-md-10">
+																		<div class="input-icon right"><i class="fa"></i>
+																			<?php echo $form->getElement('address2');?>
+																		</div>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="control-label col-md-2">
+																	<?php echo $tr->translate("CITY")?><span class="required"></span>
+																	</label>
+																	<div class="col-md-4">
+																		<div class="input-icon right"><i class="fa"></i>
+																			<?php echo $form->getElement('city');?>
+																		</div>
+																	</div>
+																	<label class="control-label col-md-2">
+																	<?php echo $tr->translate("COUNTRY")?><span class="required"></span>
+																	</label>
+																	<div class="col-md-4">
+																		<div class="input-icon right"><i class="fa"></i>
+																			<?php echo $form->getElement('country');?>
+																		</div>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="control-label col-md-2">
+																	<?php echo $tr->translate("FAX")?><span class="required"></span>
+																	</label>
+																	<div class="col-md-4">
+																		<div class="input-icon right"><i class="fa"></i>
+																			<?php echo $form->getElement('fax');?>
+																		</div>
+																	</div>
+																	<label class="control-label col-md-2">
+																	<?php echo $tr->translate("FAX2")?><span class="required"></span>
+																	</label>
+																	<div class="col-md-4">
+																		<div class="input-icon right"><i class="fa"></i>
+																			<?php echo $form->getElement('fax2');?>
+																		</div>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="control-label col-md-2">
+																	<?php echo $tr->translate("EMAIL")?><span class="required"></span>
+																	</label>
+																	<div class="col-md-4">
+																		<div class="input-icon right"><i class="fa"></i>
+																			<?php echo $form->getElement('email');?>
+																		</div>
+																	</div>
+																	<label class="control-label col-md-2">
+																	<?php echo $tr->translate("WEBPAGE")?><span class="required"></span>
+																	</label>
+																	<div class="col-md-4">
+																		<div class="input-icon right"><i class="fa"></i>
+																			<?php echo $form->getElement('webpage');?>
+																		</div>
+																	</div>
+																</div>
+															</div>
+																
+															<div class="tab-pane fade" id="myTab_example2">
+															</div>
+															<div class="tab-pane fade" id="myTab_example3">
+															</div>
+															<div class="tab-pane fade" id="myTab_example4">
+															</div>
+															<div class="tab-pane fade" id="myTab_example5">
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+						                </div>
+									</div>
+											<div class="col-md-12">
+												<div class="panel-body table-responsive" id="panel-body">
+													<table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
+														<thead>
+															<tr>
+																<th>ITEM_CODE</th>
+																<th class="hidden-xs">DESCRIPTION</th>
+																<th>SUPPLIE_ID</th>
+																<th class="hidden-xs">PART_NUMBER</th>
+															</tr>
+														</thead>
+														<tbody>
+														</tbody>
+													</table>
+												</div>
+											</div>
+					<div class="form-actions">
+						<div class="row">
+							<div class="col-md-offset-3 col-md-9">
+								<button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("SAVE_NEW")?> </button>
+								<button type="submit" class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("SAVE_CLOSE")?></button>
+								<a href="<?php echo $this->baseUrl();?>/menu"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
