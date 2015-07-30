@@ -90,6 +90,29 @@ class Application_Model_DbTable_DbGlobal extends Zend_Db_Table_Abstract
     	}
     
     }
+    public function getVewOptoinTypeByType($type=null,$option = null,$limit =null,$first_option =null){
+    	$db = $this->getAdapter();
+    	$sql="SELECT id,key_code,CONCAT(name_kh,'-',name_en) AS name_en ,displayby FROM `ln_view` WHERE status =1 ";//just concate
+    	if($type!=null){
+    		$sql.=" AND type = $type ";
+    	}
+    	if($limit!=null){
+    		$sql.=" LIMIT $limit ";
+    	}
+    	$rows = $db->fetchAll($sql);
+    	if($option!=null){
+    		$options=array();
+    		if($first_option==null){//if don't want to get first select
+    			$options=array(''=>"-----ជ្រើសរើស-----",-1=>"Add New",);
+    		}
+    		if(!empty($rows))foreach($rows AS $row){
+    			$options[$row['key_code']]=$row['name_en'];//($row['displayby']==1)?$row['name_kh']:$row['name_en'];
+    		}
+    		return $options;
+    	}else{
+    		return $rows;
+    	}
+    }
    
 }
 ?>
