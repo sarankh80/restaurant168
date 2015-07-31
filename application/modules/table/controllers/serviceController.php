@@ -7,7 +7,7 @@ class Table_serviceController extends Zend_Controller_Action {
 		defined('BASE_URL')	|| define('BASE_URL', Zend_Controller_Front::getInstance()->getBaseUrl());
 	}
 	public function indexAction(){
-		$frm = new table_Form_FrmApplyService();
+		$frm = new Table_Form_FrmApplyService();
 		$this->view->form = $frm->frm_apply_service();
 	}
 	

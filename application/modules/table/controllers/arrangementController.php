@@ -7,15 +7,15 @@ class Table_arrangementController extends Zend_Controller_Action {
 		defined('BASE_URL')	|| define('BASE_URL', Zend_Controller_Front::getInstance()->getBaseUrl());
 	}
 	public function indexAction(){
-		$frm = new table_Form_FrmArrangement();
+		$frm = new Table_Form_FrmArrangement();
 		$this->view->form = $frm->frm_arrangement();
 	}
 	public function addAction(){
-		$frm = new table_Form_FrmArrangement();
+		$frm = new Table_Form_FrmArrangement();
 		$this->view->form = $frm->frm_arrangement();
 	}
 	public function editAction(){
-		$frm = new table_Form_FrmArrangement();
+		$frm = new Table_Form_FrmArrangement();
 		$this->view->form = $frm->frm_arrangement();
 	}
 }

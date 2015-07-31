@@ -7,15 +7,15 @@ class Table_unlocktableController extends Zend_Controller_Action {
 		defined('BASE_URL')	|| define('BASE_URL', Zend_Controller_Front::getInstance()->getBaseUrl());
 	}
 	public function indexAction(){
-		$frm = new table_Form_Frmunlocktable();
+		$frm = new Table_Form_Frmunlocktable();
 		$this->view->form = $frm->frm_unlock_table();
 	}
 	public function addAction(){
-		$frm = new table_Form_Frmunlocktable();
+		$frm = new Table_Form_Frmunlocktable();
 		$this->view->form = $frm->frm_unlock_table();
 	}
 	public function editAction(){
-		$frm = new table_Form_Frmunlocktable();
+		$frm = new Table_Form_Frmunlocktable();
 		$this->view->form = $frm->frm_unlock_table();
 	}
 }

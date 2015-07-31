@@ -3,6 +3,13 @@
 	$url = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'));
 	$url_edit = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'),null,true);
 ?>
+<style>
+.form-horizontal .control-label {
+    margin-bottom: 0px;
+    text-align: left;
+    padding-left:  30px;
+}
+</style>
 <div class="row">
 	<div class="col-md-12">
 		<div class="portlet box blue">
@@ -204,14 +211,12 @@
 											</div>
 										</div>
 					</div>
-					<div class="form-actions">
 						<div class="row">
 							<div class="col-md-offset-3 col-md-9">
 								<button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("SAVE_NEW")?> </button>
 								<button type="submit" class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("SAVE_CLOSE")?></button>
 								<a href="<?php echo $this->baseUrl();?>/table/index/"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
 							</div>
-						</div>
 					</div>
 				</form>
 			</div>

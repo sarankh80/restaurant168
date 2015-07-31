@@ -7,15 +7,15 @@ class Table_tabletypeController extends Zend_Controller_Action {
 		defined('BASE_URL')	|| define('BASE_URL', Zend_Controller_Front::getInstance()->getBaseUrl());
 	}
 	public function indexAction(){
-		$frm = new table_Form_FrmTableType();
+		$frm = new Table_Form_FrmTableType();
 		$this->view->form = $frm->Frm_table_type();
 	}
 	public function addAction(){
-		$frm = new table_Form_FrmTableType();
+		$frm = new Table_Form_FrmTableType();
 		$this->view->form = $frm->Frm_table_type();
 	}
 	public function editAction(){
-		$frm = new table_Form_FrmTableType();
+		$frm = new Table_Form_FrmTableType();
 		$this->view->form = $frm->Frm_table_type();
 	}
 	

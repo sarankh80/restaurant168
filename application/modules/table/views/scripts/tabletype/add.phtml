@@ -3,6 +3,13 @@
 	$url = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'));
 	$url_edit = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'),null,true);
 ?>
+<style>
+.form-horizontal .control-label {
+    margin-bottom: 0px;
+    text-align: left;
+    padding-left:  30px;
+}
+</style>
 <div class="row">
 	<div class="col-md-12">
 		<div class="portlet box blue">
@@ -101,7 +108,7 @@
 								</div>
 							</div>
 						</div>
-					<div class="col-sm-6" style="padding: 0px;margin-top: -150px;">
+					<div class="col-sm-6" style="padding: 0px;margin-top: -170px;">
 										     <div class="col-sm-2">
 										          <label class="col-sm-2 control-label"><?php echo $tr->translate("NOTE")?></label>
 										     </div>
@@ -110,7 +117,6 @@
 										     </div>
 										</div>
 					</div>
-					<div class="form-actions">
 						<div class="row">
 							<div class="col-md-offset-3 col-md-9">
 								<button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("SAVE_NEW")?> </button>
@@ -118,7 +124,6 @@
 								<a href="<?php echo $this->baseUrl();?>/table/tabletype/"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
 							</div>
 						</div>
-					</div>
 				</form>
 			</div>
 		</div>

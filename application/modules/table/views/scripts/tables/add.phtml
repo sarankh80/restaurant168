@@ -4,7 +4,9 @@
 	$url_edit = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'),null,true);
 ?>
 <style>
-      
+.form-horizontal .control-label {
+       text-align: left; 
+}
 </style>
 <div class="row">
 	<div class="col-md-12">
@@ -18,17 +20,17 @@
 				<!-- BEGIN FORM-->
 				<form id="form_sample_2" class="form-horizontal" enctype="multipart/form-data" method="post" >
 				<div class="form-body">
-				     <div  style="margin-left: -90px;" class="col-sm-10">
+				     <div  class="col-sm-9"  >
 											<div class="form-group col-sm-12">
-												<label class="col-sm-4 control-label">
-													<?php echo $tr->translate("MENU_GROUP_CODE")?> <span class="symbol required"></span>
+												<label class="col-sm-4 control-label" >
+													<?php echo $tr->translate("TABLE_CODE")?> <span class="symbol required"></span>
 												</label>
 												<div class="col-sm-8">
 													<?php echo $form->getElement('menu_code');?>
 												</div>
 											</div>
 											<div class="form-group col-sm-12">
-												<label class="col-sm-4 control-label">
+												<label class="col-sm-4 control-label" >
 													<?php echo $tr->translate("DESCRIPTION")?> <span class="symbol required"></span>
 												</label>
 												<div class="col-sm-8">
@@ -52,7 +54,7 @@
 												</div>
 											</div>
 				     </div>
-					 <div style="" class="col-sm-2" >
+					 <div style="" class="col-sm-3" >
 					             <div >
 											<label class="control-label col-md-2"><?php echo $tr->translate("IMAGE")?> <span class="required">
 								 </span>
@@ -107,149 +109,171 @@
 								<div class="tab-content">
 									<div class="tab-pane fade in active" id="myTab_example1" class="col-sm-12">
 										<div class="form-group">
-							               <div  style="margin-left: -90px;" class="col-sm-8">
-											<div class="form-group col-sm-12">
-												<label class="col-sm-4 control-label">
-													<?php echo $tr->translate("GROUP_CODE")?> <span class="symbol required"></span>
-												</label>
-												<div class="col-sm-8">
+							                <label class="control-label col-md-2"><?php echo $tr->translate("GROUP_CODE")?> <span class="required">
+												</span>
+											</label>
+											<div class="col-md-4">
+												<div class="input-icon right">
+													<i class="fa"></i>
 													<?php echo $form->getElement('g_code');?>
 												</div>
 											</div>
-											<div class="form-group col-sm-12" >
-												<label class="col-sm-4 control-label">
-													<?php echo $tr->translate("SHOW_DESCRIPTION")?> <span class="symbol required"></span>
-												</label>
-												<div class="col-sm-8">
+											<label class="control-label col-md-2"><?php echo $tr->translate("TYPE_OF_TABLE")?> <span class="required">
+												</span>
+											</label>
+											<div class="col-md-4">
+												<div class="input-icon right">
+													<i class="fa"></i>
+													<?php echo $form->getElement('type_of_table');?>
+												</div>
+											</div>
+                                  	</div>
+                                  	<div class="form-group">
+							                <label class="control-label col-md-2"><?php echo $tr->translate("SHOW_DESCRIPTION")?> <span class="required">
+												</span>
+											</label>
+											<div class="col-md-4">
+												<div class="input-icon right">
+													<i class="fa"></i>
 													<?php echo $form->getElement('show_description1');?>
 												</div>
 											</div>
-											<div class="form-group col-sm-12">
-												<label class="col-sm-4 control-label">
-													<?php echo $tr->translate("MAX_SEAT")?> <span class="symbol required"></span>
-												</label>
-												<div class="col-sm-8">
-												<div id="spinner1">
-												<div class="input-group" >
-													<?php echo $form->getElement('max_seat');?>
-													<div class="spinner-buttons input-group-btn btn-group-vertical">
-														<button type="button" class="btn spinner-up btn-xs blue">
-														<i class="fa fa-angle-up"></i>
-														</button>
-														<button type="button" class="btn spinner-down btn-xs blue">
-														<i class="fa fa-angle-down"></i>
-														</button>
-													</div>
-												</div>
-											    </div>
-												</div>
-											</div>
-											<div class="form-group col-sm-12" style="margin-left:90px;">
-											<table style="width: 80%;margin-left: 30px;">
-											   <tr>
-											   <td class="col-sm-2"><?php echo $tr->translate("PRICE")?></td>
-											   <td>
-											    <div id="spinner3">
-												<div class="input-group" >
-													<?php echo $form->getElement('price');?>
-													<div class="spinner-buttons input-group-btn">
-														<button type="button" class="btn spinner-up default">
-														<i class="fa fa-angle-up"></i>
-														</button>
-														<button type="button" class="btn spinner-down default">
-														<i class="fa fa-angle-down"></i>
-														</button>
-													</div>
-												  </div>
-											     </div>
-												</td>
-											   <td class="col-sm-2"><?php echo $tr->translate("EST_TIME")?></td>
-											   <td >
-											          <div class="col-md-5">
-											<div class="input-group">
-												<?php echo $form->getElement('est_time');?>
-												<span class="input-group-btn">
-												<button class="btn default" type="button" id="clockface_2_toggle"><i class="fa fa-clock-o"></i></button>
+											 <label class="control-label col-md-2"><?php echo $tr->translate("PRICE")?> <span class="required">
 												</span>
-											</div>
-										</div>
-											   </td>
-											   </tr>
-											</table>
-											</div>
-											<div class="form-group col-sm-12">
-												<label class="col-sm-4 control-label">
-													<?php echo $tr->translate("APPLY_TO_COMPANY")?> <span class="symbol required"></span>
-												</label>
-												<div class="col-sm-8">
-													<?php echo $form->getElement('show_description2');?>
+											</label>
+											<div class="col-md-4">
+												<div class="input-icon right">
+													<i class="fa"></i>
+													<div id="spinner1">
+														<div class="input-group ">
+														    <?php echo $form->getElement('price');?>
+															<div class="spinner-buttons input-group-btn btn-group-vertical">
+																<button type="button" class="btn spinner-up btn-xs blue">
+																<i class="fa fa-angle-up"></i>
+																</button>
+																<button type="button" class="btn spinner-down btn-xs blue">
+																<i class="fa fa-angle-down"></i>
+																</button>
+															</div>
+														</div>
+													</div>
 												</div>
 											</div>
-											<div class="form-group col-sm-12" style="margin-left:90px;">
-											 <table>
-											    <tr>
-											    <td ><?php echo $form->getElement('active');?></td><td><?php echo $tr->translate("ACTIVE")?> </td>
-											    <td class="col-sm-1"></td>
-											    <td ><?php echo $form->getElement('time_ck');?></td><td><?php echo $tr->translate("TIME")?> </td>
-											    <td class="col-sm-1"></td>
-											    <td ><?php echo $form->getElement('dicount_ck');?></td><td><?php echo $tr->translate("DISCOUNT")?> </td>
-											    <td class="col-sm-1"></td>
-											    <td><input type="button" class="btn btn-primary" value="ASIGN_TABLE_TYPE" name="btn_ch"/></td>
-											    </tr>
-											 </table>
+                                  	</div>
+                                  	<div class="form-group">
+							                <label class="control-label col-md-2"><?php echo $tr->translate("MAX_SEAT")?> <span class="required">
+												</span>
+											</label>
+											<div class="col-md-4">
+												<div class="input-icon right">
+													<i class="fa"></i>
+													<div id="spinner3">
+														<div class="input-group" >
+															<?php echo $form->getElement('max_seat');?>
+															<div class="spinner-buttons input-group-btn">
+																<button type="button" class="btn spinner-up default">
+																<i class="fa fa-angle-up"></i>
+																</button>
+																<button type="button" class="btn spinner-down default">
+																<i class="fa fa-angle-down"></i>
+																</button>
+															</div>
+														</div>
+													</div>
+												</div>
 											</div>
-				                        </div>
-					                    <div style="" class="col-sm-4" >
-					                    <div class="col-sm-12">
-													<?php echo $form->getElement('g_code1');?>
-										</div>
-					                    <div class="col-md-12" >
-					                    <div class="col-sm-12" style="margin-top: 20px;">
-											<?php echo $tr->translate("TYPE_OF_TABLE")?> <span class="required"> </span>
-										</div>
-								           <div class="col-sm-12">
-												<?php echo $form->getElement('type_of_table');?>
-										  </div>
-						 </div>   
-					 </div>		
-				</div>
+											<label class="control-label col-md-2"><?php echo $tr->translate("EST_TIME")?> <span class="required">
+												</span>
+											</label>
+											<div class="col-md-4">
+												<div class="input-icon right">
+													<i class="fa"></i>
+													<div class="col-md-14">
+														<div class="input-group">
+														    <?php echo $form->getElement('est_time');?>
+															<span class="input-group-btn">
+															<button class="btn default" type="button" id="clockface_2_toggle"><i class="fa fa-clock-o"></i></button>
+															</span>
+														</div>
+													</div>
+												</div>
+											</div>
+                                  	</div>
+                                  	<div class="form-group">
+                                  	</div>
+                                  	<div class="form-group">
+							                <label class="control-label col-md-2"><?php echo $tr->translate("APPLY_TO_COMPANY")?> <span class="required">
+												</span>
+											</label>
+											<div class="col-md-4">
+												<div class="input-icon right">
+													<i class="fa"></i>
+													<?php echo $form->getElement('apply_to_company');?>
+												</div>
+											</div>
+                                  	</div>
+                                  	<div class="form-group">
+                                  	  <div class=" col-md-6">
+										           <div class="col-md-1"><?php echo $form->getElement('active');?></div>
+										           <label class="col-md-3"><?php echo $tr->translate("ACTIVE")?></label>
+										           <div class="col-md-1"><?php echo $form->getElement('time_ck');?></div>
+										           <label class="col-md-2"><?php echo $tr->translate("TIME")?></label>
+										           <div class="col-md-1"><?php echo $form->getElement('dicount_ck');?></div>
+										          <label class="col-md-3"><?php echo $tr->translate("DICOUNT")?></label>
+										          <div class="col-md-1"><button type="submit" class="btn btn-primary" ><?php echo $tr->translate("ASSING_TABLE_TYPE")?></button></div>
+									   </div>
+                                  	</div>
 			</div>
 					<div class="tab-pane fade" id="myTab_example2">
-								<div class="form-group">
-												<label class="col-sm-4 control-label" for="form-field-1">
-														<?php echo $tr->translate("FORMART")?>
-												</label>
-														<div class="col-sm-8">
-																		<?php echo $form->getElement('demo4');?>
+											                   <div class="form-group">
+													                 <label class="col-sm-2 control-label" for="form-field-1">
+																       <?php echo $tr->translate("BACK_COLOR")?>
+														       	    </label>
+																   <div class="col-md-4">
+																		<?php echo $form->getElement('backgroun_color');?>
 																	</div>
 																</div>
 																<div class="form-group">
-																	<label class="col-sm-4 control-label" for="form-field-1">
-																		<?php echo $tr->translate("SETTING")?>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("FONT_COLOR")?>
 																	</label>
-																	<div class="col-sm-8">
-																		<?php echo $form->getElement('setting');?>                                                
+																	<div class="col-md-4">
+																		<?php echo $form->getElement('font_color');?> 
 																	</div>
 																</div>
 																<div class="form-group">
-																	<label class="col-sm-4 control-label" for="form-field-1">
-																		<?php echo $tr->translate("ARRANGE")?>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("FONT_SIZE")?>
 																	</label>
-																	<div class="col-sm-8">
-																		<?php echo $form->getElement('arrange');?>                                                
+																	<div class="col-sm-4">
+																		<div id="spinner4">
+																			<div class="input-group" >
+																				<div class="spinner-buttons input-group-btn">
+																					<button type="button" class="btn spinner-up blue">
+																					<i class="fa fa-plus"></i>
+																					</button>
+																				</div>
+																				<?php echo $form->getElement('font_size');?>
+																				<div class="spinner-buttons input-group-btn">
+																					<button type="button" class="btn spinner-down red">
+																					<i class="fa fa-minus"></i>
+																					</button>
+																				</div>
+																			</div>
+																		</div>  
 																	</div>
 																</div>
 																<div class="form-group">
-																	<label class="col-sm-4 control-label" for="form-field-1">
+																	<label class="col-sm-2 control-label" for="form-field-1">
 																		<?php echo $tr->translate("RESIZE")?>
 																	</label>
-																	<div class="col-sm-8">
+																	<div class="col-sm-6">
 																		<?php echo $form->getElement('resize');?>                                                
 																	</div>
 																</div>
 															</div>
 															<div class="tab-pane fade" id="myTab_example3">
-																<div class="form-group">																	<br />
+																<div class="form-group">																	
 																	<div class="col-sm-12">
 																		<?php echo $form->getElement('note');?>
 																	</div>

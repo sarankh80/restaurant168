@@ -11,7 +11,7 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 				'class'=>'form-control',
 				'required'=>true
 		));
-		$g_code = new Zend_Form_Element_Text('g_code');
+		$g_code = new Zend_Form_Element_Select('g_code');
 		$g_code->setAttribs(array(
 				'class'=>'form-control',
 				'required'=>true
@@ -22,7 +22,7 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		));
 		$est_time = new Zend_Form_Element_Text('est_time');
 		$est_time->setAttribs(array(
-				'class'=>'form-control clockface-open','style'=>'width:100px;','id'=>'clockface_2',
+				'class'=>'form-control clockface-open','id'=>'clockface_2',
 		));
 		$price = new Zend_Form_Element_Text('price');
 		$price->setAttribs(array(
@@ -30,7 +30,8 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		));
 		$max_seat = new Zend_Form_Element_Text('max_seat');
 		$max_seat->setAttribs(array(
-				'class'=>'spinner-input form-control',
+				'class'=>'spinner-input form-control col-md-12',
+				'id'=>'spinner3',
 		));
 		$time = new Zend_Form_Element_Text('time');
 		$time->setAttribs(array(
@@ -61,18 +62,22 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		$show_description->setAttribs(array(
 				'class'=>'form-control'
 		));
+		$db =new Application_Model_DbTable_DbGlobal();
 		$description_opt = array( ""=>$this->tr->translate("SELECT_DESCRIPTION"));
 		$show_description->setMultiOptions($description_opt);
 		$show_description1 = new Zend_Form_Element_Select('show_description1');
 		$show_description1->setAttribs(array(
 				'class'=>'form-control'
 		));
+		$opt = $db->getVewOptoinTypeByType(1,1,null ,1);
+		$show_description1->setMultiOptions($opt);
+		
 		$type_of_table = new Zend_Form_Element_Select('type_of_table');
 		$type_of_table->setAttribs(array(
 				'class'=>'form-control'
 		));
 		$type_of_table->setMultiOptions($description_opt);
-		$show_description2 = new Zend_Form_Element_Select('show_description2');
+		$show_description2 = new Zend_Form_Element_Select('apply_to_company');
 		$show_description2->setAttribs(array(
 				'class'=>'form-control'
 		));
@@ -90,9 +95,9 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		$font_size->setAttribs(array(
 				'class'=>'form-control','id'=>"demo3",'value'=>12,'placeholder'=>'0'
 		));
-		$font_size1 = new Zend_Form_Element_Text('demo4');
-		$font_size1->setAttribs(array(
-				'class'=>'form-control','id'=>"demo4",'value'=>12,'placeholder'=>'0'
+		$backgroun_color = new Zend_Form_Element_Text('backgroun_color');
+		$backgroun_color->setAttribs(array(
+				'class'=>'colorpicker-rgba form-control',
 		));
 		$apply = new Zend_Form_Element_Select('apply');
 		$apply->setAttribs(array(
@@ -120,16 +125,13 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		$format->setAttribs(array(
 				'class'=>'form-control','id'=>"demo4",'value'=>12,'placeholder'=>'12'
 		));
-		$setting = new Zend_Form_Element_Select('setting');
-		$setting->setAttribs(array(
-				'class'=>'form-control'
+	    $font_color = new Zend_Form_Element_text('font_color');
+		$font_color->setAttribs(array(
+				'class'=>'colorpicker-default form-control'
 		));
-		$setting_opt = array( ""=>$this->tr->translate("SELECT_SETTING"));		
-		$setting->setMultiOptions($setting_opt);
-		
-		$arrange = new Zend_Form_Element_Text('arrange');
-		$arrange->setAttribs(array(
-				'class'=>'form-control'
+		$font_site = new Zend_Form_Element_text('font_size');
+		$font_site->setAttribs(array(
+				'class'=>' spinner-input form-control'
 		));		
 		$resize = new Zend_Form_Element_Text('resize');
 		$resize->setAttribs(array(
@@ -144,7 +146,7 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 				'class'=>'form-control','style'=>"margin-top: 0px; margin-bottom: 0px; height: 150px;"
 		));
 		$this->addElements(array($dicount_ck,$time_ck,$type_of_table,$est_time,$price,$max_seat,$time,$g_code,$apply,$active,$combo,$menu_code,$description,$lang_1,$lang_2,$lang_3,
-				$note1,$font_size1,$g_code1,$show_description1,$show_description2,$show_description,$background,$font_color,$font_size,$format,$setting,$arrange,$resize,$note));
+				$note1,$backgroun_color,$g_code1,$show_description1,$show_description2,$show_description,$background,$font_color,$font_size,$format,$font_color,$font_site,$resize,$note));
 		return $this;
 		
 	}	

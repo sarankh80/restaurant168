@@ -3,6 +3,18 @@
 	$url = $this->url(array('module'=>'menu','controller'=>'tablegroup','action'=>'add'));
 	$url_edit = $this->url(array('module'=>'menu','controller'=>'tablegroup','action'=>'edit'),null,true);
 ?>
+<style>
+.form-horizontal .control-label {
+    margin-bottom: 0px;
+    text-align: left;
+    padding-left:  30px;
+    
+}
+div, input, select, textarea, span, img, table, label, td, th, p, a, button, ul, code, pre, li{
+    border-radius: 5px !important;
+}
+}
+</style>
 <div class="row">
 	<div class="col-md-12">
 		<div class="portlet box blue">
@@ -104,7 +116,7 @@
 	               			<div class="col-sm-12" style="padding: 0;background: #fff;" >
 											<div class="form-group col-sm-8">
 												<div class="col-sm-12">
-													<div class="tabbable" style="margin-top: -100px;" id="tabShwo">
+													<div class="tabbable" style="margin-top: -160px;border:1px solid;" id="tabShwo" >
 														<ul id="myTab" class="nav nav-tabs" style="background: #5F8295 none repeat scroll 0% 0%;">
 															<li class="active">
 																<a href="#myTab_example1" data-toggle="tab">
@@ -227,7 +239,6 @@
 											</div>
 										</div>
 					</div>
-					<div class="form-actions">
 						<div class="row">
 							<div class="col-md-offset-3 col-md-9">
 								<button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("SAVE_NEW")?> </button>
@@ -235,7 +246,6 @@
 								<a href="<?php echo $this->baseUrl();?>/table/tablegroup/"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
 							</div>
 						</div>
-					</div>
 				</form>
 			</div>
 		</div>
