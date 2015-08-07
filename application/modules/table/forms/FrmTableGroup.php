@@ -9,6 +9,7 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 		$menu_code = new Zend_Form_Element_Text('group_code');
 		$menu_code->setAttribs(array(
 				'class'=>'form-control',
+				'required'=>'true'
 		));
 		$description = new Zend_Form_Element_Text('description');
 		$description->setAttribs(array(
@@ -17,6 +18,10 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 		$lang_1 = new Zend_Form_Element_Text('lang_1');
 		$lang_1->setAttribs(array(
 				'class'=>'form-control',
+		));
+		$font_color = new Zend_Form_Element_text('font_color');
+		$font_color->setAttribs(array(
+				'class'=>'colorpicker-default form-control'
 		));
 		$lang_2 = new Zend_Form_Element_Text('lang_2');
 		$lang_2->setAttribs(array(
@@ -29,25 +34,30 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 		if($data!=null){
 // 			print_r($data);
 		}
+		$db =new Application_Model_DbTable_DbGlobal();
 		$show_description = new Zend_Form_Element_Select('show_description');
 		$show_description->setAttribs(array(
+				'class'=>'form-control',
+				'required'=>'true',
+		));
+		$opt = $db->getVewOptoinTypeByType(1,1,null ,1);
+		$show_description->setMultiOptions($opt);
+		$apply_to = new Zend_Form_Element_Select('apply_to_company');
+		$apply_to->setAttribs(array(
 				'class'=>'form-control'
 		));
-		$description_opt = array( ""=>$this->tr->translate("SELECT_DESCRIPTION"));
-		$show_description->setMultiOptions($description_opt);
+		$otp=array('0'=>'apply to company','1'=>'A','2'=>'B','3'=>'C');
+		$apply_to->setMultiOptions($otp);
+		
 		$photo = new Zend_Form_Element_File('photo');
-		$background = new Zend_Form_Element_Text('background');
-		$background->setAttribs(array(
-				'class'=>'form-control color-picker-rgba'
+		$backgroun_color = new Zend_Form_Element_Text('backgroun_color');
+		$backgroun_color->setAttribs(array(
+				'class'=>'colorpicker-rgba form-control',
 		));
-		$font_color = new Zend_Form_Element_Text('font_color');
-		$font_color->setAttribs(array(
-				'class'=>'form-control','id'=>"selected-color1"
-		));
-		$font_size = new Zend_Form_Element_Text('demo3');
-		$font_size->setAttribs(array(
-				'class'=>'form-control','id'=>"demo3",'value'=>12,'placeholder'=>'12'
-		));
+		$font_site = new Zend_Form_Element_text('font_size');
+		$font_site->setAttribs(array(
+				'class'=>' spinner-input form-control'
+		));		
 		$apply = new Zend_Form_Element_Select('apply');
 		$apply->setAttribs(array(
 				'class'=>'form-control'
@@ -60,7 +70,8 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 		));
 		$active = new Zend_Form_Element_Checkbox('active');
 		$active->setAttribs(array(
-				'class'=>'red',
+				'class'=>'checker',
+			
 		));
 		$format = new Zend_Form_Element_Text('demo4');
 		$format->setAttribs(array(
@@ -89,8 +100,8 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 		$note1->setAttribs(array(
 				'class'=>'form-control','style'=>"margin-top: 0px; margin-bottom: 0px; height: 100px;"
 		));
-		$this->addElements(array($note1,$apply,$active,$combo,$menu_code,$description,$lang_1,$lang_2,$lang_3,
-				$show_description,$background,$font_color,$font_size,$format,$setting,$arrange,$resize,$note));
+		$this->addElements(array($note1,$apply,$active,$combo,$menu_code,$description,$lang_1,$lang_2,$lang_3,$apply_to,
+				$show_description,$backgroun_color,$font_color,$font_site,$format,$setting,$arrange,$resize,$note));
 		return $this;
 		
 	}	

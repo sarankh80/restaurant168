@@ -6,16 +6,22 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		$this->tr = Application_Form_FrmLanguages::getCurrentlanguage();
 	}
 	public function FrmTables($data=null){
-		$menu_code = new Zend_Form_Element_Text('menu_code');
+		$menu_code = new Zend_Form_Element_Text('table_code');
 		$menu_code->setAttribs(array(
 				'class'=>'form-control',
-				'required'=>true
+				'id'=>'inputWarning',
 		));
-		$g_code = new Zend_Form_Element_Select('g_code');
+		$db=new Application_Model_DbTable_DbGlobal();
+		$g_code = new Zend_Form_Element_Select('group_code');
 		$g_code->setAttribs(array(
-				'class'=>'form-control',
-				'required'=>true
+				'class'=>'form-control select2me',
+				
 		));
+		
+		
+		
+		$option=$db->getGroupCode();
+		$g_code->setMultiOptions($option);
 		$g_code1 = new Zend_Form_Element_Text('g_code1');
 		$g_code1->setAttribs(array(
 				'class'=>'form-control',
@@ -41,7 +47,6 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		$description = new Zend_Form_Element_Text('description');
 		$description->setAttribs(array(
 				'class'=>'form-control',
-				'required'=>true ,
 		));
 		$lang_1 = new Zend_Form_Element_Text('lang_1');
 		$lang_1->setAttribs(array(
@@ -58,14 +63,9 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		if($data!=null){
 // 			print_r($data);
 		}
-		$show_description = new Zend_Form_Element_Select('show_description');
-		$show_description->setAttribs(array(
-				'class'=>'form-control'
-		));
 		$db =new Application_Model_DbTable_DbGlobal();
 		$description_opt = array( ""=>$this->tr->translate("SELECT_DESCRIPTION"));
-		$show_description->setMultiOptions($description_opt);
-		$show_description1 = new Zend_Form_Element_Select('show_description1');
+		$show_description1 = new Zend_Form_Element_Select('show_description');
 		$show_description1->setAttribs(array(
 				'class'=>'form-control'
 		));
@@ -74,26 +74,20 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		
 		$type_of_table = new Zend_Form_Element_Select('type_of_table');
 		$type_of_table->setAttribs(array(
-				'class'=>'form-control'
+				'class'=>'form-control select2me'
 		));
-		$type_of_table->setMultiOptions($description_opt);
+		$opt_type_table=$db->getTypeOfTable();
+		$type_of_table->setMultiOptions($opt_type_table);
 		$show_description2 = new Zend_Form_Element_Select('apply_to_company');
 		$show_description2->setAttribs(array(
 				'class'=>'form-control'
 		));
-		$show_description2->setMultiOptions($description_opt);
+		$opt=array('0'=>'select company', '1'=>'A','2'=>'B','3'=>'C');
+		$show_description2->setMultiOptions($opt);
 		$photo = new Zend_Form_Element_File('photo');
 		$background = new Zend_Form_Element_Text('background');
 		$background->setAttribs(array(
 				'class'=>'form-control color-picker-rgba'
-		));
-		$font_color = new Zend_Form_Element_Text('font_color');
-		$font_color->setAttribs(array(
-				'class'=>'form-control','id'=>"selected-color1"
-		));
-		$font_size = new Zend_Form_Element_Text('demo3');
-		$font_size->setAttribs(array(
-				'class'=>'form-control','id'=>"demo3",'value'=>12,'placeholder'=>'0'
 		));
 		$backgroun_color = new Zend_Form_Element_Text('backgroun_color');
 		$backgroun_color->setAttribs(array(
@@ -146,7 +140,7 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 				'class'=>'form-control','style'=>"margin-top: 0px; margin-bottom: 0px; height: 150px;"
 		));
 		$this->addElements(array($dicount_ck,$time_ck,$type_of_table,$est_time,$price,$max_seat,$time,$g_code,$apply,$active,$combo,$menu_code,$description,$lang_1,$lang_2,$lang_3,
-				$note1,$backgroun_color,$g_code1,$show_description1,$show_description2,$show_description,$background,$font_color,$font_size,$format,$font_color,$font_site,$resize,$note));
+				$note1,$backgroun_color,$g_code1,$show_description1,$show_description2,$background,$font_color,$format,$font_color,$font_site,$resize,$note));
 		return $this;
 		
 	}	

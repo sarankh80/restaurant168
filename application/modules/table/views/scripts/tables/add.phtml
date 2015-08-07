@@ -26,7 +26,7 @@
 													<?php echo $tr->translate("TABLE_CODE")?> <span class="symbol required"></span>
 												</label>
 												<div class="col-sm-8">
-													<?php echo $form->getElement('menu_code');?>
+													<?php echo $form->getElement('table_code');?>
 												</div>
 											</div>
 											<div class="form-group col-sm-12">
@@ -115,7 +115,7 @@
 											<div class="col-md-4">
 												<div class="input-icon right">
 													<i class="fa"></i>
-													<?php echo $form->getElement('g_code');?>
+													<?php echo $form->getElement('group_code');?>
 												</div>
 											</div>
 											<label class="control-label col-md-2"><?php echo $tr->translate("TYPE_OF_TABLE")?> <span class="required">
@@ -135,7 +135,7 @@
 											<div class="col-md-4">
 												<div class="input-icon right">
 													<i class="fa"></i>
-													<?php echo $form->getElement('show_description1');?>
+													<?php echo $form->getElement('show_description');?>
 												</div>
 											</div>
 											 <label class="control-label col-md-2"><?php echo $tr->translate("PRICE")?> <span class="required">
@@ -263,14 +263,6 @@
 																		</div>  
 																	</div>
 																</div>
-																<div class="form-group">
-																	<label class="col-sm-2 control-label" for="form-field-1">
-																		<?php echo $tr->translate("RESIZE")?>
-																	</label>
-																	<div class="col-sm-6">
-																		<?php echo $form->getElement('resize');?>                                                
-																	</div>
-																</div>
 															</div>
 															<div class="tab-pane fade" id="myTab_example3">
 																<div class="form-group">																	
@@ -287,7 +279,7 @@
 						<div class="row">
 							<div class="col-md-offset-3 col-md-9">
 								<a href="<?php echo $url_save;?>"><button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("SAVE_NEW")?> </button></a>
-								<button type="submit" class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("SAVE_CLOSE")?></button>
+								<a href="<?php echo $url_save;?>"><button type="submit" name="btnsave_close" class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("SAVE_CLOSE")?></button></a>
 								<a href="<?php echo $this->baseUrl();?>/table/tables/"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
 							</div>
 						</div>

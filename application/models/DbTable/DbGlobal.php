@@ -56,7 +56,7 @@ class Application_Model_DbTable_DbGlobal extends Zend_Db_Table_Abstract
      */
     public function addRecord($data,$tbl_name){
     	$this->setName($tbl_name);
-    	return $this->insert($data);
+    	$row= $this->insert($data);
     }
     public function updateRecord($data,$id,$tbl_name){
     	$this->setName($tbl_name);
@@ -89,6 +89,27 @@ class Application_Model_DbTable_DbGlobal extends Zend_Db_Table_Abstract
     	return $rs[$str];
     	}
     
+    }
+    public function  getGroupCode(){
+    	$db=$this->getAdapter();
+    	$sql="SELECT id, code,description FROM rs_table_group ORDER BY id DESC";
+    	$rows= $db->fetchAll($sql);
+    	$options=array();
+    	if(!empty($rows))foreach($rows AS $row){
+    		$options[$row['id']]=$row['code']."-".$row['description'];//($row['displayby']==1)?$row['name_kh']:$row['name_en'];
+    	}
+        return $options;
+    }
+    public function getTypeOfTable(){
+    	$db=$this->getAdapter();
+    	$sql="SELECT id,code ,description FROM rs_table_type ORDER BY id DESC";
+    	$row=$db->fetchAll($sql);
+    	$option=array();
+    	if(!empty($row))
+    		foreach ($row As $rows){ 
+    		$option[$rows['id']]=$rows['code']."-".$rows['description'];
+    	}
+    	return $option;
     }
     public function getVewOptoinTypeByType($type=null,$option = null,$limit =null,$first_option =null){
     	$db = $this->getAdapter();

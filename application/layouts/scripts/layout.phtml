@@ -195,7 +195,11 @@
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="<?php echo $this->baseUrl()?>/assets/admin/pages/scripts/components-pickers.js"></script>
+<script src="<?php echo $this->baseUrl()?>/assets/admin/pages/scripts/table-managed.js"></script>
+<script src="<?php echo $this->baseUrl()?>/assets/admin/pages/scripts/table-advanced.js"></script>
+<script src="<?php echo $this->baseUrl()?>/assets/admin/pages/scripts/form-validation.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
+
 <script>
         jQuery(document).ready(function() {       
            // initiate layout and plugins
@@ -205,6 +209,9 @@ QuickSidebar.init(); // init quick sidebar
 Demo.init(); // init demo features
            ComponentsFormTools.init();
            ComponentsPickers.init();
+           TableManaged.init();
+           TableAdvanced.init();
+           FormValidation.init();
         });   
     </script>
 <!-- END PAGE LEVEL SCRIPTS -->

@@ -15,7 +15,6 @@ Class table_Form_FrmTableType extends Zend_Dojo_Form {
 		$description->setAttribs(array(
 				'class'=>'form-control',
 		));
-		$description->setValue('No Smoking');
 		$lang_1 = new Zend_Form_Element_Text('lang_1');
 		$lang_1->setAttribs(array(
 				'class'=>'form-control',

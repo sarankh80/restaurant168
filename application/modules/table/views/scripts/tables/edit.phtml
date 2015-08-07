@@ -1,9 +1,25 @@
-<?php 
-	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
-	$url = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'));
-	$url_edit = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'),null,true);
-?>
-<form action="#" id="form_sample_2" class="form-horizontal">
+<div class="row">
+				<div class="col-md-12">
+					<!-- BEGIN VALIDATION STATES-->
+					<div class="portlet box yellow">
+						<div class="portlet-title">
+							<div class="caption">
+								<i class="fa fa-gift"></i>Validation Using Icons
+							</div>
+							<div class="tools">
+								<a title="" data-original-title="" href="javascript:;" class="collapse">
+								</a>
+								<a title="" data-original-title="" href="#portlet-config" data-toggle="modal" class="config">
+								</a>
+								<a title="" data-original-title="" href="javascript:;" class="reload">
+								</a>
+								<a title="" data-original-title="" href="javascript:;" class="remove">
+								</a>
+							</div>
+						</div>
+						<div class="portlet-body form">
+							<!-- BEGIN FORM-->
+							<form novalidate="novalidate" action="#" id="form_sample_2" class="form-horizontal">
 								<div class="form-body">
 									<div class="alert alert-danger display-hide">
 										<button class="close" data-close="alert"></button>
@@ -14,43 +30,92 @@
 										Your form validation is successful!
 									</div>
 									<div class="form-group">
-										<label class="control-label col-md-3">Name <span class="required">
+										<label class="control-label col-md-3">Name <span aria-required="true" class="required">
 										* </span>
 										</label>
 										<div class="col-md-4">
 											<div class="input-icon right">
 												<i class="fa"></i>
-												<input type="text" class="form-control" name="name"/>
+												<input class="form-control" name="name" type="text">
 											</div>
 										</div>
 									</div>
 									<div class="form-group">
-										<label class="control-label col-md-3">Name <span class="required">
+										<label class="control-label col-md-3">Email <span aria-required="true" class="required">
 										* </span>
 										</label>
 										<div class="col-md-4">
 											<div class="input-icon right">
 												<i class="fa"></i>
-												<?php echo $form->getElement('menu_code');?>
+												<input class="form-control" name="email" type="text">
 											</div>
 										</div>
 									</div>
-									<div class="col-md-4">
+									<div class="form-group">
+										<label class="control-label col-md-3">URL <span aria-required="true" class="required">
+										* </span>
+										</label>
+										<div class="col-md-4">
 											<div class="input-icon right">
-												<i data-original-title="This field is required." class="fa fa-warning"></i>
-												<input aria-invalid="true" aria-describedby="number-error number-error" aria-required="true" class="form-control" name="number" type="text">
+												<i class="fa"></i>
+												<input class="form-control" name="url" type="text">
+											</div>
+											<span class="help-block">
+											e.g: http://www.demo.com or http://demo.com </span>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-3">Number <span aria-required="true" class="required">
+										* </span>
+										</label>
+										<div class="col-md-4">
+											<div class="input-icon right">
+												<i class="fa"></i>
+												<input class="form-control" name="number" type="text">
 											</div>
 										</div>
-									
-									
-									
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-3">Digits <span aria-required="true" class="required">
+										* </span>
+										</label>
+										<div class="col-md-4">
+											<div class="input-icon right">
+												<i class="fa"></i>
+												<input class="form-control" name="digits" type="text">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-3">Credit Card <span aria-required="true" class="required">
+										* </span>
+										</label>
+										<div class="col-md-4">
+											<div class="input-icon right">
+												<i class="fa"></i>
+												<input class="form-control" name="creditcard" type="text">
+											</div>
+											<span class="help-block">
+											e.g: 5500 0000 0000 0004 </span>
+										</div>
+									</div>
 								</div>
-								<div class="form-actions">
+								
 									<div class="row">
 										<div class="col-md-offset-3 col-md-9">
 											<button type="submit" class="btn green">Submit</button>
 											<button type="button" class="btn default">Cancel</button>
 										</div>
 									</div>
-								</div>
+								
 							</form>
+							<!-- END FORM-->
+						</div>
+					</div>
+					<!-- END VALIDATION STATES-->
+				</div>
+			</div>
+			
+			
+<script type="text/javascript" src="../../assets/global/plugins/jquery-validation/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="../../assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>

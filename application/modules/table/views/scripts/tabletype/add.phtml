@@ -1,13 +1,11 @@
 <?php 
 	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
-	$url = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'));
-	$url_edit = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'),null,true);
+	$url_save = $this->url(array('module'=>'table','controller'=>'tabletype','action'=>'add'));
+	$url_save_close = $this->url(array('module'=>'table','controller'=>'tabletype','action'=>'add'));
 ?>
 <style>
 .form-horizontal .control-label {
-    margin-bottom: 0px;
-    text-align: left;
-    padding-left:  30px;
+       text-align: left; 
 }
 </style>
 <div class="row">
@@ -15,115 +13,64 @@
 		<div class="portlet box blue">
 			<div class="portlet-title">
 				<div class="caption">
-					<i class="icon-home"></i><?php echo $tr->translate("TABLE_TYPE")?>
+					<i class="icon-home"></i><?php echo $tr->translate("TABLES_TYPE")?>
 				</div>
 			</div>
-			<div class="portlet-body form">
+			<div class="portlet-body form"  >
 				<!-- BEGIN FORM-->
-				<form id="form_sample_2" class="form-horizontal" enctype="multipart/form-data" method="post">
-					<div class="form-body">
-						<div class="alert alert-danger display-hide">
-							<button class="close" data-close="alert"></button>
-								You have some form errors. Please check below.
-						</div>
-						<div class="alert alert-success display-hide">
-							<button class="close" data-close="alert"></button>
-								Your form validation is successful!
-						</div>
-						<div class="form-group">
-							<label class="control-label col-md-2"><?php echo $tr->translate("TABLE_TYPE_CODE")?> <span class="required">
-								</span>
-							</label>
-							<div class="col-md-4">
-								<div class="input-icon right">
-									<i class="fa"></i>
-									<?php echo $form->getElement('type_code');?>
-								</div>
-							</div>
-							<label class="control-label col-md-2"><?php echo $tr->translate("DESCRIPTION")?> <span class="required">
-								</span>
-							</label>
-							<div class="col-md-4">
-								<div class="input-icon right">
-									<i class="fa"></i>
-									<?php echo $form->getElement('description');?>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-md-2"><?php echo $tr->translate("LANG_ONE")?> <span class="required">
-								 </span>
-							</label>
-							<div class="col-md-4">
-								<div class="input-icon right">
-									<i class="fa fa-gift"></i>
-									<?php echo $form->getElement('lang_1');?>
-								</div>
-							</div>
-							<label class="control-label col-md-2"><?php echo $tr->translate("LANG_TWO")?> <span class="required">
-							* </span>
-							</label>
-							<div class="col-md-4">
-								<div class="input-icon right">
-									<i class="fa fa-gift"></i>
-									<?php echo $form->getElement('lang_2');?>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-md-2"><?php echo $tr->translate("SHOW_DESCRIPTION")?>  <span class="required">
-								 </span>
-							</label>
-							<div class="col-md-4">
-								<div class="input-icon right">
-									<i class="fa"></i>
-									<?php echo $form->getElement('show_description');?>
-								</div>
-							</div>
-							<label class="control-label col-md-2"><?php echo $tr->translate("IMAGE")?> <span class="required">
-								 </span>
-							</label>
-							<div class="col-md-4">
-								<div class="form-group last">
-									<div class="col-md-12">
-										<div class="fileinput fileinput-new" data-provides="fileinput">
-											<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-												<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
+				<form id="form_sample_2" class="form-horizontal" enctype="multipart/form-data" method="post" >
+				<div class="form-body">
+				     <div  class="col-sm-12"  >
+											<div class="form-group col-sm-12">
+												<label class="col-sm-3 control-label" >
+													<?php echo $tr->translate("TABLE_TYPE_CODE")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-9">
+													<?php echo $form->getElement('type_code');?>
+												</div>
 											</div>
-											<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+											<div class="form-group col-sm-12">
+												<label class="col-sm-3 control-label" >
+													<?php echo $tr->translate("DESCRIPTION")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-9">
+													<?php echo $form->getElement('description');?>
+												</div>
 											</div>
-											<div>
-												<span class="btn default btn-file">
-												<span class="fileinput-new">
-												Select image </span>
-												<span class="fileinput-exists">
-												Change </span>
-												<input type="file" name="...">
-												</span>
-												<a href="#" class="btn red fileinput-exists" data-dismiss="fileinput">
-												Remove </a>
+											<div class="form-group col-sm-12">
+												<label class="col-sm-3 control-label">
+													<?php echo $tr->translate("DESCRIPTION1")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-9">
+													<?php echo $form->getElement('lang_1');?>
+												</div>
 											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					<div class="col-sm-6" style="padding: 0px;margin-top: -170px;">
-										     <div class="col-sm-2">
-										          <label class="col-sm-2 control-label"><?php echo $tr->translate("NOTE")?></label>
-										     </div>
-										     <div class="col-sm-12">
-										          <label class="col-sm-12" style="margin-left:  20px;"><?php echo $form->getElement("note");?></label>
-										     </div>
-										</div>
-					</div>
+											<div class="form-group col-sm-12">
+												<label class="col-sm-3 control-label">
+													<?php echo $tr->translate("DESCRIPTION2")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-9">
+													<?php echo $form->getElement('lang_2');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-12">
+												<label class="col-sm-3 control-label">
+													<?php echo $tr->translate("NOTE")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-12">
+													<?php echo $form->getElement('note');?>
+												</div>
+											</div>
+											
+				     </div>
 						<div class="row">
 							<div class="col-md-offset-3 col-md-9">
-								<button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("SAVE_NEW")?> </button>
-								<button type="submit" class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("SAVE_CLOSE")?></button>
+								<a href="<?php echo $url_save;?>"><button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("SAVE_NEW")?> </button></a>
+								<a href="<?php echo $url_save_close;?>"><button type="submit" name="btnsave_close" class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("SAVE_CLOSE")?></button></a>
 								<a href="<?php echo $this->baseUrl();?>/table/tabletype/"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
 							</div>
 						</div>
+				</div>
 				</form>
 			</div>
 		</div>
