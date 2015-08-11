@@ -15,7 +15,7 @@ class Table_indexController extends Zend_Controller_Action {
 		$frm = new Table_Form_FrmTable();
 		$this->view->form = $frm->FrmTable();
 	}
-	public function ecitAction(){
+	public function editAction(){
 		$frm = new Table_Form_FrmTable();
 		$this->view->form = $frm->FrmTable();
 	}

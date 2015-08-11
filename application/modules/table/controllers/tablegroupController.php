@@ -15,7 +15,6 @@ class Table_tablegroupController extends Zend_Controller_Action {
 		$this->view->form = $frm->FrmTable();
 	}
 	public function addAction(){
-		
 		if($this->getRequest()->isPost()){
 			$data =$this->getRequest()->getPost();
 			//print_r($data);exit();
@@ -40,8 +39,27 @@ class Table_tablegroupController extends Zend_Controller_Action {
 		$this->view->form = $frm->FrmTable();
 	}
 	public function editAction(){
+		
+// 		if($this->getRequest()->isPost()){
+// 			$accdata=$this->getRequest()->getPost();	
+// 			$db_acc = new Accounting_Model_DbTable_DbAccountcate();				
+// 			try {
+// 				$db = $db_acc->updataccountcate($accdata);				
+// 				Application_Form_FrmMessage::Sucessfull('ការ​បញ្ចូល​​ជោគ​ជ័យ', self::REDIRECT_URL);		
+// 			} catch (Exception $e) {
+// 				$this->view->msg = 'ការ​បញ្ចូល​មិន​ជោគ​ជ័យ';
+// 			}
+		
+// 		}
+		$id = $this->getRequest()->getParam('id');
+		$db = new Table_Model_DbTable_DbTablesGroup();
+		$row  = $db->getTableGroupById($id);
+// 		print_r($row);exit();
 		$frm = new Table_Form_FrmTableGroup();
-		$this->view->form = $frm->FrmTable();
+		$this->view->form = $frm->FrmTable($row);
+// 		Application_Model_Decorator::removeAllDecorator($frm);
+// 		$this->view->frm_fixedasset = $frm;
+	
 	}
 	
 }

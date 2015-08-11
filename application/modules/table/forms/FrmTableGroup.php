@@ -100,7 +100,20 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 		$note1->setAttribs(array(
 				'class'=>'form-control','style'=>"margin-top: 0px; margin-bottom: 0px; height: 100px;"
 		));
-		$this->addElements(array($note1,$apply,$active,$combo,$menu_code,$description,$lang_1,$lang_2,$lang_3,$apply_to,
+		if($data != null){
+			$menu_code->setValue($data['CODE']);
+			$description->setValue($data['description']);
+			$lang_1->setValue($data['lang1']);
+			$lang_2->setValue($data['lang2']);
+			$show_description->setValue($data['display_by']);
+			$apply_to->setValue($data['compid']);
+			$note->setValue($data['note']);
+			$backgroun_color->setValue($data['background_color']);
+			$font_color->setValue($data['font_color']);
+			$font_site->setValue($data['font_size']);
+			$active->setValue($data['status']);
+		}
+		$this->addElements(array($apply,$active,$combo,$menu_code,$description,$lang_1,$lang_2,$apply_to,
 				$show_description,$backgroun_color,$font_color,$font_site,$format,$setting,$arrange,$resize,$note));
 		return $this;
 		

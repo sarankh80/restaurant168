@@ -6,9 +6,10 @@ Class table_Form_FrmTable extends Zend_Dojo_Form {
 		$this->tr = Application_Form_FrmLanguages::getCurrentlanguage();
 	}
 	public function FrmTable($data=null){
-		$menu_code = new Zend_Form_Element_Text('menu_code');
+		$menu_code = new Zend_Form_Element_Text('username');
 		$menu_code->setAttribs(array(
 				'class'=>'form-control',
+				'required'=>true,'minlength'=> '3', 'maxlength'=>' 15',
 		));
 		$description = new Zend_Form_Element_Text('description');
 		$description->setAttribs(array(

@@ -23,6 +23,12 @@ class Table_Model_DbTable_DbTablesGroup extends Zend_Db_Table_Abstract
          $this->insert($arr);
      
     }
+    function getTableGroupById($id){
+    	$db = $this->getAdapter();
+    	$sql=" SELECT id,CODE,description,lang1,lang2,display_by,compid,note,background_color,
+    	       font_color,font_size,status  FROM $this->_name where id=$id ";
+    	return $db->fetchRow($sql);
+    }
     function updatcallecterall($data){
     	$arr = array(
     			'title_en'=>$data['title_en'],
@@ -36,7 +42,7 @@ class Table_Model_DbTable_DbTablesGroup extends Zend_Db_Table_Abstract
     }
     function getAllRowTablGroup(){
     	$db = $this->getAdapter();
-    	$sql="SELECT code,description,lang1,lang2 FROM $this->_name";
+    	$sql="SELECT id,code,description,lang1,lang2 FROM $this->_name";
     	$oderby=" ORDER BY id DESC";
     	return $db->fetchAll($sql.$oderby);
     }
