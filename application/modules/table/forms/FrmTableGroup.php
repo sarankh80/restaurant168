@@ -9,7 +9,7 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 		$menu_code = new Zend_Form_Element_Text('group_code');
 		$menu_code->setAttribs(array(
 				'class'=>'form-control',
-				'required'=>'true'
+				//'required'=>'true'
 		));
 		$description = new Zend_Form_Element_Text('description');
 		$description->setAttribs(array(
@@ -96,8 +96,8 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 		$note->setAttribs(array(
 				'class'=>'form-control','style'=>"margin-top: 0px; margin-bottom: 0px; height: 100px;"
 		));
-		$note1 = new Zend_Form_Element_Textarea('note1');
-		$note1->setAttribs(array(
+		$location = new Zend_Form_Element_Textarea('location');
+		$location->setAttribs(array(
 				'class'=>'form-control','style'=>"margin-top: 0px; margin-bottom: 0px; height: 100px;"
 		));
 		if($data != null){
@@ -113,7 +113,7 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 			$font_site->setValue($data['font_size']);
 			$active->setValue($data['status']);
 		}
-		$this->addElements(array($apply,$active,$combo,$menu_code,$description,$lang_1,$lang_2,$apply_to,
+		$this->addElements(array($location,$apply,$active,$combo,$menu_code,$description,$lang_1,$lang_2,$apply_to,
 				$show_description,$backgroun_color,$font_color,$font_site,$format,$setting,$arrange,$resize,$note));
 		return $this;
 		
