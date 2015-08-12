@@ -8,7 +8,12 @@ class Menu_happyhourController extends Zend_Controller_Action {
 	}
 	public function indexAction(){
 		//$this->_helper->layout()->disableLayout();
-		$frm = new menu_Form_FrmMenuHappyHour();
+		$frm = new Menu_Form_FrmMenuHappyHour();
+		$this->view->form = $frm->FrmMenu();
+	}
+	public function addAction(){
+		//$this->_helper->layout()->disableLayout();
+		$frm = new Menu_Form_FrmMenuHappyHour();
 		$this->view->form = $frm->FrmMenu();
 	}
 	

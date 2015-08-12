@@ -8,12 +8,12 @@ class Menu_discountController extends Zend_Controller_Action {
 	}
 	public function indexAction(){
 		//$this->_helper->layout()->disableLayout();
-		$frm = new menu_Form_FrmMenuDiscount();
+		$frm = new Menu_Form_FrmMenuDiscount();
 		$this->view->form = $frm->FrmMenu();
 	}
 	public function addAction(){
 		//$this->_helper->layout()->disableLayout();
-		$frm = new menu_Form_FrmMenuDiscount();
+		$frm = new Menu_Form_FrmMenuDiscount();
 		$this->view->form = $frm->FrmMenu();
 	}
 	

@@ -6,9 +6,53 @@ Class menu_Form_FrmMenuCombo extends Zend_Form {
 		$this->tr = Application_Form_FrmLanguages::getCurrentlanguage();
 	}
 	public function FrmMenu($data=null){
-		$menu_code = new Zend_Form_Element_Text('menu_code');
-		$menu_code->setAttribs(array(
-				'class'=>'form-control',
+		$menu_group = new Zend_Form_Element_Select('menu_group');
+		$menu_group->setAttribs(array(
+				'class'=>'form-control input-xlarge select2me','onClick'=>'FuncMenuGroup()'
+		));
+		$db = new Menu_Model_DbTable_DbMenu();
+		$opt = $db->getAllGroupMenu();
+		$menu_group->setMultiOptions($opt);
+		$root_code = new Zend_Form_Element_Select('root_code');
+		$root_code->setAttribs(array(
+				'class'=>'form-control','onClick'=>'FuncRootMenuCode()'
+		));
+		$select_root_code_opt = array( ""=>$this->tr->translate("SELECT_GROUP_CODE"),-1=>$this->tr->translate("ADD_NEW"));
+		$root_code->setMultiOptions($select_root_code_opt);
+		
+		$root_menu = new Zend_Form_Element_Select('root_menu');
+		$root_menu->setAttribs(array(
+				'class'=>'form-control input-xlarge select2me','onClick'=>'FuncRootMenuCode()'
+		));
+		$db = new Menu_Model_DbTable_DbMenu();
+		$opt = $db->getAllRootMenu();
+		$root_menu->setMultiOptions($opt);
+		$root_menus = new Zend_Form_Element_Select('root_menus');
+		$root_menus->setAttribs(array(
+				'class'=>'form-control','onClick'=>'FuncRootMenuCode()'
+		));
+		$root_menu_opt = array( ""=>$this->tr->translate("SELECT_ROOT_MENU"),-1=>$this->tr->translate("ADD_NEW"));
+		$root_menus->setMultiOptions($root_menu_opt);
+		
+		$apply_to_company = new Zend_Form_Element_Select('apply_to_company');
+		$apply_to_company->setAttribs(array(
+				'class'=>'form-control'
+		));
+		$apply_opt = array( ""=>$this->tr->translate("SELECT_APPLY_TO_COMPANY"));
+		$apply_to_company->setMultiOptions($apply_opt);
+		$combo = new Zend_Form_Element_Checkbox('combo');
+		$combo->setAttribs(array(
+				'class'=>'red',
+		));
+		$printer_code = new Zend_Form_Element_Select('printer_code');
+		$printer_code->setAttribs(array(
+				'class'=>'form-control input-xlarge select2me'
+		));
+		$apply_opt = array( ""=>$this->tr->translate("SELECT_APPLY_TO_COMPANY"));
+		$printer_code->setMultiOptions($apply_opt);
+		$combo = new Zend_Form_Element_Checkbox('combo');
+		$combo->setAttribs(array(
+				'class'=>'red',
 		));
 		$combo_code = new Zend_Form_Element_Text('combo_code');
 		$combo_code->setAttribs(array(
@@ -26,19 +70,23 @@ Class menu_Form_FrmMenuCombo extends Zend_Form {
 		$lang_2->setAttribs(array(
 				'checked'=>'checked','class'=>'form-control'
 		));
+		$price = new Zend_Form_Element_Text('price');
+		$price->setAttribs(array(
+				'checked'=>'checked','class'=>'form-control'
+		));
 		$lang_3 = new Zend_Form_Element_Text('lang_3');
 		$lang_3->setAttribs(array(
 				'checked'=>'checked','class'=>'form-control'
 		));
 		if($data!=null){
-// 			print_r($data);
 		}
+		$db = new Application_Model_DbTable_DbGlobal();
 		$show_description = new Zend_Form_Element_Select('show_description');
 		$show_description->setAttribs(array(
 				'class'=>'form-control'
 		));
-		$description_opt = array( ""=>$this->tr->translate("SELECT_DESCRIPTION"));
-		$show_description->setMultiOptions($description_opt);
+		$opt = $db->getVewOptoinTypeByType(1,1,null,1);
+		$show_description->setMultiOptions($opt);
 		$photo = new Zend_Form_Element_File('photo');
 		$background = new Zend_Form_Element_Text('background');
 		$background->setAttribs(array(
@@ -58,8 +106,25 @@ Class menu_Form_FrmMenuCombo extends Zend_Form {
 		));
 		$apply_opt = array( ""=>$this->tr->translate("SELECT_APPLY_TO_COMPANY"));
 		$apply->setMultiOptions($apply_opt);
+		
 		$combo = new Zend_Form_Element_Checkbox('combo');
 		$combo->setAttribs(array(
+				'class'=>'red',
+		));
+		$combo1 = new Zend_Form_Element_Checkbox('combo1');
+		$combo1->setAttribs(array(
+				'class'=>'red',
+		));
+		$combo2 = new Zend_Form_Element_Checkbox('combo2');
+		$combo2->setAttribs(array(
+				'class'=>'red',
+		));
+		$combo3 = new Zend_Form_Element_Checkbox('combo3');
+		$combo3->setAttribs(array(
+				'class'=>'red',
+		));
+		$combo4 = new Zend_Form_Element_Checkbox('combo4');
+		$combo4->setAttribs(array(
 				'class'=>'red',
 		));
 		$active = new Zend_Form_Element_Checkbox('active');
@@ -89,8 +154,10 @@ Class menu_Form_FrmMenuCombo extends Zend_Form {
 		$note->setAttribs(array(
 				'class'=>'form-control','style'=>"margin-top: 0px; margin-bottom: 0px; height: 100px;"
 		));
-		$this->addElements(array($apply,$active,$combo,$menu_code,$description,$lang_1,$lang_2,$lang_3,$combo_code,
-				$show_description,$background,$font_color,$font_size,$format,$setting,$arrange,$resize,$note));
+		$this->addElements(array($apply,$active,$menu_group,$description,$lang_1,$lang_2,$lang_3,$combo_code,
+				$show_description,$background,$font_color,$font_size,$format,$setting,$arrange,$resize,$note,$price,
+				$root_menu,$printer_code,$apply_to_company,$root_code,$root_menus,$combo,
+				$combo1,$combo2,$combo3,$combo4));
 		return $this;
 		
 	}	

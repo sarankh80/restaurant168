@@ -1,5 +1,5 @@
 <?php 
-Class menu_Form_FrmMenuArrangement extends Zend_Form {
+Class Menu_Form_FrmMenuArrangement extends Zend_Form {
 	protected $tr;
 	public function init()
 	{

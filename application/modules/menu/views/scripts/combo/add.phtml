@@ -1,62 +1,32 @@
 <?php 
 	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
+	$url = $this->url(array('module'=>'menu','controller'=>'combo','action'=>'index'));
+	$url_edit = $this->url(array('module'=>'menu','controller'=>'combo','action'=>'index'),null,true);
 ?>
-<script src="<?php echo $this->baseUrl();?>/active.js"></script>
-<script type="text/javascript">
-<!--
-$(document).ready(function(){
-	var d = document.getElementById("menu");
-	var g = document.getElementById("menu_combo");
-	d.className = d.className + " active open";
-	g.className = g.className + " active open";
-});
-//-->
-</script>
-<style>
-<!--
-#panel-body{padding: 0 !important;}
-.col-md-12{padding: 0 !important;}
-input[type=checkbox]{*opacity: 1!important;}
-.form-group{padding: 0;}
-.form-horizontal .form-group{margin: 0;padding:10px 0;}
--->
-</style>
-<div class="main-wrapper">
-	<form role="form"  class="form-horizontal" id="form" enctype="multipart/form-data" method="post">
-			<!-- start: MAIN CONTAINER -->
-			<div class="main-container inner">
-				<!-- start: PAGE -->
-				<div class="main-content">
-					<!-- end: SPANEL CONFIGURATION MODAL FORM -->
-					<div class="container">
-						<!-- start: BREADCRUMB -->
-						<div class="row" style="margin-top: 5px;">
+<div class="row">
+	<div class="col-md-12">
+		<div class="portlet box blue">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="icon-home"></i><?php echo $tr->translate("MENU_GROUP")?>
+				</div>
+			</div>
+			<div class="portlet-body form">
+				<!-- BEGIN FORM-->
+				<form id="form_sample_2" class="form-horizontal" enctype="multipart/form-data" method="post">
+					<div class="form-body">
+						<div class="alert alert-danger display-hide">
+							<button class="close" data-close="alert"></button>
+								You have some form errors. Please check below.
 						</div>
-						<!-- end: BREADCRUMB -->
-						<div class="col-md-12">
-							<div class="errorHandler alert alert-danger no-display">
-								<i class="fa fa-times-sign"></i> You have some form errors. Please check below.
-							</div>
-							<div class="successHandler alert alert-success no-display">
-								<i class="fa fa-ok"></i> Your form validation is successful!
-							</div>
+						<div class="alert alert-success display-hide">
+							<button class="close" data-close="alert"></button>
+								Your form validation is successful!
 						</div>
-						<!-- start: PAGE CONTENT -->
-						<div class="row">
-							<div class="col-sm-12">
-								<!-- start: TEXT FIELDS PANEL -->
-								<div class="panel panel-white">
-									<div class="panel-heading">
-										<div class="" style="float: right;">
-											<button type="submit" class="btn btn-primary"><i class="fa fa-edit"></i> Eidt</button>
-											<button type="button" class="btn btn-primary panel-refresh"><i class="fa fa-save"></i> Save</button>
-											<button type="button" class="btn btn-primary"><i class="glyphicon glyphicon-log-in"></i> Save New</button>
-											<a href="<?php echo $this->baseUrl();?>/menu"><button type="button" class="btn btn-red"><i class="fa fa-times"></i> Eixt</button></a>
-										</div>
-									</div>
-									<div class="panel-body">
+						<div class="panel-body">
+							<div class="col-sm-9">
 										<div class="col-sm-12" style="padding: 0;">
-											<div class="form-group col-sm-6">
+											<div class="form-group col-sm-12">
 												<label class="col-sm-4 control-label">
 													<?php echo $tr->translate("COMBO_CODE")?> <span class="symbol required"></span>
 												</label>
@@ -64,7 +34,9 @@ input[type=checkbox]{*opacity: 1!important;}
 													<?php echo $form->getElement('combo_code');?>
 												</div>
 											</div>
-											<div class="form-group col-sm-6">
+										</div>
+										<div class="col-sm-12" style="padding: 0;">
+											<div class="form-group col-sm-12">
 												<label class="col-sm-4 control-label">
 													<?php echo $tr->translate("DESCRIPTION")?> <span class="symbol required"></span>
 												</label>
@@ -74,7 +46,7 @@ input[type=checkbox]{*opacity: 1!important;}
 											</div>
 										</div>
 										<div class="col-sm-12" style="padding: 0;">
-											<div class="form-group col-sm-6">
+											<div class="form-group col-sm-12">
 												<label class="col-sm-4 control-label">
 													<?php echo $tr->translate("LANG_ONE")?> <span class="symbol required"></span>
 												</label>
@@ -82,7 +54,9 @@ input[type=checkbox]{*opacity: 1!important;}
 													<?php echo $form->getElement('lang_1');?>
 												</div>
 											</div>
-											<div class="form-group col-sm-6">
+										</div>
+										<div class="col-sm-12" style="padding: 0;">
+											<div class="form-group col-sm-12">
 												<label class="col-sm-4 control-label">
 													<?php echo $tr->translate("LANG_TWO")?>
 												</label>
@@ -92,7 +66,7 @@ input[type=checkbox]{*opacity: 1!important;}
 											</div>
 										</div>
 										<div class="col-sm-12" style="padding: 0;">
-											<div class="form-group col-sm-6">
+											<div class="form-group col-sm-12">
 												<label class="col-sm-4 control-label" for="form-field-1">
 													<?php echo $tr->translate("SHOW_DESCRIPTION")?> 
 												</label>
@@ -100,44 +74,55 @@ input[type=checkbox]{*opacity: 1!important;}
 													<?php echo $form->getElement('show_description');?>
 												</div>
 											</div>
-											<div class="form-group col-sm-6">
+										</div>
+										<div class="col-sm-12" style="padding: 0;">
+											<div class="form-group col-sm-12">
 												<label class="col-sm-4 control-label">
 													<?php echo $tr->translate("PRICE")?>
 												</label>
 												<div class="col-sm-8">
-													<?php echo $form->getElement('lang_2');?>
+													<?php echo $form->getElement('price');?>
 												</div>
 											</div>
 										</div>
+									</div>
+									<div class="col-sm-3">
 										<div class="col-sm-12" style="padding: 0;">
 											<div class="form-group col-sm-6">
-												
-											</div>
-											<div class="form-group col-sm-6">
-												<label class="col-sm-4 control-label" for="form-field-1">
-													<?php echo $tr->translate("IMAGE")?>  <span class="symbol required"></span>
+												<label class="control-label col-md-4"><?php echo $tr->translate("IMAGE")?> <span class="required">
+													 </span>
 												</label>
-												<div class="col-sm-8">
-													<div class="fileupload fileupload-new" data-provides="fileupload">
-														<div class="fileupload-new thumbnail"><img src="" alt=""/>
-														</div>
-														<div class="fileupload-preview fileupload-exists thumbnail"></div>
-														<div>
-															<span class="btn btn-light-grey btn-file"><span class="fileupload-new"><i class="fa fa-picture-o"></i> Select image</span><span class="fileupload-exists"><i class="fa fa-picture-o"></i> Change</span>
-																<input type="file" name="photo">
-															</span>
-															<a href="#" class="btn fileupload-exists btn-light-grey" data-dismiss="fileupload">
-																<i class="fa fa-times"></i> Remove
-															</a>
+												<div class="col-md-8">
+													<div class="form-group last">
+														<div class="col-md-12">
+															<div class="fileinput fileinput-new" data-provides="fileinput">
+																<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+																	<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
+																</div>
+																<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+																</div>
+																<div>
+																	<span class="btn default btn-file">
+																	<span class="fileinput-new">
+																	Select image </span>
+																	<span class="fileinput-exists">
+																	Change </span>
+																	<input type="file" name="...">
+																	</span>
+																	<a href="#" class="btn red fileinput-exists" data-dismiss="fileinput">
+																	Remove </a>
+																</div>
+															</div>
 														</div>
 													</div>
 												</div>
 											</div>
 										</div>
+									</div>
 										<div class="col-sm-12" style="padding: 0;">
 											<div class="form-group col-sm-12">
 													<div class="tabbable" id="tabShwo" style="">
-														<ul id="myTab" class="nav nav-tabs">
+														<ul id="myTab" class="nav nav-tabs" style="background-color:#65879A;">
 															<li class="active">
 																<a href="#myTab_example1" data-toggle="tab">
 																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("GENERAL_INFORMATION")?>
@@ -149,17 +134,7 @@ input[type=checkbox]{*opacity: 1!important;}
 																</a>
 															</li>
 															<li>
-																<a href="#myTab_example4" data-toggle="tab">
-																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("PICTUER_OF_COMBO")?>
-																</a>
-															</li>
-															<li>
 																<a href="#myTab_example3" data-toggle="tab">
-																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("MENU_ITEM")?>
-																</a>
-															</li>
-															<li>
-																<a href="#myTab_example4" data-toggle="tab">
 																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("NOTE")?>
 																</a>
 															</li>
@@ -173,12 +148,7 @@ input[type=checkbox]{*opacity: 1!important;}
 																			<?php echo $tr->translate("MENU_GROUP_CODE")?>
 																		</label>
 																		<div class="col-sm-8">
-																			<?php echo $form->getElement('menu_code');?>
-																		</div>
-																	</div>
-																	<div class="form-group col-sm-6">
-																		<div class="col-sm-12">
-																			<?php echo $form->getElement('menu_code');?>
+																			<?php echo $form->getElement('menu_group');?>
 																		</div>
 																	</div>
 																</div>
@@ -188,12 +158,7 @@ input[type=checkbox]{*opacity: 1!important;}
 																			<?php echo $tr->translate("ROOT_MENU_CODE")?>
 																		</label>
 																		<div class="col-sm-8">
-																			<?php echo $form->getElement('menu_code');?>
-																		</div>
-																	</div>
-																	<div class="form-group col-sm-6">
-																		<div class="col-sm-12">
-																			<?php echo $form->getElement('menu_code');?>
+																			<?php echo $form->getElement('root_menu');?>
 																		</div>
 																	</div>
 																</div>
@@ -203,12 +168,7 @@ input[type=checkbox]{*opacity: 1!important;}
 																			<?php echo $tr->translate("PRINTER_CODE")?>
 																		</label>
 																		<div class="col-sm-8">
-																			<?php echo $form->getElement('menu_code');?>
-																		</div>
-																	</div>
-																	<div class="form-group col-sm-6">
-																		<div class="col-sm-12">
-																			<?php echo $form->getElement('menu_code');?>
+																			<?php echo $form->getElement('printer_code');?>
 																		</div>
 																	</div>
 																</div>
@@ -218,33 +178,33 @@ input[type=checkbox]{*opacity: 1!important;}
 																		<?php echo $tr->translate("ROOT_MENU")?>												
 																	</div>
 																	<div class="col-sm-2"  style="font-size: 10px;">
-																		<?php echo $form->getElement('combo');?>
+																		<?php echo $form->getElement('combo1');?>
 																		<?php echo $tr->translate("PRINT_TO_PRINTER")?>												
 																	</div>
 																	<div class="col-sm-2"  style="font-size: 10px;">
-																		<?php echo $form->getElement('combo');?>
+																		<?php echo $form->getElement('combo2');?>
 																		<?php echo $tr->translate("SHOW_SCREEN")?>												
 																	</div>
 																	<div class="col-sm-2"  style="font-size: 10px;">
-																		<?php echo $form->getElement('combo');?>
+																		<?php echo $form->getElement('combo3');?>
 																		<?php echo $tr->translate("DISCOUNT")?>												
 																	</div>
 																	<div class="col-sm-2"  style="font-size: 10px;">
-																		<?php echo $form->getElement('combo');?>
-																		<?php echo $tr->translate("SHOW_SCREEN")?>												
+																		<?php echo $form->getElement('combo4');?>
+																		<?php echo $tr->translate("REQUIR_CHOOE_MENU")?>												
 																	</div>
 																	<div class="col-sm-2"  style="font-size: 10px;">
-																		<label class="col-sm-7" style="margin: 0; padding: 0;"><?php echo $tr->translate("REQUIRE_NUM")?></label>
-																		<div class="col-sm-5"  style="margin: 0; padding: 0;"><?php echo $form->getElement('demo4');?></div>																												
+																		<label class="col-sm-9" style="margin: 0; padding: 0;"><?php echo $tr->translate("REQUIRE_NUM")?></label>
+																		<div class="col-sm-3"  style="margin: 0; padding: 0;"><?php echo $form->getElement('demo4');?></div>																												
 																	</div>
 																</div>
 																<div class="col-sm-12" style="padding: 0;">
-																	<div class="form-group col-sm-12">
+																	<div class="form-group col-sm-6">
 																		<label class="col-sm-4 control-label" for="form-field-1">
 																			<?php echo $tr->translate("APPLY_TO_COMPANY")?>
 																		</label>
 																		<div class="col-sm-8">
-																			<?php echo $form->getElement('menu_code');?>
+																			<?php echo $form->getElement('apply_to_company');?>
 																		</div>
 																	</div>
 																</div>											
@@ -252,82 +212,29 @@ input[type=checkbox]{*opacity: 1!important;}
 														</div>
 														<div class="tab-pane fade in active" id="myTab_example2">
 															<div class="form-group">
-																<div class="col-sm-12" style="padding: 0;">
-																	<div class="form-group col-sm-12">
-																		<label class="col-sm-4 control-label" for="form-field-1">
-																			<?php echo $tr->translate("APPLY_TO_COMPANY")?>
-																		</label>
-																		<div class="col-sm-8">
-																			<?php echo $form->getElement('menu_code');?>
-																		</div>
-																	</div>
-																</div>
+															</div>		
+														</div>
+														<div class="tab-pane fade in active" id="myTab_example3">
+															<div class="form-group">
 															</div>		
 														</div>
 													</div>															
 												</div>
 											</div>
 										</div>
-										<div class="col-md-12">
-												<div class="panel-body table-responsive" id="panel-body">
-													<table class="table table-striped table-bordered table-hover table-full-width" id="sample_1">
-														<thead>
-															<tr style="text-align: center;">
-																<th style="text-align: center;"><?php echo $tr->translate("NUM")?></th>
-																<th style="text-align: center;"><?php echo $tr->translate("MENU_ITEM_CODE")?></th>
-																<th style="text-align: center;"><?php echo $tr->translate("MENU_GROUP_CODE")?></th>
-																<th style="text-align: center;"><?php echo $tr->translate("DESCRIPTION")?></th>
-																<th style="text-align: center;"><?php echo $tr->translate("LANG_ONE")?></th>
-																<th style="text-align: center;"><?php echo $tr->translate("LANG_TWO")?></th>
-															</tr>
-														</thead>
-														<tbody>
-															<tr>
-																<td style="text-align: center;">1</td>
-																<td>Amaya</td>
-																<td>Amaya</td>
-																<td class="hidden-xs">W3C,
-																INRIA</td>
-																<td>Free</td>
-																<td class="hidden-xs">W3C</td>
-															</tr>
-															<tr>
-																<td style="text-align: center;">2</td>
-																<td>Amaya</td>
-																<td>AOL Explorer</td>
-																<td class="hidden-xs">America Online, Inc</td>
-																<td>Free</td>
-																<td class="hidden-xs">Proprietary</td>
-															</tr>
-														</tbody>
-													</table>
-												</div>
-											</div>
 										</div>
-									</div>
-								</div>
-							</div>
-							</div>
-			<!-- end: MAIN CONTAINER -->
-							<div id="readNote">
-							<div class="noteWrap col-md-8 col-md-offset-2">
-								<div class="panel panel-note">
-								<div class="e-slider owl-carousel owl-theme">
-									<div class="item">
-										<div class="panel-heading">
-										</div>
-									</div>
-								</div>
+					</div>
+					
+						<div class="row">
+							<div class="col-md-offset-3 col-md-9">
+								<button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("SAVE_NEW")?> </button>
+								<button type="submit" class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("SAVE_CLOSE")?></button>
+								<a href="<?php echo $this->baseUrl();?>/menu"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
 							</div>
 						</div>
-				</div>
+					
+				</form>
 			</div>
 		</div>
-	</form>
+	</div>
 </div>
-<script>
-	function SaveData(){
-		div = document.getElementById("refreshdiv");
-		div.submit();
-	}
-</script>

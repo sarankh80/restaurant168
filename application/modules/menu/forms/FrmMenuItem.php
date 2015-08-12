@@ -6,6 +6,7 @@ Class menu_Form_FrmMenuItem extends Zend_Form {
 		$this->tr = Application_Form_FrmLanguages::getCurrentlanguage();
 	}
 	public function FrmMenu($data=null){
+		//item_code
 		$item_code = new Zend_Form_Element_Text('item_code');
 		$item_code->setAttribs(array(
 				'class'=>'form-control',
@@ -14,35 +15,55 @@ Class menu_Form_FrmMenuItem extends Zend_Form {
 		$menu_code->setAttribs(array(
 				'class'=>'form-control',
 		));
-		$select_menu = new Zend_Form_Element_Select('select_menu_group');
-		$select_menu->setAttribs(array(
-				'class'=>'form-control','onClick'=>'FuncMenuGroup()'
+		//group_code
+		$group_code = new Zend_Form_Element_Select('group_code');
+		$group_code->setAttribs(array(
+				'class'=>'form-control input-xlarge select2me','onClick'=>'FuncMenuGroup()'
 		));
-		$select_menu_opt = array( ""=>$this->tr->translate("SELECT_MENU_GROUP"),-1=>$this->tr->translate("ADD_NEW"));
-		$select_menu->setMultiOptions($select_menu_opt);
-		
-		$root_code = new Zend_Form_Element_Text('root_code');
+		$db = new Menu_Model_DbTable_DbMenu();
+		$opt = $db->getAllGroupMenu();
+		$group_code->setMultiOptions($opt);	
+		$root_code = new Zend_Form_Element_Select('root_code');
 		$root_code->setAttribs(array(
-				'class'=>'form-control',
-		));
-		$select_root_code = new Zend_Form_Element_Select('select_root_code');
-		$select_root_code->setAttribs(array(
 				'class'=>'form-control','onClick'=>'FuncRootMenuCode()'
 		));
-		$select_root_code_opt = array( ""=>$this->tr->translate("SELECT_ROOT_MENU"),-1=>$this->tr->translate("ADD_NEW"));
-		$select_root_code->setMultiOptions($select_root_code_opt);
+		$select_root_code_opt = array( ""=>$this->tr->translate("SELECT_GROUP_CODE"),-1=>$this->tr->translate("ADD_NEW"));
+		$root_code->setMultiOptions($select_root_code_opt);
+		//root_menu
+		$root_menu = new Zend_Form_Element_Select('root_menu');
+		$root_menu->setAttribs(array(
+				'class'=>'form-control input-xlarge select2me','onClick'=>'FuncRootMenuCode()'
+		));
+		$db = new Menu_Model_DbTable_DbMenu();
+		$opt = $db->getAllRootMenu();
+		$root_menu->setMultiOptions($opt);
+		$root_menus = new Zend_Form_Element_Select('root_menus');
+		$root_menus->setAttribs(array(
+				'class'=>'form-control','onClick'=>'FuncRootMenuCode()'
+		));
+		$root_menu_opt = array( ""=>$this->tr->translate("SELECT_ROOT_MENU"),-1=>$this->tr->translate("ADD_NEW"));
+		$root_menus->setMultiOptions($root_menu_opt);
 		
-		$print_code = new Zend_Form_Element_Text('print_code');
+		
+		
+		
+		
+		
+		
+		
+		$print_code = new Zend_Form_Element_Select('print_code');
 		$print_code->setAttribs(array(
-				'class'=>'form-control',
-		));
-		$select_print_code = new Zend_Form_Element_Select('select_print_code');
-		$select_print_code->setAttribs(array(
-				'class'=>'form-control','onClick'=>'FuncRootMenuCode()'
+				'class'=>'form-control input-xlarge select2me','onClick'=>'FuncRootMenuCode()'
 		));
 		$select_print_code_opt = array( ""=>$this->tr->translate("SELECT_PRINT_CODE"),-1=>$this->tr->translate("ADD_NEW"));
-		$select_print_code->setMultiOptions($select_print_code_opt);
+		$print_code->setMultiOptions($select_print_code_opt);
 		
+		
+		
+		
+		
+		
+	
 		$description = new Zend_Form_Element_Text('description');
 		$description->setAttribs(array(
 				'class'=>'form-control',
@@ -62,12 +83,13 @@ Class menu_Form_FrmMenuItem extends Zend_Form {
 		if($data!=null){
 // 			print_r($data);
 		}
+		$db = new Application_Model_DbTable_DbGlobal();
 		$show_description = new Zend_Form_Element_Select('show_description');
 		$show_description->setAttribs(array(
 				'class'=>'form-control'
 		));
-		$description_opt = array( ""=>$this->tr->translate("SELECT_DESCRIPTION"),-1=>$this->tr->translate("ADD_NEW"));
-		$show_description->setMultiOptions($description_opt);
+		$opt = $db->getVewOptoinTypeByType(1,1,null,1);
+		$show_description->setMultiOptions($opt);
 		$photo = new Zend_Form_Element_File('photo');
 		$background = new Zend_Form_Element_Text('background');
 		$background->setAttribs(array(
@@ -80,6 +102,17 @@ Class menu_Form_FrmMenuItem extends Zend_Form {
 		$font_size = new Zend_Form_Element_Text('demo3');
 		$font_size->setAttribs(array(
 				'class'=>'form-control','id'=>"demo3",'value'=>12,'placeholder'=>'0'
+		));
+		$font_size = new Zend_Form_Element_Select('demo3');
+		$font_size->setAttribs(array(
+				'class'=>'form-control'
+		));
+		$description_opt = array( ""=>$this->tr->translate("$600"),-1=>$this->tr->translate("$500"));
+		$font_size->setMultiOptions($description_opt);
+		$photo = new Zend_Form_Element_File('photo');
+		$background = new Zend_Form_Element_Text('background');
+		$background->setAttribs(array(
+				'class'=>'form-control color-picker-rgba'
 		));
 		$apply = new Zend_Form_Element_Select('apply');
 		$apply->setAttribs(array(
@@ -105,6 +138,10 @@ Class menu_Form_FrmMenuItem extends Zend_Form {
 		));
 		$time = new Zend_Form_Element_Checkbox('time');
 		$time->setAttribs(array(
+				'class'=>'red',
+		));
+		$is_root = new Zend_Form_Element_Checkbox('$is_root');
+		$is_root->setAttribs(array(
 				'class'=>'red',
 		));
 		$require_qty = new Zend_Form_Element_Checkbox('require_qty');
@@ -145,9 +182,10 @@ Class menu_Form_FrmMenuItem extends Zend_Form {
 		$select_apply_opt = array( ""=>$this->tr->translate("SELECT_APPLY_TO_COMPANY"),-1=>$this->tr->translate("ADD_NEW"));
 		$select_apply->setMultiOptions($select_apply_opt);
 		
-		$this->addElements(array($select_apply,$require_qty,$root_code,$select_root_code,$select_menu,$item_code,$apply,$active,$combo,$menu_code,
-				$description,$lang_1,$lang_2,$lang_3,$print_code,$select_print_code,$print_to,$show_screen,$time,$discount,
-				$show_description,$background,$font_color,$font_size,$format,$setting,$arrange,$resize,$note));
+		$this->addElements(array($select_apply,$require_qty,$root_code,$group_code,$item_code,$apply,$active,$combo,$menu_code,
+				$description,$lang_1,$lang_2,$lang_3,$print_code,$print_to,$show_screen,$time,$discount,
+				$show_description,$background,$font_color,$font_size,$format,$setting,$arrange,$resize,$note,
+				$is_root,$root_menu,$root_menus));
 		return $this;
 		
 	}	
