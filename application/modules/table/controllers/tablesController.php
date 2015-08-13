@@ -37,8 +37,24 @@ class Table_tablesController extends Zend_Controller_Action {
 		$this->view->form = $frm->FrmTables();
 	}
 	public function editAction(){
+		if($this->getRequest()->isPost()){
+            $data=$this->getRequest()->getPost();
+            $db=new Table_Model_DbTable_DbTables();
+            try {
+            	if(isset($data['btnsave_close'])){
+            		$data_table = $db->updateTable($data);
+            		Application_Form_FrmMessage::Sucessfull('ការ​បញ្ចូល​​ជោគ​ជ័យ', self::REDIRECT_URL_ADD_CLOSE);
+            	}
+            }catch (Exception $e){
+            	Application_Form_FrmMessage::message("INSERT_FAIL");
+            	Application_Model_DbTable_DbUserLog::writeMessageError($e->getMessage());
+            }
+		}
+		$id=$this->getRequest()->getParam('id');
+		$db=new Table_Model_DbTable_DbTables();
+		$row=$db->getTableById($id);
 		$frm = new Table_Form_FrmTables();
-		$this->view->form = $frm->FrmTables();
+		$this->view->form = $frm->FrmTables($row);
 	}
 }
 

@@ -42,7 +42,7 @@
 							<tr class="odd" role="row">
 								<td><?php echo $row["code"];?></td>
 								<td><?php echo $row["description"];?></td>
-								<td><?php echo $row["lang1"];?></td>
+								<td><a href="<?php echo $url_edit ?>/id/<?php echo $row['id'];?>"><?php echo $row["lang1"];?></a></td>
 								<td><a href="<?php echo $url_edit ?>/id/<?php echo $row['id'];?>"><?php echo $row["lang2"];?></a></td>
 							</tr>
 					   <?php }?>

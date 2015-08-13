@@ -100,7 +100,11 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 		$location->setAttribs(array(
 				'class'=>'form-control','style'=>"margin-top: 0px; margin-bottom: 0px; height: 100px;"
 		));
+		$photo = new Zend_Form_Element_File('photo');
+	    $id=new Zend_Form_Element_Hidden('id');
 		if($data != null){
+		$dbs=	$id->setValue($data['id']);
+			
 			$menu_code->setValue($data['CODE']);
 			$description->setValue($data['description']);
 			$lang_1->setValue($data['lang1']);
@@ -112,8 +116,9 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 			$font_color->setValue($data['font_color']);
 			$font_site->setValue($data['font_size']);
 			$active->setValue($data['status']);
+			$id->setValue($data['id']);
 		}
-		$this->addElements(array($location,$apply,$active,$combo,$menu_code,$description,$lang_1,$lang_2,$apply_to,
+		$this->addElements(array($id,$photo,$location,$apply,$active,$combo,$menu_code,$description,$lang_1,$lang_2,$apply_to,
 				$show_description,$backgroun_color,$font_color,$font_site,$format,$setting,$arrange,$resize,$note));
 		return $this;
 		

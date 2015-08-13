@@ -2,7 +2,6 @@
 class Table_tablegroupController extends Zend_Controller_Action {
 	const REDIRECT_URL_ADD = '/table/tablegroup/add';
 	const REDIRECT_URL_ADD_CLOSE = '/table/tablegroup/index';
-	const REDIRECT_URL_EDIT = '/table/tablegroup/edit';
 	public function init()
 	{
 		header('content-type: text/html; charset=utf8');
@@ -18,7 +17,6 @@ class Table_tablegroupController extends Zend_Controller_Action {
 	public function addAction(){
 		if($this->getRequest()->isPost()){
 			$data =$this->getRequest()->getPost();
-			print_r($data);exit();
 			$db = new Table_Model_DbTable_DbTablesGroup();
 			try{
 				if(isset($data['btnsave'])){
@@ -41,11 +39,12 @@ class Table_tablegroupController extends Zend_Controller_Action {
 		
 				if($this->getRequest()->isPost()){
 						$data =$this->getRequest()->getPost();
+				//		print_r($data);exit();
 						$db = new Table_Model_DbTable_DbTablesGroup();
 						try{
 							if(isset($data['btnsave'])){
 								$data_table = $db->updateTableGroup($data);
-								Application_Form_FrmMessage::Sucessfull('ការ​បញ្ចូល​​ជោគ​ជ័យ', self::REDIRECT_URL_EDIT);
+								Application_Form_FrmMessage::Sucessfull('ការ​បញ្ចូល​​ជោគ​ជ័យ', self::REDIRECT_URL_ADD_CLOSE);
 							}
 							else if(isset($data['btnsave_close'])){
 								$data_table = $db->updateTableGroup($data);

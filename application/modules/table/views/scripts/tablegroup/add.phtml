@@ -31,12 +31,6 @@
 														<?php echo $form->getElement('group_code');?>
 													</div>
 												</div>
-												<div class="col-md-4">
-													<div class="input-icon right">
-														<i class="fa"></i>
-														<input class="form-control" name="name" type="text">
-													</div>
-												</div>
 											</div>
 											<div class="form-group col-sm-12">
 												<label class="col-sm-4 control-label" >
@@ -75,15 +69,14 @@
 												<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" style="padding:3px ;background:red;"/>
 											</div>
 											<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
-												this is testing
+											
 											</div>
 											<div>
 												<span class="btn default btn-file">
-												<span class="fileinput-new">
-												Select image </span>
-												<span class="fileinput-exists">
-												Change </span>
-												<input type="file" name="fileinput" value="">
+												<span class="fileinput-new">Select image </span>
+												<span class="fileinput-exists">	Change </span>
+												<input type="file" name="photo"></input>
+												<?php echo $form->getElement('photo');?>
 												</span>
 												<a href="#" class="btn red fileinput-exists" data-dismiss="fileinput">
 												Remove </a>

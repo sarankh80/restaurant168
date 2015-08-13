@@ -9,7 +9,7 @@ Class table_Form_FrmTableType extends Zend_Dojo_Form {
 		$menu_code = new Zend_Form_Element_Text('type_code');
 		$menu_code->setAttribs(array(
 				'class'=>'form-control',
-				'reqeured'=>true
+				'required'=>true
 		));
 		$description = new Zend_Form_Element_Text('description');
 		$description->setAttribs(array(
@@ -86,7 +86,16 @@ Class table_Form_FrmTableType extends Zend_Dojo_Form {
 		$note->setAttribs(array(
 				'class'=>'form-control','style'=>"margin-top: 0px; margin-bottom: 0px; height: 100px;"
 		));
-		$this->addElements(array($apply,$active,$combo,$menu_code,$description,$lang_1,$lang_2,$lang_3,
+		$id=new Zend_Form_Element_Hidden('id');
+		if($data!=null){
+			$id->setValue($data['id']);
+			$menu_code->setValue($data['code']);
+			$description->setValue($data['description']);
+			$lang_1->setValue($data['lang1']);
+			$lang_2->setValue($data['lang2']);
+			$note->setValue($data['note']);
+		}
+		$this->addElements(array($id,$apply,$active,$combo,$menu_code,$description,$lang_1,$lang_2,$lang_3,
 				$show_description,$background,$font_color,$font_size,$format,$setting,$arrange,$resize,$note));
 		return $this;
 		

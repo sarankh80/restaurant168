@@ -6,10 +6,10 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		$this->tr = Application_Form_FrmLanguages::getCurrentlanguage();
 	}
 	public function FrmTables($data=null){
-		$menu_code = new Zend_Form_Element_Text('table_code');
-		$menu_code->setAttribs(array(
+		$table_code = new Zend_Form_Element_Text('table_code');
+		$table_code->setAttribs(array(
 				'class'=>'form-control',
-				'id'=>'inputWarning',
+				'required'=>true
 		));
 		$db=new Application_Model_DbTable_DbGlobal();
 		$g_code = new Zend_Form_Element_Select('group_code');
@@ -17,9 +17,6 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 				'class'=>'form-control select2me',
 				
 		));
-		
-		
-		
 		$option=$db->getGroupCode();
 		$g_code->setMultiOptions($option);
 		$g_code1 = new Zend_Form_Element_Text('g_code1');
@@ -47,6 +44,7 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		$description = new Zend_Form_Element_Text('description');
 		$description->setAttribs(array(
 				'class'=>'form-control',
+				'required'=>true
 		));
 		$lang_1 = new Zend_Form_Element_Text('lang_1');
 		$lang_1->setAttribs(array(
@@ -78,12 +76,12 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		));
 		$opt_type_table=$db->getTypeOfTable();
 		$type_of_table->setMultiOptions($opt_type_table);
-		$show_description2 = new Zend_Form_Element_Select('apply_to_company');
-		$show_description2->setAttribs(array(
+		$apply_to_company = new Zend_Form_Element_Select('apply_to_company');
+		$apply_to_company->setAttribs(array(
 				'class'=>'form-control'
 		));
 		$opt=array('0'=>'select company', '1'=>'A','2'=>'B','3'=>'C');
-		$show_description2->setMultiOptions($opt);
+		$apply_to_company->setMultiOptions($opt);
 		$photo = new Zend_Form_Element_File('photo');
 		$background = new Zend_Form_Element_Text('background');
 		$background->setAttribs(array(
@@ -139,8 +137,30 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		$note1->setAttribs(array(
 				'class'=>'form-control','style'=>"margin-top: 0px; margin-bottom: 0px; height: 150px;"
 		));
-		$this->addElements(array($dicount_ck,$time_ck,$type_of_table,$est_time,$price,$max_seat,$time,$g_code,$apply,$active,$combo,$menu_code,$description,$lang_1,$lang_2,$lang_3,
-				$note1,$backgroun_color,$g_code1,$show_description1,$show_description2,$background,$font_color,$format,$font_color,$font_site,$resize,$note));
+		$id=new Zend_Form_Element_Hidden('id');
+		if ($data!=null){
+			$id->setValue($data['id']);
+			$table_code->setValue($data['code']);
+			$description->setValue($data['description']);
+			$lang_1->setValue($data['lang1']);
+			$lang_2->setValue($data['lang2']);
+			$g_code->setValue($data['tbl_groupid']);
+			$type_of_table->setValue($data['BuildInPicID']);
+			$show_description1->setValue($data['display_by']);
+			$max_seat->setValue($data['max_sit']);
+			$apply_to_company->setValue($data['compid']);
+			$active->setValue($data['active']);
+			$time_ck->setValue($data['time_charge_id']);
+			$dicount_ck->setValue($data['is_discound']);
+			$price->setValue($data['price']);
+			$est_time->setValue($data['est_time']);
+			$backgroun_color->setValue($data['backgroud_color']);
+			$font_color->setValue($data['font_color']);
+			$font_site->setValue($data['font_size']);
+			$note->setValue($data['note']);
+		}
+		$this->addElements(array($id,$dicount_ck,$time_ck,$type_of_table,$est_time,$price,$max_seat,$time,$g_code,$apply,$active,$combo,$table_code,$description,$lang_1,$lang_2,$lang_3,
+				$note1,$backgroun_color,$g_code1,$show_description1,$apply_to_company,$background,$font_color,$format,$font_color,$font_site,$resize,$note));
 		return $this;
 		
 	}	
