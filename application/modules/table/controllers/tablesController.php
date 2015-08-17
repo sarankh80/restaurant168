@@ -17,6 +17,7 @@ class Table_tablesController extends Zend_Controller_Action {
 	public function addAction(){
 		if($this->getRequest()->isPost()){
 			$data =$this->getRequest()->getPost();
+			//print_r($data);exit();
 		    $db = new Table_Model_DbTable_DbTables();
 		       try{
 		       	if(isset($data['btnsave'])){
@@ -53,6 +54,7 @@ class Table_tablesController extends Zend_Controller_Action {
 		$id=$this->getRequest()->getParam('id');
 		$db=new Table_Model_DbTable_DbTables();
 		$row=$db->getTableById($id);
+		$this->view->photo=$row['img_name'];
 		$frm = new Table_Form_FrmTables();
 		$this->view->form = $frm->FrmTables($row);
 	}

@@ -87,7 +87,7 @@ Class table_Form_FrmTableType extends Zend_Dojo_Form {
 				'class'=>'form-control','style'=>"margin-top: 0px; margin-bottom: 0px; height: 100px;"
 		));
 		$id=new Zend_Form_Element_Hidden('id');
-		if($data!=null){
+		if($data !=null){
 			$id->setValue($data['id']);
 			$menu_code->setValue($data['code']);
 			$description->setValue($data['description']);

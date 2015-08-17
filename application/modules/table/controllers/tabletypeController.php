@@ -40,11 +40,7 @@ class Table_tabletypeController extends Zend_Controller_Action {
 						$data =$this->getRequest()->getPost();
 						$db = new Table_Model_DbTable_DbTablesType();
 						try{
-							if(isset($data['btnsave'])){
-								$data_table = $db->updateTableType($data);
-								Application_Form_FrmMessage::Sucessfull('ការ​បញ្ចូល​​ជោគ​ជ័យ', self::REDIRECT_URL_ADD_CLOSE);
-							}
-							else if(isset($data['btnsave_close'])){
+							 if(isset($data['btnsave_close'])){
 								$data_table = $db->updateTableType($data);
 								Application_Form_FrmMessage::Sucessfull('ការ​បញ្ចូល​​ជោគ​ជ័យ', self::REDIRECT_URL_ADD_CLOSE);
 							}

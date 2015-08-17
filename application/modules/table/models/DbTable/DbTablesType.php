@@ -33,9 +33,9 @@ class Table_Model_DbTable_DbTablesType extends Zend_Db_Table_Abstract
     	$oderby=" ORDER BY id DESC";
     	return $db->fetchAll($sql.$oderby);
     }
-    function getTableTypeById(){
+    function getTableTypeById($id){
     	$db=$this->getAdapter();
-    	$sql="SELECT id,code,description,lang1,lang2,note FROM $this->_name";
+    	$sql="SELECT id,code,description,lang1,lang2,note FROM $this->_name WHERE id=".$id;
     	return $db->fetchRow($sql);
     }
 }

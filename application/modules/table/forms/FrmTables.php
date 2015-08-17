@@ -159,7 +159,7 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 			$font_site->setValue($data['font_size']);
 			$note->setValue($data['note']);
 		}
-		$this->addElements(array($id,$dicount_ck,$time_ck,$type_of_table,$est_time,$price,$max_seat,$time,$g_code,$apply,$active,$combo,$table_code,$description,$lang_1,$lang_2,$lang_3,
+		$this->addElements(array($id,$photo,$dicount_ck,$time_ck,$type_of_table,$est_time,$price,$max_seat,$time,$g_code,$apply,$active,$combo,$table_code,$description,$lang_1,$lang_2,$lang_3,
 				$note1,$backgroun_color,$g_code1,$show_description1,$apply_to_company,$background,$font_color,$format,$font_color,$font_site,$resize,$note));
 		return $this;
 		

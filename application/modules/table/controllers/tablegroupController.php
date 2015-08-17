@@ -17,15 +17,16 @@ class Table_tablegroupController extends Zend_Controller_Action {
 	public function addAction(){
 		if($this->getRequest()->isPost()){
 			$data =$this->getRequest()->getPost();
+// 			print_r($data);exit();
 			$db = new Table_Model_DbTable_DbTablesGroup();
 			try{
 				if(isset($data['btnsave'])){
 					$data_table = $db->addTableGroup($data);
-					Application_Form_FrmMessage::Sucessfull('ការ​បញ្ចូល​​ជោគ​ជ័យ', self::REDIRECT_URL_ADD);
+					//Application_Form_FrmMessage::Sucessfull('ការ​បញ្ចូល​​ជោគ​ជ័យ', self::REDIRECT_URL_ADD);
 				}
 				else if(isset($data['btnsave_close'])){
 					$data_table = $db->addTableGroup($data);
-					Application_Form_FrmMessage::Sucessfull('ការ​បញ្ចូល​​ជោគ​ជ័យ', self::REDIRECT_URL_ADD_CLOSE);
+					//Application_Form_FrmMessage::Sucessfull('ការ​បញ្ចូល​​ជោគ​ជ័យ', self::REDIRECT_URL_ADD_CLOSE);
 				}
 			} catch (Exception $e) {
 				Application_Form_FrmMessage::message("INSERT_FAIL");
@@ -42,11 +43,7 @@ class Table_tablegroupController extends Zend_Controller_Action {
 				//		print_r($data);exit();
 						$db = new Table_Model_DbTable_DbTablesGroup();
 						try{
-							if(isset($data['btnsave'])){
-								$data_table = $db->updateTableGroup($data);
-								Application_Form_FrmMessage::Sucessfull('ការ​បញ្ចូល​​ជោគ​ជ័យ', self::REDIRECT_URL_ADD_CLOSE);
-							}
-							else if(isset($data['btnsave_close'])){
+							if(isset($data['btnsave_close'])){
 								$data_table = $db->updateTableGroup($data);
 								Application_Form_FrmMessage::Sucessfull('ការ​បញ្ចូល​​ជោគ​ជ័យ', self::REDIRECT_URL_ADD_CLOSE);
 							}
@@ -59,6 +56,7 @@ class Table_tablegroupController extends Zend_Controller_Action {
 		$db = new Table_Model_DbTable_DbTablesGroup();
 		$row  = $db->getTableGroupById($id);
 // 		print_r($row);exit();
+        $db=$this->view->photo=$row['img_name'];
 		$frm = new Table_Form_FrmTableGroup();
 		$this->view->form = $frm->FrmTable($row);
 // 		Application_Model_Decorator::removeAllDecorator($frm);
