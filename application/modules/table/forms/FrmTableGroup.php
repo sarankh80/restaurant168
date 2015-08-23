@@ -9,23 +9,28 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 		$menu_code = new Zend_Form_Element_Text('group_code');
 		$menu_code->setAttribs(array(
 				'class'=>'form-control',
-				//'required'=>'true'
+				'required'=>'true',
+				'onkeyup'=>'displayPhoto()'
 		));
 		$description = new Zend_Form_Element_Text('description');
 		$description->setAttribs(array(
 				'class'=>'form-control',
+				'onkeyup'=>'displayPhoto()'
 		));
 		$lang_1 = new Zend_Form_Element_Text('lang_1');
 		$lang_1->setAttribs(array(
 				'class'=>'form-control',
+				'onkeyup'=>'displayPhoto()'
 		));
 		$font_color = new Zend_Form_Element_text('font_color');
 		$font_color->setAttribs(array(
-				'class'=>'colorpicker-default form-control'
+				'class'=>'colorpicker-default form-control',
+				'onclick'=>'displayPhoto()'
 		));
 		$lang_2 = new Zend_Form_Element_Text('lang_2');
 		$lang_2->setAttribs(array(
-				'checked'=>'checked','class'=>'form-control'
+				'checked'=>'checked','class'=>'form-control',
+				'onkeyup'=>'displayPhoto()'
 		));
 		$lang_3 = new Zend_Form_Element_Text('lang_3');
 		$lang_3->setAttribs(array(
@@ -39,6 +44,7 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 		$show_description->setAttribs(array(
 				'class'=>'form-control',
 				'required'=>'true',
+				'onchange'=>'displayPhoto()'
 		));
 		$opt = $db->getVewOptoinTypeByType(1,1,null ,1);
 		$show_description->setMultiOptions($opt);
@@ -53,11 +59,14 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 		$backgroun_color = new Zend_Form_Element_Text('backgroun_color');
 		$backgroun_color->setAttribs(array(
 				'class'=>'colorpicker-rgba form-control',
+				'onclick'=>'displayPhoto()'
 		));
 		$font_site = new Zend_Form_Element_text('font_size');
 		$font_site->setAttribs(array(
-				'class'=>' spinner-input form-control'
+				'class'=>' spinner-input form-control',
+				'onkeyup'=>'displayPhoto()'
 		));		
+		$font_site->setValue(18);
 		$apply = new Zend_Form_Element_Select('apply');
 		$apply->setAttribs(array(
 				'class'=>'form-control'

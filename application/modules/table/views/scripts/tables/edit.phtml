@@ -2,7 +2,6 @@
 	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
 	$url_save_close= $this->url(array('module'=>'table','controller'=>'tables','action'=>'edit'));
 	$url_edit = $this->url(array('module'=>'menu','controller'=>'group','action'=>'edit'));
-	$photo=$this->photo;
 ?>
 <style>
 .form-horizontal .control-label {
@@ -65,7 +64,7 @@
 									<div class="col-md-12">
 										<div class="fileinput fileinput-new" data-provides="fileinput">
 											<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-												<img src="<?php echo $this->baseUrl().'/images/'.$photo; ?>" alt=" image not found"/>
+												<img src="<?php echo $this->baseUrl().'/images/'.$this->photo; ?>" alt=" image not found"/>
 											</div>
 											<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
 											</div>

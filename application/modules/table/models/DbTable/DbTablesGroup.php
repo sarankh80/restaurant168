@@ -5,12 +5,17 @@ class Table_Model_DbTable_DbTablesGroup extends Zend_Db_Table_Abstract
     protected $_name = 'rs_table_group';
     function addTableGroup($data){
     	$db = $this->getAdapter();
-    	$photoname = str_replace(" ", "_", $data['group_code']) . '.jpg';
     	$upload = new Zend_File_Transfer();
-    	$a=	$upload->addFilter('Rename',
-    			array('target' => PUBLIC_PATH . '/images/'. $photoname, 'overwrite' => true) ,'photo');
+    	$file = $upload->getFileInfo();
+    	foreach ($file as $row){
+    		$row_name = $row["name"];
+    		$filenameitems = explode(".", $row_name);
+    		$extension =  $filenameitems[count($filenameitems) - 1];
+    		$photoname = str_replace(" ", "_", $data['group_code']) .'.'. $extension;
+    	}
+    	$upload->addFilter('Rename',
+    			array('target' => PUBLIC_PATH . '/image/'. $photoname, 'overwrite' => true) ,'photo');
     	$receive = $upload->receive();
-    	//echo $receive; exit();
     	if($receive)
     	{
     		$data['photo'] = $photoname;
@@ -47,7 +52,7 @@ class Table_Model_DbTable_DbTablesGroup extends Zend_Db_Table_Abstract
     	$photo_name=str_replace(" ","_",$data['group_code']) . '.jpg';
     	$upload=new Zend_File_Transfer();
     	$upload->addFilter('Rename',
-    			           array('target'=> PUBLIC_PATH .'/images/'.$photo_name,'overwrite'=>true),'photo');
+    			           array('target'=> PUBLIC_PATH .'/image/'.$photo_name,'overwrite'=>true),'photo');
     	$recieve=$upload->receive();
     	if($recieve){
     		$data['photo']=$photo_name;
@@ -79,7 +84,7 @@ class Table_Model_DbTable_DbTablesGroup extends Zend_Db_Table_Abstract
     }
     function getAllRowTablGroup(){
     	$db = $this->getAdapter();
-    	$sql="SELECT id,code,description,lang1,lang2 FROM $this->_name";
+    	$sql="SELECT id,code,description,lang1,lang2,note,status FROM $this->_name";
     	$oderby=" ORDER BY id DESC";
     	return $db->fetchAll($sql.$oderby);
     }

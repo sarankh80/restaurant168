@@ -9,7 +9,7 @@ class Table_Model_DbTable_DbTables extends Zend_Db_Table_Abstract
     	$photo_name=str_replace(" ", "_", $data['table_code']) . '.jpg';
     	$upload=new Zend_File_Transfer();
     	$a=$upload->addFilter('Rename',
-    			           array('target'=>PUBLIC_PATH .'/images/'.$photo_name,'overwrite'=>true));
+    			           array('target'=>PUBLIC_PATH .'/image/'.$photo_name,'overwrite'=>true));
     	$recieve=$upload->receive();
 //     	print_r($recieve);exit();
     	if($recieve){
@@ -47,14 +47,14 @@ class Table_Model_DbTable_DbTables extends Zend_Db_Table_Abstract
     	$db = $this->getAdapter();
     	$sql="SELECT id,img_name,code ,description,lang1,lang2,tbl_groupid,display_by,max_sit,price,
     	      compid,active,time_charge_id,is_discound,BuildInPicID,add_date,est_time,backgroud_color, 
-    	      font_color,font_size,note FROM $this->_name WHERE id=$id";
+    	      font_color,font_size,note FROM $this->_name WHERE id=".$id;
     	return $db->fetchRow($sql);
     }
     function updateTable($data){
     	$photo_name=str_replace(" ", "_",$data['table_code']).'.jpg';
     	$upload=new Zend_File_Transfer();
     	$upload->addFilter('Rename',
-    			           array('target'=>PUBLIC_PATH .'/images/'.$photo_name,
+    			           array('target'=>PUBLIC_PATH .'/image/'.$photo_name,
     			           	      'overwrite'=>true));
     	$receive=$upload->receive();
     	if($receive){

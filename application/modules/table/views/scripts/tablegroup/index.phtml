@@ -14,8 +14,6 @@
 				</div>
 				<div class="tools">
 					<a href="<?php echo $url;?>"><button type="button" name="btnsave" class="btn btn-primary"><i class="icon-plus"></i> <?php echo $tr->translate("ADD_NEW")?> </button></a>
-					<a href="<?php echo $url_edit;?>"><button type="submit" class="btn btn-primary" ><i class="icon-pencil"></i> <?php echo $tr->translate("EDIT")?></button></a>
-					<a href="<?php echo $this->baseUrl();?>/menu"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("DELETE")?></button></a>
 				</div>
 			</div>
 			<div class="portlet-body" class="col-md-12">
@@ -35,15 +33,28 @@
 								<th data-column-index="3" aria-label="Engine version: activate to sort column ascending"  colspan="1" rowspan="1" aria-controls="sample_6" tabindex="0" class="hidden-xs sorting">
 								    DESCRIPTION2
 								</th>
+								<th data-column-index="3" aria-label="Engine version: activate to sort column ascending"  colspan="1" rowspan="1" aria-controls="sample_6" tabindex="0" class="hidden-xs sorting">
+								    NOTE
+								</th>
+								<th data-column-index="3" aria-label="Engine version: activate to sort column ascending"  colspan="1" rowspan="1" aria-controls="sample_6" tabindex="0" class="hidden-xs sorting">
+								    STATUS
+								</th>
 							</tr>
 						</thead>
 						<tbody>
 						<?php foreach ($rows as $row){?>
 							<tr class="odd" role="row">
+							     <?php if ($row['status']==0){
+							     	      $row['status']='មិនប្រើប្រាស់';
+							             }else{$row['status']='ប្រើប្រាស់';
+							             }
+							     ?>
 								<td><?php echo $row["code"];?></td>
-								<td><?php echo $row["description"];?></td>
+								<td><a href="<?php echo $url_edit ?>/id/<?php echo $row['id'];?>"><?php echo $row["description"];?></a></td>
 								<td><a href="<?php echo $url_edit ?>/id/<?php echo $row['id'];?>"><?php echo $row["lang1"];?></a></td>
 								<td><a href="<?php echo $url_edit ?>/id/<?php echo $row['id'];?>"><?php echo $row["lang2"];?></a></td>
+								<td><a href="<?php echo $url_edit ?>/id/<?php echo $row['id'];?>"><?php echo $row["note"];?></a></td>
+								<td><a href="<?php echo $url_edit ?>/id/<?php echo $row['id'];?>"><?php echo $row["status"];?></a></td>
 							</tr>
 					   <?php }?>
 					</tbody>

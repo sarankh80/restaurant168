@@ -29,6 +29,7 @@
 <meta content="" name="description"/>
 <meta content="" name="author"/>
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
+<link href="<?php echo $this->baseUrl()?>/css/style.css" rel="stylesheet" type="text/css"/>
 <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
 <link href="<?php echo $this->baseUrl()?>/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo $this->baseUrl()?>/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
@@ -202,17 +203,17 @@
 <!-- Validate Control's form -->
 
 <script>
-        jQuery(document).ready(function() {       
-           // initiate layout and plugins
+        jQuery(document).ready(function() { 
            Metronic.init(); // init metronic core components
-Layout.init(); // init current layout
-QuickSidebar.init(); // init quick sidebar
-Demo.init(); // init demo features
+		   Layout.init(); // init current layout
+		   QuickSidebar.init(); // init quick sidebar
+		   Demo.init(); // init demo features
            ComponentsFormTools.init();
            ComponentsPickers.init();
            TableManaged.init();
            TableAdvanced.init();
            FormValidation.init();
+           displayPhoto();
         });   
     </script>
 <!-- END PAGE LEVEL SCRIPTS -->

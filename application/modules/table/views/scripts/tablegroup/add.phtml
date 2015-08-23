@@ -18,7 +18,7 @@
 			</div>
 			<div class="portlet-body form"  >
 				<!-- BEGIN FORM-->
-				<form id="form_sample_2" class="form-horizontal" method="post" enctype="multipart/form-data"  >
+				<form id="form_sample_2" class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo $url_save; ?>" >
 				<div class="form-body">
 				     <div  class="col-sm-9"  >
 											<div class="form-group col-sm-12">
@@ -66,7 +66,9 @@
 									<div class="col-md-12">
 										<div class="fileinput fileinput-new" data-provides="fileinput">
 											<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-												<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" style="padding:3px ;background:#7C9BAB none repeat scroll 3px;"/>
+												<label id="display_titel" class="full-size">
+													<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" style="padding:3px ;background:#7C9BAB none repeat scroll 3px;"/>
+												</label>
 											</div>
 											<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
 											
@@ -92,12 +94,6 @@
 																	
 																</a>
 															</li>
-															<li>
-																<a href="#myTab_example3" data-toggle="tab" style="color:#0A0A0B;">
-																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("LOCATION")?>
-																</a>
-															</li>
-															
 															<li>
 																<a href="#myTab_example2" data-toggle="tab" style="color:#0A0A0B;">
 																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("FORMAT")?>
@@ -191,13 +187,6 @@
 																	</div>
 																</div>
 															</div>
-															<div class="tab-pane fade" id="myTab_example3">
-																<div class="form-group">																	
-																	<div class="col-sm-12">
-																		<?php echo $form->getElement('location');?>
-																	</div>
-																</div>
-															</div>
 														</div>
 													</div>
 												</div>
@@ -205,8 +194,8 @@
 							</div>			
 						<div class="row">
 							<div class="col-md-offset-3 col-md-9">
-								<a href="<?php echo $url_save;?>"><button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("SAVE_NEW")?> </button></a>
-								<a href="<?php echo $url_save_close;?>"><button type="submit" name="btnsave_close" class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("SAVE_CLOSE")?></button></a>
+								<button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("SAVE_NEW")?> </button>
+								<button type="submit" name="btnsave_close" class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("SAVE_CLOSE")?></button>
 								<a href="<?php echo $this->baseUrl();?>/table/tablegroup/"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
 							</div>
 						</div>
@@ -216,3 +205,35 @@
 		</div>
 	</div>
 </div>
+<script>
+function displayPhoto(){
+	dis_type = $("#show_description").val();
+	bg_color= $("#backgroun_color").val();
+	font_color= $("#font_color").val();
+	font_size = $("#font_size").val();
+	group_code=$("#group_code").val();
+	description=$("#description").val();
+	lang_1=$("#lang_1").val();
+	lang_2=$("#lang_2").val();
+	if(dis_type==1){
+		dis_title = $("#group_code").val();
+		$("#display_titel").html(group_code);
+	}else if(dis_type==2){
+		dis_title = $("#description").val();
+		$("#display_titel").html(description);
+	}
+	else if(dis_type==3){
+		dis_title = $("#lang_1").val();
+		$("#display_titel").html(lang_1);
+	}
+	else if(dis_type==4){
+		dis_title = $("#lang_2").val();
+		$("#display_titel").html(lang_2);
+	}
+	else{
+		dis_title = '';
+	}
+	$("#display_titel").html(dis_title);
+	$("#display_titel").css({"background-color": bg_color,"color": font_color,"font-size":font_size+"px" });
+}
+</script>
