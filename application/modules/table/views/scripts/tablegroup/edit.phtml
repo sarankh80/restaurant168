@@ -66,7 +66,7 @@
 										<div class="fileinput fileinput-new" data-provides="fileinput">
 											<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
 												<label id="display_titel" class="full-size">
-													<img src="<?php echo $this->baseUrl().'/images/'.$photo;?>" alt=""/>
+													<img src="<?php echo $this->baseUrl().'/image/'.$photo;?>" alt=""/">
 												</label>
 											</div>
 											<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
@@ -94,7 +94,7 @@
 															</li>
 															<li>
 																<a href="#myTab_example2" data-toggle="tab" style="color:#0A0A0B;">
-																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("FORMAT")?>
+																	<i class="green fa fa-gear" id="autolis"></i> <?php echo $tr->translate("FORMAT")?>
 																</a>
 															</li>
 														</ul>
@@ -233,4 +233,5 @@ function displayPhoto(){
 	$("#display_titel").html(dis_title);
 	$("#display_titel").css({"background-color": bg_color,"color": font_color,"font-size":font_size+"px" });
 }
+
 </script>

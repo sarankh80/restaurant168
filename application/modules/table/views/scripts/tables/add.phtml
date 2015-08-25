@@ -63,9 +63,12 @@
 									<div class="col-md-12">
 										<div class="fileinput fileinput-new" data-provides="fileinput">
 											<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-												<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
+												<label id="display_titel" class="full-size">
+													<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" style="padding:3px ;background:#7C9BAB none repeat scroll 3px;"/>
+												</label>
 											</div>
 											<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
+											
 											</div>
 											<div>
 												<?php echo $form->getElement('photo');?>
@@ -283,3 +286,29 @@
 		</div>
 	</div>
 </div>
+<script>
+function displayPhoto(){
+	backgroun_color = $("#backgroun_color").val();
+	font_color = $("#font_color").val();
+	font_size = $("#font_size").val();
+	dis_type = $("#show_description").val();
+	if(dis_type==1){
+		dis_title = $("#table_code").val();
+	}
+	else if(dis_type==2){
+		dis_title = $("#description").val();
+	}
+	else if(dis_type ==3 ){
+		dis_title = $("#lang_1").val();
+		
+	}
+	else if(dis_type==4){
+		dis_title=$("#lang_2").val();
+	}
+	else{
+		dis_title ='';
+	}
+	$("#display_titel").html(dis_title);
+	$("#display_titel").css({"background-color": backgroun_color,"color": font_color, "font-size": font_size+"px"});
+}
+</script>

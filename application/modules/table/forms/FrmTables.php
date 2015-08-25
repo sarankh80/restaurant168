@@ -9,7 +9,8 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		$table_code = new Zend_Form_Element_Text('table_code');
 		$table_code->setAttribs(array(
 				'class'=>'form-control',
-				'required'=>true
+				'required'=>true,
+				'onkeyup'=>'displayPhoto()'
 		));
 		$db=new Application_Model_DbTable_DbGlobal();
 		$g_code = new Zend_Form_Element_Select('group_code');
@@ -44,15 +45,18 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		$description = new Zend_Form_Element_Text('description');
 		$description->setAttribs(array(
 				'class'=>'form-control',
-				'required'=>true
+				'required'=>true,
+				'onkeyup'=>'displayPhoto()'
 		));
 		$lang_1 = new Zend_Form_Element_Text('lang_1');
 		$lang_1->setAttribs(array(
 				'class'=>'form-control',
+				'onkeyup'=>'displayPhoto()'
 		));
 		$lang_2 = new Zend_Form_Element_Text('lang_2');
 		$lang_2->setAttribs(array(
-				'checked'=>'checked','class'=>'form-control'
+				'checked'=>'checked','class'=>'form-control',
+				'onkeyup'=>'displayPhoto()'
 		));
 		$lang_3 = new Zend_Form_Element_Text('lang_3');
 		$lang_3->setAttribs(array(
@@ -65,7 +69,8 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		$description_opt = array( ""=>$this->tr->translate("SELECT_DESCRIPTION"));
 		$show_description1 = new Zend_Form_Element_Select('show_description');
 		$show_description1->setAttribs(array(
-				'class'=>'form-control'
+				'class'=>'form-control',
+				'onchange'=>'displayPhoto()'
 		));
 		$opt = $db->getVewOptoinTypeByType(1,1,null ,1);
 		$show_description1->setMultiOptions($opt);
@@ -90,6 +95,7 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		$backgroun_color = new Zend_Form_Element_Text('backgroun_color');
 		$backgroun_color->setAttribs(array(
 				'class'=>'colorpicker-rgba form-control',
+				'onclick'=>'displayPhoto()'
 		));
 		$apply = new Zend_Form_Element_Select('apply');
 		$apply->setAttribs(array(
@@ -119,12 +125,15 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		));
 	    $font_color = new Zend_Form_Element_text('font_color');
 		$font_color->setAttribs(array(
-				'class'=>'colorpicker-default form-control'
+				'class'=>'colorpicker-default form-control',
+				'onclick'=>'displayPhoto()',
 		));
 		$font_site = new Zend_Form_Element_text('font_size');
 		$font_site->setAttribs(array(
-				'class'=>' spinner-input form-control'
+				'class'=>' spinner-input form-control',
+				'onkeyup'=>'displayPhoto()'
 		));		
+		$font_site->setValue(20);
 		$resize = new Zend_Form_Element_Text('resize');
 		$resize->setAttribs(array(
 				'class'=>'form-control','id'=>"resize",'value'=>12,'placeholder'=>'12'
@@ -145,7 +154,7 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 			$lang_1->setValue($data['lang1']);
 			$lang_2->setValue($data['lang2']);
 			$g_code->setValue($data['tbl_groupid']);
-			$type_of_table->setValue($data['BuildInPicID']);
+			$type_of_table->setValue($data['tbl_type']);
 			$show_description1->setValue($data['display_by']);
 			$max_seat->setValue($data['max_sit']);
 			$apply_to_company->setValue($data['compid']);

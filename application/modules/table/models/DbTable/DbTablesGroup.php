@@ -21,6 +21,19 @@ class Table_Model_DbTable_DbTablesGroup extends Zend_Db_Table_Abstract
     		$data['photo'] = $photoname;
     	}
     	else{
+//     		if($data['show_description'] == 1){
+//     			$photo=$data['group_code'];
+//     		}
+//     		elseif ($data['show_description']==2){
+//     			$photo=$data['description'];
+//     		}
+//     		elseif ($data['show_description']==3){
+//     			$photo=$data['lang_1'];
+//     		}
+//     		elseif ($data['show_description']==4){
+//     			$photo=$data['lang_2'];
+//     		}
+//     		else{ $photo="";}
     		$data['photo']="";
     	}
     	unset($data['MAX_FILE_SIZE']);

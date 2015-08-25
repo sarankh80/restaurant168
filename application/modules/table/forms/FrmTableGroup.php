@@ -10,8 +10,9 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 		$menu_code->setAttribs(array(
 				'class'=>'form-control',
 				'required'=>'true',
-				'onkeyup'=>'displayPhoto()'
+				'onkeyup'=>'displayPhoto()',
 		));
+		
 		$description = new Zend_Form_Element_Text('description');
 		$description->setAttribs(array(
 				'class'=>'form-control',
@@ -25,7 +26,7 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 		$font_color = new Zend_Form_Element_text('font_color');
 		$font_color->setAttribs(array(
 				'class'=>'colorpicker-default form-control',
-				'onclick'=>'displayPhoto()'
+				'onclick'=>'displayPhoto()',
 		));
 		$lang_2 = new Zend_Form_Element_Text('lang_2');
 		$lang_2->setAttribs(array(
@@ -59,7 +60,7 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 		$backgroun_color = new Zend_Form_Element_Text('backgroun_color');
 		$backgroun_color->setAttribs(array(
 				'class'=>'colorpicker-rgba form-control',
-				'onclick'=>'displayPhoto()'
+				'onclick'=>'displayPhoto()',
 		));
 		$font_site = new Zend_Form_Element_text('font_size');
 		$font_site->setAttribs(array(
@@ -112,8 +113,8 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 		$photo = new Zend_Form_Element_File('photo');
 	    $id=new Zend_Form_Element_Hidden('id');
 		if($data != null){
+			//print_r($data);exit();
 		$dbs=	$id->setValue($data['id']);
-			
 			$menu_code->setValue($data['CODE']);
 			$description->setValue($data['description']);
 			$lang_1->setValue($data['lang1']);
@@ -126,6 +127,7 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 			$font_site->setValue($data['font_size']);
 			$active->setValue($data['status']);
 			$id->setValue($data['id']);
+			
 		}
 		$this->addElements(array($id,$photo,$location,$apply,$active,$combo,$menu_code,$description,$lang_1,$lang_2,$apply_to,
 				$show_description,$backgroun_color,$font_color,$font_site,$format,$setting,$arrange,$resize,$note));

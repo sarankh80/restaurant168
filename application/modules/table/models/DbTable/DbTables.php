@@ -32,7 +32,7 @@ class Table_Model_DbTable_DbTables extends Zend_Db_Table_Abstract
     			'active'=>$data['active'],
     			'time_charge_id'=>$data['time_ck'],
     			'is_discound'=>$data['dicount_ck'],
-    			'BuildInPicID'=>$data['type_of_table'],
+    			'tbl_type'=>$data['type_of_table'],
     			'add_date'=>date("Y-m-d"),
     			'est_time'=>$data['est_time'],
     			'backgroud_color'=>$data['backgroun_color'],
@@ -46,7 +46,7 @@ class Table_Model_DbTable_DbTables extends Zend_Db_Table_Abstract
     function getTableById($id){
     	$db = $this->getAdapter();
     	$sql="SELECT id,img_name,code ,description,lang1,lang2,tbl_groupid,display_by,max_sit,price,
-    	      compid,active,time_charge_id,is_discound,BuildInPicID,add_date,est_time,backgroud_color, 
+    	      compid,active,time_charge_id,is_discound,tbl_type,add_date,est_time,backgroud_color, 
     	      font_color,font_size,note FROM $this->_name WHERE id=".$id;
     	return $db->fetchRow($sql);
     }
@@ -82,7 +82,7 @@ class Table_Model_DbTable_DbTables extends Zend_Db_Table_Abstract
     			'active'=>$data['active'],
     			'time_charge_id'=>$data['time_ck'],
     			'is_discound'=>$data['dicount_ck'],
-    			'BuildInPicID'=>$data['type_of_table'],
+    			'tbl_type'=>$data['type_of_table'],
     			'add_date'=>date("Y-m-d"),
     			'est_time'=>$data['est_time'],
     			'backgroud_color'=>$data['backgroun_color'],
@@ -95,7 +95,7 @@ class Table_Model_DbTable_DbTables extends Zend_Db_Table_Abstract
     }
     function getAllRowTable(){
     	$db = $this->getAdapter();
-    	$sql="SELECT id,code ,tbl_groupid,description,lang1,lang2 FROM $this->_name";
+    	$sql="SELECT id,code ,(SELECT  CODE FROM rs_table_group WHERE id=tbl_groupid)AS tbl_groupid,description,lang1,lang2 ,img_name FROM $this->_name";
     	$oderby=" ORDER BY id DESC";
     	return $db->fetchAll($sql.$oderby);
     }
