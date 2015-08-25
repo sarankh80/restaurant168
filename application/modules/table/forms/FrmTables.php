@@ -131,7 +131,8 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		$font_site = new Zend_Form_Element_text('font_size');
 		$font_site->setAttribs(array(
 				'class'=>' spinner-input form-control',
-				'onkeyup'=>'displayPhoto()'
+				'onkeyup'=>'displayPhoto()',
+				'onclick'=>'displayPhoto()',
 		));		
 		$font_site->setValue(20);
 		$resize = new Zend_Form_Element_Text('resize');
@@ -148,6 +149,7 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		));
 		$id=new Zend_Form_Element_Hidden('id');
 		if ($data!=null){
+			//print_r($data);exit();
 			$id->setValue($data['id']);
 			$table_code->setValue($data['code']);
 			$description->setValue($data['description']);

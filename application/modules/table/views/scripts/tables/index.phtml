@@ -27,6 +27,9 @@
 							   <th data-column-index="1" aria-label="Browser: activate to sort column ascending" aria-sort="ascending"  colspan="1" rowspan="1" aria-controls="sample_6" tabindex="0" class="sorting_asc">
 								    TABLE_CODE_GROUP
 							   </th>
+							   <th data-column-index="1" aria-label="Browser: activate to sort column ascending" aria-sort="ascending"  colspan="1" rowspan="1" aria-controls="sample_6" tabindex="0" class="sorting_asc">
+								    TABLE_TYPE_CODE
+							   </th>
 							   <th data-column-index="2" aria-label="Platform(s): activate to sort column ascending"  colspan="1" rowspan="1" aria-controls="sample_6" tabindex="0" class="hidden-xs sorting">
 								 	DESCRIPTION1
 								</th>
@@ -43,6 +46,7 @@
 							<tr class="odd" role="row">
 								<td> <?php echo $row["code"];?></td>
 								<td><?php echo $row["tbl_groupid"];?></td>
+								<td><a href="<?php echo $url_edit;?>/id/<?php echo $row['id'];?>"><?php echo $row["tbl_type"];?></a></td>
 								<td><a href="<?php echo $url_edit;?>/id/<?php echo $row['id'];?>"><?php echo $row["description"];?></a></td>
 								<td><a href="<?php echo $url_edit;?>/id/<?php echo $row['id'];?>"><?php echo $row["lang1"];?></a></td>
 								<td><a href="<?php echo $url_edit;?>/id/<?php echo $row['id'];?>"><?php echo $row["lang2"];?></a></td>

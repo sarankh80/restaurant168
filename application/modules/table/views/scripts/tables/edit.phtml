@@ -8,6 +8,14 @@
        text-align: left; 
 }
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	$(window).load(function(){
+		displayPhoto();
+    });
+});
+</script>
 <div class="row">
 	<div class="col-md-12">
 		<div class="portlet box blue">
@@ -65,7 +73,7 @@
 										<div class="fileinput fileinput-new" data-provides="fileinput">
 											<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
 												<label id="display_titel" class="full-size">
-													<img src="<?php echo $this->baseUrl().'/image/'.$this->photo;?>" alt=""/">
+													<img src="<?php echo $this->baseUrl().'/image/'.$this->photo;?>" alt="" />
 												</label>
 											</div>
 											<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
@@ -286,11 +294,10 @@
 	</div>
 </div>
 <script>
-backgroun_color = $("#backgroun_color").val();
-alert(backgroun_color);
-font_color = $("#font_color").val();
-font_size = $("#font_size").val();
 function displayPhoto(){
+	backgroun_color = $("#backgroun_color").val();
+	font_color = $("#font_color").val();
+	font_size = $("#font_size").val();
 	dis_type = $("#show_description").val();
 	if(dis_type==1){
 		dis_title = $("#table_code").val();

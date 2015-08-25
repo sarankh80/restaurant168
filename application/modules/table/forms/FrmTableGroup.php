@@ -65,7 +65,8 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 		$font_site = new Zend_Form_Element_text('font_size');
 		$font_site->setAttribs(array(
 				'class'=>' spinner-input form-control',
-				'onkeyup'=>'displayPhoto()'
+				'onkeyup'=>'displayPhoto()',
+				'onclick'=>'displayPhoto()'
 		));		
 		$font_site->setValue(18);
 		$apply = new Zend_Form_Element_Select('apply');

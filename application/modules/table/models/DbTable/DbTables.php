@@ -95,7 +95,8 @@ class Table_Model_DbTable_DbTables extends Zend_Db_Table_Abstract
     }
     function getAllRowTable(){
     	$db = $this->getAdapter();
-    	$sql="SELECT id,code ,(SELECT  CODE FROM rs_table_group WHERE id=tbl_groupid)AS tbl_groupid,description,lang1,lang2 ,img_name FROM $this->_name";
+    	$sql="SELECT id,code ,(SELECT  CODE FROM rs_table_group WHERE id=tbl_groupid)AS tbl_groupid,
+    	      (SELECT CODE FROM rs_table_type WHERE id=tbl_type )AS tbl_type,description,lang1,lang2 ,img_name FROM $this->_name";
     	$oderby=" ORDER BY id DESC";
     	return $db->fetchAll($sql.$oderby);
     }
