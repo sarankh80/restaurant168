@@ -1,13 +1,14 @@
 <?php
 class Menu_itemController extends Zend_Controller_Action {
-	const REDIRECT_URL = '/group/index';
+	const REDIRECT_URL = '/menu/';
 	public function init()
 	{
 		header('content-type: text/html; charset=utf8');
 		defined('BASE_URL')	|| define('BASE_URL', Zend_Controller_Front::getInstance()->getBaseUrl());
 	}
 	public function indexAction(){
-		//$this->_helper->layout()->disableLayout();
+		$db_combo_type=new Menu_Model_DbTable_DbItem();
+		$this->view->rows=$db_combo_type->getAllRowItem();
 		$frm = new Menu_Form_FrmMenuItem();
 		$this->view->form = $frm->FrmMenu();
 	}
@@ -20,7 +21,7 @@ class Menu_itemController extends Zend_Controller_Action {
 				if(!empty($_data['btnsave'])){
 					Application_Form_FrmMessage::message('ការ​បញ្ចូល​​ជោគ​ជ័យ');
 				}else{
-					Application_Form_FrmMessage::Sucessfull('ការ​បញ្ចូល​​ជោគ​ជ័យ', self::REDIRECT_URL . '/item/index');
+					Application_Form_FrmMessage::Sucessfull('ការ​បញ្ចូល​​ជោគ​ជ័យ', self::REDIRECT_URL . '/item/add');
 				}
 			}catch(Exception $e){
 				Application_Form_FrmMessage::message("ការ​បញ្ចូល​មិន​ជោគ​ជ័យ");
@@ -33,5 +34,29 @@ class Menu_itemController extends Zend_Controller_Action {
 		Application_Model_Decorator::removeAllDecorator($frm_menuitem);
 		$this->view->form = $frm_menuitem;
 	}	
+	public function editAction(){
+		if($this->getRequest()->isPost()){
+			$_data = $this->getRequest()->getPost();
+			$db = new Menu_Model_DbTable_DbItem();
+			try {
+				$db->updateMenuItem($_data);
+				if(!empty($_data['SAVE_CLOSE'])){
+					Application_Form_FrmMessage::message('កាកែរប្រែបាន​​ជោគ​ជ័យ');
+				}else{
+					Application_Form_FrmMessage::Sucessfull('កាកែរប្រែបាន​​ជោគ​ជ័យ', self::REDIRECT_URL . 'item/add');
+				}
+			}catch(Exception $e){
+				Application_Form_FrmMessage::message("កាកែរប្រែមិន​បាន​​ជោគ​ជ័យ");
+				$err =$e->getMessage();
+				Application_Model_DbTable_DbUserLog::writeMessageError($err);
+			}
+		}
+		$id = $this->getRequest()->getParam("id");
+		$db_combo_type=new Menu_Model_DbTable_DbItem();
+		$row=$db_combo_type->editAllRowItem($id);
+		$this->view->rows=$row;
+		$frm = new Menu_Form_FrmMenuItem();
+		$this->view->form = $frm->FrmMenu($row);
+	}
 }
 

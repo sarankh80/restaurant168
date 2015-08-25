@@ -154,10 +154,35 @@ Class menu_Form_FrmMenuCombo extends Zend_Form {
 		$note->setAttribs(array(
 				'class'=>'form-control','style'=>"margin-top: 0px; margin-bottom: 0px; height: 100px;"
 		));
+		
+		//upload image to folder
+		$photo = new Zend_Form_Element_file('photo');
+		
+		
+		$id = new Zend_Form_Element_Hidden('id');
+		if(!empty($data)){
+			//print_r($data);exit();
+		    $id->setValue($data['id']);
+		   // print_r($data=['$id']);exit();
+			$combo_code->setValue($data['bar_code']);
+			$description->setValue($data['desc']);
+			$lang_1->setValue($data['lang1']);
+			$lang_2->setValue($data['lang2']);
+			$show_description->setValue($data['display_by']);
+			$price->setValue($data['price']);
+			$menu_group->setValue($data['category_id']);
+			$photo->setValue($data['img_name']);
+			$root_menu->setValue($data['root_menuid']);
+			$combo->setValue($data['root_menu_name']);
+			$combo1->setValue($data['printto_print']);
+			$combo2->setValue($data['showscreen']);
+			$combo3->setValue($data['is_discound']);
+			$combo4->setValue($data['time']);
+		}
 		$this->addElements(array($apply,$active,$menu_group,$description,$lang_1,$lang_2,$lang_3,$combo_code,
 				$show_description,$background,$font_color,$font_size,$format,$setting,$arrange,$resize,$note,$price,
 				$root_menu,$printer_code,$apply_to_company,$root_code,$root_menus,$combo,
-				$combo1,$combo2,$combo3,$combo4));
+				$combo1,$combo2,$combo3,$combo4,$id,$photo));
 		return $this;
 		
 	}	

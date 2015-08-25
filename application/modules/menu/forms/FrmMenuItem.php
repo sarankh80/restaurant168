@@ -15,20 +15,23 @@ Class menu_Form_FrmMenuItem extends Zend_Form {
 		$menu_code->setAttribs(array(
 				'class'=>'form-control',
 		));
-		//group_code
-		$group_code = new Zend_Form_Element_Select('group_code');
-		$group_code->setAttribs(array(
+		//menu_group
+		$menu_group = new Zend_Form_Element_Select('menu_group');
+		$menu_group->setAttribs(array(
 				'class'=>'form-control input-xlarge select2me','onClick'=>'FuncMenuGroup()'
 		));
 		$db = new Menu_Model_DbTable_DbMenu();
 		$opt = $db->getAllGroupMenu();
-		$group_code->setMultiOptions($opt);	
+		$menu_group->setMultiOptions($opt);
+		
 		$root_code = new Zend_Form_Element_Select('root_code');
 		$root_code->setAttribs(array(
 				'class'=>'form-control','onClick'=>'FuncRootMenuCode()'
 		));
 		$select_root_code_opt = array( ""=>$this->tr->translate("SELECT_GROUP_CODE"),-1=>$this->tr->translate("ADD_NEW"));
 		$root_code->setMultiOptions($select_root_code_opt);
+		
+		
 		//root_menu
 		$root_menu = new Zend_Form_Element_Select('root_menu');
 		$root_menu->setAttribs(array(
@@ -43,27 +46,12 @@ Class menu_Form_FrmMenuItem extends Zend_Form {
 		));
 		$root_menu_opt = array( ""=>$this->tr->translate("SELECT_ROOT_MENU"),-1=>$this->tr->translate("ADD_NEW"));
 		$root_menus->setMultiOptions($root_menu_opt);
-		
-		
-		
-		
-		
-		
-		
-		
 		$print_code = new Zend_Form_Element_Select('print_code');
 		$print_code->setAttribs(array(
 				'class'=>'form-control input-xlarge select2me','onClick'=>'FuncRootMenuCode()'
 		));
 		$select_print_code_opt = array( ""=>$this->tr->translate("SELECT_PRINT_CODE"),-1=>$this->tr->translate("ADD_NEW"));
 		$print_code->setMultiOptions($select_print_code_opt);
-		
-		
-		
-		
-		
-		
-	
 		$description = new Zend_Form_Element_Text('description');
 		$description->setAttribs(array(
 				'class'=>'form-control',
@@ -181,11 +169,32 @@ Class menu_Form_FrmMenuItem extends Zend_Form {
 		));
 		$select_apply_opt = array( ""=>$this->tr->translate("SELECT_APPLY_TO_COMPANY"),-1=>$this->tr->translate("ADD_NEW"));
 		$select_apply->setMultiOptions($select_apply_opt);
+		$id = new Zend_Form_Element_Hidden('id');
+		if(!empty($data)){
+			//print_r($data);
+			$id->setValue($data['id']);
+			$item_code ->setValue($data['bar_code']);
+			$description->setValue($data['desc']);
+			$lang_1->setValue($data['lang1']);
+			$lang_2->setValue($data['lang2']);
+			$font_size->setValue($data['price']);
+			$show_description->setValue($data['display_by']);
+			$menu_group->setValue($data['category_id']);
+			$root_menu->setValue($data['root_menuid']);
+			$print_code->setValue($data['print_code']);
+			$print_to->setValue($data['printto_print']);
+			$active->setValue($data['status']);
+			$show_screen->setValue($data['showscreen']);
+			$is_root->setValue($data['is_root']);
+			$time->setValue($data['time']);
+			$discount->setValue($data['is_discound']);
+			$require_qty->setValue($data['is_reqty']);
+		}
 		
-		$this->addElements(array($select_apply,$require_qty,$root_code,$group_code,$item_code,$apply,$active,$combo,$menu_code,
+		$this->addElements(array($select_apply,$require_qty,$root_code,$menu_group,$item_code,$apply,$active,$combo,$menu_code,
 				$description,$lang_1,$lang_2,$lang_3,$print_code,$print_to,$show_screen,$time,$discount,
 				$show_description,$background,$font_color,$font_size,$format,$setting,$arrange,$resize,$note,
-				$is_root,$root_menu,$root_menus));
+				$is_root,$root_menu,$root_menus,$id));
 		return $this;
 		
 	}	

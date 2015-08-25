@@ -1,7 +1,8 @@
 <?php 
 	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
 	$url = $this->url(array('module'=>'menu','controller'=>'combo','action'=>'index'));
-	$url_edit = $this->url(array('module'=>'menu','controller'=>'combo','action'=>'index'),null,true);
+	$url_edit = $this->url(array('module'=>'menu','controller'=>'combo','action'=>'add'),null,true);
+	$rows=$this->rows;
 ?>
 <div class="row">
 	<div class="col-md-12">
@@ -32,6 +33,7 @@
 												</label>
 												<div class="col-sm-8">
 													<?php echo $form->getElement('combo_code');?>
+													<?php echo $form->getElement('id');?>
 												</div>
 											</div>
 										</div>
@@ -49,6 +51,7 @@
 											<div class="form-group col-sm-12">
 												<label class="col-sm-4 control-label">
 													<?php echo $tr->translate("LANG_ONE")?> <span class="symbol required"></span>
+													
 												</label>
 												<div class="col-sm-8">
 													<?php echo $form->getElement('lang_1');?>
@@ -62,6 +65,7 @@
 												</label>
 												<div class="col-sm-8">
 													<?php echo $form->getElement('lang_2');?>
+													
 												</div>
 											</div>
 										</div>
@@ -85,7 +89,7 @@
 												</div>
 											</div>
 										</div>
-									</div>
+								</div>
 									<div class="col-sm-3">
 										<div class="col-sm-12" style="padding: 0;">
 											<div class="form-group col-sm-6">
@@ -216,12 +220,11 @@
 												</div>
 											</div>
 										</div>
-										</div>
+								</div>
 					</div>
 					
 						<div class="row">
 							<div class="col-md-offset-3 col-md-9">
-								<button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("SAVE_NEW")?> </button>
 								<button type="submit" name="btnsaveclose"class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("SAVE_CLOSE")?></button>
 								<a href="<?php echo $this->baseUrl();?>/menu"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
 							</div>
