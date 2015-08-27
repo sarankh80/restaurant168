@@ -9,6 +9,14 @@
        text-align: left; 
 }
 </style>
+<script src="<?php echo $this->baseUrl()?>/assets/admin/pages/scripts/jquery-1.11.3.min.js"></script>
+<script>
+$(document).ready(function(){
+	$(window).load(function(){
+		displayPhoto();
+    });
+});
+</script>
 <div class="row">
 	<div class="col-md-12">
 		<div class="portlet box blue">
@@ -64,7 +72,7 @@
 								<div class="form-group last">
 									<div class="col-md-12">
 										<div class="fileinput fileinput-new" data-provides="fileinput">
-											<div class="fileinput-new thumbnail" style="width: 500px; height: 500px;">
+											<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
 												<label id="display_titel" class="full-size">
 													<img src="<?php echo $this->baseUrl().'/image/'.$photo;?>" alt=""/>
 												</label>

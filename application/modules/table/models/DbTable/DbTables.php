@@ -67,7 +67,6 @@ class Table_Model_DbTable_DbTables extends Zend_Db_Table_Abstract
     			$data['photo']=$rs;
     		}
     	}
-    	
     	$arr = array(
     			'code'=>$data['table_code'],
     			'description'=>$data['description'],
@@ -92,6 +91,9 @@ class Table_Model_DbTable_DbTables extends Zend_Db_Table_Abstract
     	);
     	$where=" id = ".$data['id'];
     	$this->update($arr, $where);
+//     	Zend_Debug::dump($db->getProfiler()->getLastQueryProfile()->getQuery());
+//     	Zend_Debug::dump($db->getProfiler()->getLastQueryProfile()->getQueryParams());
+//     	$db->getProfiler()->setEnabled(false);
     }
     function getAllRowTable(){
     	$db = $this->getAdapter();
