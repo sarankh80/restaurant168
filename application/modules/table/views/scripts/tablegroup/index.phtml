@@ -1,3 +1,4 @@
+
 <?php 
 	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
 	$url = $this->url(array('module'=>'table','controller'=>'tablegroup','action'=>'add'));
@@ -5,6 +6,7 @@
 	$rows = $this->rs;
 	//print_r($row);exit();
 ?>
+<title><?php echo $tr->translate("TABLES_GROUP")?></title>
 <div class="row">
 	<div class="col-md-12">
 		<div class="portlet box blue">

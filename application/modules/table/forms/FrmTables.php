@@ -16,7 +16,7 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		$g_code = new Zend_Form_Element_Select('group_code');
 		$g_code->setAttribs(array(
 				'class'=>'form-control select2me',
-				
+				'onchange'=>'displayDescription()'
 		));
 		$option=$db->getGroupCode();
 		$g_code->setMultiOptions($option);
@@ -28,9 +28,9 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		$est_time->setAttribs(array(
 				'class'=>'form-control clockface-open','id'=>'clockface_2',
 		));
-		$price = new Zend_Form_Element_Text('price');
+		$price = new Zend_Dojo_Form_Element_NumberTextBox('price');
 		$price->setAttribs(array(
-				'class'=>'spinner-input form-control',
+				'class'=>'form-control',
 		));
 		$max_seat = new Zend_Form_Element_Text('max_seat');
 		$max_seat->setAttribs(array(
@@ -77,7 +77,8 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		
 		$type_of_table = new Zend_Form_Element_Select('type_of_table');
 		$type_of_table->setAttribs(array(
-				'class'=>'form-control select2me'
+				'class'=>'form-control select2me',
+				'onchange'=>'displayDescription()'
 		));
 		$opt_type_table=$db->getTypeOfTable();
 		$type_of_table->setMultiOptions($opt_type_table);
@@ -110,6 +111,7 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		$active = new Zend_Form_Element_Checkbox('active');
 		$active->setAttribs(array(
 				'class'=>'red',
+				'checked'=>'checked',
 		));
 		$time_ck = new Zend_Form_Element_Checkbox('time_ck');
 		$time_ck->setAttribs(array(

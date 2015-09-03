@@ -82,7 +82,7 @@ Class table_Form_FrmTableGroup extends Zend_Dojo_Form {
 		$active = new Zend_Form_Element_Checkbox('active');
 		$active->setAttribs(array(
 				'class'=>'checker',
-			
+			    'checked'=>'checked'
 		));
 		$format = new Zend_Form_Element_Text('demo4');
 		$format->setAttribs(array(

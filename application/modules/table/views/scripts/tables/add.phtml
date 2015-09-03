@@ -3,6 +3,7 @@
 	$url_save = $this->url(array('module'=>'table','controller'=>'tables','action'=>'add'));
 	$url_edit = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'),null,true);
 ?>
+<title><?php echo $tr->translate("TABLES")?></title>
 <style>
 .form-horizontal .control-label {
        text-align: left; 
@@ -110,7 +111,7 @@
 												</span>
 											</label>
 											<div class="col-md-4">
-												<div class="input-icon right">
+												<div class="input-icon right" >
 													<i class="fa"></i>
 													<?php echo $form->getElement('group_code');?>
 												</div>
@@ -139,22 +140,7 @@
 												</span>
 											</label>
 											<div class="col-md-4">
-												<div class="input-icon right">
-													<i class="fa"></i>
-													<div id="spinner1">
-														<div class="input-group ">
-														    <?php echo $form->getElement('price');?>
-															<div class="spinner-buttons input-group-btn btn-group-vertical">
-																<button type="button" class="btn spinner-up btn-xs blue">
-																<i class="fa fa-angle-up"></i>
-																</button>
-																<button type="button" class="btn spinner-down btn-xs blue">
-																<i class="fa fa-angle-down"></i>
-																</button>
-															</div>
-														</div>
-													</div>
-												</div>
+													<?php echo $form->getElement('price');?>
 											</div>
                                   	</div>
                                   	<div class="form-group">
@@ -217,7 +203,6 @@
 										           <label class="col-md-2"><?php echo $tr->translate("TIME")?></label>
 										           <div class="col-md-1"><?php echo $form->getElement('dicount_ck');?></div>
 										          <label class="col-md-3"><?php echo $tr->translate("DICOUNT")?></label>
-										          <div class="col-md-1"><button type="submit" class="btn btn-primary" ><?php echo $tr->translate("ASSING_TABLE_TYPE")?></button></div>
 									   </div>
                                   	</div>
 			</div>
@@ -286,7 +271,90 @@
 		</div>
 	</div>
 </div>
+ <form  class="form-horizontal" enctype="multipart/form-data" method="post" id="popup" class="popup" style="display:none;position: absolute;">
+	<div class=" col-sm-6" style="background: #F2E2E2;">
+        <div class="form-group col-sm-12">
+		    <label class="col-sm-4 control-label" >
+				<?php echo $tr->translate("GROUP_CODE")?> <span class="symbol required"></span>
+			</label>
+			<div class="col-sm-8">
+				<input id="new_group_code" class="form-control input-large"  type="text" name="new_group_code" required>
+			</div>
+		</div>
+		<div class="form-group col-sm-12">
+		    <label class="col-sm-4 control-label" >
+				<?php echo $tr->translate("DESCRIPTION")?> <span class="symbol required"></span>
+			</label>
+			<div class="col-sm-8">
+				<input id="new_description" class="form-control input-large"  type="text" name="new_description"  required >
+			</div>
+		</div>
+		<div class="col-md-offset-3 col-md-9">
+		    <button id="b_add" type="button" name="btnadd" class="btn btn-primary" onClick="addNew();"><i class="fa fa-save" ></i> SAVE_NEW </button>
+			<button id="b_close" type="button" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> CLOSE </button>
+		</div>
+  </div>
+ </form>
+ <form  class="form-horizontal" enctype="multipart/form-data" method="post" id="popup_table_type"  style="display:none;position: absolute;">
+	<div class=" col-sm-6" style="background: #F2E2E2;">
+        <div class="form-group col-sm-12">
+		    <label class="col-sm-4 control-label" >
+				<?php echo $tr->translate("TABLE_TYPE_CODE ")?> <span class="symbol required"></span>
+			</label>
+			<div class="col-sm-8">
+				<input class="form-control input-large"  type="text" name="new_type_code" id="new_type_code" required>
+			</div>
+		</div>
+		<div class="form-group col-sm-12">
+		    <label class="col-sm-4 control-label" >
+				<?php echo $tr->translate("DESCRIPTION")?> <span class="symbol required"></span>
+			</label>
+			<div class="col-sm-8">
+				<input class="form-control input-large"  type="text" name="new_type_description" id="new_type_description" required >
+			</div>
+		</div>
+		<div class="col-md-offset-3 col-md-9">
+		    <button id="btn_add_type" type="button" name="btn_add_type" class="btn btn-primary" onClick="addNewType();"><i class="fa fa-save" ></i> SAVE_NEW </button>
+			<button id="b_close_type" type="button" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> CLOSE </button>
+		</div>
+  </div>
+ </form>
 <script>
+function displayDescription(){
+	popup = $('#group_code').val();
+	type_of_table = $('#type_of_table').val();
+	if(popup == -1){
+		$("input").focus();
+		$('#popup').show(500);
+		$('#popup').animate({top:"300px"},"fast");
+    }
+	else if(type_of_table == -1){
+		$("#popup_table_type").show(500);
+		$("#popup_table_type").animate({top:"300px"},"fast");
+		
+	}
+	else {
+		$("#popup").hide(400);
+		$("#popup_table_type").hide(400);
+	}
+	$("#b_close").click(function() {
+        $("#popup").hide(400);
+        $('#group_code').val("");
+        $("#popup input[type=text]").val('');
+        //location.reload();
+    }); 
+    $("#b_close_type").click(function (){
+        $("#popup_table_type").hide(400);
+        $('#type_of_table').val("");
+        $("#popup_table_type input[type=text]").val('');
+    });
+	$("#b_add").click(function() {
+        $("#popup input[type=text]").val('');
+    }); 
+	$("#btn_add_type").click(function() {
+        $("#popup_table_type input[type=text]").val('');
+    }); 
+}
 function displayPhoto(){
 	backgroun_color = $("#backgroun_color").val();
 	font_color = $("#font_color").val();
@@ -310,5 +378,67 @@ function displayPhoto(){
 	}
 	$("#display_titel").html(dis_title);
 	$("#display_titel").css({"background-color": backgroun_color,"color": font_color, "font-size": font_size+"px"});
+}
+
+var url = "<?php echo $this->url(array('module'=>'table','controller'=>'tables','action'=>'add-new'));?>";
+function addNew(){
+	var group_code = $('#new_group_code').val();
+	var description = $('#new_description').val();
+	code_des =group_code+"-"+description;
+	//alert(group_code+"-"+description);
+	if(group_code=="" || group_code== null){
+		alert('Please input field!');
+		$('input').focus();
+	}else{
+	 $.ajax({
+         type: "POST",
+         group_code: "required", 
+         url: url,
+         data: {'group_code':group_code,'description':description}, // serializes the form's elements.
+         success: function(data)
+         {   
+             $("#popup").hide(400);
+             value = $.parseJSON(data);
+            // alert(value['id'])
+           $('#group_code').append($('<option></option>').attr('value',value['id']).attr("selected","selected").text(code_des)); 
+           $("#group_code").val(value['id']).trigger('change');
+           $('#group_code').trigger("liszt:updated");
+         },
+		 error: function(e){
+			 alert(e);
+		 }
+       });
+	}
+
+}
+
+var url_type = "<?php echo $this->url(array('module'=>'table','controller'=>'tables','action'=>'add-new-type'));?>";
+function addNewType(){
+	var new_type_code = $('#new_type_code').val();
+	var new_type_description = $('#new_type_description').val();
+	code_des=new_type_code+"-"+new_type_description;
+	if(new_type_code=="" || new_type_description == null){
+		alert('Please input field!');
+		$('input').focus();
+	}else{
+	 $.ajax({
+         type: "POST",
+         url: url_type,
+         data: {'new_type_code':new_type_code,'description':new_type_description}, // serializes the form's elements.
+         success: function(data)
+         {   $("#popup_table_type").hide(400);
+             value = $.parseJSON(data);
+             //alert(value['id']);
+             $('#type_of_table').append($('<option></option>').attr('value',value['id']).attr("selected","selected").text(code_des)); 
+             $("#type_of_table").val(value['id']).trigger('change');
+             $('#type_of_table').trigger("liszt:updated");
+             //alert("Insert Success"); // show response from the php script.
+         },
+		 error: function(e){
+			 alert(e);
+		 }
+       });
+	}
+
 }
 </script>

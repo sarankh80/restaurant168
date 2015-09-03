@@ -94,7 +94,8 @@ class Application_Model_DbTable_DbGlobal extends Zend_Db_Table_Abstract
     	$db=$this->getAdapter();
     	$sql="SELECT id, code,description FROM rs_table_group ORDER BY id DESC";
     	$rows= $db->fetchAll($sql);
-    	$options=array();
+    	//$options=array();
+    	$options=array(''=>"-----ជ្រើសរើស-----",-1=>"Add New",);
     	if(!empty($rows))foreach($rows AS $row){
     		$options[$row['id']]=$row['code']."-".$row['description'];//($row['displayby']==1)?$row['name_kh']:$row['name_en'];
     	}
@@ -104,7 +105,8 @@ class Application_Model_DbTable_DbGlobal extends Zend_Db_Table_Abstract
     	$db=$this->getAdapter();
     	$sql="SELECT id,code ,description FROM rs_table_type ORDER BY id DESC";
     	$row=$db->fetchAll($sql);
-    	$option=array();
+    	//$option=array();
+    	$option=array(''=>"-----ជ្រើសរើស-----",-1=>"Add New",);
     	if(!empty($row))
     		foreach ($row As $rows){ 
     		$option[$rows['id']]=$rows['code']."-".$rows['description'];

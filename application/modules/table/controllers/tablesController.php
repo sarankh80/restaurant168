@@ -58,5 +58,28 @@ class Table_tablesController extends Zend_Controller_Action {
 		$frm = new Table_Form_FrmTables();
 		$this->view->form = $frm->FrmTables($row);
 	}
+	function poupAction(){
+		
+	}
+	function addNewAction(){
+		if($this->getRequest()->isPost()){
+			$post=$this->getRequest()->getPost();
+			$db = new Table_Model_DbTable_DbTables();
+			$id=$db->addGroupCodenew($post);
+			$result = array("id"=>$id);
+			echo Zend_Json::encode($result);
+			exit();
+		}
+	}
+	function addNewTypeAction(){
+		if($this->getRequest()->isPost()){
+			$post=$this->getRequest()->getPost();
+			$db = new Table_Model_DbTable_DbTables();
+			$id=$db->addTableTypeNew($post);
+			$result=array('id'=>$id);
+			echo Zend_Json::encode($result);
+			exit();
+		}
+	}
 }
 
