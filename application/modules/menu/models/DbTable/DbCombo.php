@@ -110,5 +110,12 @@ class Menu_Model_DbTable_DbCombo extends Zend_Db_Table_Abstract
 	     $where=" id = ".$data['id'];
 	     $this->update($arr, $where);
 	    }
+	    function editAllRowCombodesc($id){
+	    	$db = $this->getAdapter();
+	    	$sql="SELECT id,bar_code,`desc`,lang1,lang2,price,display_by,category_id,img_name,root_menuid,print_code
+	    	,root_menu_name,printto_print,showscreen,is_discound,time,type,status,add_userid  FROM rs_combomaster
+	    	where id=$id limit 1";
+	    	return $db->fetchRow($sql);
+	    }
 	    
 	}
