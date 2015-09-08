@@ -1,7 +1,7 @@
 <?php 
 	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
-	$url = $this->url(array('module'=>'menu','controller'=>'item','action'=>'index'));
-	$url_edit = $this->url(array('module'=>'menu','controller'=>'item','action'=>'index'),null,true);
+	$url = $this->url(array('module'=>'menu','controller'=>'combo','action'=>'index'));
+	$url_edit = $this->url(array('module'=>'menu','controller'=>'combo','action'=>'add'),null,true);
 	$rows=$this->rows;
 ?>
 <div class="row">
@@ -25,14 +25,14 @@
 								Your form validation is successful!
 						</div>
 						<div class="panel-body">
-								<div class="col-sm-9">
+							<div class="col-sm-9">
 										<div class="col-sm-12" style="padding: 0;">
 											<div class="form-group col-sm-12">
 												<label class="col-sm-4 control-label">
-													<?php echo $tr->translate("MENU_ITEM_CODE")?> <span class="symbol required"></span>
+													<?php echo $tr->translate("COMBO_CODE")?> <span class="symbol required"></span>
 												</label>
 												<div class="col-sm-8">
-													<?php echo $form->getElement('item_code');?>
+													<?php echo $form->getElement('combo_code');?>
 													<?php echo $form->getElement('id');?>
 												</div>
 											</div>
@@ -51,47 +51,38 @@
 											<div class="form-group col-sm-12">
 												<label class="col-sm-4 control-label">
 													<?php echo $tr->translate("LANG_ONE")?> <span class="symbol required"></span>
+													
 												</label>
 												<div class="col-sm-8">
 													<?php echo $form->getElement('lang_1');?>
 												</div>
 											</div>
-											
 										</div>
 										<div class="col-sm-12" style="padding: 0;">
 											<div class="form-group col-sm-12">
-													<label class="col-sm-4 control-label">
-														<?php echo $tr->translate("LANG_TWO")?>
-													</label>
-													<div class="col-sm-8">
-														<?php echo $form->getElement('lang_2');?>
-													</div>
-												</div>
-										</div>
-										<div class="col-sm-12" style="padding: 0;">
-												<div class="form-group col-sm-12">
-													<label class="col-sm-4 control-label">
-														<?php echo $tr->translate("PRICE")?> <span class="symbol required"></span>
-													</label>
-													<div class="col-sm-8">
-														<?php echo $form->getElement('demo3');?>
-													</div>
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("LANG_TWO")?>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('lang_2');?>
+													
 												</div>
 											</div>
+										</div>
 										<div class="col-sm-12" style="padding: 0;">
 											<div class="form-group col-sm-12">
 												<label class="col-sm-4 control-label" for="form-field-1">
-													<?php echo $tr->translate("DISPLAY_BY")?> 
+													<?php echo $tr->translate("SHOW_DESCRIPTION")?> 
 												</label>
 												<div class="col-sm-8">
 													<?php echo $form->getElement('show_description');?>
 												</div>
 											</div>
-											
 										</div>
-									</div>
+								</div>
 									<div class="col-sm-3">
-										<div class="form-group col-sm-6">
+										<div class="col-sm-12" style="padding: 0;">
+											<div class="form-group col-sm-6">
 												<label class="control-label col-md-4"><?php echo $tr->translate("IMAGE")?> <span class="required">
 													 </span>
 												</label>
@@ -127,7 +118,7 @@
 															</li>
 															<li>
 																<a href="#myTab_example2" data-toggle="tab">
-																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("PICTUR_OF_NEMU_ITEM")?>
+																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("LOCATION OF MENU GROUP")?>
 																</a>
 															</li>
 															<li>
@@ -142,101 +133,12 @@
 																<div class="col-sm-12" style="padding: 0;">
 																	<div class="form-group col-sm-6" >
 																		<label class="col-sm-4 control-label" for="form-field-1">
-																			<?php echo $tr->translate("MENU_GROUP_CODE")?>
-																		</label>
-																		<div class="col-sm-8">
-																			<?php echo $form->getElement('menu_group');?>
-																		</div>
-																	</div>
-																	
-																</div>
-																<div class="col-sm-12" style="padding: 0;">
-																	<div class="form-group col-sm-6" >
-																		<label class="col-sm-4 control-label" for="form-field-1">
-																			<?php echo $tr->translate("ROOT_MENU_CODE")?>
-																		</label>
-																		<div class="col-sm-8">
-																			<?php echo $form->getElement('root_menu');?>
-																		</div>
-																	</div>
-																</div>
-																<div class="col-sm-12" style="padding: 0;">
-																	<div class="form-group col-sm-6" >
-																		<label class="col-sm-4 control-label" for="form-field-1">
-																			<?php echo $tr->translate("PRINTER_CODE")?>
-																		</label>
-																		<div class="col-sm-8">
-																			<?php echo $form->getElement('print_code');?>
-																		</div>
-																	</div>
-																</div>
-																<div class="col-sm-12" style="padding: 0;">
-																	<div class="col-sm-2">
-																		<?php echo $form->getElement('print_to');?>
-																		<?php echo $tr->translate("PRINT_TO_PRINTER")?>												
-																	</div>
-																	<div class="col-sm-2">
-																		<?php echo $form->getElement('active');?>
-																		<?php echo $tr->translate("ACTIVE")?>												
-																	</div>
-																	<div class="col-sm-2">
-																		<?php echo $form->getElement('is_service');?>
-																		<?php echo $tr->translate("IS_SERVICE")?>												
-																	</div>
-																	<div class="col-sm-2">
-																		<?php echo $form->getElement('show_screen');?>
-																		<?php echo $tr->translate("SHOW_SCREEN")?>												
-																	</div>
-																	<div class="col-sm-2">
-																		<?php echo $form->getElement('is_root');?>
-																		<?php echo $tr->translate("IS_ROOT")?>												
-																	</div>
-																	<div class="col-sm-2">
-																		<?php echo $form->getElement('time');?>
-																		<?php echo $tr->translate("TIME")?>												
-																	</div>
-																	<div class="col-sm-2">
-																		<?php echo $form->getElement('discount');?>
-																		<?php echo $tr->translate("DISCOUNT")?>												
-																	</div>
-																	<div class="col-sm-2">
-																		<?php echo $form->getElement('require_qty');?>
-																		<?php echo $tr->translate("REQUIRE_QTY")?>												
-																	</div>
-																</div>
-																<div class="col-sm-12" style="padding: 0;">
-																	<div class="form-group col-sm-6" >
-																		<label class="col-sm-4 control-label" for="form-field-1">
-																			<?php echo $tr->translate("ADDITIONAL_CHARGE")?>
-																		</label>
-																		<div class="col-sm-8">
-																			<?php echo $form->getElement('demo4');?>
-																		</div>
-																	</div>
-																	<div class="form-group col-sm-6">
-																		<label class="col-sm-4 control-label" for="form-field-1">
-																			<?php echo $tr->translate("APPLY_TO_COMPANY")?>
-																		</label>
-																		<div class="col-sm-8">
-																			<?php echo $form->getElement('select_apply');?>
-																		</div>
-																	</div>
-																</div>
-																
-															</div>															
-														</div>
-														<div class="tab-pane fade in " id="myTab_example2">
-															<div class="form-group">
-																<div class="col-sm-12" style="padding: 0;">
-																	<div class="form-group col-sm-6" >
-																		<label class="col-sm-4 control-label" for="form-field-1">
 																			<?php echo $tr->translate("BACK_COLOR")?>
 																		</label>
 																		<div class="col-sm-8">
 																			<?php echo $form->getElement('backgroun_color');?>
 																		</div>
 																	</div>
-																	
 																</div>
 																<div class="col-sm-12" style="padding: 0;">
 																	<div class="form-group col-sm-6" >
@@ -271,7 +173,33 @@
 																		</div>  
 																	</div>
 																</div>
-															</div>															
+																<div class="col-sm-12" style="padding: 0;">
+																	<div class="form-group col-sm-6">
+																		<label class="col-sm-4 control-label" for="form-field-1">
+																			<?php echo $tr->translate("APPLY_TO_COMPANY")?>
+																		</label>
+																		<div class="col-sm-8">
+																			<?php echo $form->getElement('apply_to_company');?>
+																		</div>
+																	</div>
+																</div>	
+																<div class="col-sm-12" style="padding: 0;">
+																	<div class="col-sm-2" style="font-size: 10px;">
+																		<?php echo $form->getElement('active');?>
+																		<?php echo $tr->translate("ACTIVE")?>												
+																	</div>
+																	<div class="col-sm-2"  style="font-size: 10px;">
+																		<?php echo $form->getElement('combo_item');?>
+																		<?php echo $tr->translate("COMBO_ITEM")?>												
+																	</div>
+																</div>
+																										
+															</div>
+														</div>
+														<div class="tab-pane fade in " id="myTab_example2">
+															<div class="form-group">
+																
+															</div>		
 														</div>
 														<div class="tab-pane fade in " id="myTab_example3">
 															<div class="form-group">
@@ -285,18 +213,19 @@
 																		</div>
 																	</div>
 																</div>
-																
-															</div>															
+															</div>		
 														</div>
-													</div>
+													</div>															
 												</div>
 											</div>
 										</div>
-									</div>
+								</div>
+					</div>
+					
 						<div class="row">
 							<div class="col-md-offset-3 col-md-9">
-								<button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("UPDATE")?> </button>
-								<a href="<?php echo $this->baseUrl();?>/menu/item/index"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
+								<button type="submit" name="tbnupdate"class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("UPDATE")?></button>
+								<a href="<?php echo $this->baseUrl();?>/menu/group/index"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
 							</div>
 						</div>
 					
@@ -312,7 +241,7 @@ function displayPhoto(){
 	font_color= $("#font_color").val();
 	font_size = $("#font_size").val();
 	if(dis_type==1){
-		dis_title = $("#item_code").val();
+		dis_title = $("#combo_code").val();
 	}else if(dis_type==2){
 		dis_title = $("#description").val();
 	}

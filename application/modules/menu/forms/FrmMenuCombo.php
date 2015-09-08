@@ -8,14 +8,15 @@ Class menu_Form_FrmMenuCombo extends Zend_Form {
 	public function FrmMenu($data=null){
 		$menu_group = new Zend_Form_Element_Select('menu_group');
 		$menu_group->setAttribs(array(
-				'class'=>'form-control input-xlarge select2me','onClick'=>'FuncMenuGroup()'
+				'class'=>'form-control input-xlarge select2me','required'=>'true',
 		));
 		$db = new Menu_Model_DbTable_DbMenu();
 		$opt = $db->getAllGroupMenu();
 		$menu_group->setMultiOptions($opt);
 		$root_code = new Zend_Form_Element_Select('root_code');
 		$root_code->setAttribs(array(
-				'class'=>'form-control','onClick'=>'FuncRootMenuCode()'
+				'class'=>'form-control input-xlarge select2me','onClick'=>'FuncRootMenuCode()',
+			
 		));
 		$select_root_code_opt = array( ""=>$this->tr->translate("SELECT_GROUP_CODE"),-1=>$this->tr->translate("ADD_NEW"));
 		$root_code->setMultiOptions($select_root_code_opt);
@@ -57,18 +58,23 @@ Class menu_Form_FrmMenuCombo extends Zend_Form {
 		$combo_code = new Zend_Form_Element_Text('combo_code');
 		$combo_code->setAttribs(array(
 				'class'=>'form-control',
+				'onkeyup'=>'displayPhoto()'
 		));
 		$description = new Zend_Form_Element_Text('description');
 		$description->setAttribs(array(
 				'class'=>'form-control',
+				'onchange'=>'displayPhoto()'
 		));
 		$lang_1 = new Zend_Form_Element_Text('lang_1');
 		$lang_1->setAttribs(array(
 				'class'=>'form-control',
+				'onchange'=>'displayPhoto()'
 		));
 		$lang_2 = new Zend_Form_Element_Text('lang_2');
 		$lang_2->setAttribs(array(
-				'checked'=>'checked','class'=>'form-control'
+				'checked'=>'checked',
+				'class'=>'form-control',
+				'onchange'=>'displayPhoto()'
 		));
 		$price = new Zend_Form_Element_Text('price');
 		$price->setAttribs(array(
@@ -83,15 +89,19 @@ Class menu_Form_FrmMenuCombo extends Zend_Form {
 		$db = new Application_Model_DbTable_DbGlobal();
 		$show_description = new Zend_Form_Element_Select('show_description');
 		$show_description->setAttribs(array(
-				'class'=>'form-control'
+				'class'=>'form-control',
+				'required'=>'true',
+				'onchange'=>'displayPhoto()'
 		));
 		$opt = $db->getVewOptoinTypeByType(1,1,null,1);
 		$show_description->setMultiOptions($opt);
-		$photo = new Zend_Form_Element_File('photo');
-		$background = new Zend_Form_Element_Text('background');
+		//$photo = new Zend_Form_Element_File('photo');
+		$background = new Zend_Form_Element_select('background');
 		$background->setAttribs(array(
 				'class'=>'form-control color-picker-rgba'
 		));
+		$otp=array('0'=>'apply to company','1'=>'A','2'=>'B','3'=>'C');
+		$background->setMultiOptions($otp);
 		$font_color = new Zend_Form_Element_Text('font_color');
 		$font_color->setAttribs(array(
 				'class'=>'form-control','id'=>"selected-color1"
@@ -135,6 +145,10 @@ Class menu_Form_FrmMenuCombo extends Zend_Form {
 		$format->setAttribs(array(
 				'class'=>'form-control','id'=>"demo4",'value'=>12,'placeholder'=>'12'
 		));
+		$note = new Zend_Form_Element_Textarea('note');
+		$note->setAttribs(array(
+				'class'=>'form-control','id'=>"demo4",'value'=>12,'placeholder'=>'12'
+		));
 		$setting = new Zend_Form_Element_Select('setting');
 		$setting->setAttribs(array(
 				'class'=>'form-control'
@@ -150,6 +164,27 @@ Class menu_Form_FrmMenuCombo extends Zend_Form {
 		$resize->setAttribs(array(
 				'class'=>'form-control','id'=>"resize",'value'=>12,'placeholder'=>'12'
 		));
+		$backgroun_color = new Zend_Form_Element_Text('backgroun_color');
+		$backgroun_color->setAttribs(array(
+				'class'=>'colorpicker-rgba form-control',
+				'onclick'=>'displayPhoto()',
+		));
+		$font_site = new Zend_Form_Element_text('font_size');
+		$font_site->setAttribs(array(
+				'class'=>' spinner-input form-control',
+				'onkeyup'=>'displayPhoto()',
+				'onclick'=>'displayPhoto()'
+		));
+		$font_site->setValue(18);
+		$apply = new Zend_Form_Element_Select('apply');
+		$apply->setAttribs(array(
+				'class'=>'form-control'
+		));
+		$font_color = new Zend_Form_Element_text('font_color');
+		$font_color->setAttribs(array(
+				'class'=>'colorpicker-default form-control',
+				'onclick'=>'displayPhoto()',
+		));
 		$note = new Zend_Form_Element_Textarea('note');
 		$note->setAttribs(array(
 				'class'=>'form-control','style'=>"margin-top: 0px; margin-bottom: 0px; height: 100px;"
@@ -157,8 +192,6 @@ Class menu_Form_FrmMenuCombo extends Zend_Form {
 		
 		//upload image to folder
 		$photo = new Zend_Form_Element_file('photo');
-		
-		
 		$id = new Zend_Form_Element_Hidden('id');
 		if(!empty($data)){
 			//print_r($data);exit();
@@ -175,14 +208,18 @@ Class menu_Form_FrmMenuCombo extends Zend_Form {
 			$root_menu->setValue($data['root_menuid']);
 			$combo->setValue($data['root_menu_name']);
 			$combo1->setValue($data['printto_print']);
+			$backgroun_color->setValue($data['background_color']);
+			$font_color->setValue($data['font_color']);
+			$font_site->setValue($data['font_size']);
 			$combo2->setValue($data['showscreen']);
+			$note->setValue($data['note']);
 			$combo3->setValue($data['is_discound']);
 			$combo4->setValue($data['time']);
 		}
 		$this->addElements(array($apply,$active,$menu_group,$description,$lang_1,$lang_2,$lang_3,$combo_code,
 				$show_description,$background,$font_color,$font_size,$format,$setting,$arrange,$resize,$note,$price,
 				$root_menu,$printer_code,$apply_to_company,$root_code,$root_menus,$combo,
-				$combo1,$combo2,$combo3,$combo4,$id,$photo));
+				$combo1,$combo2,$combo3,$combo4,$id,$photo,$note,$backgroun_color,$font_site,$font_color));
 		return $this;
 		
 	}	

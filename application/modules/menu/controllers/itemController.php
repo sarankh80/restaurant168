@@ -1,6 +1,6 @@
 <?php
 class Menu_itemController extends Zend_Controller_Action {
-	const REDIRECT_URL = '/menu/';
+	const REDIRECT_URL = '/menu';
 	public function init()
 	{
 		header('content-type: text/html; charset=utf8');
@@ -17,12 +17,19 @@ class Menu_itemController extends Zend_Controller_Action {
 			$_data = $this->getRequest()->getPost();
 			$db = new Menu_Model_DbTable_DbItem();
 			try {
-				$db->addItem($_data);
-				if(!empty($_data['btnsave'])){
-					Application_Form_FrmMessage::message('ការ​បញ្ចូល​​ជោគ​ជ័យ');
-				}else{
+				if(isset($_data['btnsave'])){
+					$db->addItem($_data);
 					Application_Form_FrmMessage::Sucessfull('ការ​បញ្ចូល​​ជោគ​ជ័យ', self::REDIRECT_URL . '/item/add');
+				}elseif(isset($_data['btnsaveclose'])){
+					$db->addItem($_data);
+					Application_Form_FrmMessage::Sucessfull('ការ​បញ្ចូល​​ជោគ​ជ័យ', self::REDIRECT_URL . '/item/index');
 				}
+// 				$db->addItem($_data);
+// 				if(!empty($_data['btnsave'])){
+// 					Application_Form_FrmMessage::message('ការ​បញ្ចូល​​ជោគ​ជ័យ');
+// 				}else{
+// 					Application_Form_FrmMessage::Sucessfull('ការ​បញ្ចូល​​ជោគ​ជ័យ', self::REDIRECT_URL . '/item/add');
+// 				}
 			}catch(Exception $e){
 				Application_Form_FrmMessage::message("ការ​បញ្ចូល​មិន​ជោគ​ជ័យ");
 				$err =$e->getMessage();
@@ -39,11 +46,9 @@ class Menu_itemController extends Zend_Controller_Action {
 			$_data = $this->getRequest()->getPost();
 			$db = new Menu_Model_DbTable_DbItem();
 			try {
-				$db->updateMenuItem($_data);
-				if(!empty($_data['SAVE_CLOSE'])){
-					Application_Form_FrmMessage::message('កាកែរប្រែបាន​​ជោគ​ជ័យ');
-				}else{
-					Application_Form_FrmMessage::Sucessfull('កាកែរប្រែបាន​​ជោគ​ជ័យ', self::REDIRECT_URL . 'item/add');
+				if(isset($_data['btnsave'])){
+					$db->updateMenuItem($_data);
+					Application_Form_FrmMessage::Sucessfull('ការ​បញ្ចូល​​ជោគ​ជ័យ', self::REDIRECT_URL . '/item/index');
 				}
 			}catch(Exception $e){
 				Application_Form_FrmMessage::message("កាកែរប្រែមិន​បាន​​ជោគ​ជ័យ");
@@ -54,6 +59,7 @@ class Menu_itemController extends Zend_Controller_Action {
 		$id = $this->getRequest()->getParam("id");
 		$db_combo_type=new Menu_Model_DbTable_DbItem();
 		$row=$db_combo_type->editAllRowItem($id);
+		$this->view->photo=$row['img_name'];
 		$this->view->rows=$row;
 		$frm = new Menu_Form_FrmMenuItem();
 		$this->view->form = $frm->FrmMenu($row);

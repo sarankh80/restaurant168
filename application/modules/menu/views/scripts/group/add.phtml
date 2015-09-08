@@ -1,7 +1,7 @@
 <?php 
 	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
-	$url = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'));
-	$url_edit = $this->url(array('module'=>'menu','controller'=>'group','action'=>'index'),null,true);
+	$url = $this->url(array('module'=>'menu','controller'=>'combo','action'=>'index'));
+	$url_edit = $this->url(array('module'=>'menu','controller'=>'combo','action'=>'index'),null,true);
 ?>
 <div class="row">
 	<div class="col-md-12">
@@ -24,14 +24,14 @@
 								Your form validation is successful!
 						</div>
 						<div class="panel-body">
-									<div class="col-sm-9">
+							<div class="col-sm-9">
 										<div class="col-sm-12" style="padding: 0;">
 											<div class="form-group col-sm-12">
 												<label class="col-sm-4 control-label">
-													<?php echo $tr->translate("MENU_GROUP_CODE")?> <span class="symbol required"></span>
+													<?php echo $tr->translate("COMBO_CODE")?> <span class="symbol required"></span>
 												</label>
 												<div class="col-sm-8">
-													<?php echo $form->getElement('menu_code');?>
+													<?php echo $form->getElement('combo_code');?>
 												</div>
 											</div>
 										</div>
@@ -76,7 +76,8 @@
 											</div>
 										</div>
 									</div>
-										<div class="col-sm-3">
+									<div class="col-sm-3">
+										<div class="col-sm-12" style="padding: 0;">
 											<div class="form-group col-sm-6">
 												<label class="control-label col-md-4"><?php echo $tr->translate("IMAGE")?> <span class="required">
 													 </span>
@@ -84,20 +85,14 @@
 												<div class="col-md-8">
 													<div class="form-group last">
 														<div class="col-md-12">
-															<div class="fileinput fileinput-new" data-provides="fileinput">
-																<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-																	<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt=""/>
-																</div>
+															<div class="fileinput fileinput-new" data-provides="fileinput" style="width: 200px; height: 150px;">
+																<label id="display_titel" class="full-size" style="border:1px solid #ccc;">
+																	<img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image" alt="" style="padding:3px ;background:#7C9BAB none repeat scroll 3px;"/>
+																</label>
 																<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;">
 																</div>
 																<div>
-																	<span class="btn default btn-file">
-																	<span class="fileinput-new">
-																	Select image </span>
-																	<span class="fileinput-exists">
-																	Change </span>
-																	<input type="file" name="...">
-																	</span>
+																	<?php echo $form->getElement('photo');?>
 																	<a href="#" class="btn red fileinput-exists" data-dismiss="fileinput">
 																	Remove </a>
 																</div>
@@ -108,11 +103,10 @@
 											</div>
 										</div>
 									</div>
-						<div class="form-group">
-							<div class="col-sm-12" style="padding: 0;">
+										<div class="col-sm-12" style="padding: 0;">
 											<div class="form-group col-sm-12">
-													<div class="tabbable" id="tabShwo" style="margin-top: -45px;">
-														<ul id="myTab" class="nav nav-tabs" style="background-color:#65879A;  width: 101.9%;margin-left: 5px;">
+													<div class="tabbable" id="tabShwo" style="">
+														<ul id="myTab" class="nav nav-tabs" style="background-color:#65879A;">
 															<li class="active">
 																<a href="#myTab_example1" data-toggle="tab">
 																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("GENERAL_INFORMATION")?>
@@ -120,7 +114,7 @@
 															</li>
 															<li>
 																<a href="#myTab_example2" data-toggle="tab">
-																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("LOCATION_OF_MENU_GROUP")?>
+																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("LOCATION OF MENU GROUP")?>
 																</a>
 															</li>
 															<li>
@@ -131,132 +125,183 @@
 														</ul>
 														<div class="tab-content">
 															<div class="tab-pane fade in active" id="myTab_example1">
-																<div class="form-group">
-																<div class="col-sm-9">
-																	<div class="form-group">
+															<div class="form-group">
+																<div class="col-sm-12" style="padding: 0;">
+																	<div class="form-group col-sm-6" >
 																		<label class="col-sm-4 control-label" for="form-field-1">
-																			<?php echo $tr->translate("BACKGROUP_COLOR")?>
+																			<?php echo $tr->translate("BACK_COLOR")?>
 																		</label>
 																		<div class="col-sm-8">
-																			<?php echo $form->getElement('background');?>
+																			<?php echo $form->getElement('backgroun_color');?>
 																		</div>
 																	</div>
-																	<div class="form-group">
+																</div>
+																<div class="col-sm-12" style="padding: 0;">
+																	<div class="form-group col-sm-6" >
 																		<label class="col-sm-4 control-label" for="form-field-1">
 																			<?php echo $tr->translate("FONT_COLOR")?>
 																		</label>
 																		<div class="col-sm-8">
-																			<div class="input-group">
-																				<?php echo $form->getElement('font_color');?>
-																				<span class="btn input-group-addon btn-azure" data-toggle="dropdown">color</span>
-																				<ul class="dropdown-menu pull-right center">
-																					<li>
-																						<div class="color-palette"></div>
-																					</li>
-																				</ul>
-																			</div>
+																			<?php echo $form->getElement('font_color');?>
 																		</div>
 																	</div>
-																	<div class="form-group">
-																		<label class="col-sm-4 control-label" for="form-field-1">
-																			<?php echo $tr->translate("FONT_SIZE")?>
-																		</label>
-																		<div class="col-sm-8">
-																			<?php echo $form->getElement('demo3');?>
-																		</div>
+																	
+																</div>
+																<div class="form-group">
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("FONT_SIZE")?>
+																	</label>
+																	<div class="col-sm-3">
+																		<div id="spinner4">
+																			<div class="input-group" >
+																				<div class="spinner-buttons input-group-btn">
+																					<button type="button" class="btn spinner-up blue">
+																					<i class="fa fa-plus"></i>
+																					</button>
+																				</div>
+																				<?php echo $form->getElement('font_size');?>
+																				<div class="spinner-buttons input-group-btn">
+																					<button type="button" class="btn spinner-down red">
+																					<i class="fa fa-minus"></i>
+																					</button>
+																				</div>
+																			</div>
+																		</div>  
 																	</div>
 																</div>
-																<div class="col-sm-9">
-																	<div class="form-group">
-																		<label class="col-sm-4 control-label" for="form-field-1">
-																			<?php echo $tr->translate("COMBO_ITEM")?>
-																		</label>
-																		<div class="col-sm-2">
-																			<?php echo $form->getElement('combo');?>
-																		</div>
-																		<label class="col-sm-4 control-label" for="form-field-1">
-																			<?php echo $tr->translate("ACTIVE")?>
-																		</label>
-																		<div class="col-sm-2">
-																			<div class="input-group">
-																				<?php echo $form->getElement('active');?>
-																			</div>
-																		</div>
-																	</div>
-																	<div class="form-group">
+																
+																<div class="col-sm-12" style="padding: 0;">
+																	<div class="form-group col-sm-6">
 																		<label class="col-sm-4 control-label" for="form-field-1">
 																			<?php echo $tr->translate("APPLY_TO_COMPANY")?>
 																		</label>
 																		<div class="col-sm-8">
-																			<?php echo $form->getElement('apply');?>
+																			<?php echo $form->getElement('apply_to_company');?>
 																		</div>
 																	</div>
-																</div>
-															 </div>
-															</div>
-															<div class="tab-pane fade" id="myTab_example2">
-															<div class="form-group">
-																<div class="col-sm-9">
-																<div class="form-group">
-																	<label class="col-sm-4 control-label" for="form-field-1">
-																		<?php echo $tr->translate("FORMART")?>
-																	</label>
-																	<div class="col-sm-8">
-																		<?php echo $form->getElement('demo4');?>
+																</div>	
+																<div class="col-sm-12" style="padding: 0;">
+																	<div class="col-sm-2" style="font-size: 10px;">
+																		<?php echo $form->getElement('active');?>
+																		<?php echo $tr->translate("ACTIVE")?>												
 																	</div>
-																</div>
-																<div class="form-group">
-																	<label class="col-sm-4 control-label" for="form-field-1">
-																		<?php echo $tr->translate("SETTING")?>
-																	</label>
-																	<div class="col-sm-8">
-																		<?php echo $form->getElement('setting');?>                                                
+																	<div class="col-sm-2"  style="font-size: 10px;">
+																		<?php echo $form->getElement('combo_item');?>
+																		<?php echo $tr->translate("COMBO_ITEM")?>												
 																	</div>
+																	
+																	
 																</div>
-																<div class="form-group">
-																	<label class="col-sm-4 control-label" for="form-field-1">
-																		<?php echo $tr->translate("ARRANGE")?>
-																	</label>
-																	<div class="col-sm-8">
-																		<?php echo $form->getElement('arrange');?>                                                
-																	</div>
-																</div>
-																<div class="form-group">
-																	<label class="col-sm-4 control-label" for="form-field-1">
-																		<?php echo $tr->translate("RESIZE")?>
-																	</label>
-																	<div class="col-sm-8">
-																		<?php echo $form->getElement('resize');?>                                                
-																	</div>
-																</div>
-															</div>
-															<div class="tab-pane fade" id="myTab_example3">
-															<div class="form-group">
-																<div class="col-sm-9">
-																	<div class="form-group">
-																		<label class="col-sm-4 control-label" for="form-field-1">
-																			<?php echo $tr->translate("RESIZE")?>
-																		</label>
-																		<div class="col-sm-8">
-																			<?php echo $form->getElement('resize');?>                                                
-																		</div>
-																	</div>
-																</div>
+																											
 															</div>
 														</div>
-													</div>
+														<div class="tab-pane fade in " id="myTab_example2">
+															<div class="form-group">
+																<div class="col-sm-2"  style="font-size: 10px; margin-left: 200px;">
+																	<?php echo $form->getElement('user_activate');?>
+																	<?php echo $tr->translate("USER_ACTIVATE")?>												
+																</div>
+															</div>		
+															<div class="form-group">
+																		<label class="control-label col-md-2"><?php echo $tr->translate("FROM_TIME")?> <span class="required">
+																			</span>
+																		</label>
+																		<div class="col-md-4">
+																			<div class="input-icon right">
+																				<i class="fa"></i>
+																				<div class="col-md-14">
+																					<div class="input-group">
+																					    <?php echo $form->getElement('from_time');?>
+																						<span class="input-group-btn">
+																						<button class="btn default" type="button" id="clockface_2_toggle"><i class="fa fa-clock-o"></i></button>
+																						</span>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+							                                  	</div>
+							                                  	<div class="form-group">
+																		<label class="control-label col-md-2"><?php echo $tr->translate("TO_TIME")?> <span class="required">
+																			</span>
+																		</label>
+																		<div class="col-md-4">
+																			<div class="input-icon right">
+																				<i class="fa"></i>
+																				<div class="col-md-14">
+																					<div class="input-group">
+																					    <?php echo $form->getElement('to_time');?>
+																						<span class="input-group-btn">
+																						<button class="btn default" type="button" id="clockface_2_toggle"><i class="fa fa-clock-o"></i></button>
+																						</span>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+							                                  	</div>
+														</div>
+														<div class="tab-pane fade in " id="myTab_example3">
+															<div class="form-group">
+																<div class="col-sm-12" style="padding: 0;">
+																	<div class="form-group col-sm-12" >
+																		<label class="col-sm-1 control-label" for="form-field-1">
+																			<?php echo $tr->translate("NOTE")?>
+																		</label>
+																		<div class="col-sm-11">
+																			<?php echo $form->getElement('note');?>
+																		</div>
+																	</div>
+																</div>
+															</div>		
+														</div>
+													</div>													
 												</div>
 											</div>
 										</div>
+									</div>
+								</div>
 						<div class="row">
 							<div class="col-md-offset-3 col-md-9">
 								<button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("SAVE_NEW")?> </button>
-								<button type="submit" class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("SAVE_CLOSE")?></button>
-								<a href="<?php echo $this->baseUrl();?>/menu"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
+								<button type="submit" name="btnsaveclose"class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("SAVE_CLOSE")?></button>
+								<a href="<?php echo $this->baseUrl();?>/menu/group/index"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
 							</div>
 						</div>
+					
 				</form>
 			</div>
 		</div>
 	</div>
 </div>
+<script>
+function setDefaulTime(){
+	//alert(0);
+	//user_activ=$("#user_activate").val();
+	if($('input.user_activate').prop('checked')){
+		    alert(1);
+		}else{
+			alert(2);
+		}
+}
+function displayPhoto(){
+	dis_type=$("#show_description").val();
+	bg_color= $("#backgroun_color").val();
+	font_color= $("#font_color").val();
+	font_size = $("#font_size").val();
+	if(dis_type==1){
+		dis_title = $("#combo_code").val();
+	}else if(dis_type==2){
+		dis_title = $("#description").val();
+	}
+	else if(dis_type==3){
+		dis_title = $("#lang_1").val();
+	}
+	else if(dis_type==4){
+		dis_title = $("#lang_2").val();
+	}
+	else{
+		dis_title = '';
+	}
+	$("#display_titel").html(dis_title);
+	$("#display_titel").css({"background-color": bg_color,"color": font_color,"font-size":font_size+"px" });
+}
+</script>

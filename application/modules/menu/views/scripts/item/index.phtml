@@ -37,32 +37,14 @@
 								<th>
 									menu_group_code
 								</th>
+                                <th>
+									photo
+								</th>
 								<th>
 									root_menu_code
 								</th>
 								<th>
-									printer_code
-								</th>
-								<th>
-									print_to_printer
-								</th>
-								<th>
 									active
-								</th>
-								<th>
-									show_screen
-								</th>
-								<th>
-									is_root
-								</th>
-								<th>
-									time
-								</th>
-								<th>
-									discount
-								</th>
-								<th>
-									requir_qty
 								</th>
 							</tr>
 							</thead>
@@ -78,22 +60,22 @@
 							        <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["display_by"];?></a></td>
 							        <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["price"];?></a></td>
 							        <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["category_id"];?></a></td>
+                                    <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["img_name"];?></a></td>
 							        <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["root_menuid"];?></a></td>
-							        <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["print_code"];?></a></td>
-							        <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["printto_print"];?></a></td>
 							        <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["status"];?></a></td>
-							        <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["showscreen"];?></a></td>
-							        <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["is_root"];?></a></td>
-							        <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["time"];?></a></td>
-							         <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["is_discound"];?></a></td>
-							        <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["is_reqty"];?></a></td>
 							       </tr>
 							    <?php }?>
 							</tr>
 							</tbody>
 					</table>
-					
+					<div class="tools">
+						<a href="<?php echo $url;?>"><button type="button" name="btnsave" class="btn btn-primary">
+						<i class="icon-plus"></i> <?php echo $tr->translate("ADD_NEW")?> </button></a>
+						<a href="<?php echo $this->baseUrl();?>/menu">
+						<button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
+					</div>
 				</div>
-			
+			</div>
+		</did
 		</div>
 	</div>

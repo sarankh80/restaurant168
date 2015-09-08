@@ -1,47 +1,64 @@
 <?php
 
-class menu_Model_DbTable_DbMenuGroup extends Zend_Db_Table_Abstract
+class Menu_Model_DbTable_DbMenuGroup extends Zend_Db_Table_Abstract
 {
-    protected $_name = 'tb_menu_group';
+    protected $_name = 'rs_menugroup';
     function addMuneGroup($data){
     	$db = $this->getAdapter();
     	$arr = array(
-    		'menu_group_code'=>$data['menu_code'],
-    		'menu_group'=>$data['description'],
-    		'menu_group2'=>$data['lang_1'],
-    		'menu_group3'=>$data['lang_2'],
+    		'menu_code'=>$data['combo_code'],
+    		'desc'=>$data['description'],
+    		'lang1'=>$data['lang_1'],
+    		'lang2'=>$data['lang_2'],
+    		'display_by'=>$data['show_description'],
+    		'background_color'=>$data['backgroun_color'],
+    		'font_color'=>$data['font_color'],
+    		'font_size'=>$data['font_size'],
+    		'date'=>$data['est_time'],
+  			'apply_company'=>$data['apply_to_company'],
+    		'status'=>$data['active'], 
+    		'is_combo'=>$data['combo_item'],
     		'note'=>$data['note'],
-    		//'pic'=>$data['photo'],
-    		'is_active'=>$data['active'],    		 
     	);
-    	$id=$this->insert($arr);    	 
+    $this->insert($arr);    	 
     }
-    function updatcallecterall($data){
-    	$arr = array(
-    			'title_en'=>$data['title_en'],
-    			'title_kh'=>$data['title_kh'],
-    			'date'=>$data['date'],
-    			'status'=>$data['status'],
-    			'displayby'=>$data['display_by'],
-    			);
-    	$where=" id = ".$data['id'];
-    	$this->update($arr, $where);
-    }
-    function getMenuGrop(){
+    function getAllRowGroup(){
     	$db = $this->getAdapter();
-    	$sql="SELECT * FROM $this->_name ORDER BY menu_group_id DESC";
+    	$sql="SELECT id,menu_code,`desc`,lang1,lang2,display_by,background_color,font_color,font_size,apply_company,status
+    	,is_combo,date,note  FROM rs_menugroup ";
     	return $db->fetchAll($sql);
     }
-    function getMenuGropByid($id){
+ 	function editAllRowGroup($id){
     	$db = $this->getAdapter();
-    	$sql="SELECT * FROM $this->_name where menu_group_id=$id ";
+    	$sql="SELECT id,menu_code,`desc`,lang1,lang2,display_by,background_color,font_color,font_size,apply_company,status
+    	,is_combo,note,date  FROM rs_menugroup where id=$id limit 1";
     	return $db->fetchRow($sql);
     }
-    function getMenuGropByDesc(){
-    	$db = $this->getAdapter();
-    	$sql="SELECT menu_group_id,menu_group FROM $this->_name WHERE is_active = 1";
-    	return $db->fetchAll($sql);
-    	
+    function updateMenuGroup($data){
+    	$db=$this->getAdapter();
+    	try {
+    		$arr = array(
+    				'menu_code'=>$data['combo_code'],
+		    		'desc'=>$data['description'],
+		    		'lang1'=>$data['lang_1'],
+		    		'lang2'=>$data['lang_2'],
+		    		'display_by'=>$data['show_description'],
+		    		'background_color'=>$data['backgroun_color'],
+		    		'font_color'=>$data['font_color'],
+		    		'font_size'=>$data['font_size'],
+    				'date'=>$data['est_time'],
+		  			'apply_company'=>$data['apply_to_company'],
+		    		'status'=>$data['active'], 
+		    		'is_combo'=>$data['combo_item'],
+		    		'note'=>$data['note'],
+    		);
+    		$where="id=".$data['id'];
+    		$this->update($arr,$where);
+    	}catch (Exception $e) {
+    	}
+    
+    
     }
+      
 }
 

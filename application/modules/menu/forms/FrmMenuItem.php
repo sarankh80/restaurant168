@@ -10,6 +10,7 @@ Class menu_Form_FrmMenuItem extends Zend_Form {
 		$item_code = new Zend_Form_Element_Text('item_code');
 		$item_code->setAttribs(array(
 				'class'=>'form-control',
+				'onkeyup'=>'displayPhoto()',
 		));
 		$menu_code = new Zend_Form_Element_Text('menu_code');
 		$menu_code->setAttribs(array(
@@ -55,17 +56,25 @@ Class menu_Form_FrmMenuItem extends Zend_Form {
 		$description = new Zend_Form_Element_Text('description');
 		$description->setAttribs(array(
 				'class'=>'form-control',
+				'onchange'=>'displayPhoto()',
+				
 		));
 		$lang_1 = new Zend_Form_Element_Text('lang_1');
 		$lang_1->setAttribs(array(
 				'class'=>'form-control',
+				'onchange'=>'displayPhoto()',
 		));
 		$lang_2 = new Zend_Form_Element_Text('lang_2');
 		$lang_2->setAttribs(array(
-				'checked'=>'checked','class'=>'form-control'
+				'checked'=>'checked','class'=>'form-control',
+				'onchange'=>'displayPhoto()',
 		));
 		$lang_3 = new Zend_Form_Element_Text('lang_3');
 		$lang_3->setAttribs(array(
+				'checked'=>'checked','class'=>'form-control'
+		));
+		$note = new Zend_Form_Element_Text('note');
+		$note->setAttribs(array(
 				'checked'=>'checked','class'=>'form-control'
 		));
 		if($data!=null){
@@ -74,7 +83,8 @@ Class menu_Form_FrmMenuItem extends Zend_Form {
 		$db = new Application_Model_DbTable_DbGlobal();
 		$show_description = new Zend_Form_Element_Select('show_description');
 		$show_description->setAttribs(array(
-				'class'=>'form-control'
+				'class'=>'form-control',
+				'onchange'=>'displayPhoto()',
 		));
 		$opt = $db->getVewOptoinTypeByType(1,1,null,1);
 		$show_description->setMultiOptions($opt);
@@ -136,9 +146,14 @@ Class menu_Form_FrmMenuItem extends Zend_Form {
 		$require_qty->setAttribs(array(
 				'class'=>'red',
 		));
+		$is_service = new Zend_Form_Element_Checkbox('is_service');
+		$is_service->setAttribs(array(
+				'class'=>'red',
+		));
 		$active = new Zend_Form_Element_Checkbox('active');
 		$active->setAttribs(array(
 				'class'=>'red',
+				'Checked'=>'Checked'
 		));
 		$format = new Zend_Form_Element_Text('demo4');
 		$format->setAttribs(array(
@@ -163,15 +178,38 @@ Class menu_Form_FrmMenuItem extends Zend_Form {
 		$note->setAttribs(array(
 				'class'=>'form-control','style'=>"margin-top: 0px; margin-bottom: 0px; height: 100px;"
 		));
+		$backgroun_color = new Zend_Form_Element_Text('backgroun_color');
+		$backgroun_color->setAttribs(array(
+				'class'=>'colorpicker-rgba form-control',
+				'onclick'=>'displayPhoto()',
+		));
+		
+		
+		$font_site = new Zend_Form_Element_text('font_size');
+		$font_site->setAttribs(array(
+				'class'=>' spinner-input form-control',
+				'onkeyup'=>'displayPhoto()',
+				'onclick'=>'displayPhoto()'
+		));
+		$font_site->setValue(18);
+		$apply = new Zend_Form_Element_Select('apply');
+		$apply->setAttribs(array(
+				'class'=>'form-control'
+		));
+		$font_color = new Zend_Form_Element_text('font_color');
+		$font_color->setAttribs(array(
+				'class'=>'colorpicker-default form-control',
+				'onclick'=>'displayPhoto()',
+		));
 		$select_apply = new Zend_Form_Element_Select('select_apply');
 		$select_apply->setAttribs(array(
 				'class'=>'form-control','onClick'=>'FuncApplyCompany()'
 		));
 		$select_apply_opt = array( ""=>$this->tr->translate("SELECT_APPLY_TO_COMPANY"),-1=>$this->tr->translate("ADD_NEW"));
 		$select_apply->setMultiOptions($select_apply_opt);
+		$photo = new Zend_Form_Element_file('photo');
 		$id = new Zend_Form_Element_Hidden('id');
 		if(!empty($data)){
-			//print_r($data);
 			$id->setValue($data['id']);
 			$item_code ->setValue($data['bar_code']);
 			$description->setValue($data['desc']);
@@ -183,18 +221,22 @@ Class menu_Form_FrmMenuItem extends Zend_Form {
 			$root_menu->setValue($data['root_menuid']);
 			$print_code->setValue($data['print_code']);
 			$print_to->setValue($data['printto_print']);
+			$is_service->setValue($data['is_service']);
+			$backgroun_color->setValue($data['background_color']);
+			$font_color->setValue($data['font_color']);
+			$font_site->setValue($data['font_size']);
 			$active->setValue($data['status']);
+			$note->setValue($data['note']);
 			$show_screen->setValue($data['showscreen']);
 			$is_root->setValue($data['is_root']);
 			$time->setValue($data['time']);
 			$discount->setValue($data['is_discound']);
 			$require_qty->setValue($data['is_reqty']);
 		}
-		
 		$this->addElements(array($select_apply,$require_qty,$root_code,$menu_group,$item_code,$apply,$active,$combo,$menu_code,
 				$description,$lang_1,$lang_2,$lang_3,$print_code,$print_to,$show_screen,$time,$discount,
 				$show_description,$background,$font_color,$font_size,$format,$setting,$arrange,$resize,$note,
-				$is_root,$root_menu,$root_menus,$id));
+				$is_root,$root_menu,$root_menus,$id,$photo,$note,$backgroun_color,$font_site,$font_color,$is_service));
 		return $this;
 		
 	}	
