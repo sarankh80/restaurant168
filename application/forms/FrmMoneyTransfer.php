@@ -19,12 +19,12 @@ class Application_Form_FrmMoneyTransfer extends Zend_Dojo_Form
 		$sender->setLabel('sender')
 			   ->setRequired(true);
 		
-		$reciever=new Zend_Dojo_Form_Element_ValidationTextBox('reciever');
-		$reciever->setLabel('reciever')
+		$receiver=new Zend_Dojo_Form_Element_ValidationTextBox('receiver');
+		$receiver->setLabel('receiver')
 				 ->setRequired(true);
 			   
-		$reciever_tel=new Zend_Dojo_Form_Element_ValidationTextBox('reciever_tel');
-		$reciever_tel->setLabel('reciever_tel')
+		$receiver_tel=new Zend_Dojo_Form_Element_ValidationTextBox('receiver_tel');
+		$receiver_tel->setLabel('receiver_tel')
 				 	 ->setRequired(true);
 				 	 
 		$send_date = new Zend_Dojo_Form_Element_DateTextBox('send_date');
@@ -48,7 +48,7 @@ class Application_Form_FrmMoneyTransfer extends Zend_Dojo_Form
 		$clear_login->setLabel("សារ​ដើម");		
 		
 												
-		$this->addElements(array($province,$agent,$sender,$reciever,$reciever_tel,$send_date,$exp_date,$type_money,$submit_login,$clear_login));
+		$this->addElements(array($province,$agent,$sender,$receiver,$receiver_tel,$send_date,$exp_date,$type_money,$submit_login,$clear_login));
     }
 
 
