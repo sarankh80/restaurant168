@@ -10,9 +10,9 @@ class Table_Model_DbTable_DbTables extends Zend_Db_Table_Abstract
     	$upload=new Zend_File_Transfer();
     	$a=$upload->addFilter('Rename',
     			           array('target'=>PUBLIC_PATH .'/image/'.$photo_name,'overwrite'=>true));
-    	$recieve=$upload->receive();
-//     	print_r($recieve);exit();
-    	if($recieve){
+    	$receive=$upload->receive();
+//     	print_r($receive);exit();
+    	if($receive){
     		$img=$photo_name;
     	}
     	else{

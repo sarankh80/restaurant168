@@ -16,9 +16,9 @@ class Menu_Model_DbTable_DbCombo extends Zend_Db_Table_Abstract
     	$a=$upload->addFilter('Rename',
     			array('target'=>PUBLIC_PATH .'/image/'.$photo_name,'overwrite'=>true));
     	
-    	$recieve=$upload->receive();
+    	$receive=$upload->receive();
 
-    	if($recieve){
+    	if($receive){
     		$img=$photo_name;
     	}
     	else{
@@ -81,9 +81,9 @@ class Menu_Model_DbTable_DbCombo extends Zend_Db_Table_Abstract
 	     $db->beginTransaction();
 	     $a=$upload->addFilter('Rename',
 	     		array('target'=>PUBLIC_PATH .'/image/'.$photo_name,'overwrite'=>true));
-	     $recieve=$upload->receive();
+	     $receive=$upload->receive();
 	     
-	     if($recieve){
+	     if($receive){
 	     	$img=$photo_name;
 	     }
 	     else{
