@@ -274,12 +274,10 @@
 </div>
 <script>
 function setDefaulTime(){
-	//alert(0);
-	//user_activ=$("#user_activate").val();
-	if($('input.user_activate').prop('checked')){
-		    alert(1);
-		}else{
-			alert(2);
+	user_activate=$("#user_activate").val();
+	if(user_activate==1){
+		$("#clockface_1").timepicker('setTime',new Date());
+	}else{
 		}
 }
 function displayPhoto(){

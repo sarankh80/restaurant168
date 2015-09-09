@@ -27,7 +27,6 @@ Class Menu_Form_FrmMenuGroup extends Zend_Form {
 				'class'=>'form-control',
 				'onchange'=>'displayPhoto()'
 		));
-		
 		$lang_3 = new Zend_Form_Element_Text('lang_3');
 		$lang_3->setAttribs(array(
 				'checked'=>'checked','class'=>'form-control'
@@ -126,7 +125,8 @@ Class Menu_Form_FrmMenuGroup extends Zend_Form {
 		));
 		$from_time = new Zend_Form_Element_Text('from_time');
 		$from_time->setAttribs(array(
-				'class'=>'form-control clockface-open','id'=>'clockface_2',
+				'class'=>'form-control clockface-open','id'=>'clockface_1',
+				
 		));
 		$to_time = new Zend_Form_Element_Text('to_time');
 		$to_time->setAttribs(array(
