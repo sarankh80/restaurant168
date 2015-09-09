@@ -16,6 +16,11 @@ Class customer_currencyController extends Zend_Controller_Action {
 		$frm = new customer_Form_FrmCurrency();
 		$this->view->form = $frm->Frmcurrency();
 	}
+	public function editAction(){
+		//$this->_helper->layout()->disableLayout();
+		$frm = new customer_Form_FrmCurrency();
+		$this->view->form = $frm->Frmcurrency();
+	}
 	
 	
 }

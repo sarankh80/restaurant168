@@ -10,15 +10,11 @@ Class customer_Form_FrmCustomer extends Zend_Form {
 		$customer->setAttribs(array(
 				'class'=>'form-control',
 		));
-		$apply_to_company = new Zend_Form_Element_Text('apply');
-		$apply_to_company->setAttribs(array(
-				'class'=>'form-control',
-		));
-		$company = new Zend_Form_Element_Text('company');
+		$company = new Zend_Form_Element_Select('company');
 		$company->setAttribs(array(
 				'class'=>'form-control',
 		));
-		$current_balance = new Zend_Form_Element_Text('current');
+		$current_balance = new Zend_Form_Element_Select('current');
 		$current_balance->setAttribs(array(
 			    'class'=>'form-control'
 		));
@@ -26,11 +22,11 @@ Class customer_Form_FrmCustomer extends Zend_Form {
 		$second_language->setAttribs(array(
 				'class'=>'form-control'
 		));
-		$contact_name = new Zend_Form_Element_Text('contact');
+		$contact_name = new Zend_Form_Element_Select('contact');
 		$contact_name->setAttribs(array(
 				'class'=>'form-control'
 		));
-		$ytd_sale = new Zend_Form_Element_Text('sale');
+		$ytd_sale = new Zend_Form_Element_Select('sale');
 		$ytd_sale->setAttribs(array(
 				'class'=>'form-control'
 		));
@@ -139,7 +135,7 @@ Class customer_Form_FrmCustomer extends Zend_Form {
 		$note->setAttribs(array(
 				'class'=>'form-control','style'=>"margin-top: 0px; margin-bottom: 0px; height: 100px;"
 		));
-		$this->addElements(array($customer,$apply_to_company,$company,$current_balance,$second_language,$contact_name,$ytd_sale,
+		$this->addElements(array($customer,$apply,$company,$current_balance,$second_language,$contact_name,$ytd_sale,
 				          $mobile,$credit,$customer_group,$active,$hold,$phone_2,$title,$address,$address_2,$city,$country,$fax,$fax_2,$email,$web,$format,$setting,$arrange,$resize,$note));
 		return $this;
 		

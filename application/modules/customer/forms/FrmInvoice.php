@@ -22,9 +22,10 @@ Class customer_Form_FrmInvoice extends Zend_Form {
 		$session->setAttribs(array(
 				'class'=>'form-control',
 		));
-		$contact_name= new Zend_Form_Element_Text('contact_name');
+		$contact_name= new Zend_Form_Element_Select('contact_name');
 		$contact_name->setAttribs(array(
 				'class'=>'form-control',
+				'required'=>true,
 		));
 		
 		$check = new Zend_Form_Element_Text('check');
@@ -43,7 +44,7 @@ Class customer_Form_FrmInvoice extends Zend_Form {
 	    $fax->setAttribs(array(
 				'class'=>'form-control'
 		));
-	    $account_num = new Zend_Form_Element_Text('account');
+	    $account_num = new Zend_Form_Element_Select('account_no');
 	    $account_num->setAttribs(array(
 	    		'class'=>'form-control'
 	    ));
@@ -55,18 +56,22 @@ Class customer_Form_FrmInvoice extends Zend_Form {
 	    $address->setAttribs(array(
 	    		'class'=>'form-control'
 	    ));
+	    $address1 = new Zend_Form_Element_Text('address1');
+	    $address1->setAttribs(array(
+	    		'class'=>'form-control'
+	    ));
 	    $pay_amount = new Zend_Form_Element_Text('pay_amount');
 	    $pay_amount->setAttribs(array(
 	    		'class'=>'form-control'
 	    ));
-	   $remaining = new Zend_Form_Element_Text('remaining');
+	   $remaining = new Zend_Form_Element_Text('remaining_amount');
 	   $remaining->setAttribs(array(
 	    		'class'=>'form-control'
 	    ));
 	   
 	    
 		
-		$this->addElements(array($customer_id,$general,$contact_name,$session,$check,$phone,$pay_date,
+		$this->addElements(array($address1,$customer_id,$general,$contact_name,$session,$check,$phone,$pay_date,
 				$fax,$account_num,$undeposit,$address,$pay_amount,$remaining));
 				
 		return $this;

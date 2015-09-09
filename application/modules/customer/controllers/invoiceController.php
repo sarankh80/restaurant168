@@ -11,7 +11,14 @@ class  customer_invoiceController extends Zend_Controller_Action {
 		$frm = new customer_Form_FrmInvoice();
 		$this->view->form = $frm->FrmInvoice();
 	}
-	
+	function addAction(){
+		$frm = new customer_Form_FrmInvoice();
+		$this->view->form = $frm->FrmInvoice();
+	}
+	function editAction(){
+		$frm = new customer_Form_FrmInvoice();
+		$this->view->form = $frm->FrmInvoice();
+	}
 	
 }
 

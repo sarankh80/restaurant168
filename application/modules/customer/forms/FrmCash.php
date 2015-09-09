@@ -6,11 +6,12 @@ Class customer_Form_FrmCash extends Zend_Form {
 		$this->tr = Application_Form_FrmLanguages::getCurrentlanguage();
 	}
 	public function FrmCash($data=null){
-		$customer_id = new Zend_Form_Element_Text('customer_id');
+		$customer_id = new Zend_Form_Element_Select('customer_id');
 		$customer_id->setAttribs(array(
 				'class'=>'form-control',
+				'required'=>true,
 		));
-		$general = new Zend_Form_Element_Text('general');
+		$general = new Zend_Form_Element_Select('general');
 		$general->setAttribs(array(
 				'class'=>'form-control',
 		));
@@ -26,7 +27,7 @@ Class customer_Form_FrmCash extends Zend_Form {
 		$check->setAttribs(array(
 				'class'=>'form-control'
 		));
-		$contact_name = new Zend_Form_Element_Text('contact_name');
+		$contact_name = new Zend_Form_Element_Select('contact_name');
 		$contact_name->setAttribs(array(
 				'class'=>'form-control'
 		));

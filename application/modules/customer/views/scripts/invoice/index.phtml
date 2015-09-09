@@ -1,20 +1,17 @@
 <?php 
-		$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
-	    $url = $this->url(array('module'=>'customer','controller'=>'cash','action'=>'add'));
-	    $url_edit = $this->url(array('module'=>'customer','controller'=>'cash','action'=>'index'),null,true);
-	
-?>
+$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
+	    $url = $this->url(array('module'=>'customer','controller'=>'invoice','action'=>'add'));
+	?>
+	<title><?php echo $tr->translate("CASH_DEPOSIT");?></title>
 <div class="row">
 	<div class="col-md-12">
 		<div class="portlet box blue">
 			<div class="portlet-title">
 				<div class="caption">
-					<i class="fa fa-globe"></i><?php echo $tr->translate("APPLY_CREDIT_DEPOSIT")?>
+					<i class="fa fa-globe"></i><?php echo $tr->translate("CASH_DEPOSIT")?>
 				</div>
 				<div class="tools">
 					<a href="<?php echo $url ;?>"><button type="button" name="btnsave" class="btn btn-primary"><i class="icon-plus"></i> <?php echo $tr->translate("ADD_NEW")?> </button></a>
-					<button type="submit" class="btn btn-primary" ><i class="icon-pencil"></i> <?php echo $tr->translate("EDIT")?></button>
-					<a href="<?php echo $this->baseUrl();?>/menu"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("DELETE")?></button></a>
 				</div>
 			</div>
 			<div class="portlet-body">
@@ -22,30 +19,17 @@
 							<thead>
 							<tr>
 								<th>
-									Invoice
+									Currency Code
 								</th>
 								<th>
-									Invoice Date
+									Text
 								</th>
 								<th class="hidden-xs">
-									 P O Number
+									 Symble
 								</th>
 								<th class="hidden-xs">
-									Amount
+									Decimal Place
 								</th>
-								<th>
-									Balance
-								</th>
-								<th>
-									Payment
-								</th>
-								<th class="hidden-xs">
-									Discount
-								</th>
-								<th class="hidden-xs">
-									Last Payment 
-								</th>
-								
 								</thead>
 							<tbody>
 							<tr>
@@ -61,19 +45,6 @@
 								<td>
 									 4
 								</td>
-								<td>
-									 Trident
-								</td>
-								<td>
-									 Internet Explorer 4.0
-								</td>
-								<td>
-									 Win 95+
-								</td>
-								<td>
-									 4
-								</td>
-								
 								
 							</tr>
 							<tr>
@@ -89,19 +60,6 @@
 								<td>
 									 5
 								</td>
-								<td>
-									 Trident
-								</td>
-								<td>
-									 Internet Explorer 4.0
-								</td>
-								<td>
-									 Win 95+
-								</td>
-								<td>
-									 4
-								</td>
-							
 								
 							</tr>
 							<tr>
@@ -117,18 +75,7 @@
 								<td>
 									 5.5
 								</td>
-								<td>
-									 Trident
-								</td>
-								<td>
-									 Internet Explorer 4.0
-								</td>
-								<td>
-									 Win 95+
-								</td>
-								<td>
-									 4
-								</td>
+								
 							</tr>
 							<tr>
 								<td>
@@ -142,18 +89,6 @@
 								</td>
 								<td>
 									 6
-								</td>
-								<td>
-									 Trident
-								</td>
-								<td>
-									 Internet Explorer 4.0
-								</td>
-								<td>
-									 Win 95+
-								</td>
-								<td>
-									 4
 								</td>
 								
 							</tr>
@@ -170,18 +105,6 @@
 								<td>
 									 7
 								</td>
-								<td>
-									 Trident
-								</td>
-								<td>
-									 Internet Explorer 4.0
-								</td>
-								<td>
-									 Win 95+
-								</td>
-								<td>
-									 4
-								</td>
 								
 							</tr>
 							<tr>
@@ -196,18 +119,6 @@
 								</td>
 								<td>
 									 1.8
-								</td>
-								<td>
-									 Trident
-								</td>
-								<td>
-									 Internet Explorer 4.0
-								</td>
-								<td>
-									 Win 95+
-								</td>
-								<td>
-									 4
 								</td>
 								
 							</tr>
@@ -224,18 +135,7 @@
 								<td>
 									 1.8
 								</td>
-								<td>
-									 Trident
-								</td>
-								<td>
-									 Internet Explorer 4.0
-								</td>
-								<td>
-									 Win 95+
-								</td>
-								<td>
-									 4
-								</td>
+								
 							</tr>
 							<tr>
 								<td>
@@ -249,18 +149,6 @@
 								</td>
 								<td>
 									 1.8
-								</td>
-								<td>
-									 Trident
-								</td>
-								<td>
-									 Internet Explorer 4.0
-								</td>
-								<td>
-									 Win 95+
-								</td>
-								<td>
-									 4
 								</td>
 															</tr>
 							<tr>
@@ -276,19 +164,7 @@
 								<td>
 									 125.5
 								</td>
-								<td>
-									 Trident
-								</td>
-								<td>
-									 Internet Explorer 4.0
-								</td>
-								<td>
-									 Win 95+
-								</td>
-								<td>
-									 4
-								</td>
-							
+								
 							</tr>
 							<tr>
 								<td>
@@ -303,18 +179,7 @@
 								<td>
 									 312.8
 								</td>
-								<td>
-									 Trident
-								</td>
-								<td>
-									 Internet Explorer 4.0
-								</td>
-								<td>
-									 Win 95+
-								</td>
-								<td>
-									 4
-								</td>
+								
 							</tr>
 							<tr>
 								<td>
@@ -329,18 +194,7 @@
 								<td>
 									 419.3
 								</td>
-								<td>
-									 Trident
-								</td>
-								<td>
-									 Internet Explorer 4.0
-								</td>
-								<td>
-									 Win 95+
-								</td>
-								<td>
-									 4
-								</td>
+								
 							</tr>
 							<tr>
 								<td>
@@ -354,18 +208,6 @@
 								</td>
 								<td>
 									 522.1
-								</td>
-								<td>
-									 Trident
-								</td>
-								<td>
-									 Internet Explorer 4.0
-								</td>
-								<td>
-									 Win 95+
-								</td>
-								<td>
-									 4
 								</td>
 								
 							</tr>
@@ -382,18 +224,6 @@
 								<td>
 									 420
 								</td>
-								<td>
-									 Trident
-								</td>
-								<td>
-									 Internet Explorer 4.0
-								</td>
-								<td>
-									 Win 95+
-								</td>
-								<td>
-									 4
-								</td>
 								
 							</tr>
 							<tr>
@@ -409,18 +239,7 @@
 								<td>
 									 420.1
 								</td>
-								<td>
-									 Trident
-								</td>
-								<td>
-									 Internet Explorer 4.0
-								</td>
-								<td>
-									 Win 95+
-								</td>
-								<td>
-									 4
-								</td>
+								
 							</tr>
 							<tr>
 								<td>
@@ -435,21 +254,23 @@
 								<td>
 									 413
 								</td>
+								
+							</tr>
+							<tr>
 								<td>
-									 Trident
+									 Presto
 								</td>
 								<td>
-									 Internet Explorer 4.0
+									 Opera 7.0
 								</td>
 								<td>
-									 Win 95+
+									 Win 95+ / OSX.1+
 								</td>
 								<td>
-									 4
+									 -
 								</td>
 								
 							</tr>
-							
 							<tr>
 								<td>
 									 Presto

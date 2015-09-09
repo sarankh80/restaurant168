@@ -47,9 +47,8 @@ Class customer_Form_FrmCurrency extends Zend_Form {
 				'class'=>'form-control'
 		));
 		
-		$currency = new Zend_Form_Element_Checkbox('currency');
-		$currency->setAttribs(array(
-				'class'=>'red',
+		$radio1= new Zend_Form_Element_Checkbox('radio1');
+		$radio1->setAttribs(array(
 		));
 		$base = new Zend_Form_Element_Checkbox('base');
 		$base ->setAttribs(array(
@@ -78,7 +77,7 @@ Class customer_Form_FrmCurrency extends Zend_Form {
 		$note->setAttribs(array(
 				'class'=>'form-control','style'=>"margin-top: 0px; margin-bottom: 0px; height: 100px;"
 		));
-		$this->addElements(array($currency_code,$currency_text,$currency_sy,$decimal,$exchange,$currency,$base,$format,$setting,$arrange,$resize,$note));
+		$this->addElements(array($radio1,$currency_code,$currency_text,$currency_sy,$decimal,$exchange,$base,$format,$setting,$arrange,$resize,$note));
 		return $this;
 		
 	}	
