@@ -10,7 +10,7 @@
 				<div class="caption"><i class="fa fa-globe"></i>MENU_GROUP</div>
 			</div>
 			<div class="portlet-body">
-				<table class="table table-striped table-bordered table-hover" id="sample_2">
+				<table class="table table-striped table-bordered table-hover">
 							<thead>
 							<tr>
 								<th>
@@ -31,22 +31,6 @@
 								<th>
 									show_description
 								</th>
-								<th>
-									price
-								</th>
-								<th>
-									menu_group_code
-								</th>
-								<th>
-									photo
-								</th>
-								<th>
-									root_menu_code
-								</th>
-								<th>
-									root_menu
-								</th>
-								
 							</tr>
 							</thead>
 							<tbody>
@@ -59,12 +43,7 @@
 							        <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["lang1"];?></a></td>
 							        <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["lang2"];?></a></td>
 							        <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["display_by"];?></a></td>
-							        <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["price"];?></a></td>
-							        <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["category_id"];?></a></td>
-							        <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["img_name"];?></a></td>
-							        <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["root_menuid"];?></a></td>
-							        <td><a href="<?php echo $url_edit; ?>/id/<?php echo $row['id'];?>"><?php echo $row["root_menu_name"];?></a></td>
-							       </tr>
+							      </tr>
 							    <?php }?>
 							</tr>
 							</tbody>
