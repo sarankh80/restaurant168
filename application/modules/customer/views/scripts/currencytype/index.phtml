@@ -1,18 +1,18 @@
 <?php 
 		$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
-	    $url_save = $this->url(array('module'=>'customer','controller'=>'credit','action'=>'add'));
+	    $url_add = $this->url(array('module'=>'customer','controller'=>'currencytype','action'=>'add'));
+	    $url_edit = $this->url(array('module'=>'customer','controller'=>'deposit','action'=>'index'),null,true);
 	
 ?>
-<title><?php echo $tr->translate("CREDIT_CARD"); ?></title>
 <div class="row">
 	<div class="col-md-12">
 		<div class="portlet box blue">
 			<div class="portlet-title">
 				<div class="caption">
-					<i class="fa fa-globe"></i><?php echo $tr->translate("CREDIT_CARD")?>
+					<i class="fa fa-globe"></i><?php echo $tr->translate("APPLY_CREDIT_DEPOSIT")?>
 				</div>
 				<div class="tools">
-					<a href="<?php echo $url_save ;?>"><button type="button" name="btnsave" class="btn btn-primary"><i class="icon-plus"></i> <?php echo $tr->translate("ADD_NEW")?> </button></a>
+					<a href="<?php echo $url_add ;?>"><button type="button" name="btnsave" class="btn btn-primary"><i class="icon-plus"></i> <?php echo $tr->translate("ADD_NEW")?> </button></a>
 				</div>
 			</div>
 			<div class="portlet-body">

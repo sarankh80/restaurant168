@@ -13,29 +13,24 @@ Class table_Form_FrmTableTimecharge extends Zend_Dojo_Form {
 		$description = new Zend_Form_Element_Text('description');
 		$description->setAttribs(array(
 				'class'=>'form-control',
+				'required'=>true,
 		));
-		$description->setValue('KARAOK');
-		$lang_1 = new Zend_Form_Element_Text('lang_1');
-		$lang_1->setAttribs(array(
+		$amount_to_charge = new Zend_Form_Element_Text('amount_to_charge');
+		$amount_to_charge->setAttribs(array(
 				'class'=>'form-control',
 		));
-		$lang_2 = new Zend_Form_Element_Text('lang_2');
-		$lang_2->setAttribs(array(
+		$free_amt = new Zend_Form_Element_Text('free_amt');
+		$free_amt->setAttribs(array(
+				'class'=>'form-control'
+		));
+		$child = new Zend_Form_Element_Text('child');
+		$child->setAttribs(array(
 				'checked'=>'checked','class'=>'form-control'
 		));
-		$lang_3 = new Zend_Form_Element_Text('lang_3');
-		$lang_3->setAttribs(array(
-				'checked'=>'checked','class'=>'form-control'
-		));
-		if($data!=null){
-// 			print_r($data);
-		}
-		$show_description = new Zend_Form_Element_Select('show_description');
+		$show_description = new Zend_Form_Element_Text('show_description');
 		$show_description->setAttribs(array(
 				'class'=>'form-control'
 		));
-		$description_opt = array( ""=>$this->tr->translate("KARAOK"));
-		$show_description->setMultiOptions($description_opt);
 		$photo = new Zend_Form_Element_File('photo');
 		$background = new Zend_Form_Element_Text('background');
 		$background->setAttribs(array(
@@ -45,9 +40,9 @@ Class table_Form_FrmTableTimecharge extends Zend_Dojo_Form {
 		$font_color->setAttribs(array(
 				'class'=>'form-control','id'=>"selected-color1"
 		));
-		$font_size = new Zend_Form_Element_Text('demo3');
-		$font_size->setAttribs(array(
-				'class'=>'form-control','id'=>"demo3",'value'=>12,'placeholder'=>'12'
+		$interval_time= new Zend_Form_Element_Text('interval_time');
+		$interval_time->setAttribs(array(
+				'class'=>'form-control',
 		));
 		$apply = new Zend_Form_Element_Select('apply');
 		$apply->setAttribs(array(
@@ -61,11 +56,11 @@ Class table_Form_FrmTableTimecharge extends Zend_Dojo_Form {
 		));
 		$active = new Zend_Form_Element_Checkbox('active');
 		$active->setAttribs(array(
-				'class'=>'red',
+				'class'=>'form-control',
 		));
-		$format = new Zend_Form_Element_Text('demo4');
-		$format->setAttribs(array(
-				'class'=>'form-control','id'=>"demo4",'value'=>12,'placeholder'=>'12'
+		$execute_number = new Zend_Form_Element_Text('execute_number');
+		$execute_number->setAttribs(array(
+				'class'=>'form-control',
 		));
 		$setting = new Zend_Form_Element_Select('setting');
 		$setting->setAttribs(array(
@@ -86,8 +81,20 @@ Class table_Form_FrmTableTimecharge extends Zend_Dojo_Form {
 		$note->setAttribs(array(
 				'class'=>'form-control','style'=>"margin-top: 0px; margin-bottom: 0px; height: 100px;"
 		));
-		$this->addElements(array($apply,$active,$combo,$menu_code,$description,$lang_1,$lang_2,$lang_3,
-				$show_description,$background,$font_color,$font_size,$format,$setting,$arrange,$resize,$note));
+		$id=new Zend_Form_Element_Hidden('id');
+	     if($data!=null){
+// 			print_r($data);
+	     	$id->setValue($data['id']);
+			$description->setValue($data['description']);
+			$interval_time->setValue($data['time_interval']);
+			$execute_number->setValue($data['execute_amount']);
+			$amount_to_charge->setValue($data['fee_charge']);
+			$free_amt->setValue($data['free_amount']);
+			$child->setValue($data['chil_per']);
+			$active->setValue($data['nul_mul']);
+		}
+		$this->addElements(array($id,$apply,$active,$combo,$menu_code,$description,$amount_to_charge,$free_amt,$child,
+				$show_description,$background,$font_color,$interval_time,$execute_number,$setting,$arrange,$resize,$note));
 		return $this;
 		
 	}	

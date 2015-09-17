@@ -77,7 +77,16 @@ Class customer_Form_FrmCurrency extends Zend_Form {
 		$note->setAttribs(array(
 				'class'=>'form-control','style'=>"margin-top: 0px; margin-bottom: 0px; height: 100px;"
 		));
-		$this->addElements(array($radio1,$currency_code,$currency_text,$currency_sy,$decimal,$exchange,$base,$format,$setting,$arrange,$resize,$note));
+		$id=new Zend_Form_Element_Hidden('id');
+		if ($data!=null){
+		    $id->setValue($data['id']);
+		    $currency_code->setValue($data['curr_code']);
+		    $currency_text->setValue($data['curr_title']);
+		    $currency_sy->setValue($data['symbol']);
+		    $decimal->setValue($data['decimal_place']);
+		    $exchange->setValue($data['exchange_rate']);
+		}
+		$this->addElements(array($id,$radio1,$currency_code,$currency_text,$currency_sy,$decimal,$exchange,$base,$format,$setting,$arrange,$resize,$note));
 		return $this;
 		
 	}	

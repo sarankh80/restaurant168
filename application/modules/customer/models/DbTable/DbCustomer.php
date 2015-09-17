@@ -1,43 +1,106 @@
 <?php
 
-class Menu_Model_DbTable_Dbcustomer extends Zend_Db_Table_Abstract
+class customer_Model_DbTable_DbCustomer extends Zend_Db_Table_Abstract
 {
-    protected $_name = 'ln_callecteral_type';
-    function addcallecterall($data){
-    	$db = $this->getAdapter();
-//     	$sql=" SELECT key_code FROM ln_view WHERE type=13 AND status = 1 
-//     	ORDER BY key_code DESC LIMIT 1 ";
-//     	$numer_record = $db->fetchOne($sql);
-    	
-    	
+    protected $_name = 'rs_customer';
+    function addCustomer($data){
+//     	print_r($data);exit();
+//     	$db = $this->getAdapter();
+//     	$photo_name=str_replace(" ", "_", $data['table_code']) . '.jpg';
+//     	$upload=new Zend_File_Transfer();
+//     	$a=$upload->addFilter('Rename',
+//     			           array('target'=>PUBLIC_PATH .'/image/'.$photo_name,'overwrite'=>true));
+//     	$recieve=$upload->receive();
+// //     	print_r($recieve);exit();
+//     	if($recieve){
+//     		$img=$photo_name;
+//     	}
+//     	else{
+//     		$img="";
+//     	}
     	$arr = array(
-    			'title_en'=>$data['title_en'],
-    			'title_kh'=>$data['title_kh'],
-    			'date'=>$data['date'],
-    			'status'=>$data['status'],
-    			'displayby'=>$data['display_by'],
-//     			'key_code'=>$numer_record+1,
-//     			'type'=>13,
-    			
+    			'code'=>$data['table_code'],
+    			'description'=>$data['description'],
+    			'lang1'=>$data['lang_1'],
+    			'lang2'=>$data['lang_2'],
+    //			'img_name'=>$img,
+    			'tbl_groupid'=>$data['group_code'],
+    			'display_by'=>$data['show_description'],
+    			'max_sit'=>$data['max_seat'],
+    			'price'=>$data['price'],
+    			'compid'=>$data['apply_to_company'],
+    			'active'=>$data['active'],
+    			'time_charge_id'=>$data['time_ck'],
+    			'is_discound'=>$data['dicount_ck'],
+    			'tbl_type'=>$data['type_of_table'],
+    			'add_date'=>date("Y-m-d"),
+    			'est_time'=>$data['est_time'],
+    			'backgroud_color'=>$data['backgroun_color'],
+    			'font_color'=>$data['font_color'],
+    			'font_size'=>$data['font_size'],
+    			'note'=>$data['note'],
     			);
-         $id=$this->insert($arr);
+         $this->insert($arr);
      
     }
-    function updatcallecterall($data){
+    function getTableById($id){
+    	$db = $this->getAdapter();
+    	$sql="SELECT id,img_name,code ,description,lang1,lang2,tbl_groupid,display_by,max_sit,price,
+    	      compid,active,time_charge_id,is_discound,tbl_type,add_date,est_time,backgroud_color, 
+    	      font_color,font_size,note FROM $this->_name WHERE id=".$id;
+    	return $db->fetchRow($sql);
+    }
+    function updateTable($data){
+    	$photo_name=str_replace(" ", "_",$data['table_code']).'.jpg';
+    	$upload=new Zend_File_Transfer();
+    	$upload->addFilter('Rename',
+    			           array('target'=>PUBLIC_PATH .'/image/'.$photo_name,
+    			           	      'overwrite'=>true));
+    	$receive=$upload->receive();
+    	if($receive){
+    		$data['photo']=$photo_name;
+    	}else{
+    		$db=$this->getAdapter();
+    		$sql="SELECT img_name FROM $this->_name WHERE id=".$data['id'];
+    		$row=$db->fetchRow($sql);
+    		foreach ($row as $rs){
+    			$data['photo']=$rs;
+    		}
+    	}
     	$arr = array(
-    			'title_en'=>$data['title_en'],
-    			'title_kh'=>$data['title_kh'],
-    			'date'=>$data['date'],
-    			'status'=>$data['status'],
-    			'displayby'=>$data['display_by'],
-    			);
+    			'code'=>$data['table_code'],
+    			'description'=>$data['description'],
+    			'lang1'=>$data['lang_1'],
+    			'lang2'=>$data['lang_2'],
+     			'img_name'=>$data['photo'],
+    			'tbl_groupid'=>$data['group_code'],
+    			'display_by'=>$data['show_description'],
+    			'max_sit'=>$data['max_seat'],
+    			'price'=>$data['price'],
+    			'compid'=>$data['apply_to_company'],
+    			'active'=>$data['active'],
+    			'time_charge_id'=>$data['time_ck'],
+    			'is_discound'=>$data['dicount_ck'],
+    			'tbl_type'=>$data['type_of_table'],
+    			'add_date'=>date("Y-m-d"),
+    			'est_time'=>$data['est_time'],
+    			'backgroud_color'=>$data['backgroun_color'],
+    			'font_color'=>$data['font_color'],
+    			'font_size'=>$data['font_size'],
+    			'note'=>$data['note'],
+    	);
     	$where=" id = ".$data['id'];
     	$this->update($arr, $where);
+//     	Zend_Debug::dump($db->getProfiler()->getLastQueryProfile()->getQuery());
+//     	Zend_Debug::dump($db->getProfiler()->getLastQueryProfile()->getQueryParams());
+//     	$db->getProfiler()->setEnabled(false);
     }
-    function getcallecterallbyid($id){
+    function getAllRowTable(){
     	$db = $this->getAdapter();
-    	$sql="SELECT id,title_en,title_kh,display_by,date,status FROM $this->_name where id=$id ";
-    	return $db->fetchRow($sql);
+    	$sql="SELECT id,code ,(SELECT  CODE FROM rs_table_group WHERE id=tbl_groupid)AS tbl_groupid,
+    	      (SELECT CODE FROM rs_table_type WHERE id=tbl_type )AS tbl_type,description,lang1,lang2 ,img_name FROM $this->_name";
+    	$oderby=" ORDER BY id DESC";
+    	return $db->fetchAll($sql.$oderby);
     }
     function geteAllid($search=null){
     	$db = $this->getAdapter();
@@ -45,5 +108,25 @@ class Menu_Model_DbTable_Dbcustomer extends Zend_Db_Table_Abstract
     	return $db->fetchAll($sql);
     	
     }
+    function addGroupCodenew($data){
+    	$arr = array(
+    			'code'			=>	$data['group_code'],
+    			'description'	=>	$data['description'],
+    			//'lang1'=>$data['lang_1'],
+    			
+    	);
+    	$this->_name="rs_table_group";
+    return 	$this->insert($arr);
+    
+    }
+    function addTableTypeNew($data){
+    	$arr = array(
+    			'code'			=>	$data['new_type_code'],
+    			'description'	=>	$data['description'],
+    	);
+    	$this->_name="rs_table_type";
+    	return 	$this->insert($arr);
+    }
+    
 }
 

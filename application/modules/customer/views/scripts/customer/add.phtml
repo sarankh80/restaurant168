@@ -186,26 +186,26 @@
 														<ul id="myTab" class="nav nav-tabs" style="background: #5F8295 none repeat scroll 0% 0%;">
 															<li class="active">
 																<a href="#myTab_example1" data-toggle="tab" style="color:#0A0A0B;">
-																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("GENERAL_INFORMATION_AND_ADDRESS")?>
+																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("GENERAL_INFORMATION")?>
 																</a>
 															</li>
 															<li>
 																<a href="#myTab_example2" data-toggle="tab" style="color:#0A0A0B;">
-																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("SHOW_INFORMATION")?>
+																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("SALE_INFORMATION")?>
 																</a>
 															</li>
 															<li>
 																<a href="#myTab_example3" data-toggle="tab" style="color:#0A0A0B;">
-																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("CUSTOMER_HISTORY")?>
+																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("CUSTOMER_DETAIL")?>
 																</a>
 															</li>
 															<li>
-																<a href="#myTab_example3" data-toggle="tab" style="color:#0A0A0B;">
+																<a href="#myTab_example4" data-toggle="tab" style="color:#0A0A0B;">
 																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("MEMBERSHIP")?>
 																</a>
 															</li>
 															<li>
-																<a href="#myTab_example3" data-toggle="tab" style="color:#0A0A0B;">
+																<a href="#myTab_example5" data-toggle="tab" style="color:#0A0A0B;">
 																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("NOTE")?>
 																</a>
 															</li>
@@ -213,7 +213,6 @@
 														</ul>
 														<div class="tab-content">
 															<div class="tab-pane fade in active" id="myTab_example1">
-															<div class="form-group">
 																<div class="form-group">
 																	<label class="col-sm-2 control-label" for="form-field-1">
 																		<?php echo $tr->translate("PHONE_2")?> 
@@ -267,7 +266,7 @@
 																		<?php echo $tr->translate("FAX_2")?><span class="symbol required"></span>
 																	</label>
 																	<div class="col-sm-4">
-																		<?php echo $form->getElement('fax_2');?>
+																		<?php echo $form->getElement('fax2');?>
 																	</div>
 																</div>
 																<div class="form-group">
@@ -281,49 +280,285 @@
 																		<?php echo $tr->translate("WEB_PAGE")?><span class="symbol required"></span>
 																	</label>
 																	<div class="col-sm-4">
-																		<?php echo $form->getElement('web');?>
+																		<?php echo $form->getElement('web_page');?>
 																	</div>
 																</div>																											
-															</div>
 														</div>
 															<div class="tab-pane fade" id="myTab_example2">
 																<div class="form-group">
-																	<label class="col-sm-4 control-label" for="form-field-1">
-																		<?php echo $tr->translate("FORMART")?>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("CREDIT_LIMIT")?>
 																	</label>
-																	<div class="col-sm-8">
-																		<?php echo $form->getElement('demo4');?>
+																	<div class="col-sm-4">
+																		<?php echo $form->getElement('credit_limit');?>
+																	</div>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("SALE_PERSON")?>
+																	</label>
+																	<div class="col-sm-4">
+																		<?php echo $form->getElement('sale_person');?>
 																	</div>
 																</div>
 																<div class="form-group">
-																	<label class="col-sm-4 control-label" for="form-field-1">
-																		<?php echo $tr->translate("SETTING")?>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("PRICE_CODE")?>
 																	</label>
-																	<div class="col-sm-8">
-																		<?php echo $form->getElement('setting');?>                                                
+																	<div class="col-sm-4">
+																		<?php echo $form->getElement('price_code');?>
+																	</div>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("TERM_ID")?>
+																	</label>
+																	<div class="col-sm-4">
+																		<?php echo $form->getElement('term_id');?>
 																	</div>
 																</div>
 																<div class="form-group">
-																	<label class="col-sm-4 control-label" for="form-field-1">
-																		<?php echo $tr->translate("ARRANGE")?>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("PAYMENT_DAY")?>
 																	</label>
-																	<div class="col-sm-8">
-																		<?php echo $form->getElement('arrange');?>                                                
+																	<div class="col-sm-4">
+																		<?php echo $form->getElement('payment_day');?>
+																	</div>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("PAYMENT_DISC")?>
+																	</label>
+																	<div class="col-sm-4">
+																		<?php echo $form->getElement('payment_disc');?>
 																	</div>
 																</div>
 																<div class="form-group">
-																	<label class="col-sm-4 control-label" for="form-field-1">
-																		<?php echo $tr->translate("RESIZE")?>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("NET_DUE")?>
 																	</label>
-																	<div class="col-sm-8">
-																		<?php echo $form->getElement('resize');?>                                                
+																	<div class="col-sm-4">
+																		<?php echo $form->getElement('net_due');?>
+																	</div>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("SALE_TAX")?>
+																	</label>
+																	<div class="col-sm-4">
+																		<?php echo $form->getElement('sale_tax');?>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("SALE_DISCOUNT")?>
+																	</label>
+																	<div class="col-sm-4">
+																		<?php echo $form->getElement('sale_discount');?>
 																	</div>
 																</div>
 															</div>
 															<div class="tab-pane fade" id="myTab_example3">
-																<div class="form-group">																	<br />
+																<div class="form-group">
+																	<label class="col-sm-2 control-label" >
+																		<?php echo $tr->translate("ENTRY_DATE")?>
+																	</label>
+																	<div class="col-sm-4">
+																		<div class="input-group  date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+																			<?php echo $form->getElement('entry_date');?>
+																			<span class="input-group-btn">
+																			<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+																			</span>
+																		</div>
+																	</div>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("DEPOSIT")?>
+																	</label>
+																	<div class="col-sm-4">
+																		<?php echo $form->getElement('deposit');?>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="col-sm-2 control-label" >
+																		<?php echo $tr->translate("LAST_SALE_DATE")?>
+																	</label>
+																	<div class="col-sm-4">
+																		<div class="input-group  date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+																			<?php echo $form->getElement('last_sale_date');?>
+																			<span class="input-group-btn">
+																			<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+																			</span>
+																		</div>
+																	</div>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("LAST_PAY_DATE")?>
+																	</label>
+																	<div class="col-sm-4">
+																			<?php echo $form->getElement('last_pay_date');?>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="col-sm-2 control-label" >
+																		<?php echo $tr->translate("PTD_SALES")?>
+																	</label>
+																	<div class="col-sm-4">
+																		<div class="input-group  date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+																			<input class="form-control" name="from" type="text">
+																			<span class="input-group-addon">
+																			to </span>
+																			<?php echo $form->getElement('ptd_sales');?>
+																		</div>
+																	</div>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("CREDIT")?>
+																	</label>
+																	<div class="col-sm-4">
+																			<?php echo $form->getElement('credit');?>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="col-sm-2 control-label" >
+																		<?php echo $tr->translate("LAST_SALE_AMOUNT")?>
+																	</label>
+																	<div class="col-sm-4">
+																			<?php echo $form->getElement('last_sale_amount');?>
+																	</div>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("LAST_PAY_AMOUNT")?>
+																	</label>
+																	<div class="col-sm-4">
+																			<?php echo $form->getElement('last_pay_amount');?>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="col-sm-2 control-label" >
+																		<?php echo $tr->translate("CURRENT_BALANCE")?>
+																	</label>
+																	<div class="col-sm-4">
+																			<?php echo $form->getElement('current_balance');?>
+																	</div>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("YTD_SALES")?>
+																	</label>
+																	<div class="col-sm-4">
+																			<?php echo $form->getElement('ytd_sales');?>
+																	</div>
+																</div>
+															</div>
+															<div class="tab-pane fade" id="myTab_example4">
+															    <div class="form-group">
+																	<label class="col-sm-2 control-label" >
+																		<?php echo $tr->translate("MEMBERSHIP_ID")?>
+																	</label>
+																	<div class="col-sm-4">
+																			<?php echo $form->getElement('membership_id');?>
+																	</div>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("MEMBERSHIP_TYPE")?>
+																	</label>
+																	<div class="col-sm-4">
+																			<?php echo $form->getElement('membership_type');?>
+																	</div>
+																</div>
+															    <div class="form-group">
+																	<label class="col-sm-2 control-label" >
+																		<?php echo $tr->translate("MEMBER_DAYS")?>
+																	</label>
+																	<div class="col-sm-4">
+																			<?php echo $form->getElement('member_days');?>
+																	</div>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("SEX")?>
+																	</label>
+																	<div class="col-sm-4">
+																			<?php echo $form->getElement('sex');?>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="col-sm-2 control-label" >
+																		<?php echo $tr->translate("DATE_OF_BIRTH")?>
+																	</label>
+																	<div class="col-sm-4">
+																			<div class="input-group  date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+																				<?php echo $form->getElement('date_of_birth');?>
+																				<span class="input-group-btn">
+																				<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+																				</span>
+																			</div>
+																	</div>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("ENROLL_DATE")?>
+																	</label>
+																	<div class="col-sm-4">
+																				<?php echo $form->getElement('enroll_date');?>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="col-sm-2 control-label" >
+																		<?php echo $tr->translate("LAST_BILL_DATE")?>
+																	</label>
+																	<div class="col-sm-4">
+																			<div class="input-group  date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+																				<?php echo $form->getElement('last_bill_date');?>
+																				<span class="input-group-btn">
+																				<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+																				</span>
+																			</div>
+																	</div>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("NEXT_BILL_DATE")?>
+																	</label>
+																	<div class="col-sm-4">
+																				<?php echo $form->getElement('next_bill_date');?>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="col-sm-2 control-label" >
+																		<?php echo $tr->translate("VALID_TO")?>
+																	</label>
+																	<div class="col-sm-4">
+																				<?php echo $form->getElement('valid_to');?>
+																	</div>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("TOTAL_USEd_TIME")?>
+																	</label>
+																	<div class="col-sm-4">
+																				<?php echo $form->getElement('total_used_time');?>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="col-sm-2 control-label" >
+																		<?php echo $tr->translate("LAST_USED_DATE")?>
+																	</label>
+																	<div class="col-sm-4">
+																				<?php echo $form->getElement('last_used_date');?>
+																	</div>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("TOTAL_AMOUNT")?>
+																	</label>
+																	<div class="col-sm-4">
+																				<?php echo $form->getElement('total_amount');?>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="col-sm-2 control-label" >
+																		<?php echo $tr->translate("LAST_AMOUNT")?>
+																	</label>
+																	<div class="col-sm-4">
+																				<?php echo $form->getElement('last_amount');?>
+																	</div>
+																	<label class="col-sm-2 control-label" for="form-field-1">
+																		<?php echo $tr->translate("CURRENT_POINT")?>
+																	</label>
+																	<div class="col-sm-4">
+																				<?php echo $form->getElement('current_point');?>
+																	</div>
+																</div>
+																<div class="form-group">
+																	<label class="col-sm-2 control-label" >
+																		<?php echo $tr->translate("TOTAL_POINT")?>
+																	</label>
+																	<div class="col-sm-4">
+																				<?php echo $form->getElement('total_point');?>
+																	</div>
+																</div>
+															</div>
+															<div class="tab-pane fade" id="myTab_example5">
+															    <div class="form-group">
 																	<div class="col-sm-12">
-																		<?php echo $form->getElement('note');?>
+																			<?php echo $form->getElement('note');?>
 																	</div>
 																</div>
 															</div>

@@ -11,8 +11,6 @@ class Table_tablesController extends Zend_Controller_Action {
 	     $db_table=new Table_Model_DbTable_DbTables();
 	     $data=$db_table->getAllRowTable();
 	     $this->view->rs = $data;
-		 $frm = new Table_Form_FrmTables();
-		 $this->view->form = $frm->FrmTables();
 	}
 	public function addAction(){
 		if($this->getRequest()->isPost()){

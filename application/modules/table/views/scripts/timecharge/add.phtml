@@ -1,7 +1,7 @@
 <?php 
 	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
-	$url = $this->url(array('module'=>'menu','controller'=>'timecharge','action'=>'add'));
-	$url_edit = $this->url(array('module'=>'menu','controller'=>'timecharge','action'=>'edit'),null,true);
+	$url_save = $this->url(array('module'=>'table','controller'=>'timecharge','action'=>'add'));
+
 ?>
 <style>
 .form-horizontal .control-label {
@@ -20,7 +20,7 @@
 			</div>
 			<div class="portlet-body form">
 				<!-- BEGIN FORM-->
-				<form id="form_sample_2" class="form-horizontal" enctype="multipart/form-data" method="post">
+				<form id="form_sample_2" class="form-horizontal" enctype="multipart/form-data" method="post" action="<?php echo $url_save; ?>">
 					<div class="form-body">
 						<div class="form-group">
 							
@@ -30,15 +30,15 @@
 													<?php echo $tr->translate("DESCRIPTION")?> <span class="symbol required"></span>
 												</label>
 												<div class="col-sm-8">
-													<?php echo $form->getElement('show_description');?>
+													<?php echo $form->getElement('description');?>
 												</div>
 											</div>
 											<div class="form-group col-sm-6">
 												<label class="col-sm-4 control-label">
-													<?php echo $tr->translate("DESCRIPTION")?> <span class="symbol required"></span>
+													<?php //echo $tr->translate("DESCRIPTION")?> <span class="symbol required"></span>
 												</label>
 												<div class="col-sm-8">
-													<?php echo $form->getElement('description');?>
+													
 												</div>
 											</div>
 										</div>
@@ -48,7 +48,7 @@
 													<?php echo $tr->translate("INTERVAL_TIME")?> <span class="symbol required"></span>
 												</label>
 												<div class="col-sm-8">
-													<?php echo $form->getElement('demo3');?>
+													<?php echo $form->getElement('interval_time');?>
 												</div>
 											</div>
 											<div class="form-group col-sm-6">
@@ -56,7 +56,7 @@
 													<?php echo $tr->translate("EXECUTE_NUMBER")?> <span class="symbol required"></span>
 												</label>
 												<div class="col-sm-8">
-													<?php echo $form->getElement('demo3');?>
+													<?php echo $form->getElement('execute_number');?>
 												</div>
 											</div>
 										</div>
@@ -67,7 +67,7 @@
 													<?php echo $tr->translate("AMOUNT_TO_CHARGE")?> <span class="symbol required"></span>
 												</label>
 												<div class="col-sm-8">
-													<?php echo $form->getElement('demo3');?>
+													<?php echo $form->getElement('amount_to_charge');?>
 												</div>
 											</div>
 											<div class="form-group col-sm-6">
@@ -75,27 +75,34 @@
 													<?php echo $tr->translate("FREE_AMT")?>
 												</label>
 												<div class="col-sm-8">
-													<?php echo $form->getElement('demo3');?>
+													<?php echo $form->getElement('free_amt');?>
 												</div>
 											</div>
 										</div>
-									    <div class="col-sm-12" style="padding:0px;">
-									         <div class="col-sm-9" style="float: right;">
-									            <button class="btn btn-info" type="submit"  name="add">ADD</button>
-									            <button class="btn btn-info" type="submit"  name="update">UPDATE</button>
-									            <button class="btn btn-info" type="submit"  name="delete">DELETE</button>
-									            <button class="btn btn-info" type="submit"  name="move_up">MOVE_UP</button>
-									            <button class="btn btn-info" type="submit"  name="move_down">MOVE_DOWN</button>
-									            <button class="btn btn-info" type="submit"  name="apply_to_table">APPLY_TO_TABLE</button>
-									            <button class="btn btn-info" type="submit"  name="apply_to_menu">APPLY_TO_MENU</button>
-									         </div>
-									    </div>
+									   <div class="col-sm-12" style="padding: 0;" >
+										    
+											<div class="form-group col-sm-6">
+												<label class="col-sm-4 control-label">
+													<?php echo $tr->translate("CHILD")?> <span class="symbol required"></span>
+												</label>
+												<div class="col-sm-8">
+													<?php echo $form->getElement('child');?>
+												</div>
+											</div>
+											<div class="form-group col-sm-6">
+											  <div class="col-sm-4"></div>
+											  <div class="col-sm-1"> <?php echo $form->getElement('active')?></div>
+											   <label class="col-sm-3"> <?php echo $tr->translate("FREE_AMT")?></label>
+												
+											</div>
+										</div>
+									   
 						</div>
 						</div>
 						<div class="row">
 							<div class="col-md-offset-3 col-md-9">
 								<button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("SAVE_NEW")?> </button>
-								<button type="submit" class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("SAVE_CLOSE")?></button>
+								<button type="submit" name="btnsave_save" class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("SAVE_CLOSE")?></button>
 								<a href="<?php echo $this->baseUrl();?>/table/timecharge/"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
 							</div>
 						</div>

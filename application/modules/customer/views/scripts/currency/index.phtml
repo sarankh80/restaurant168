@@ -1,8 +1,10 @@
 <?php 
 $tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
 	    $url = $this->url(array('module'=>'customer','controller'=>'currency','action'=>'add'));
-	    $url_edit = $this->url(array('module'=>'customer','controller'=>'currency','action'=>'index'),null,true);
-	?>
+	    $url_edit = $this->url(array('module'=>'customer','controller'=>'currency','action'=>'edit'));
+	    $rs= $this->rs;
+	   // print_r($rs);exit();
+?>
 	<title><?php echo $tr->translate("CURRENCY");?></title>
 <div class="row">
 	<div class="col-md-12">
@@ -19,304 +21,37 @@ $tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
 				<table class="table table-striped table-bordered table-hover" id="sample_6">
 							<thead>
 							<tr>
-								<th>
-									Currency Code
+							    <th>
+									NO
 								</th>
 								<th>
-									Text
+									CURRENCY_CODE
+								</th>
+								<th>
+									TEXT
 								</th>
 								<th class="hidden-xs">
-									 Symble
+									 SYMBLE
 								</th>
 								<th class="hidden-xs">
-									Decimal Place
+									DECIMAL_PLACE
 								</th>
-								</thead>
+								<th class="hidden-xs">
+									EXCHANG_RATE
+								</th>
+							</tr>
+							</thead>
 							<tbody>
-							<tr>
-								<td>
-									 Trident
-								</td>
-								<td>
-									 Internet Explorer 4.0
-								</td>
-								<td>
-									 Win 95+
-								</td>
-								<td>
-									 4
-								</td>
-								
+							<?php foreach ($rs as $row){?>
+							<tr class="odd" role="row">
+							    <td> <?php echo $row["id"];?></td>
+								<td> <a href="<?php echo $url_edit;?>/id/<?php echo $row['id'];?>"><?php echo $row["curr_code"];?></a></td>
+								<td><a href="<?php echo $url_edit;?>/id/<?php echo $row['id'];?>"><?php echo $row["curr_title"];?></a></td>
+								<td><a href="<?php echo $url_edit;?>/id/<?php echo $row['id'];?>"><?php echo $row["symbol"];?></a></td>
+								<td><a href="<?php echo $url_edit;?>/id/<?php echo $row['id'];?>"><?php echo $row["decimal_place"];?></a></td>
+								<td><a href="<?php echo $url_edit;?>/id/<?php echo $row['id'];?>"><?php echo $row["exchange_rate"];?></a></td>
 							</tr>
-							<tr>
-								<td>
-									 Trident
-								</td>
-								<td>
-									 Internet Explorer 5.0
-								</td>
-								<td>
-									 Win 95+
-								</td>
-								<td>
-									 5
-								</td>
-								
-							</tr>
-							<tr>
-								<td>
-									 Trident
-								</td>
-								<td>
-									 Internet Explorer 5.5
-								</td>
-								<td>
-									 Win 95+
-								</td>
-								<td>
-									 5.5
-								</td>
-								
-							</tr>
-							<tr>
-								<td>
-									 Trident
-								</td>
-								<td>
-									 Internet Explorer 6
-								</td>
-								<td>
-									 Win 98+
-								</td>
-								<td>
-									 6
-								</td>
-								
-							</tr>
-							<tr>
-								<td>
-									 Trident
-								</td>
-								<td>
-									 Internet Explorer 7
-								</td>
-								<td>
-									 Win XP SP2+
-								</td>
-								<td>
-									 7
-								</td>
-								
-							</tr>
-							<tr>
-								<td>
-									 Gecko
-								</td>
-								<td>
-									 Mozilla 1.8
-								</td>
-								<td>
-									 Win 98+ / OSX.1+
-								</td>
-								<td>
-									 1.8
-								</td>
-								
-							</tr>
-							<tr>
-								<td>
-									 Gecko
-								</td>
-								<td>
-									 Seamonkey 1.1
-								</td>
-								<td>
-									 Win 98+ / OSX.2+
-								</td>
-								<td>
-									 1.8
-								</td>
-								
-							</tr>
-							<tr>
-								<td>
-									 Gecko
-								</td>
-								<td>
-									 Epiphany 2.20
-								</td>
-								<td>
-									 Gnome
-								</td>
-								<td>
-									 1.8
-								</td>
-															</tr>
-							<tr>
-								<td>
-									 Webkit
-								</td>
-								<td>
-									 Safari 1.2
-								</td>
-								<td>
-									 OSX.3
-								</td>
-								<td>
-									 125.5
-								</td>
-								
-							</tr>
-							<tr>
-								<td>
-									 Webkit
-								</td>
-								<td>
-									 Safari 1.3
-								</td>
-								<td>
-									 OSX.3
-								</td>
-								<td>
-									 312.8
-								</td>
-								
-							</tr>
-							<tr>
-								<td>
-									 Webkit
-								</td>
-								<td>
-									 Safari 2.0
-								</td>
-								<td>
-									 OSX.4+
-								</td>
-								<td>
-									 419.3
-								</td>
-								
-							</tr>
-							<tr>
-								<td>
-									 Webkit
-								</td>
-								<td>
-									 Safari 3.0
-								</td>
-								<td>
-									 OSX.4+
-								</td>
-								<td>
-									 522.1
-								</td>
-								
-							</tr>
-							<tr>
-								<td>
-									 Webkit
-								</td>
-								<td>
-									 OmniWeb 5.5
-								</td>
-								<td>
-									 OSX.4+
-								</td>
-								<td>
-									 420
-								</td>
-								
-							</tr>
-							<tr>
-								<td>
-									 Webkit
-								</td>
-								<td>
-									 iPod Touch / iPhone
-								</td>
-								<td>
-									 iPod
-								</td>
-								<td>
-									 420.1
-								</td>
-								
-							</tr>
-							<tr>
-								<td>
-									 Webkit
-								</td>
-								<td>
-									 S60
-								</td>
-								<td>
-									 S60
-								</td>
-								<td>
-									 413
-								</td>
-								
-							</tr>
-							<tr>
-								<td>
-									 Presto
-								</td>
-								<td>
-									 Opera 7.0
-								</td>
-								<td>
-									 Win 95+ / OSX.1+
-								</td>
-								<td>
-									 -
-								</td>
-								
-							</tr>
-							<tr>
-								<td>
-									 Presto
-								</td>
-								<td>
-									 Opera 7.5
-								</td>
-								<td>
-									 Win 95+ / OSX.2+
-								</td>
-								<td>
-									 -
-								</td>
-								
-							</tr>
-							<tr>
-								<td>
-									 Presto
-								</td>
-								<td>
-									 Opera 8.0
-								</td>
-								<td>
-									 Win 95+ / OSX.2+
-								</td>
-								<td>
-									 -
-								</td>
-								
-							</tr>
-							<tr>
-								<td>
-									 Presto
-								</td>
-								<td>
-									 Opera 8.5
-								</td>
-								<td>
-									 Win 95+ / OSX.2+
-								</td>
-								<td>
-									 -
-								</td>
-								
-							</tr>
+					  	    <?php }?>
 							</tbody>
 							</table>
 						</div>
@@ -324,4 +59,3 @@ $tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
 					<!-- END EXAMPLE TABLE PORTLET-->
 				</div>
 	</div>
-	>

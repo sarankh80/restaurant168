@@ -1,19 +1,34 @@
 <?php 
 	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
-	$url = $this->url(array('module'=>'customer','controller'=>'deposit','action'=>'add'));
-	$url_edit = $this->url(array('module'=>'customer','controller'=>'deposit','action'=>'index'),null,true);
+	$url_save = $this->url(array('module'=>'customer','controller'=>'credit','action'=>'add'));
 ?>
+<title><?php echo $tr->translate("CREDIT_CARD");?></title>
+<style>
+.form-horizontal .control-label {
+       text-align: left; 
+}
+.form-horizontal .form-group {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.form .form-actions {
+    border-top: 0px;
+}
+ a{
+    color:black;
+}
+</style>
 <div class="row"> 
 	<div class="col-md-12">
 		<div class="portlet box blue">
 			<div class="portlet-title">
 				<div class="caption">
-					<i class="icon-home"></i><?php echo $tr->translate("APPLY_CREDIT_DEPOSIT")?>
+					<i class="icon-home"></i><?php echo $tr->translate("CREDIT_CARD")?>
 				</div>
 			</div>
 			<div class="portlet-body form">
 				<!-- BEGIN FORM-->
-				<form id="form_sample_2" class="form-horizontal" enctype="multipart/form-data" method="post">
+				<form id="form_sample_2" class="form-horizontal" enctype="multipart/form-data" method="post" action="<?php echo $url_save; ?>">
 					<div class="form-body">
 						<div class="alert alert-danger display-hide">
 							<button class="close" data-close="alert"></button>
@@ -178,7 +193,7 @@
 											<div class="form-group">
 												<div class="col-sm-12">
 													<div class="tabbable" style="" id="tabShwo">
-														<ul id="myTab" class="nav nav-tabs">
+														<ul id="myTab" class="nav nav-tabs" style="background:#65879A;">
 															<li class="active">
 																<a href="#myTab_example1" data-toggle="tab">
 																	<i class="green fa fa-gear"></i> <?php echo $tr->translate("GENERAL_INFORMATION & ADDRESS")?>
@@ -350,16 +365,16 @@
 													</div>
 												</div>
 											</div>
-											
-					<div class="form-actions">
+										</div>
+									</div>
 						<div class="row">
 							<div class="col-md-offset-3 col-md-9">
 								<button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("SAVE_NEW")?> </button>
 								<button type="submit" class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("SAVE_CLOSE")?></button>
-								<a href="<?php echo $this->baseUrl();?>/menu"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
+								<a href="<?php echo $this->baseUrl();?>/customer/credit"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
 							</div>
 						</div>
-					</div>
+				 </div>
 				</form>
 			</div>
 		</div>

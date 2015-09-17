@@ -1,9 +1,9 @@
 <?php 
 		$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
 	    $url = $this->url(array('module'=>'customer','controller'=>'deposit','action'=>'add'));
-	    $url_edit = $this->url(array('module'=>'customer','controller'=>'deposit','action'=>'index'),null,true);
 	
 ?>
+<title><?php echo $tr->translate("APPLY_CREDIT_DEPOSIT"); ?></title>
 <div class="row">
 	<div class="col-md-12">
 		<div class="portlet box blue">
@@ -13,8 +13,6 @@
 				</div>
 				<div class="tools">
 					<a href="<?php echo $url ;?>"><button type="button" name="btnsave" class="btn btn-primary"><i class="icon-plus"></i> <?php echo $tr->translate("ADD_NEW")?> </button></a>
-					<button type="submit" class="btn btn-primary" ><i class="icon-pencil"></i> <?php echo $tr->translate("EDIT")?></button>
-					<a href="<?php echo $this->baseUrl();?>/menu"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("DELETE")?></button></a>
 				</div>
 			</div>
 			<div class="portlet-body">

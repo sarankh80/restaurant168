@@ -1,6 +1,6 @@
 <?php 
 	$tr=Application_Form_FrmLanguages::getCurrentlanguage(); $form = $this->form;
-	$url_save = $this->url(array('module'=>'customer','controller'=>'currency','action'=>'add'));
+	$url_edit = $this->url(array('module'=>'customer','controller'=>'currency','action'=>'edit'));
 ?>
 <title><?php echo $tr->translate("currency")?></title>
 <style>
@@ -18,7 +18,7 @@
 			</div>
 			<div class="portlet-body form"  >
 				<!-- BEGIN FORM-->
-				<form id="form_sample_2" class="form-horizontal" enctype="multipart/form-data" method="post" action="<?php echo $url_save;?>">
+				<form id="form_sample_2" class="form-horizontal" enctype="multipart/form-data" method="post" action="<?php echo $url_edit;?>">
 				<div class="form-body">
 				     <div  class="col-sm-12"  >
 											<div class="form-group col-sm-12">
@@ -26,6 +26,7 @@
 													<?php echo $tr->translate("CURRENCY_CODE")?> <span class="symbol required"></span>
 												</label>
 												<div class="col-sm-4">
+												    <?php echo $form->getElement('id');?>
 													<?php echo $form->getElement('currency_code');?>
 												</div>
 											</div>
@@ -70,7 +71,6 @@
 				     </div>
 						<div class="row">
 							<div class="col-md-offset-3 col-md-9">
-								<button type="submit" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> <?php echo $tr->translate("SAVE_NEW")?> </button></a>
 								<button type="submit" name="btnsave_close" class="btn btn-primary" ><i class="glyphicon glyphicon-log-in"></i> <?php echo $tr->translate("SAVE_CLOSE")?></button>
 								<a href="<?php echo $this->baseUrl();?>/customer/currency/"><button type="button" class="btn red"><i class="fa fa-times"></i> <?php echo $tr->translate("EXIT")?></button></a>
 							</div>

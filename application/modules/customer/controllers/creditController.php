@@ -6,9 +6,12 @@ class Customer_creditController extends Zend_Controller_Action {
 		header('content-type: text/html; charset=utf8');
 		defined('BASE_URL')	|| define('BASE_URL', Zend_Controller_Front::getInstance()->getBaseUrl());
 	}
-	public function indexAction(){
-		//$this->_helper->layout()->disableLayout();
-		$frm = new menu_Form_FrmMenuArrangement();
+	function indexAction(){
+		$frm = new customer_Form_FrmMenuArrangement();
+		$this->view->form = $frm->FrmMenu();
+	}
+	function addAction(){
+		$frm = new customer_Form_FrmMenuArrangement();
 		$this->view->form = $frm->FrmMenu();
 	}
 	
