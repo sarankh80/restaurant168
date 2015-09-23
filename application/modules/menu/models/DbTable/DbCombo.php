@@ -117,4 +117,12 @@ class Menu_Model_DbTable_DbCombo extends Zend_Db_Table_Abstract
 	     
 		
 	    }
+	    function addTableTypeNew($data){
+	    	$arr = array(
+	    			'bar_code'			=>	$data['new_type_code'],
+	    			'desc'	=>	$data['description'],
+	    	);
+	    	$this->_name="rs_combomaster";
+	    	return 	$this->insert($arr);
+	    }
 	}

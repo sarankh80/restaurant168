@@ -58,6 +58,15 @@ class Menu_comboController extends Zend_Controller_Action {
 		$frm = new Menu_Form_FrmMenuCombo();
 		$this->view->form = $frm->FrmMenu($row);
 	}
-	
+	function addNewTypeAction(){
+		if($this->getRequest()->isPost()){
+			$post=$this->getRequest()->getPost();
+			$db = new Menu_Model_DbTable_DbCombo();
+			$id=$db->addTableTypeNew($post);
+			$result=array('id'=>$id);
+			echo Zend_Json::encode($result);
+			exit();
+		}
+	}
 }
 

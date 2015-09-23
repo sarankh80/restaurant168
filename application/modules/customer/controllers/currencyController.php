@@ -51,6 +51,7 @@ Class customer_currencyController extends Zend_Controller_Action {
 		$db=new customer_Model_DbTable_DbCurrency();
 		$id=$this->getRequest()->getParam('id');
 		$row=$db->getCurrencyById($id);
+		$this->view->radio=$row;
 		$frm = new customer_Form_FrmCurrency();
 		$this->view->form = $frm->Frmcurrency($row);
 	}

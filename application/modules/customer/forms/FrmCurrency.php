@@ -9,6 +9,7 @@ Class customer_Form_FrmCurrency extends Zend_Form {
 		$currency_code = new Zend_Form_Element_Text('currency_code');
 		$currency_code->setAttribs(array(
 				'class'=>'form-control',
+				'required'=>true
 		));
 		$currency_text = new Zend_Form_Element_Text('currency_text');
 		$currency_text->setAttribs(array(

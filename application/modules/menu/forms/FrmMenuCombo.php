@@ -9,6 +9,7 @@ Class menu_Form_FrmMenuCombo extends Zend_Form {
 		$menu_group = new Zend_Form_Element_Select('menu_group');
 		$menu_group->setAttribs(array(
 				'class'=>'form-control input-xlarge select2me','required'=>'true',
+				'onchange'=>'poupUpForm()',
 		));
 		$db = new Menu_Model_DbTable_DbMenu();
 		$opt = $db->getAllGroupMenu();

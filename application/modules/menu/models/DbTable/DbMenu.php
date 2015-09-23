@@ -9,7 +9,7 @@ class Menu_Model_DbTable_DbMenu extends Zend_Db_Table_Abstract
 	   	$rows = $db->fetchAll($sql);
 	   	$opt = array();
 	   	if($first_option==null){//if don't want to get first select
-	   		$opt=array(''=>"-----Select Group Menu-----",-1=>"Add New",);
+	   		$opt=array(''=>"-----Select Group Menu-----",'-1'=>"Add New",);
 	   	}
 	   	if(!empty($rows)){
 	   		foreach ($rows as $row)
