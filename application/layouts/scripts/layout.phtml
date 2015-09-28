@@ -198,10 +198,44 @@
 <script src="<?php echo $this->baseUrl()?>/assets/admin/pages/scripts/table-advanced.js"></script>
 <script src="<?php echo $this->baseUrl()?>/assets/admin/pages/scripts/form-validation.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
+
+
+	                                              
 <!-- Validate Control's form -->
 
 <script>
         jQuery(document).ready(function() { 
+
+        	$( "#dialog" ).dialog({
+    			autoOpen: false,
+    			width: 400,
+    			buttons: [
+    				{
+    					text: "Ok",
+    					click: function() {
+    						$( this ).dialog( "close" );
+    					}
+    				},
+    				{
+    					text: "Cancel",
+    					click: function() {
+    						$( this ).dialog( "close" );
+    					}
+    				}
+    			]
+    		});
+    		$( "#dialog1" ).dialog({
+    			autoOpen: false,
+    			width: 400,
+    			
+    		});
+
+    		// Link to open the dialog
+    		$( "#dialog-link" ).click(function( event ) {
+    			$( "#dialog" ).dialog( "open" );
+    			///event.preventDefault();
+    		});
+            
            Metronic.init(); // init metronic core components
 		   Layout.init(); // init current layout
 		   QuickSidebar.init(); // init quick sidebar
