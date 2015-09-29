@@ -34,6 +34,7 @@
 <link href="<?php echo $this->baseUrl()?>/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo $this->baseUrl()?>/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo $this->baseUrl()?>/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+<link href="<?php echo $this->baseUrl()?>/css/jquery-ui-1.9.2.custom.css" rel="stylesheet">
 <!-- END GLOBAL MANDATORY STYLES -->
 
 <!-- BEGIN GLOBAL MANDATORY STYLES -->
@@ -198,9 +199,9 @@
 <script src="<?php echo $this->baseUrl()?>/assets/admin/pages/scripts/table-advanced.js"></script>
 <script src="<?php echo $this->baseUrl()?>/assets/admin/pages/scripts/form-validation.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
-
-
-	                                              
+	
+	
+	
 <!-- Validate Control's form -->
 
 <script>
@@ -210,12 +211,6 @@
     			autoOpen: false,
     			width: 400,
     			buttons: [
-    				{
-    					text: "Ok",
-    					click: function() {
-    						$( this ).dialog( "close" );
-    					}
-    				},
     				{
     					text: "Cancel",
     					click: function() {
@@ -229,7 +224,7 @@
     			width: 400,
     			
     		});
-
+          
     		// Link to open the dialog
     		$( "#dialog-link" ).click(function( event ) {
     			$( "#dialog" ).dialog( "open" );

@@ -16,7 +16,7 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		$g_code = new Zend_Form_Element_Select('group_code');
 		$g_code->setAttribs(array(
 				'class'=>'form-control select2me',
-				'onchange'=>'displayDescription()'
+				'onchange'=>'displayDescriptions()'
 		));
 		$option=$db->getGroupCode();
 		$g_code->setMultiOptions($option);

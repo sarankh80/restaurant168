@@ -447,6 +447,20 @@ body .ui-tooltip { border-width: 2px; }
 .ui-icon-gripsmall-diagonal-se { background-position: -64px -224px; }
 .ui-icon-grip-diagonal-se { background-position: -80px -224px; }
 
+#dialog-link {
+		padding: .4em 1em .4em 20px;
+		text-decoration: none;
+		position: relative;
+	}
+	#dialog-link span.ui-icon {
+		margin: 0 5px 0 0;
+		position: absolute;
+		left: .2em;
+		top: 50%;
+		margin-top: -8px;
+	}
+	.ui-dialog-titlebar-close{display: none;}
+
 
 /* Misc visuals
 ----------------------------------*/

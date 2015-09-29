@@ -23,7 +23,8 @@ class Table_indexController extends Zend_Controller_Action {
 		//$this->_helper->layout()->disableLayout();
 		
 	}
-	
-	
+	function popAction(){
+		
+	}
 }
 

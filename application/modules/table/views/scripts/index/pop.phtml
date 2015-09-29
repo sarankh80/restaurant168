@@ -3,9 +3,9 @@
 <head>
 	<meta charset="utf-8">
 	<title>jQuery UI Example Page</title>
+	<script src="<?php echo $this->baseUrl()?>/js/jquery-ui-1.9.2.custom.js"></script>
 	
 	<script>
-	
 	function showpopup(){
 		$( "#dialog1" ).dialog( "open" );
 	}
@@ -14,6 +14,7 @@
 	body{
 		
 		margin: 50px;
+		
 	}
 	#dialog-link {
 		padding: .4em 1em .4em 20px;
@@ -27,6 +28,7 @@
 		top: 50%;
 		margin-top: -8px;
 	}
+	.ui-dialog-titlebar-close{display: none;}
 	</style>
 </head>
 <body>
@@ -35,15 +37,11 @@
 
 <p><a href="#" id="dialog-link" class="ui-state-default ui-corner-all">
 <span class="ui-icon ui-icon-newwin"></span>Open Dialog</a></p>
-
-<div id="dialog" title="Dialog Title Here">
-	<p>mco laboris nisi ut aliquip ex ea commodo consequat.</p>
-</div>
 <div id="dialog1" title="Dialog Title Here">
-	<p>mco</p>
+	
 </div>
 
-<select onchange="showpopup();">
+<select onChange="showpopup();">
 	<option>aaaaaaa</option>
 	<option>aaaaaaa</option>
 </select>
