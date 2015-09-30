@@ -69,12 +69,12 @@ class Table_tablesController extends Zend_Controller_Action {
 			exit();
 		}
 	}
-	function addNewTypeAction(){
+	function addtypeAction(){
 		if($this->getRequest()->isPost()){
 			$post=$this->getRequest()->getPost();
 			$db = new Table_Model_DbTable_DbTables();
-			$id=$db->addTableTypeNew($post);
-			$result=array('id'=>$id);
+			$id=$db->addNewType($post);
+			$result=array("id"=>$id);
 			echo Zend_Json::encode($result);
 			exit();
 		}

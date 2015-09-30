@@ -8,18 +8,6 @@
 .form-horizontal .control-label {
        text-align: left; 
 }
-#dialog-link {
-		padding: .4em 1em .4em 20px;
-		text-decoration: none;
-		position: relative;
-	}
-	#dialog-link span.ui-icon {
-		margin: 0 5px 0 0;
-		position: absolute;
-		left: .2em;
-		top: 50%;
-		margin-top: -8px;
-	}
 </style>
 <div class="row">
 	<div class="col-md-12">
@@ -160,38 +148,14 @@
 												</span>
 											</label>
 											<div class="col-md-4">
-												<div class="input-icon right">
-													<i class="fa"></i>
-													<div id="spinner3">
-														<div class="input-group" >
+												
 															<?php echo $form->getElement('max_seat');?>
-															<div class="spinner-buttons input-group-btn">
-																<button type="button" class="btn spinner-up default">
-																<i class="fa fa-angle-up"></i>
-																</button>
-																<button type="button" class="btn spinner-down default">
-																<i class="fa fa-angle-down"></i>
-																</button>
-															</div>
-														</div>
-													</div>
-												</div>
 											</div>
 											<label class="control-label col-md-2"><?php echo $tr->translate("EST_TIME")?> <span class="required">
 												</span>
 											</label>
 											<div class="col-md-4">
-												<div class="input-icon right">
-													<i class="fa"></i>
-													<div class="col-md-14">
-														<div class="input-group">
 														    <?php echo $form->getElement('est_time');?>
-															<span class="input-group-btn">
-															<button class="btn default" type="button" id="clockface_2_toggle"><i class="fa fa-clock-o"></i></button>
-															</span>
-														</div>
-													</div>
-												</div>
 											</div>
                                   	</div>
                                   	<div class="form-group">
@@ -283,31 +247,7 @@
 		</div>
 	</div>
 </div>
- <form  class="form-horizontal" enctype="multipart/form-data" method="post" id="popup_table_type"  style="display:none;position: absolute;">
-	<div class=" col-sm-6" style="background: #F2E2E2;">
-        <div class="form-group col-sm-12">
-		    <label class="col-sm-4 control-label" >
-				<?php echo $tr->translate("TABLE_TYPE_CODE ")?> <span class="symbol required"></span>
-			</label>
-			<div class="col-sm-8">
-				<input class="form-control input-large"  type="text" name="new_type_code" id="new_type_code" required>
-			</div>
-		</div>
-		<div class="form-group col-sm-12">
-		    <label class="col-sm-4 control-label" >
-				<?php echo $tr->translate("DESCRIPTION")?> <span class="symbol required"></span>
-			</label>
-			<div class="col-sm-8">
-				<input class="form-control input-large"  type="text" name="new_type_description" id="new_type_description" required >
-			</div>
-		</div>
-		<div class="col-md-offset-3 col-md-9">
-		    <button id="btn_add_type" type="button" name="btn_add_type" class="btn btn-primary" onClick="addNewType();"><i class="fa fa-save" ></i> SAVE_NEW </button>
-			<button id="b_close_type" type="button" name="btnsave" class="btn btn-primary"><i class="fa fa-save"></i> CLOSE </button>
-		</div>
-  </div>
- </form>
- <div id="dialog" title="Dialog Title Here">
+ <div id="dialog" title="TABLE_GROUP">
           <form  class="form-horizontal" enctype="multipart/form-data" method="post" >
 				<div class=" col-sm-6" style="background: #F2E2E2;width: 100%;">
 			        <div class="form-group col-sm-12">
@@ -332,15 +272,50 @@
 			  </div>
 			 </form>
  </div>
+ <div id="dialog1" title="TABLE_TYPE">
+				  <form  class="form-horizontal" enctype="multipart/form-data" method="post">
+					<div class=" col-sm-6" style="background: #F2E2E2;width: 100%;">
+				        <div class="form-group col-sm-12">
+						    <label class="col-sm-4 control-label" >
+								<?php echo $tr->translate("TABLE_TYPE_CODE ")?> <span class="symbol required"></span>
+							</label>
+							<div class="col-sm-8">
+								<input class="form-control input-large"  type="text" name="new_type_code" id="new_type_code" required>
+							</div>
+						</div>
+						<div class="form-group col-sm-12">
+						    <label class="col-sm-4 control-label" >
+								<?php echo $tr->translate("DESCRIPTION")?> <span class="symbol required"></span>
+							</label>
+							<div class="col-sm-8">
+								<input class="form-control input-large"  type="text" name="new_type_description" id="new_type_description" required >
+							</div>
+						</div>
+						<div class="col-md-offset-3 col-md-9">
+						    <button id="btn_add_type" type="button" name="btn_add_type" class="btn btn-primary" onClick="addNewType();"><i class="fa fa-save" ></i> SAVE_NEW </button>
+						</div>
+				  </div>
+				 </form>
+ </div>
 <script>
 function displayDescriptions(){
 	    popup = $('#group_code').val();
 	    if(popup==-1){
             $( "#dialog" ).dialog( "open" );
+            $("#dialog").animate({top:"0px"},"fast");
 	    }else{
 	    	$( "#dialog" ).dialog( "close" );
+	    	$("#dialog input[type=text]").val('');
 	    }
 	    
+}
+function popoupTableType(){
+	popup=$("#type_of_table").val();
+	if(popup==-1){
+	   $("#dialog1").dialog("open");
+	}else{
+		$("#dialog1").dialog("close");
+	}
 }
 function displayDescription(){
 	/*popup = $('#group_code').val();
@@ -419,7 +394,7 @@ function addNew(){
          url: url,
          data: {'group_code':group_code,'description':description}, // serializes the form's elements.
          success: function(data)
-         {   
+         {   //alert(data);
              $("#dialog").hide(400);
              $('#group_code').val("");
              $("#dialog input[type=text]").val('');
@@ -437,33 +412,34 @@ function addNew(){
 
 }
 
-var url_type = "<?php echo $this->url(array('module'=>'table','controller'=>'tables','action'=>'add-new-type'));?>";
+var url_type = "<?php echo $this->url(array('module'=>'table','controller'=>'tables','action'=>'addtype'));?>";
 function addNewType(){
 	var new_type_code = $('#new_type_code').val();
 	var new_type_description = $('#new_type_description').val();
 	code_des=new_type_code+"-"+new_type_description;
 	if(new_type_code=="" || new_type_description == null){
 		alert('Please input field!');
-		$('input').focus();
+		//$('input').focus();
 	}else{
-	 $.ajax({
-         type: "POST",
-         url: url_type,
-         data: {'new_type_code':new_type_code,'description':new_type_description}, // serializes the form's elements.
-         success: function(data)
-         {   $("#popup_table_type").hide(400);
-             value = $.parseJSON(data);
-             //alert(value['id']);
-             $('#type_of_table').append($('<option></option>').attr('value',value['id']).attr("selected","selected").text(code_des)); 
-             $("#type_of_table").val(value['id']).trigger('change');
-             $('#type_of_table').trigger("liszt:updated");
-             //alert("Insert Success"); // show response from the php script.
-         },
-		 error: function(e){
-			 alert(e);
-		 }
-       });
-	}
-
+		 $.ajax({
+	         type: "POST",
+	         group_code: "required", 
+	         url: url_type,
+	         data: {'new_type_code':new_type_code,'new_type_description':new_type_description}, // serializes the form's elements.
+	         success: function(data)
+	         {   //alert(data);
+	             $("#dialog1").hide(400);
+	             $("#dialog1 input[type=text]").val('');
+	             value = $.parseJSON(data);
+	            // alert(value['id'])
+	           $('#type_of_table').append($('<option></option>').attr('value',value['id']).attr("selected","selected").text(code_des)); 
+	           $("#type_of_table").val(value['id']).trigger('change');
+	           $('#type_of_table').trigger("liszt:updated");
+	         },
+			 error: function(e){
+				 //alert(e);
+			 }
+	       });
+		}
 }
 </script>

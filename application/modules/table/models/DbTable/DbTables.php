@@ -119,7 +119,17 @@ class Table_Model_DbTable_DbTables extends Zend_Db_Table_Abstract
     return 	$this->insert($arr);
     
     }
+    function addNewType($data){
+    	$arr = array(
+    			'code'			=>	$data['new_type_code'],
+    			'description'	=>	$data['new_type_description'],
+    			//'lang1'=>$data['lang_1'],
+    			 
+    	);
+    	$this->_name="rs_table_type";
+    	return 	$this->insert($arr);
     
+    }
     
 }
 

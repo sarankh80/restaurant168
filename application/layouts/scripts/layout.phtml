@@ -221,8 +221,17 @@
     			]
     		});
     		$( "#dialog1" ).dialog({
+    			modal:true,
     			autoOpen: false,
-    			width: 400,
+    			width: 600,
+    			buttons: [
+    				{
+    					text: "Cancel",
+    					click: function() {
+    						$( this ).dialog( "close" );
+    					}
+    				}
+    			]
     			
     		});
           

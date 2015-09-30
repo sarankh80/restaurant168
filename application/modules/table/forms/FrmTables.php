@@ -26,7 +26,7 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		));
 		$est_time = new Zend_Form_Element_Text('est_time');
 		$est_time->setAttribs(array(
-				'class'=>'form-control clockface-open','id'=>'clockface_2',
+				'class'=>'form-control clockface_1 clockface-open','data-format'=>"hh:mm A",'id'=>'mask_number',
 		));
 		$price = new Zend_Dojo_Form_Element_NumberTextBox('price');
 		$price->setAttribs(array(
@@ -34,8 +34,8 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		));
 		$max_seat = new Zend_Form_Element_Text('max_seat');
 		$max_seat->setAttribs(array(
-				'class'=>'spinner-input form-control col-md-12',
-				'id'=>'spinner3',
+				'class'=>'form-control',
+				'id'=>'mask_number',
 		));
 		$time = new Zend_Form_Element_Text('time');
 		$time->setAttribs(array(
@@ -78,7 +78,7 @@ Class Table_Form_FrmTables extends Zend_Dojo_Form {
 		$type_of_table = new Zend_Form_Element_Select('type_of_table');
 		$type_of_table->setAttribs(array(
 				'class'=>'form-control select2me',
-				'onchange'=>'displayDescription()'
+				'onchange'=>'popoupTableType()',
 		));
 		$opt_type_table=$db->getTypeOfTable();
 		$type_of_table->setMultiOptions($opt_type_table);
